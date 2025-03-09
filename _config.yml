@@ -1,8 +1,9 @@
 title: Andreas Orthey
 description: A simple website with information
 theme: just-the-docs
-#url: https://just-the-docs.github.io
-url: "http://localhost:4000" # Adjust if deployed
+url: https://just-the-docs.github.io
+url: https://aorthey.github.io/YOUR-SITE-NAME
+
 
 baseurl: ""
 
