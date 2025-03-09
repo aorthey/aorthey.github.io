@@ -1,0 +1,42 @@
+details {
+  display: inline-block; /* Keep details inline */
+  position: relative; /* Reference for absolute positioning */
+}
+
+details summary {
+  display: inline-block;
+  padding: 2px 8px;
+  color: #1a1a1a; /* Just the Docs default text color */
+  font-size: 14px; /* Match JtD font size */
+  background-color: transparent;
+  border: none; /* No border in JtD default */
+  line-height: 1.5; /* Consistent line height */
+  background-color: #ddd;
+}
+
+.bibtex-container {
+  display: block; /* Ensures content appears below when expanded */
+  margin-top: 10px; /* Space below summary when expanded */
+  color: grey; /* BibTeX text color */
+}
+
+.bibtex-link {
+  display: inline-block; /* Match summary display */
+  padding: 2px 8px; /* Match summary padding */
+  color: #1a1a1a; /* Match summary text color */
+  font-size: 14px; /* Match summary font size */
+  background-color: #ddd; /* Match summary background */
+  text-decoration: none; /* Remove underline from link */
+  vertical-align: middle; /* Aligns with details */
+  line-height: 1.5; /* Consistent line height */
+}
+
+details summary:hover, .copy-btn:hover, .bibtex-link:hover {
+  /* color: #0056b3; /1* JtD hover color (blue) *1/ */
+  background-color: #f5f5f5; /* Light hover effect */
+}
+
+details[open] {
+  display: inline-block; /* Reinforce inline behavior when expanded */
+}
+

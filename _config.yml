@@ -1,17 +1,21 @@
 title: Andreas Orthey
 description: A simple website with information
 theme: just-the-docs
+#url: https://just-the-docs.github.io
+url: "http://localhost:4000" # Adjust if deployed
 
-url: https://aorthey.github.io
+baseurl: ""
 
-
-##
 nav_enabled: true
 nav_sort: case_sensitive # Capital letters sorted before lowercase
-nav_external_links:
-  - title: Just the Docs on GitHub
-    url: https://github.com/just-the-docs/just-the-docs
-nav_error_report: true # default is false/nil.
+nav_error_report: true
 back_to_top: true
 back_to_top_text: "Back to top"
 
+plugins:
+  - jekyll
+
+include:
+  - assets/
+  - assets/css/
+  - assets/js/
