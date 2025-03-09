@@ -47,7 +47,6 @@ module Jekyll
     end
 
     def format_authors(authors_raw)
-      # Handle nil or empty author data
       if authors_raw.nil? || authors_raw.empty?
         raise ArgumentError, "No authors found in BibTeX entry"
       end
@@ -81,10 +80,15 @@ module Jekyll
                'Journal'
              when :inproceedings, :conference
                'Conference'
+             when :misc
+               'Workshop'
+             when :masterthesis, :phdthesis
+               'These'
              else
                'Other'
              end
     end
+
     def format_bibtex(entry)
       lines = ["@#{entry.type}{#{entry.key},"]
       entry.fields.each do |key, value|
@@ -104,7 +108,9 @@ module Jekyll
         filename = File.basename(bib_file, '.bib')
         pdf_path = File.join(papers_dir, "#{filename}.pdf")
 
-        next unless File.exist?(pdf_path)
+        if not File.exist?(pdf_path)
+          raise ArgumentError, "Requires pdf file #{filename}.pdf, but found none."
+        end
 
         begin
           bib = BibTeX.open(bib_file)
@@ -112,12 +118,12 @@ module Jekyll
 
           authors = format_authors(entry.author)
           title = entry.title&.to_s || 'Untitled'
-          venue = entry.journal&.to_s || entry.booktitle&.to_s || entry.publisher&.to_s || 'Unknown Venue'
+          venue = entry.journal&.to_s || entry.booktitle&.to_s || entry.publisher&.to_s || entry.school&.to_s || entry.howpublished&.to_s || 'Unknown Venue'
           year = entry.year&.to_s || 'Unknown Year'
 
           bibtex_formatted = format_bibtex(entry)
 
-          publications << {
+          publication = {
             'authors' => authors,
             'title' => title,
             'venue' => venue,
@@ -126,8 +132,17 @@ module Jekyll
             'bibtex' => bibtex_formatted,
             'pdf' => "/papers/#{filename}.pdf"
           }
+          youtube = entry[:youtube]&.to_s # Extract youtube field if it exists
+          publication['youtube'] = youtube if youtube # Add youtube only if it exists
+          website = entry[:web]&.to_s # Extract web field if it exists
+          publication['website'] = website if website # Add youtube only if it exists
+
+          publications << publication
+          Jekyll.logger.debug "Parsed entry: #{publication}"
+
         rescue StandardError => e
           Jekyll.logger.warn "Error parsing BibTeX file #{filename}.bib: #{e.message}"
+          raise ArgumentError, "Error parsing BibTeX file #{filename}.bib: #{e.message}"
           next
         end
       end

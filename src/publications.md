@@ -9,14 +9,15 @@ layout: default
 
 # Publications
 
-{% assign pub_types = "Journal,Conference,Other" | split: "," %}
+{% assign pub_types = "Journal,Conference,Workshop,These" | split: "," %}
 {% for type in pub_types %}
 ## {{ type }}s
 
 {% assign pubs = site.data.publications | where: "type", type %}
+
 {% for pub in pubs %}
 - {{ pub.authors }}, *{{ pub.title }}*, {{ pub.venue }}, {{ pub.year }} 
-<a href="{{ pub.pdf }}" class="bibtex-link" target="_blank">PDF</a>
+<a href="{{ pub.pdf }}" class="bibtex-link" target="_blank">PDF</a> {% if pub.youtube %}<a href="https://youtube.com/watch?v={{ pub.youtube }}" class="bibtex-link" target="_blank">YouTube</a>{% endif %} {% if pub.website %}<a href="{{ pub.website }}" class="bibtex-link" target="_blank">Website</a>{% endif %}
   <details>
     <summary>BibTeX</summary>
     <div class="bibtex-container">
@@ -26,4 +27,3 @@ layout: default
 {% endfor %}
 
 {% endfor %}
-
