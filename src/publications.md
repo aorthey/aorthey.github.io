@@ -4,14 +4,14 @@ nav_order: 2
 layout: default
 ---
 
-<!-- <script src="{{ '/assets/js/copy-bibtex.js' | relative_url }}"></script> -->
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
 # Publications
 
 {% assign pub_types = "Journal,Conference,Workshop,These" | split: "," %}
+
 {% for type in pub_types %}
-## {{ type }}s
+## {{ site.data.pub_titles[type] | default: type }}
 
 {% assign pubs = site.data.publications | where: "type", type %}
 
