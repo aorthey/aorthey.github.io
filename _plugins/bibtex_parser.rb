@@ -76,7 +76,7 @@ module Jekyll
 
     def get_venue_type(entry)
       return case entry.type
-             when :article
+             when :article, :incollection
                'Journal'
              when :inproceedings, :conference
                'Conference'
