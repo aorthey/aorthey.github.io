@@ -18,25 +18,59 @@ please write me at <i>aorthey at rtr dot ai</i>.
 
 # Research Contributions
 
-- 📚 **Read**:  <a target="_blank" class="general-link" href="src/publications.html">Scientific Publications</a>
+<div class="contribution-container">
+    <div class="contribution-text">📚 Read</div>
+    <a target="_blank" class="general-link" href="src/publications.html">Scientific Publications</a>
+</div>
 
-- 🎧 **Listen**: <a target="_blank" class="general-link" href="https://imrclab.github.io/teaching/motion-planning">Motion Planning Lecture Series at TU Berlin</a>
+<div class="contribution-container">
+    <div class="contribution-text">🎧 Listen</div>
+    <a target="_blank" class="general-link" href="https://imrclab.github.io/teaching/motion-planning">Motion Planning Lectures</a>
+</div>
 
-- 🎥 **Watch**: <a target="_blank" class="general-link" href="src/podcast.html">Podcast Series on Robotics</a>
+<div class="contribution-container">
+    <div class="contribution-text">🎥 Watch</div>
+    <a target="_blank" class="general-link" href="src/podcast.html">Robotics Podcast Series</a>
+</div>
 
 # Social Media Links
 
-- **Podcast**: 
-<a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a> <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a> <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>  
+<div class="contribution-container">
+    <div class="contribution-text">Podcast</div>
+    <div class="links-wrapper">
+        <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
+        <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
+        <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
+    </div>
+</div>
 
-- **LinkedIn**: <a target="_blank" class="general-link" href="https://www.linkedin.com/in/aorthey/">@LinkedIn</a>  
+<div class="contribution-container">
+    <div class="contribution-text">LinkedIn</div>
+    <div class="links-wrapper">
+        <a target="_blank" class="general-link" href="https://www.linkedin.com/in/aorthey/">@LinkedIn</a>
+    </div>
+</div>
 
-- **Support**: <a target="_blank" class="general-link" href="https://buymeacoffee.com/aorthey">@BuyMeACoffee</a>  
+<div class="contribution-container">
+    <div class="contribution-text">Support</div>
+    <div class="links-wrapper">
+        <a target="_blank" class="general-link" href="https://buymeacoffee.com/aorthey">@BuyMeACoffee</a>
+    </div>
+</div>
 
-- **Research**: <a target="_blank" class="general-link" href="https://scholar.google.com/citations?user=bQKreEMAAAAJ">@GoogleScholar</a>  
+<div class="contribution-container">
+    <div class="contribution-text">Research</div>
+    <div class="links-wrapper">
+        <a target="_blank" class="general-link" href="https://scholar.google.com/citations?user=bQKreEMAAAAJ">@GoogleScholar</a>
+    </div>
+</div>
 
-- **Code**: <a target="_blank" class="general-link" href="https://github.com/aorthey">@GitHub</a>
-
+<div class="contribution-container">
+    <div class="contribution-text">Code</div>
+    <div class="links-wrapper">
+        <a target="_blank" class="general-link" href="https://github.com/aorthey">@GitHub</a>
+    </div>
+</div>
 
 
 ----
