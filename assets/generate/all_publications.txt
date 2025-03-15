@@ -1,0 +1,255 @@
+@masterthesis{Orthey2011Bsc,
+	author = {Orthey, Andreas},
+	institution = {Berlin University of Technology},
+	school = {Berlin University of Technology},
+	title = {Three dimensional Joint Detection},
+	web = {https://www.tu.berlin/en/robotics/teaching/theses/completed-theses/three-dimensional-joint-detection},
+	year = {2012},
+}
+
+@masterthesis{Orthey2012Msc,
+	author = {Orthey, Andreas},
+	institution = {Berlin University of Technology},
+	school = {Berlin University of Technology},
+	title = {Optimizing Motion Primitives to Integrate Symbolic and Motion Planning},
+	year = {2012},
+}
+
+@inproceedings{Orthey2013Humanoids,
+	title = {Towards reactive whole-body motion planning in cluttered environments by precomputing feasible motion spaces},
+	author = {Orthey, Andreas and Stasse, Olivier},
+	booktitle = {IEEE International Conference on Humanoid Robots},
+	pages = {274--279},
+	year = {2013},
+	organization = {IEEE},
+	youtube = {moAXBesmL8A},
+}
+
+@inproceedings{Orthey2013ICRA,
+	title = {Optimizing motion primitives to make symbolic models more predictive},
+	author = {Orthey, Andreas and Toussaint, Marc and Jetchev, Nikolay},
+	booktitle = {IEEE International Conference on Robotics and Automation},
+	pages = {2868--2873},
+	year = {2013},
+	organization = {IEEE},
+}
+
+@inproceedings{Katz2014,
+	title = {Interactive perception of articulated objects},
+	author = {Katz, Dov and Orthey, Andreas and Brock, Oliver},
+	booktitle = {Experimental Robotics},
+	pages = {301--315},
+	year = {2014},
+	organization = {Springer},
+}
+
+@inproceedings{Stasse2014,
+	title = {Airbus/future of aircraft factory HRP-2 as universal worker proof of concept},
+	author = {Stasse, Olivier and Morsillo, F and Geisert, Mathieu and Mansard, Nicolas and Naveau, Maximilien and Vassallo, Christian},
+	booktitle = {IEEE International Conference on Humanoid Robots},
+	pages = {1014--1015},
+	year = {2014},
+	organization = {IEEE},
+	youtube = {iFV-13XlJvI},
+}
+
+@inproceedings{Orthey2015,
+	title = {Motion Planning and Irreducible Trajectories},
+	author = {Orthey, Andreas and Lamiraux, Florent and Stasse, Olivier},
+	booktitle = {IEEE International Conference on Robotics and Automation},
+	pages = {3576-3581},
+	year = {2015},
+}
+
+@phdthesis{Orthey2015Thesis,
+	title = {Exploiting structure in humanoid motion planning},
+	school = {National Polytechnic Institute of Toulouse},
+	author = {Orthey, Andreas},
+	youtube = {wFxxQ1HLY1A},
+	year = {2015},
+}
+
+@inproceedings{Orthey2018IROS,
+	title = {Quotient-Space Motion Planning},
+	author = {Orthey, Andreas and Escande, Adrien and Yoshida, Eiichi},
+	pages = {8089-8096},
+	booktitle = {IEEE International Conference on Intelligent Robots and Systems},
+	year = {2018},
+}
+
+@article{Orthey2018RAS,
+	title = {Motion Planning in Irreducible Path Spaces},
+	journal = {IEEE Robotics and Autonomous Systems},
+	volume = {109},
+	pages = {97-108},
+	year = {2018},
+	author = {Orthey, Andreas and Roussel, Olivier and Stasse, Olivier and Ta{\"i}x, Michel},
+}
+
+@incollection{Orthey2019ISRR,
+	author = {Orthey, Andreas and Toussaint, Marc},
+	editor = {Asfour, Tamim and Yoshida, Eiichi and Park, Jaeheung and Christensen, Henrik and Khatib, Oussama},
+	title = {Rapidly-Exploring Quotient-Space Trees: Motion Planning Using Sequential Simplifications},
+	booktitle = {Robotics Research},
+	year = {2022},
+	publisher = {Springer International Publishing},
+	address = {Cham},
+	pages = {52--68},
+}
+
+@article{Orthey2020RAL,
+	title = {Motion Planning Explorer: Visualizing Local Minima Using a Local-Minima Tree},
+	author = {Orthey, Andreas and Fr{\'e}sz, Benjamin and Toussaint, Marc},
+	journal = {IEEE Robotics and Automation Letters},
+	month = {apr},
+	year = {2020},
+	volume = {5},
+	number = {2},
+	pages = {346--353},
+	youtube = {1fyiB8pszVo},
+	month_numeric = {4},
+}
+
+@incollection{Orthey2020WAFR,
+	author = {Orthey, Andreas and Toussaint, Marc},
+	editor = {LaValle, Steven M. and Lin, Ming and Ojala, Timo and Shell, Dylan and Yu, Jingjin},
+	title = {Visualizing Local Minima in Multi-robot Motion Planning Using Multilevel Morse Theory},
+	booktitle = {Algorithmic Foundations of Robotics XIV},
+	year = {2021},
+	publisher = {Springer International Publishing},
+	address = {Cham},
+	pages = {502--517},
+	isbn = {978-3-030-66723-},
+}
+
+@article{Chamzas2022RAL,
+	title = {MotionBenchMaker: A Tool to Generate and Benchmark Motion Planning Datasets},
+	volume = {7},
+	number = {2},
+	pages = {882–889},
+	issn = {2377-3766},
+	doi = {10.1109/LRA.2021.3133603},
+	youtube = {ggRmKPt7IP8},
+	web = {https://github.com/KavrakiLab/motion_bench_maker},
+	journal = {IEEE Robotics and Automation Letters},
+	publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
+	author = {Chamzas, Constantinos and Quintero-Pe{\~n}a, Carlos and Kingston, Zachary and Orthey, Andreas and Rakita, Daniel and Gleicher, Michael and Toussaint, Marc and E. Kavraki, Lydia},
+	year = {2022},
+	month = {apr},
+	url = {https://dx.doi.org/10.1109/LRA.2021.3133603},
+	month_numeric = {4},
+}
+
+@article{Hartmann2021TRO,
+	title = {Long-Horizon Multi-Robot Rearrangement Planning for Construction Assembly},
+	author = {Hartmann, Valentin N. and Orthey, Andreas and Driess, Danny and Oguz, Ozgur S. and Toussaint, Marc},
+	journal = {IEEE Transactions on Robotics},
+	youtube = {GqhouvL5dig},
+	web = {https://vhartmann.com/multi-robot/},
+	year = {2021},
+	volume = {39},
+	number = {1},
+	pages = {239--252},
+}
+
+@inproceedings{Khoury2021CASE,
+	title = {Efficient Sampling of Transition Constraints for Motion Planning under Sliding Contacts},
+	author = {Khoury, Marie-Therese and Orthey, Andreas and Toussaint, Marc},
+	year = {2021},
+	booktitle = {IEEE International Conference on Automation Science and Engineering},
+	organization = {IEEE},
+}
+
+@inproceedings{Orthey2021ICRA,
+	title = {Sparse Multilevel Roadmaps for High-Dimensional Robot Motion Planning},
+	author = {Orthey, Andreas and Toussaint, Marc},
+	booktitle = {IEEE International Conference on Robotics and Automation},
+	year = {2021},
+	pdf = {https://arxiv.org/pdf/2011.00832.pdf},
+}
+
+@misc{Orthey2021RSSws,
+	title = {Approximate Topological Optimization using Multi-Mode Estimation for Robot Motion Planning},
+	author = {Orthey, Andreas and Pokorny, Florian T. and Toussaint, Marc},
+	year = {2021},
+	howpublished = {RSS Workshop on Geometry and Topology in Robotics},
+	youtube = {xsXysnNwn9k},
+}
+
+@article{Orthey2021TRO,
+	title = {Section Patterns: Efficiently Solving Narrow Passage Problems in Multilevel Motion Planning},
+	author = {Orthey, Andreas and Toussaint, Marc},
+	journal = {IEEE Transactions on Robotics},
+	year = {2021},
+	pdf = {https://arxiv.org/pdf/2010.14524.pdf},
+	youtube = {xKGkJc-m2FM},
+}
+
+@inproceedings{Grothe2022ICRA,
+	title = {ST-RRT*: Asymptotically-Optimal Bidirectional Motion Planning through Space-Time},
+	author = {Grothe, Francesco and Hartmann, Valentin N and Orthey, Andreas and Toussaint, Marc},
+	booktitle = {IEEE International Conference on Robotics and Automation},
+	year = {2022},
+	pdf = {https://arxiv.org/pdf/2203.02176.pdf},
+}
+
+@inproceedings{Kamat2022IROS,
+	title = {BITKOMO: Combining Sampling and Optimization for Fast Convergence in Optimal Motion Planning},
+	author = {Kamat, Jay and Ortiz-Haro, Joaquim and Toussaint, Marc and Pokorny, Florian T and Orthey, Andreas},
+	booktitle = {IEEE International Conference on Intelligent Robots and Systems},
+	year = {2022},
+	pdf = {https://arxiv.org/pdf/2203.01751.pdf},
+	youtube = {RKpnYF5zBOQ},
+}
+
+@article{Phiquepal2022RAL,
+	title = {Path-Tree Optimization in Discrete Partially Observable Environments using Rapidly-Exploring Belief-Space Graphs},
+	author = {Phiquepal, Camille and Orthey, Andreas and Viennot, Nicolas and Toussaint, Marc},
+	journal = {IEEE Robotics and Automation Letters},
+	year = {2022},
+	pdf = {https://arxiv.org/pdf/2204.04444.pdf},
+}
+
+@article{Bayraktar2023RAL,
+	title = {Solving Rearrangement Puzzles using Path Defragmentation in Factored State Spaces},
+	author = {Bayraktar, Servet B. and Orthey, Andreas and Kingston, Zachary and Toussaint, Marc and Kavraki, Lydia E.},
+	year = {2023},
+	journal = {IEEE Robotics and Automation Letters},
+	volume = {8},
+	number = {8},
+	pages = {4529-4536},
+	pdf = {https://arxiv.org/pdf/2212.02955.pdf},
+}
+
+@inproceedings{Freund2024IROS,
+	author = {Freund, Janis Eric and Phiquepal, Camille and Orthey, Andreas and Toussaint, Marc},
+	booktitle = {IEEE International Conference on Intelligent Robots and Systems},
+	title = {Camera-Based Belief Space Planning in Discrete Partially-Observable Domains},
+	year = {2024},
+	volume = {},
+	number = {},
+	pages = {9953-9959},
+}
+
+@article{Orthey2023AnnualReview,
+	author = {Orthey, Andreas and Chamzas, Constantinos and Kavraki, Lydia E.},
+	title = {Sampling-Based Motion Planning: A Comparative Review},
+	journal = {Annual Review of Control, Robotics, and Autonomous Systems},
+	volume = {7},
+	number = {1},
+	year = {2024},
+	doi = {10.1146/annurev-control-061623-094742},
+	url = {https://doi.org/10.1146/annurev-control-061623-094742},
+}
+
+@article{Orthey2024IJRR,
+	title = {Multilevel Motion Planning: A Fiber Bundle Formulation},
+	author = {Orthey, Andreas and Akbar, Sohaib and Toussaint, Marc},
+	year = {2024},
+	journal = {The International Journal of Robotics Research},
+	volume = {43},
+	number = {1},
+	pages = {3-33},
+	doi = {10.1177/02783649231209337},
+	url = {https://doi.org/10.1177/02783649231209337},
+}

@@ -99,9 +99,11 @@ module Jekyll
     end
 
     def generate(site)
-      bibtex_dir = File.join(site.source, 'bibtex')
-      papers_dir = File.join(site.source, 'papers')
+      bibtex_dir = File.join(site.source, 'assets/bib')
+      papers_dir = File.join(site.source, 'assets/pdf')
       publications = []
+      all_bibtex_entries = [] # Array to store all BibTeX entries
+
 
       # Iterate over BibTeX files
       Dir.glob(File.join(bibtex_dir, '*.bib')).each do |bib_file|
@@ -122,6 +124,8 @@ module Jekyll
           year = entry.year&.to_s || 'Unknown Year'
 
           bibtex_formatted = format_bibtex(entry)
+          all_bibtex_entries << bibtex_formatted # Collect BibTeX entry
+
 
           publication = {
             'authors' => authors,
@@ -130,7 +134,7 @@ module Jekyll
             'year' => year,
             'type' => get_venue_type(entry),
             'bibtex' => bibtex_formatted,
-            'pdf' => "/papers/#{filename}.pdf"
+            'pdf' => "/assets/pdf/#{filename}.pdf"
           }
           youtube = entry[:youtube]&.to_s # Extract youtube field if it exists
           publication['youtube'] = youtube if youtube # Add youtube only if it exists
@@ -152,6 +156,23 @@ module Jekyll
 
       # Store in site.data for use in templates
       site.data['publications'] = publications
+
+      ################################################################################
+      # Generate single .bib file
+      ################################################################################
+      output_dir = File.join(site.source, 'assets', 'generate')
+      FileUtils.mkdir_p(output_dir) # Create directory if it doesn't exist
+      filename = 'all_publications.txt'
+      output_file = File.join(output_dir, filename)
+
+      File.write(output_file, all_bibtex_entries.join("\n\n")) # Separate entries with blank lines
+      Jekyll.logger.info "Generated #{output_file} with #{all_bibtex_entries.length} entries."
+
+      # Ensure the file is kept in the site output
+      unless site.static_files.any? { |sf| sf.relative_path == '/assets/generate/'+filename }
+        site.static_files << Jekyll::StaticFile.new(site, site.source, 'assets/generate', filename)
+      end
+
     end
   end
 end

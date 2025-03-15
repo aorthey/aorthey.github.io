@@ -1,44 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=CMU+Serif&display=swap');
+
+html, body {
+  font-family: 'CMU Serif', serif;
+}
+
+* {
+  font-family: inherit;
+}
+
 details {
   display: inline-block; /* Keep details inline */
   position: relative; /* Reference for absolute positioning */
 }
 
-details summary {
-  display: inline-block;
-  padding: 2px 8px;
-  color: #1a1a1a; /* Just the Docs default text color */
-  font-size: 14px; /* Match JtD font size */
-  background-color: transparent;
-  border: none; /* No border in JtD default */
-  line-height: 1.5; /* Consistent line height */
-  background-color: #ddd;
-}
-
-.bibtex-container {
+.bibtex-textfield {
   display: block; /* Ensures content appears below when expanded */
   margin-top: 10px; /* Space below summary when expanded */
   color: grey; /* BibTeX text color */
-  background-color: #efefef; /* Match summary background */
-  padding: 5px 2px 10px 10px; /* top right bottom left */
 }
 
-.bibtex-link {
+/* Optional: Prevent layout shift when details expand */
+.bibtex-details[open] .bibtex-textfield {
+    margin-top: 5px; /* Space between summary and content */
+}
+
+pre{
+    background-color: #eee;
+}
+
+code{
+    background-color: #eee;
+}
+
+.general-link, details summary {
   display: inline-block; /* Match summary display */
-  padding: 2px 8px; /* Match summary padding */
+  padding-top: 3px;
+  padding-right: 12px;
+  padding-bottom: 3px;
+  padding-left: 12px;
   color: #1a1a1a; /* Match summary text color */
   font-size: 14px; /* Match summary font size */
-  background-color: #ddd; /* Match summary background */
+  background-color: #eee; /* Match summary background */
   text-decoration: none; /* Remove underline from link */
   vertical-align: middle; /* Aligns with details */
   line-height: 1.5; /* Consistent line height */
+  margin-left: 5px; /* Space between thumbnail and text */
+  border-radius: 15px;
 }
 
-details summary:hover, .copy-btn:hover, .bibtex-link:hover {
-  /* color: #0056b3; /1* JtD hover color (blue) *1/ */
-  background-color: #f5f5f5; /* Light hover effect */
+details summary:hover, .copy-btn:hover, .bibtex-link:hover, .general-link:hover {
+  /* background-color: #f5f5f5; */
+  background-color: #ccc;
 }
 
 details[open] {
   display: inline-block; /* Reinforce inline behavior when expanded */
 }
+
+.podcast-item {
+  display: flex;
+  align-items: center; /* Vertically center the thumbnail and text */
+  margin-bottom: 20px;
+}
+
+.podcast-item img {
+  max-width: 240px; /* Adjust as needed; maxresdefault is 1280x720, so this scales it down */
+  height: auto;
+  margin-right: 15px; /* Space between thumbnail and text */
+}
+
+.podcast-content {
+  flex: 1; /* Takes remaining space */
+}
+
+.podcast-content p {
+  margin: 0; /* Remove default paragraph margins */
+}
+
+.podcast-header {
+  width: 100%;
+  height: 135px; /* Matches approximate height of thumbnails (240px width at 16:9 ratio) */
+  overflow: hidden; /* Crops the image */
+  margin-bottom: 20px; /* Space below the header */
+}
+
+.podcast-header img {
+  width: 100%;
+  height: auto; /* Maintains aspect ratio */
+  object-fit: cover; /* Ensures the image fills the container and crops excess */
+  object-position: center; /* Centers the cropped area */
+  display: block;
+}
+
+h2 {
+  margin: 0 0 10px 0;
+  padding: 10px 15px; /* Padding inside the header */
+  position: relative; /* Keeps it above the pseudo-element */
+  z-index: 1; /* Ensures text stays above background */
+  font-size: 22px; /* Match summary font size */
+}
+
+h2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  vertical-align: middle;
+  width: 100vw; /* Full viewport width */
+  height: 100%; /* Matches the h2 height */
+  background-color: #f5f5f5; /* Light gray background; adjust as needed */
+  z-index: -1; /* Behind the text */
+}
+
+h1 {
+  margin: 10px 0 20px 0;
+  position: relative; /* Keeps it above the pseudo-element */
+  z-index: 1; /* Ensures text stays above background */
+  vertical-align: middle;
+  font-size: 26px; /* Match summary font size */
+  padding-top: 5px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+}
+h1::before {
+  padding-bottom: 5px;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw; /* Full viewport width */
+  height: 100%; /* Matches the h1 height */
+  background-color: #f5f5f5; /* Light gray background; adjust as needed */
+  z-index: -1; /* Behind the text */
+}
+
+hr {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #ccc; /* Optional styling */
+}
+
+.container {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+}
+
+.circular-image {
+    width: 200px; /* Set your desired width */
+    height: 200px; /* Same as width to maintain square ratio */
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures the image fills the circle nicely */
+}
+
+.image-text-container {
+    display: flex;
+    align-items: center; /* Vertically centers the items */
+    gap: 20px; /* Adds space between image and text */
+    padding: 10px 15px; /* Padding inside the header */
+}
+
+.links-below-publication {
+    margin-top: 5px; /* Optional: adds space between text and links */
+    display: flex; /* Keeps links inline and stable */
+}
+
+
 

@@ -1,9 +1,5 @@
 title: Andreas Orthey
 description: A simple website with information
-theme: just-the-docs
-url: https://just-the-docs.github.io
-url: https://aorthey.github.io/YOUR-SITE-NAME
-
 
 baseurl: ""
 
@@ -13,10 +9,25 @@ nav_error_report: true
 back_to_top: true
 back_to_top_text: "Back to top"
 
+twitter_username: andreas_orthey
+github_username:  aorthey
+linkedin_username: aorthey
+youtube_username: andreasorthey
+
 plugins:
   - jekyll
 
 include:
-  - assets/
+  - assets/pdf/
+  - assets/bib/
   - assets/css/
   - assets/js/
+  - assets/generate/
+
+theme: minima
+
+header_pages:
+  - index.md
+  - src/podcast.md
+  - src/publications.md
+  - src/about.md

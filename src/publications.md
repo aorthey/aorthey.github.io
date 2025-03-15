@@ -1,12 +1,13 @@
 ---
 title: Publications
-nav_order: 2
 layout: default
+nav_order: 2
 ---
 
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
 # Publications
+<a href="/assets/generate/all_publications.txt" target="_blank">View all publications as BibTeX</a>
 
 {% assign pub_types = "Journal,Conference,Workshop,These" | split: "," %}
 
@@ -16,14 +17,19 @@ layout: default
 {% assign pubs = site.data.publications | where: "type", type %}
 
 {% for pub in pubs %}
-- {{ pub.authors }}, *{{ pub.title }}*, {{ pub.venue }}, {{ pub.year }} 
-<a href="{{ pub.pdf }}" class="bibtex-link" target="_blank">PDF</a> {% if pub.youtube %}<a href="https://youtube.com/watch?v={{ pub.youtube }}" class="bibtex-link" target="_blank">YouTube</a>{% endif %} {% if pub.website %}<a href="{{ pub.website }}" class="bibtex-link" target="_blank">Website</a>{% endif %}
+- {{ pub.authors }}, *{{ pub.title }}*, {{ pub.venue }}, {{ pub.year }}
+  <div class="links-below-publication">
   <details>
     <summary>BibTeX</summary>
-    <div class="bibtex-container">
+    <div class="bibtex-textfield">
       <pre><code>{{ pub.bibtex }}</code></pre>
     </div>
   </details>
+  <a href="{{ pub.pdf }}" class="general-link" target="_blank">PDF</a> 
+  {% if pub.youtube %}<a href="https://youtube.com/watch?v={{ pub.youtube }}" class="general-link" target="_blank">YouTube</a>{% endif %} 
+  {% if pub.website %}<a href="{{ pub.website }}" class="general-link" target="_blank">Website</a>{% endif %}
+  </div>
+
 {% endfor %}
 
 {% endfor %}

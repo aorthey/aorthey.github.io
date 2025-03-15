@@ -1,0 +1,51 @@
+Content
+00:40 Early Childhood
+04:59 Getting into University
+07:27 Life at University
+10:13 Symbolic vs Visual Mathematics
+11:11 Getting into Phd Program
+12:12 How to get into MIT for students
+13:09 Advice from Phd Advisor
+14:17 First Paper
+16:30 Options after Phd
+17:47 Advice to Phd Students
+19:19 Postdoc in California
+21:46 Demo for Bill Gates
+22:52 Becoming Professor at Iowa State
+23:34 Developing RRT
+26:21 Reason of longterm success of RRT
+28:34 Sampling-based vs. Randomized
+30:30 Could RoboticsGPT deprecate motion planning?
+31:53 Value of motion planning research
+33:07 Information spaces
+34:10 Minimal sufficient robot brains
+35:37 Writing "Planning algorithms"
+40:33 Managing and organizing references
+42:08 Deprecated parts of the book
+43:16 Challenges in writing more books
+44:19 Unpublished RRT book
+44:28 Reading and favorite books
+45:50 Reading Ayn Rand
+46:53 On joining Oculus VR
+50:51 Virtual reality research
+52:24 Killer application for VR
+52:54 Facebook buys Oculus
+53:31 Control over time is most important
+54:20 Meeting Brett Leonard
+55:30 Huawei
+57:16 On being successful
+59:30 H-Index as performance indicator
+01:00:16 Metrics for academic career
+01:01:36 Time allocation
+01:02:28 Tired phase of career
+01:03:26 Advice to younger researchers
+01:04:40 Fascination with Finland
+01:07:46 Learning Finnish
+01:08:12 What Steve misses about the US
+01:08:55 Benefits from Saunas
+01:10:18 Future aspirations of lab
+01:11:21 Research with Alexander LaValle
+01:13:15 Robotics applications for daily life
+01:14:04 Gardner hype cycle of deep learning
+01:15:18 Value of material science for robotics
+01:16:12 Closing comments

@@ -1,8 +1,16 @@
 source 'https://rubygems.org'
 
-#gem "jekyll", "~> 4.4.1" # installed by `gem jekyll`
-# gem "webrick"        # required when using Ruby >= 3 and Jekyll <= 4.2.2
-
 gem "jekyll"
-gem "just-the-docs", "0.10.1" # pinned to the current release
+#gem "just-the-docs", "0.10.1" # pinned to the current release
 gem "bibtex-ruby"
+gem "minima"
+gem "kramdown-parser-gfm"
+gem "httparty"
+
+# gem "google-api-client"
+# gem "minimal-mistakes-jekyll"
+
+
+# gem "jekyll-include-cache", group: :jekyll_plugins
+# gem "jekyll-paginate"
+# gem "jekyll-sitemap"
