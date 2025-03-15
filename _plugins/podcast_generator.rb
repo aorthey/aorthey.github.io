@@ -33,7 +33,7 @@ module Jekyll
                   "youtube_id" => youtube_id,
                   "spotify" => links_data["spotify"],
                   "x" => links_data["x"],
-                  "title" => title || folder,
+                  "title" => title || links_data["title"],
                   "outline" => outline_path,
                   "errata" => errata_path
                 }
