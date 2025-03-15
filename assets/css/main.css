@@ -96,7 +96,6 @@ h2 {
   margin: 0 0 10px 0;
   padding: 10px 15px; /* Padding inside the header */
   position: relative; /* Keeps it above the pseudo-element */
-  z-index: 1; /* Ensures text stays above background */
   font-size: 22px; /* Match summary font size */
 }
 
@@ -116,7 +115,7 @@ h2::before {
 h1 {
   margin: 10px 0 20px 0;
   position: relative; /* Keeps it above the pseudo-element */
-  z-index: 1; /* Ensures text stays above background */
+  /* z-index: 0; /1* Ensures text stays above background *1/ */
   vertical-align: middle;
   font-size: 26px; /* Match summary font size */
   padding-top: 5px;
@@ -169,4 +168,36 @@ hr {
 }
 
 
+.dropdown-content {
+  position: relative;
+  display: inline-block;
+  zorder: 1;
+}
 
+
+/* Media query for mobile screens (e.g., max-width: 768px) */
+@media (max-width: 768px) {
+  .image-text-container {
+    display: block; /* Stacks the image and text vertically */
+  }
+
+  .circular-image {
+    display: block; /* Ensures the image takes full width and behaves as a block */
+    margin: 0 auto 20px; /* Centers the image and adds space below */
+    max-width: 100%; /* Ensures the image scales properly */
+  }
+
+  .podcast-content {
+    display: block; /* Stacks the image and text vertically */
+    align-items: center; /* Vertically center the thumbnail and text */
+  }
+  .podcast-item {
+    display: block;
+    align-items: center; /* Vertically center the thumbnail and text */
+  }
+  .thumbnail-container {
+    text-align: center; /* Centers inline or inline-block children */
+    display: block;
+    align-items: center; /* Vertically center the thumbnail and text */
+  }
+}

@@ -26,9 +26,11 @@ nav_order: 2
 {% for podcast in site.data.podcasts %}
 {% assign episode_number = total_podcasts | minus: forloop.index0 %}
 <div class="podcast-item">
+  <div class="thumbnail-container">
   <a href="https://www.youtube.com/watch?v={{ podcast.youtube_id }}">
-    <img src="http://img.youtube.com/vi/{{ podcast.youtube_id }}/maxresdefault.jpg" alt="{{ podcast.title }} thumbnail">
+    <img align="center" src="http://img.youtube.com/vi/{{ podcast.youtube_id }}/maxresdefault.jpg" alt="{{ podcast.title }} thumbnail">
   </a>
+  </div>
   <div class="podcast-content">
     <h3>#{{ episode_number }}: {{ podcast.title }}</h3>
     <p>
