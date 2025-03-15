@@ -8,7 +8,7 @@ nav_order: 1
 
 <div class="image-text-container">
   <img src="/assets/images/face_square.png" alt="Face Image" class="circular-image">
-  <p>Hello! My name is Andreas Orthey and I am a Principal Robotics Scientist at
+  <p>I am a Principal Robotics Scientist at
   <a href="https://rtr.ai">Realtime Robotics</a> and a Guest Lecturer at the TU Berlin. 
 
   If you are interested in collaborating on podcasts, publications, or otherwise,
