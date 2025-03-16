@@ -125,6 +125,7 @@ h1 {
   padding-right: 0px;
   padding-bottom: 5px;
   padding-left: 0px;
+  z-index: -1;
 }
 h1::before {
   padding-bottom: 5px;
@@ -136,7 +137,7 @@ h1::before {
   width: 100vw; /* Full viewport width */
   height: 100%; /* Matches the h1 height */
   background-color: #f5f5f5; /* Light gray background; adjust as needed */
-  z-index: -1; /* Behind the text */
+  z-index: -2; /* Behind the text */
 }
 
 hr {
