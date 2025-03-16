@@ -127,6 +127,7 @@ h1 {
   padding-left: 0px;
   z-index: -1;
 }
+
 h1::before {
   padding-bottom: 5px;
   content: '';
