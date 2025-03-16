@@ -9,7 +9,7 @@ nav_order: 1
 <div class="image-text-container">
   <img src="/assets/images/face_square.png" alt="Face Image" class="circular-image">
   <p>I am a Principal Robotics Scientist at
-  <a href="https://rtr.ai">Realtime Robotics</a> and a Guest Lecturer at the TU Berlin. 
+  <a target="_blank" href="https://rtr.ai">Realtime Robotics</a> and a Guest Lecturer at the TU Berlin. 
 
   If you are interested in collaborating on podcasts, publications, or otherwise,
 please write me at <i>aorthey at rtr dot ai</i>.
@@ -20,7 +20,7 @@ please write me at <i>aorthey at rtr dot ai</i>.
 
 <div class="contribution-container">
     <div class="contribution-text">📚 Read</div>
-    <a target="_blank" class="general-link" href="src/publications.html">Scientific Publications</a>
+    <a class="general-link" href="src/publications.html">Scientific Publications</a>
 </div>
 
 <div class="contribution-container">
@@ -30,7 +30,7 @@ please write me at <i>aorthey at rtr dot ai</i>.
 
 <div class="contribution-container">
     <div class="contribution-text">🎥 Watch</div>
-    <a target="_blank" class="general-link" href="src/podcast.html">Robotics Podcast Series</a>
+    <a class="general-link" href="src/podcast.html">Robotics Podcast Series</a>
 </div>
 
 # Social Media Links
