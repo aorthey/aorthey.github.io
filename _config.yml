@@ -1,6 +1,5 @@
 title: Andreas Orthey
 description: A simple website with information
-version: "v1.{{ site.git.commit_count }}"
 
 baseurl: ""
 

@@ -55,7 +55,7 @@ module Jekyll
     private
 
     def fetch_youtube_title(video_id)
-      max_attempts = 5
+      max_attempts = 2
       attempt = 1
       url = "https://www.youtube.com/watch?v=#{video_id}"
 
