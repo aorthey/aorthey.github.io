@@ -79,10 +79,9 @@ details[open] {
 
 .podcast-header {
   width: 100vw;
-  height: 350px; /* Matches approximate height of thumbnails (240px width at 16:9 ratio) */
+  /* height: 350px; /1* Matches approximate height of thumbnails (240px width at 16:9 ratio) *1/ */
   overflow: hidden; /* Crops the image */
   margin-bottom: 20px; /* Space below the header */
-  margin-bottom: 20px; /* Retains space below the header */
   margin-left: calc(-50vw + 50%); /* Compensates for centering in a parent container */
   margin-right: calc(-50vw + 50%); /* Ensures full width even with centered content */
 
@@ -166,6 +165,13 @@ hr {
     padding: 10px 15px; /* Padding inside the header */
 }
 
+.image-text-container-podcast{
+    display: flex;
+    align-items: center; /* Vertically centers the items */
+    gap: 50px; /* Adds space between image and text */
+    padding: 10px 15px; /* Padding inside the header */
+}
+
 .links-below-publication {
     margin-top: 5px; /* Optional: adds space between text and links */
     display: flex; /* Keeps links inline and stable */
@@ -183,6 +189,9 @@ hr {
 @media (max-width: 768px) {
   .image-text-container {
     display: block; /* Stacks the image and text vertically */
+  }
+  .image-text-container-podcast{
+      display: block;
   }
 
   .circular-image {

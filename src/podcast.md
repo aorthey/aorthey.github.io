@@ -6,19 +6,18 @@ nav_order: 2
 
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
-<div class="podcast-header">
-  <img src="/assets/podcast/podcast.jpg" alt="Andreas Orthey Podcast Header">
-</div>
-
 <h1 align="center">Andreas Orthey Podcast</h1>
+<div class="image-text-container-podcast">
+  <img src="/assets/images/podcast-portrait.png" alt="Podcast Image" class="circular-image">
+  <div margin-left="100px" class="contribution-container">
+      <div align="center">
+          <p>Conversations on Robotics. Available on</p>
+          <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
+          <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
+          <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X/Twitter</a>
+      </div>
+  </div>
 
-<div text-align="center" class="contribution-container">
-    <div align="center">Conversations on Robotics. Available on</div>
-    <div class="links-wrapper">
-        <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
-        <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
-        <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X/Twitter</a>
-    </div>
 </div>
 
 <h2 align="left">List of Episodes</h2>
