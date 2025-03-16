@@ -14,7 +14,7 @@ nav_order: 2
           <p>Conversations on Robotics. Available on</p>
           <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
           <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
-          <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X/Twitter</a>
+          <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
       </div>
   </div>
 
