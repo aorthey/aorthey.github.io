@@ -71,7 +71,3 @@ please write me at <i>aorthey at rtr dot ai</i>.
         <a target="_blank" class="general-link" href="https://github.com/aorthey">@GitHub</a>
     </div>
 </div>
-
-
-----
-[Realtime Robotics]: https://rtr.ai
