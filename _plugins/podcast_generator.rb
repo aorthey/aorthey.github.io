@@ -11,7 +11,11 @@ module Jekyll
       podcast_dir = File.join(site.source, "assets", "podcast")
 
       if Dir.exist?(podcast_dir)
-        Dir.foreach(podcast_dir) do |folder|
+        folders = Dir.entries(podcast_dir)
+            .select { |f| File.directory?(File.join(podcast_dir, f)) && f != '.' && f != '..' }
+            .sort
+            .reverse
+        folders.each do |folder|
           next if folder == '.' || folder == '..'
 
           folder_path = File.join(podcast_dir, folder)
