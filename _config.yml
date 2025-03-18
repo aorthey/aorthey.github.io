@@ -22,9 +22,22 @@ plugins:
   - jekyll-sitemap
 
 image:
-  path: /assets/images/face-square.png
+  path: /assets/images/face_square.png
   height: 400
   width: 400
+  alt: Andreas Orthey Picture
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/face_square.png
+
+author:
+  name: Andreas Orthey
+  url: https://aorthey.com/
+  picture: /assets/images/face_square.png
+  twitter: andreas_orthey
 
 include:
   - assets/pdf/
