@@ -28,6 +28,7 @@ nav_order: 2
   <a href="{{ pub.pdf }}" class="general-link" target="_blank">PDF</a> 
   {% if pub.youtube %}<a href="https://youtube.com/watch?v={{ pub.youtube }}" class="general-link" target="_blank">YouTube</a>{% endif %} 
   {% if pub.website %}<a href="{{ pub.website }}" class="general-link" target="_blank">Website</a>{% endif %}
+  {% if pub.code %}<a href="{{ pub.code }}" class="general-link" target="_blank">Code</a>{% endif %}
   </div>
 
 {% endfor %}

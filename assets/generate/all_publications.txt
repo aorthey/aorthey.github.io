@@ -59,6 +59,7 @@
 	booktitle = {IEEE International Conference on Robotics and Automation},
 	pages = {3576-3581},
 	year = {2015},
+	code = {https://github.com/aorthey/irreducible-curvature-projection},
 }
 
 @phdthesis{Orthey2015Thesis,
@@ -107,6 +108,7 @@
 	number = {2},
 	pages = {346--353},
 	youtube = {1fyiB8pszVo},
+	code = {https://github.com/aorthey/MotionExplorer},
 	month_numeric = {4},
 }
 

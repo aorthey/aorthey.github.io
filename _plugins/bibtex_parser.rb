@@ -140,6 +140,8 @@ module Jekyll
           publication['youtube'] = youtube if youtube # Add youtube only if it exists
           website = entry[:web]&.to_s # Extract web field if it exists
           publication['website'] = website if website # Add youtube only if it exists
+          code = entry[:code]&.to_s
+          publication['code'] = code if code
 
           publications << publication
           Jekyll.logger.debug "Parsed entry: #{publication}"
