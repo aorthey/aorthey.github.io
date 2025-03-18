@@ -1,7 +1,9 @@
 title: Andreas Orthey
-description: A simple website with information
+description: "Andreas Orthey's personal site showcases publications, podcasts, and insights into robotics. Connect and collaborate!"
 
 baseurl: ""
+url: "https://aorthey.com"
+canonical-url: "https://aorthey.com"
 
 nav_enabled: true
 nav_sort: case_sensitive # Capital letters sorted before lowercase
@@ -16,6 +18,13 @@ youtube_username: andreasorthey
 
 plugins:
   - jekyll
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+image:
+  path: /assets/images/face-square.png
+  height: 400
+  width: 400
 
 include:
   - assets/pdf/

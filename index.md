@@ -33,7 +33,7 @@ please write me at <i>aorthey at rtr dot ai</i>.
     <a class="general-link" href="src/podcast.html">Robotics Podcast Series</a>
 </div>
 
-# Social Media Links
+## Social Media Links
 
 <div class="contribution-container">
     <div class="contribution-text">Podcast</div>
