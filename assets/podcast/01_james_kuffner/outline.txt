@@ -1,4 +1,4 @@
-Outline
+Content
 00:00 Introduction
 01:24 Background
 02:38 Getting into robotics
