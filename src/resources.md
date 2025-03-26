@@ -172,4 +172,3 @@ target="_blank">Projection of a point onto a Hyperplane</a>
 </li>
 
 </ul>
-

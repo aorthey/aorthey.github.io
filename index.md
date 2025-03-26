@@ -16,22 +16,8 @@ please write me at <i>aorthey at rtr dot ai</i>.
   </p>
 </div>
 
-# Research Contributions
+# Research
 
-<!-- <div class="contribution-container"> -->
-<!--     <div class="contribution-text">📚 Read</div> -->
-<!--     <a class="general-link" href="src/publications.html">Scientific Publications</a> -->
-<!-- </div> -->
-
-<!-- <div class="contribution-container"> -->
-<!--     <div class="contribution-text">🎧 Listen</div> -->
-<!--     <a target="_blank" class="general-link" href="https://imrclab.github.io/teaching/motion-planning">Motion Planning Lectures</a> -->
-<!-- </div> -->
-
-<!-- <div class="contribution-container"> -->
-<!--     <div class="contribution-text">🎥 Watch</div> -->
-<!--     <a class="general-link" href="src/podcast.html">Robotics Podcast Series</a> -->
-<!-- </div> -->
 <ul>
 <li class="link-item"> 
 <a href="src/publications.html">Scientific Publications</a>
@@ -46,6 +32,11 @@ please write me at <i>aorthey at rtr dot ai</i>.
 <li class="link-item"> 
 <a href="src/podcast.html">Robotics Podcast Series</a>
 <span class="description">Watch some interesting conversations on robotics.</span>
+</li>
+
+<li class="link-item"> 
+<a href="src/podcast.html">Resources</a>
+<span class="description">Lecture slides, teaching notes, and code libraries.</span>
 </li>
 </ul>
 
@@ -64,13 +55,6 @@ please write me at <i>aorthey at rtr dot ai</i>.
     <div class="contribution-text">LinkedIn</div>
     <div class="links-wrapper">
         <a target="_blank" class="general-link" href="https://www.linkedin.com/in/aorthey/">@LinkedIn</a>
-    </div>
-</div>
-
-<div class="contribution-container">
-    <div class="contribution-text">Support</div>
-    <div class="links-wrapper">
-        <a target="_blank" class="general-link" href="https://buymeacoffee.com/aorthey">@BuyMeACoffee</a>
     </div>
 </div>
 
