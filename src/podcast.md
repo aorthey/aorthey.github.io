@@ -8,7 +8,7 @@ nav_order: 2
 
 <h1 align="center">Andreas Orthey Podcast</h1>
 <div class="image-text-container-podcast">
-  <img src="/assets/images/podcast-portrait.png" alt="Podcast Image" class="circular-image">
+  <img src="/assets/images/podcast-portrait.png" alt="Podcast Logo" title="Podcast Logo" class="circular-image">
   <div margin-left="100px" class="contribution-container">
       <div align="center">
           <p>Conversations on Robotics. Available on</p>

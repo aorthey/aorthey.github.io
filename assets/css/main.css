@@ -8,6 +8,14 @@ html, body {
   font-family: inherit;
 }
 
+/* Ensure consistent list styling across sections */
+/* Style the description span */
+li.link-item .description {
+    flex: 1; /* Allow description to take remaining space */
+    display: block;
+    margin-left: 28px;
+}
+
 details {
   display: inline-block; /* Keep details inline */
   position: relative; /* Reference for absolute positioning */

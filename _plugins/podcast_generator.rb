@@ -27,7 +27,7 @@ module Jekyll
 
               if links_data && links_data["youtube"]
                 youtube_id = links_data["youtube"]
-                title = fetch_youtube_title(youtube_id)
+                #title = fetch_youtube_title(youtube_id)
 
                 outline_path = File.exist?(File.join(folder_path, "outline.txt")) ? "/assets/podcast/#{folder}/outline.txt" : nil
                 errata_path = File.exist?(File.join(folder_path, "errata.txt")) ? "/assets/podcast/#{folder}/errata.txt" : nil
@@ -37,7 +37,7 @@ module Jekyll
                   "youtube_id" => youtube_id,
                   "spotify" => links_data["spotify"],
                   "x" => links_data["x"],
-                  "title" => title || links_data["title"],
+                  "title" => links_data["title"],
                   "outline" => outline_path,
                   "errata" => errata_path
                 }

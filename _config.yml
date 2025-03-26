@@ -21,6 +21,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+minima:
+  skin: dark
+
 image:
   path: /assets/images/face_square.png
   height: 400
@@ -50,6 +53,7 @@ theme: minima
 
 header_pages:
   - index.md
-  - src/podcast.md
   - src/publications.md
+  - src/resources.md
+  - src/podcast.md
   - src/about.md

@@ -7,7 +7,7 @@ nav_order: 1
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
 <div class="image-text-container">
-  <img src="/assets/images/face_square.png" alt="Face Image" class="circular-image">
+  <img src="/assets/images/face_square.png" alt="Image of Andreas Orthey" title="Andreas Orthey" class="circular-image">
   <p>I am a Principal Robotics Scientist at
   <a target="_blank" href="https://rtr.ai">Realtime Robotics</a> and a Guest Lecturer at the TU Berlin. 
 
@@ -18,20 +18,36 @@ please write me at <i>aorthey at rtr dot ai</i>.
 
 # Research Contributions
 
-<div class="contribution-container">
-    <div class="contribution-text">📚 Read</div>
-    <a class="general-link" href="src/publications.html">Scientific Publications</a>
-</div>
+<!-- <div class="contribution-container"> -->
+<!--     <div class="contribution-text">📚 Read</div> -->
+<!--     <a class="general-link" href="src/publications.html">Scientific Publications</a> -->
+<!-- </div> -->
 
-<div class="contribution-container">
-    <div class="contribution-text">🎧 Listen</div>
-    <a target="_blank" class="general-link" href="https://imrclab.github.io/teaching/motion-planning">Motion Planning Lectures</a>
-</div>
+<!-- <div class="contribution-container"> -->
+<!--     <div class="contribution-text">🎧 Listen</div> -->
+<!--     <a target="_blank" class="general-link" href="https://imrclab.github.io/teaching/motion-planning">Motion Planning Lectures</a> -->
+<!-- </div> -->
 
-<div class="contribution-container">
-    <div class="contribution-text">🎥 Watch</div>
-    <a class="general-link" href="src/podcast.html">Robotics Podcast Series</a>
-</div>
+<!-- <div class="contribution-container"> -->
+<!--     <div class="contribution-text">🎥 Watch</div> -->
+<!--     <a class="general-link" href="src/podcast.html">Robotics Podcast Series</a> -->
+<!-- </div> -->
+<ul>
+<li class="link-item"> 
+<a href="src/publications.html">Scientific Publications</a>
+<span class="description">Here you can read some of my recent papers on robotics and motion planning.</span>
+</li>
+
+<li class="link-item"> 
+<a target="_blank" href="https://imrclab.github.io/teaching/motion-planning">Motion Planning Lectures</a>
+<span class="description">Listen to some of my lectures on robot motion planning.</span>
+</li>
+
+<li class="link-item"> 
+<a href="src/podcast.html">Robotics Podcast Series</a>
+<span class="description">Watch some interesting conversations on robotics.</span>
+</li>
+</ul>
 
 ## Social Media Links
 
