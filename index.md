@@ -16,7 +16,7 @@ please write me at <i>aorthey at rtr dot ai</i>.
   </p>
 </div>
 
-# Research
+<h1>Research</h1>
 
 <ul>
 <li class="link-item"> 
@@ -35,12 +35,12 @@ please write me at <i>aorthey at rtr dot ai</i>.
 </li>
 
 <li class="link-item"> 
-<a href="src/podcast.html">Resources</a>
+<a href="src/resources.html">Resources</a>
 <span class="description">Lecture slides, teaching notes, and code libraries.</span>
 </li>
 </ul>
 
-## Social Media Links
+<h2>Links</h2>
 
 <div class="contribution-container">
     <div class="contribution-text">Podcast</div>

@@ -113,7 +113,7 @@ Planners (EST, RRT-Connect, PRM*, LazyPRM, FMT*); Intro to Optimization</span>
 
 <li class="link-item"> 
 <a href="/assets/notes/markov-decision-processes.pdf" target="_blank">Markov Decision Processes</a>
-<span class="description">Covers the theory of Markov Decision Processes used in reinforcement learning and decision theory.</span>
+<span class="description">Brief intro to Markov Decision Processes used in reinforcement learning and decision theory.</span>
 </li>
 
 <li class="link-item"> 
