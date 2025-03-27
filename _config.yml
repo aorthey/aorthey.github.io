@@ -1,5 +1,6 @@
 title: Andreas Orthey
 description: "Andreas Orthey's personal site showcases publications, podcasts, and insights into robotics. Connect and collaborate!"
+version: 1.76
 
 baseurl: ""
 url: "https://aorthey.com"
@@ -20,9 +21,10 @@ plugins:
   - jekyll
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-favicon
 
 minima:
-  skin: dark
+  skin: auto
 
 image:
   path: /assets/images/face_square.png

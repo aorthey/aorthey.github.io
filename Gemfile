@@ -10,4 +10,5 @@ gem "pdf-reader"
 
 gem "jekyll-sitemap"
 gem 'jekyll-seo-tag'
+gem 'jekyll-favicon', '~> 1.1.0', group: :jekyll_plugins
 

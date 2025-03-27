@@ -6,7 +6,7 @@ nav_order: 2
 
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
-<h1 align="center">Andreas Orthey Podcast</h1>
+<h1>Andreas Orthey Podcast</h1>
 <div class="image-text-container-podcast">
   <img src="/assets/images/podcast-portrait.png" alt="Podcast Logo" title="Podcast Logo" class="circular-image">
   <div margin-left="100px" class="contribution-container">
