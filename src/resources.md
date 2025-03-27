@@ -123,7 +123,7 @@ Planners (EST, RRT-Connect, PRM*, LazyPRM, FMT*); Intro to Optimization</span>
 
 <li class="link-item"> 
 <a href="/assets/notes/polytope-split-by-polytope.pdf" target="_blank">Projections of Polytopes onto lower-dimensional Polytopes</a>
-<span class="description">Ways of how the projection of a polytope onto another polytope changes the topology.</span>
+<span class="description">Ways of how the projection of a polytope onto another polytope changes its topology.</span>
 </li>
 
 <li class="link-item"> 
