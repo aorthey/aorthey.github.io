@@ -6,13 +6,13 @@ nav_order: 2
 
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
-# Publications
+<h1>Publications</h1>
 <a href="/assets/generate/all_publications.txt" target="_blank">View all publications as BibTeX</a>
 
 {% assign pub_types = "Journal,Conference,Workshop,These" | split: "," %}
 
 {% for type in pub_types %}
-## {{ site.data.pub_titles[type] | default: type }}
+<h2>{{ site.data.pub_titles[type] | default: type }}</h2>
 
 {% assign pubs = site.data.publications | where: "type", type %}
 

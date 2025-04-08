@@ -9,16 +9,26 @@ nav_order: 1
 <div class="image-text-container">
   <img src="/assets/images/face_square.png" alt="Image of Andreas Orthey" title="Andreas Orthey" class="circular-image">
   <p>I am a Principal Robotics Scientist at
-  <a target="_blank" href="https://rtr.ai">Realtime Robotics</a> and a Guest Lecturer at the TU Berlin. 
+  <a target="_blank" href="https://rtr.ai">Realtime Robotics</a> and a Guest Lecturer at <a href="https://www.tu.berlin" target="_blank">Technische Universität Berlin</a>.
 
-  If you are interested in collaborating on podcasts, publications, or otherwise,
-please write me at <i>aorthey at rtr dot ai</i>.
+  If you are interested in collaborating on publications or podcasts, or would like to invite me for a talk, please feel free to reach out at <i>aorthey at rtr dot ai</i>.
+
   </p>
 </div>
 
-<h1>Research</h1>
+<h2>Current Roles</h2>
 
 <ul>
+<li>Guest Lecturer for Motion Planning at <a href="https://www.tu.berlin" target="_blank">Technische Universität Berlin</a> (Since 2022) </li>
+<li>Associate Editor for International Conference on Intelligent Robots and Systems (IROS) (Since 2022) </li>
+<li>Associate Co-Chair for <a href="https://www.ieee-ras.org/algorithms-for-planning-and-control-of-robot-motion/contact">Technical Committee for Algorithms for Planning and Control of Robot Motion</a> (Since 2025)
+</li>
+</ul>
+
+<h2>Research</h2>
+
+<ul>
+
 <li class="link-item"> 
 <a href="src/publications.html">Scientific Publications</a>
 <span class="description">Here you can read some of my recent papers on robotics and motion planning.</span>
@@ -26,12 +36,13 @@ please write me at <i>aorthey at rtr dot ai</i>.
 
 <li class="link-item"> 
 <a target="_blank" href="https://imrclab.github.io/teaching/motion-planning">Motion Planning Lectures</a>
-<span class="description">Listen to some of my lectures on robot motion planning.</span>
+<span class="description">Listen to my lectures on robot motion planning.</span>
 </li>
 
 <li class="link-item"> 
 <a href="src/podcast.html">Robotics Podcast Series</a>
-<span class="description">Watch some interesting conversations on robotics.</span>
+<span class="description">Enjoy my conversations on robotics with some of the most renowned experts in the field.
+</span>
 </li>
 
 <li class="link-item"> 

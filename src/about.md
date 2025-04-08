@@ -6,16 +6,16 @@ nav_order: 2
 
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
-# Curriculum Vitae
+<h1>Curriculum Vitae</h1>
 
-## Short Bio
+<h2>Short Bio</h2>
 
 Dr. Andreas Orthey is a Principal Robotics Scientist at Realtime Robotics, where he pioneers real-time motion planning solutions for industrial automation. 
 His research career includes over 20 published papers in top-tier academic venues such as IJRR, TRO, or RAL and he teaches the course "Motion Planning" as a Guest Lecturer at the TU Berlin.
 He earned his PhD in Computer Science and Robotics from the National Polytechnic Institute of Toulouse in 2015. 
 His career includes a postdoc at the Max-Planck Institute for Intelligent Systems, a two-year JSPS-funded fellowship at the National Institute of Advanced Industrial Science and Technology (AIST), and an AvH Feodor Lynen Return Fellowship at the University of Stuttgart.
 
-## Professional Experience
+<h2>Professional Experience</h2>
 
 - **Principal Robotics Scientist**  
   *Oct 2024 - Present*  
@@ -45,7 +45,7 @@ His career includes a postdoc at the Max-Planck Institute for Intelligent System
   *October 2015 - September 2016*  
   Worcester Polytechnic Institute, Worcester, MA, USA  
 
-## Education
+<h2>Education</h2>
 
 - **Doctor of Philosophy (PhD) in Computer Science**  
   *December 2015*  
