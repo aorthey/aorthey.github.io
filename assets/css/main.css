@@ -246,7 +246,6 @@ hr {
     align-items: left;
     gap: 20px; /* Space between text and link */
     margin: 20px 0;
-    font-family: Arial, sans-serif;
 }
 .contribution-text {
     font-size: 16px;

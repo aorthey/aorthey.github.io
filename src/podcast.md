@@ -9,14 +9,14 @@ nav_order: 2
 <h1>Andreas Orthey Podcast</h1>
 <div class="image-text-container-podcast">
   <img src="/assets/images/podcast-portrait.png" alt="Podcast Logo" title="Podcast Logo" class="circular-image">
-  <div margin-left="100px" class="contribution-container">
-      <div align="center">
+      <div margin-left="100px" align="center">
           <p>Conversations on Robotics. Available on</p>
+          <div class="links-wrapper">
           <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
           <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
           <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
+          </div>
       </div>
-  </div>
 
 </div>
 

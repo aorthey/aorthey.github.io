@@ -53,32 +53,42 @@ nav_order: 1
 
 <h2>Links</h2>
 
+<ul>
+<li>
 <div class="contribution-container">
-    <div class="contribution-text">Podcast</div>
+    <p>Podcast</p>
     <div class="links-wrapper">
         <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
         <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
         <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
     </div>
 </div>
+</li>
 
+<li>
 <div class="contribution-container">
     <div class="contribution-text">LinkedIn</div>
     <div class="links-wrapper">
         <a target="_blank" class="general-link" href="https://www.linkedin.com/in/aorthey/">@LinkedIn</a>
     </div>
 </div>
+</li>
 
+<li>
 <div class="contribution-container">
     <div class="contribution-text">Research</div>
     <div class="links-wrapper">
         <a target="_blank" class="general-link" href="https://scholar.google.com/citations?user=bQKreEMAAAAJ">@GoogleScholar</a>
     </div>
 </div>
+</li>
 
+<li>
 <div class="contribution-container">
     <div class="contribution-text">Code</div>
     <div class="links-wrapper">
         <a target="_blank" class="general-link" href="https://github.com/aorthey">@GitHub</a>
     </div>
 </div>
+</li>
+</ul>
