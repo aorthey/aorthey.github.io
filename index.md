@@ -55,40 +55,37 @@ nav_order: 1
 
 <ul>
 <li>
-<div class="contribution-container">
-    <p>Podcast</p>
-    <div class="links-wrapper">
-        <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
-        <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
-        <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
-    </div>
+<div class="links-wrapper">
+<p>Podcast:
+    <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
+    <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
+    <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
+</p>
 </div>
 </li>
 
 <li>
-<div class="contribution-container">
-    <div class="contribution-text">LinkedIn</div>
-    <div class="links-wrapper">
-        <a target="_blank" class="general-link" href="https://www.linkedin.com/in/aorthey/">@LinkedIn</a>
-    </div>
+<div class="links-wrapper">
+<p>LinkedIn
+    <a target="_blank" class="general-link" href="https://www.linkedin.com/in/aorthey/">@LinkedIn</a>
+</p>
 </div>
 </li>
 
 <li>
-<div class="contribution-container">
-    <div class="contribution-text">Research</div>
-    <div class="links-wrapper">
-        <a target="_blank" class="general-link" href="https://scholar.google.com/citations?user=bQKreEMAAAAJ">@GoogleScholar</a>
-    </div>
+<div class="links-wrapper">
+<p>Research
+    <a target="_blank" class="general-link" href="https://scholar.google.com/citations?user=bQKreEMAAAAJ">@GoogleScholar</a>
+</p>
 </div>
 </li>
 
 <li>
-<div class="contribution-container">
-    <div class="contribution-text">Code</div>
-    <div class="links-wrapper">
-        <a target="_blank" class="general-link" href="https://github.com/aorthey">@GitHub</a>
-    </div>
+<div class="links-wrapper">
+  <p>Code
+    <a target="_blank" class="general-link" href="https://github.com/aorthey">@GitHub</a>
+  </p>
 </div>
 </li>
+
 </ul>
