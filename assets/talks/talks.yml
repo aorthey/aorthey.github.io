@@ -1,0 +1,147 @@
+- 
+  name: Multi-Robot Motion Planning
+  type: guest lecture
+  location: Worcester Polytechnique Institute (WPI), Worcester, MA, USA 
+  year: 2024
+  month: December
+  online: true
+
+- name: Frontiers of Robot Motion Planning
+  type: invited talk
+  location: Robotics Meetup, Berlin, Germany
+  year: 2024
+  month: November
+
+- name: Benchmarking for Motion Planning Applications
+  type: invited talk
+  location: Workshop on Evaluating Motion Planning Performance, IROS, Kyoto, Japan
+  year: 2022
+  month: October
+
+- name: Self-reconfigurable robots
+  type: invited talk
+  location: KTH Stockholm, Sweden
+  year: 2021
+  month: December
+  online: true
+
+- name: Section Patterns
+  type: conference talk
+  location: IROS Conference, Prague, Czechia
+  year: 2021
+  month: September
+  online: true
+
+- name: Multilevel Motion Planning
+  type: invited talk
+  location: RSS Workshop on Geometry and Topology in Robotics, Virtual Conference
+  year: 2021
+  month: July
+  online: true
+
+- name: Sparse Multilevel Roadmaps
+  type: conference talk
+  location: ICRA Conference, Xi'an, China
+  year: 2021
+  month: June
+  online: true
+
+- name: Visualizing Local Minima in Multi-Robot Motion Planning
+  type: conference talk
+  location: WAFR Conference, Oulu, Finland
+  year: 2021
+  month: March
+  online: true
+
+- name: "Multilevel Motion Planning: Theory and Applications"
+  type: invited talk
+  location: Rice University, Houston, TX, USA
+  year: 2021
+  month: February
+  online: true
+
+- name: Motion Planning Explorer
+  type: conference talk
+  location: ICRA Conference, Paris, France
+  year: 2020
+  month: May
+  online: true
+
+- name: Rapidly-Exploring Quotient-Space Trees
+  type: conference talk
+  location: ISRR Symposium, Sofitel Legend Metropole Hanoi, Hanoi, Vietnam
+  year: 2019
+  month: October
+
+- name: Making Robotic Algorithms Transparent and Interactive
+  type: invited talk
+  location: BRAGFOST, Hotel Schreiberhof, Munich, Germany
+  year: 2019
+  month: September
+
+- name: As a postdoc abroad - Experiences from two years Japan
+  type: invited talk
+  location: Networking Event (AvH), Maritim Hotel, Bonn, Germany
+  year: 2018
+  month: November
+
+- name: Simplification of High-Dimensional Spaces
+  type: invited talk
+  location: Humanoid Robots Lab, University of Bonn, Bonn, Germany
+  year: 2018
+  month: November
+
+- name: Quotient-Space Motion Planning
+  type: conference talk
+  location: IROS Conference, Madrid Municipal Conference Centre, Madrid, Spain
+  year: 2018
+  month: October
+
+- name: Life of a Robotics Researcher
+  type: guest lecture
+  location: JSPS Science Dialog, Takezono Highschool, Tsukuba, Japan
+  year: 2018
+  month: June
+
+- name: Quotient-Space Motion Planning
+  type: invited talk
+  location: Movement Generation and Control Group, Max-Planck Institute, Tübingen, Germany
+  year: 2018
+  month: May
+
+- name: Making Ideas Stick
+  type: invited talk
+  location: JSPS Orientation, Hotel Moterey Hanzomon, Tokyo, Japan
+  year: 2018
+  month: February
+
+- name: Robotics, Motion Planning and Topology
+  type: invited talk
+  location: Networking Event (AvH), Albert Ludwig University of Freiburg, Freiburg, Germany
+  year: 2016
+  month: October
+
+- name: Dimensionality Reduction in Motion Planning
+  type: guest lecture
+  location: Worcester Polytechnic Institute, Worcester, MA, USA
+  year: 2016
+  month: February
+
+- name: Motion Planning and Irreducible Trajectories
+  type: conference talk
+  location: ICRA Conference, Washington State Convention Center, Seattle, WA, USA
+  year: 2015
+  month: May
+
+- name: Irreducible Trajectories and Homotopy Motion Planning
+  type: invited talk
+  location: Robot Locomotion Group, Massachusetts Institute of Technology, Cambridge, MA, USA
+  year: 2015
+  month: February
+  online: true
+
+- name: Towards Reactive Whole-Body Motion Planning in Cluttered Environments
+  type: conference talk
+  location: Humanoids Conference, Historic Academy of Medicine, Atlanta, GA, USA
+  year: 2013
+  month: October

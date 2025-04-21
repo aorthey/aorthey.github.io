@@ -56,6 +56,7 @@ theme: minima
 header_pages:
   - index.md
   - src/publications.md
+  - src/talks.md
   - src/resources.md
   - src/podcast.md
   - src/about.md
