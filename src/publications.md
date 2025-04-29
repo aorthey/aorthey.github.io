@@ -7,7 +7,23 @@ nav_order: 2
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
 <h1>Publications</h1>
-<a href="/assets/generate/all_publications.txt" target="_blank">View all publications as BibTeX</a>
+
+<ul>
+
+<li>
+<a href="/assets/generate/all_publications.txt" target="_blank">View all Publications as BibTeX</a>
+</li>
+<li>
+<a href="https://scholar.google.com/citations?user=bQKreEMAAAAJ" target="_blank">Link to Google Scholar Profile</a>
+</li>
+<li>
+<a href="https://arxiv.org/find/all/1/au:+Orthey_Andreas/0/1/0/all/0/1?per_page=50" target="_blank">Link to arXiv Preprints</a>
+</li>
+<li>
+<a href="https://dblp.org/pid/133/2362.html" target="_blank">Link to dblp Profile</a>
+</li>
+
+</ul>
 
 {% assign pub_types = "Journal,Conference,Workshop,These" | split: "," %}
 

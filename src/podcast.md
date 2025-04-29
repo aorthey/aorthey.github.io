@@ -43,6 +43,9 @@ nav_order: 2
       {% if podcast.outline %}
         <a target="_blank" class="general-link" href="{{ podcast.outline }}">Outline</a>
       {% endif %}
+      {% if podcast.transcript %}
+        <a target="_blank" class="general-link" href="{{ podcast.transcript }}">Transcript</a>
+      {% endif %}
       {% if podcast.errata %}
         <a target="_blank" class="general-link" href="{{ podcast.errata }}">Errata</a>
       {% endif %}

@@ -36,7 +36,12 @@ first). All talks are in-person if not marked as online.
       {% if presentation.online %}
         <span class="online">(Online)</span>
       {% endif %}
-      <span class="pipe">|</span> {{ presentation.month }} {{ presentation.year }}
+      <span class="pipe">|</span> 
+      {{ presentation.month }} {{ presentation.year }}
+      {% if presentation.youtube %}
+        <span class="pipe">|</span> 
+        <a href="https://youtube.com/watch?v={{ presentation.youtube }}" target="_blank">YouTube</a>
+      {% endif %}
     </span>
     </li>
   {% endfor %}

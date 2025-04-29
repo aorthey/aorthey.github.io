@@ -31,6 +31,7 @@ module Jekyll
 
                 outline_path = File.exist?(File.join(folder_path, "outline.txt")) ? "/assets/podcast/#{folder}/outline.txt" : nil
                 errata_path = File.exist?(File.join(folder_path, "errata.txt")) ? "/assets/podcast/#{folder}/errata.txt" : nil
+                transcript_path = File.exist?(File.join(folder_path, "transcript.txt")) ? "/assets/podcast/#{folder}/transcript.txt" : nil
 
                 podcast_data << {
                   "folder" => folder,
@@ -39,6 +40,7 @@ module Jekyll
                   "x" => links_data["x"],
                   "title" => links_data["title"],
                   "outline" => outline_path,
+                  "transcript" => transcript_path,
                   "errata" => errata_path
                 }
               end

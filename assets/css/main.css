@@ -53,6 +53,7 @@ code{
   vertical-align: middle; /* Aligns with details */
   line-height: 1.5; /* Consistent line height */
   margin-left: 5px; /* Space between thumbnail and text */
+  margin-bottom: 5px;
   border-radius: 15px;
 }
 

@@ -57,7 +57,7 @@
 	title = {Motion Planning and Irreducible Trajectories},
 	author = {Orthey, Andreas and Lamiraux, Florent and Stasse, Olivier},
 	booktitle = {IEEE International Conference on Robotics and Automation},
-	pages = {3576-3581},
+	pages = {3576--3581},
 	year = {2015},
 	code = {https://github.com/aorthey/irreducible-curvature-projection},
 }
@@ -73,7 +73,7 @@
 @inproceedings{Orthey2018IROS,
 	title = {Quotient-Space Motion Planning},
 	author = {Orthey, Andreas and Escande, Adrien and Yoshida, Eiichi},
-	pages = {8089-8096},
+	pages = {8089--8096},
 	booktitle = {IEEE International Conference on Intelligent Robots and Systems},
 	year = {2018},
 }
@@ -82,7 +82,7 @@
 	title = {Motion Planning in Irreducible Path Spaces},
 	journal = {IEEE Robotics and Autonomous Systems},
 	volume = {109},
-	pages = {97-108},
+	pages = {97--108},
 	year = {2018},
 	author = {Orthey, Andreas and Roussel, Olivier and Stasse, Olivier and Ta{\"i}x, Michel},
 }
@@ -128,7 +128,7 @@
 	title = {MotionBenchMaker: A Tool to Generate and Benchmark Motion Planning Datasets},
 	volume = {7},
 	number = {2},
-	pages = {882–889},
+	pages = {882--889},
 	issn = {2377-3766},
 	doi = {10.1109/LRA.2021.3133603},
 	youtube = {ggRmKPt7IP8},
@@ -167,7 +167,7 @@
 	author = {Orthey, Andreas and Toussaint, Marc},
 	booktitle = {IEEE International Conference on Robotics and Automation},
 	year = {2021},
-	pages = {7851–7857},
+	pages = {7851--7857},
 	pdf = {https://arxiv.org/pdf/2011.00832.pdf},
 	youtube = {ojJ7RjZMexc},
 }
@@ -190,11 +190,11 @@
 }
 
 @inproceedings{Grothe2022ICRA,
-	title = {ST-RRT*: Asymptotically-Optimal Bidirectional Motion Planning through Space-Time},
+	title = {{ST-RRT*: Asymptotically-Optimal Bidirectional Motion Planning through Space-Time}},
 	author = {Grothe, Francesco and Hartmann, Valentin N and Orthey, Andreas and Toussaint, Marc},
 	booktitle = {IEEE International Conference on Robotics and Automation},
 	year = {2022},
-	pages = {3314-3320},
+	pages = {3314--3320},
 	pdf = {https://arxiv.org/pdf/2203.02176.pdf},
 	web = {https://vhartmann.com/strrt/},
 }
@@ -223,7 +223,7 @@
 	journal = {IEEE Robotics and Automation Letters},
 	volume = {8},
 	number = {8},
-	pages = {4529-4536},
+	pages = {4529--4536},
 	pdf = {https://arxiv.org/pdf/2212.02955.pdf},
 }
 
@@ -234,7 +234,7 @@
 	year = {2024},
 	volume = {},
 	number = {},
-	pages = {9953-9959},
+	pages = {9953--9959},
 }
 
 @article{Orthey2023AnnualReview,
@@ -255,7 +255,7 @@
 	journal = {The International Journal of Robotics Research},
 	volume = {43},
 	number = {1},
-	pages = {3-33},
+	pages = {3--33},
 	doi = {10.1177/02783649231209337},
 	url = {https://doi.org/10.1177/02783649231209337},
 }

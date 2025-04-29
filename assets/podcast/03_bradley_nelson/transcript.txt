@@ -1,0 +1,682 @@
+[00:00.080 --> 00:03.600]  Welcome to the Andreas Orthey podcast series on robotics.
+[00:04.240 --> 00:06.720]  My guest in this episode is Bradley Nelson.
+[00:07.440 --> 00:11.640]  Bradley is a professor of robotics and intelligent systems at ETH Zurich,
+[00:12.180 --> 00:14.400]  and one of the pioneers of micro robotics.
+[00:15.480 --> 00:19.500]  In this episode, we will talk about the challenges in making robots at very
+[00:19.500 --> 00:25.160]  small scales, how we can make robots even smaller and what the physical limits are
+[00:25.480 --> 00:29.640]  and how micro robots can be used in treatments for diseases like strokes.
+[00:30.400 --> 00:32.520]  I'm grateful that you are able to join me.
+[00:32.760 --> 00:35.000]  Please welcome Bradley Nelson.
+[00:35.640 --> 00:38.280]  So thank you so much, Brad, for coming here.
+[00:38.600 --> 00:43.400]  You run a very successful robotics lab where you really go onto
+[00:43.400 --> 00:45.040]  the smallest scale of robotics.
+[00:45.880 --> 00:49.320]  Can you maybe talk a little bit about your goals and which research
+[00:49.320 --> 00:52.280]  questions you're pursuing in your lab?
+[00:54.080 --> 00:54.440]  Yeah.
+[00:56.280 --> 00:59.960]  So we started thinking about.
+[01:00.000 --> 01:05.080]  Well, actually I started thinking about doing robotics at small scales back in
+[01:05.080 --> 01:07.520]  the early nineties, around 92, 93.
+[01:07.520 --> 01:11.320]  I was working on arms, robot arms, doing visual servoing, force control,
+[01:11.320 --> 01:14.840]  traditional assembly type robots for factories.
+[01:16.200 --> 01:20.680]  And at the time it seemed like a lot of the problems had been solved.
+[01:20.720 --> 01:24.040]  So we started thinking, well, what's, what's new and interesting.
+[01:24.040 --> 01:27.680]  And so at that time, if you go back to that time, it was kind of the golden age
+[01:27.680 --> 01:29.880]  of MEMS, micro electromechanical systems.
+[01:30.520 --> 01:35.720]  There'd been big successes in accelerometers for vehicles, for blowing airbags and pressure
+[01:35.720 --> 01:39.600]  sensors, digital mirror displays, all sorts of things were starting to come out.
+[01:39.600 --> 01:40.560]  They were quite interesting.
+[01:40.560 --> 01:43.320]  And, and I wonder what robotics problems there are.
+[01:43.320 --> 01:48.040]  And so we started just thinking about all the things that have been going on in robotics
+[01:48.040 --> 01:53.880]  for the, you know, the 40 years or so before that with arms and, and what, what was unique
+[01:53.880 --> 01:54.800]  about the micro scale?
+[01:55.640 --> 01:56.600]  And there was a couple of things.
+[01:56.600 --> 01:58.160]  One is you realize the optics are different.
+[01:58.160 --> 01:59.960]  You've got to use different, you know, microscopes.
+[02:00.000 --> 02:01.640]  And things like that, rather than regular cameras.
+[02:01.640 --> 02:08.240]  And the other thing was the physics of, of part interactions.
+[02:08.240 --> 02:12.560]  So at large scales, I, you know, thought about friction and, and mass.
+[02:12.600 --> 02:18.320]  And, but at small scales, like in 95, two papers came out, one from Ron Fearing at Berkeley
+[02:18.320 --> 02:21.200]  and the other from Hoshi Fukuda and Fumihiro Arai at Nagoya.
+[02:21.200 --> 02:24.280]  And they both explored the physics of particle interactions at small scales.
+[02:24.280 --> 02:27.720]  And I realized, oh, there's actually, there's actually some interesting questions here.
+[02:27.720 --> 02:29.400]  How do you, how do you handle small things?
+[02:29.440 --> 02:29.960]  How do you.
+[02:30.000 --> 02:31.440]  How do you manipulate them?
+[02:32.480 --> 02:40.480]  And then that kind of drove us along a number of different paths in developing technologies.
+[02:41.360 --> 02:46.760]  And then when I moved to Zurich in 2002 and in 2003 was thinking about, you know, grand
+[02:46.760 --> 02:47.720]  challenges in the field.
+[02:47.720 --> 02:51.680]  And I, I realized actually, you know, that it's, it's interesting to assemble things
+[02:51.680 --> 02:54.240]  and manipulate them and, and some of the robotics problems.
+[02:54.240 --> 02:57.960]  But what people really seem more interested in were the devices, the things we were making.
+[02:58.440 --> 02:59.760]  So I thought, can we make small intelligence?
+[02:59.760 --> 03:01.320]  Can we make intelligent machines?
+[03:01.640 --> 03:05.520]  And if we do, what would they do and how would we make them and, and, and that?
+[03:05.520 --> 03:11.080]  And so that's, so, you know, first it was just basic questions.
+[03:11.240 --> 03:12.840]  How do you make things move at small scale?
+[03:12.840 --> 03:14.040]  So what are we going to do?
+[03:15.160 --> 03:16.520]  What are they going to do?
+[03:16.520 --> 03:18.160]  What, what's the motivation for it?
+[03:19.280 --> 03:29.400]  And, and that just has taken off and, and eventually where I've moved into, you realize a lot of these,
+[03:29.760 --> 03:36.080]  applications are going to probably be in medicine, delivering drugs, these kinds of things.
+[03:36.080 --> 03:41.160]  And so that kind of moved me into this field of medical robotics, which I first heard of in 1990.
+[03:42.440 --> 03:48.760]  I thought it was a crazy idea, but then, you know, for the last 15 years or so, I've been working relatively
+[03:48.760 --> 03:50.400]  intensely in the field of medical robotics.
+[03:50.400 --> 03:59.720]  And, and so healthcare applications in that are, I think the kinds of things we're exploring and trying to figure out not just how do you make
+[03:59.720 --> 04:05.160]  these things, but how do you actually get them through a regulatory process to get them in humans?
+[04:05.160 --> 04:07.520]  So that's, that's a huge, huge challenge.
+[04:07.520 --> 04:15.640]  I imagine that this is really one of the key problems they already have, all the regulatory guidelines following them.
+[04:15.640 --> 04:16.360]  Yeah.
+[04:16.360 --> 04:21.400]  It makes you think how you do design differently, how you design things.
+[04:21.400 --> 04:26.720]  You have to think about issues like sterility, things you normally, we don't think about at large scales.
+[04:26.720 --> 04:29.400]  We think about what are the risks in ways?
+[04:29.720 --> 04:34.800]  That we, you know, we, we think about risk whenever you build something, but you have to think of it completely differently when you're
+[04:34.800 --> 04:36.320]  thinking about medical devices.
+[04:38.080 --> 04:45.400]  You also, you know, realize it takes a tremendous investment to, to get these things through, out of the lab and into the clinic.
+[04:46.280 --> 04:49.120]  And so you also need to think a little bit about your business models, even.
+[04:49.120 --> 04:50.760]  Does it make sense to go into an area?
+[04:51.760 --> 04:59.640]  There's always the intellectual interest and that's good enough, you know, to an extent, but then you also have to think, you know, what, what kinds of, of
+[04:59.720 --> 05:00.960]  problems are you going to solve?
+[05:00.960 --> 05:06.920]  And is it really makes sense to put your effort and, you know, into that you can't do everything and you've got to, you've got to pick and choose.
+[05:08.160 --> 05:10.920]  And so let me just go back a little bit.
+[05:12.480 --> 05:18.000]  What actually motivated you in the beginning to like go into robotics or what was your path?
+[05:18.920 --> 05:24.160]  What's coming to the also micro robots, medical robotics.
+[05:24.560 --> 05:29.680]  So, yeah, I, I, I didn't really think about robotics.
+[05:29.880 --> 05:33.400]  I swear I became an engineer because of, of the space program.
+[05:33.400 --> 05:37.300]  I think, you know, I was seven years old when they landed on the moon.
+[05:37.300 --> 05:37.700]  Right.
+[05:37.700 --> 05:47.660]  And, and I, I didn't want to be an astronaut, but I was just fascinated by the rockets and the engineering and the lunar module and the land that, you know, and all that.
+[05:47.740 --> 05:49.240]  I still am fascinated by that.
+[05:49.480 --> 05:54.060]  Made me want to, I always enjoyed as a kid, just, you know, building stuff.
+[05:55.020 --> 05:59.560]  And then when I was, did my bachelor's degree, I, I, I found myself.
+[05:59.560 --> 06:00.980]  Really attracted to control theory.
+[06:01.760 --> 06:03.400]  There was a beauty to the math.
+[06:04.220 --> 06:05.960]  The way you looked at these systems.
+[06:08.140 --> 06:10.260]  I like making things that move.
+[06:10.260 --> 06:16.440]  Why, you know, just, just that thrill of building a machine and watching it move and understanding it in.
+[06:17.140 --> 06:23.020]  But in 1984, I moved to Minnesota to do a master's degree and wanted to do control theory.
+[06:23.020 --> 06:25.420]  And the closest I could get was robotics.
+[06:25.640 --> 06:29.200]  I had seen people when I was a bachelor's student doing robotics and I thought it's a little messy.
+[06:29.560 --> 06:36.940]  Uh, you know, it's, they're just building stuff and it didn't seem that interesting, but when I got to Minnesota, it was the closest I could get to controls was robotics.
+[06:36.940 --> 06:41.680]  And, and then as I explored it, I realized, oh, wow, there's actually some pretty deep problems here.
+[06:42.520 --> 06:44.180]  Really hard problems, problems.
+[06:44.180 --> 06:49.520]  What were the first systems which controlled, or which you wrote controlled us?
+[06:49.860 --> 06:59.420]  Well, we, so back then manipulators people use were the Puma 560, a six degree of freedom, articulated arm, and then ADEPT.
+[06:59.420 --> 07:05.660]  ADEPT technologies came out with a four degree of freedom, SCARA, selective compliance, or what does SCARA stand for?
+[07:05.660 --> 07:20.540]  I can't recall now even, but, but, uh, but it was fixed manipulators and just learning how to program them, programming assembly work cells, putting force control, uh, force control was a new topic.
+[07:20.540 --> 07:26.000]  And I was fortunate to work with one of the very first force control systems that could really do high, high bandwidth.
+[07:26.000 --> 07:27.920]  And I mean, you know, a hundred Hertz kind of things.
+[07:29.420 --> 07:40.300]  And, you know, that was, yeah, mid, mid to late eighties, I was working 80, 85 to 80, 84 to 87 in that.
+[07:40.300 --> 07:45.340]  So there were, that was a, a, a very exciting time in robotics.
+[07:46.420 --> 07:55.800]  If you go back then, people, AI, people use the term, started using the term AI a lot then, but they, when they met AI, they were talking about knowledge-based reasoning, rule-based systems.
+[07:55.800 --> 08:24.800]  Lisp, you know, people program in Lisp a lot and, and these things, and I think, turned out these were very brittle systems, not, not a very, uh, and, and by the, by the end of the eighties, people had kind of woken up to the fact that this robotics problem is a lot harder than we thought, and we really didn't make much headway on the AI problem then, but I never lost my thrill of, of building machines, programming robots, watching them, and, and, and, and, and, and, and, and, and, and, and, and, and, and, and, and, and, and, and, and.
+[08:24.800 --> 08:44.520]  And so I, I think, I think, yeah, I started with, with, you know, industrial level robot arms, uh, programming them, trying to add more sensors, even vision systems back then weren't very interesting.
+[08:44.520 --> 08:54.780]  And I started first working in, in computer vision in 1985 as an intern at, at Honeywell doing computer vision research for the, for a DARPA project, a military.
+[08:54.800 --> 08:57.740]  Project, but, uh, well, and that was a blast.
+[08:58.340 --> 09:00.560]  Computer vision was very fun back then, so.
+[09:01.140 --> 09:09.920]  And can you maybe trace back this moment where you actually thought about applying robotics also on, on a smaller scale possible?
+[09:10.400 --> 09:12.240]  Yeah, that would have been, I was doing a PhD.
+[09:12.380 --> 09:16.140]  I did a PhD from 90 to 95 at Carnegie Mellon in the robotics PhD program.
+[09:16.140 --> 09:22.720]  And I, I got about halfway, I got about halfway through my PhD, 92, 93, and I was working with visual surveying and force control.
+[09:23.440 --> 09:23.840]  Yeah.
+[09:24.800 --> 09:28.680]  And I realized at that time, robotics was not very popular, to be honest.
+[09:28.800 --> 09:29.980]  It wasn't like it is now.
+[09:30.880 --> 09:41.460]  And I, I, I realized that there weren't a lot of research problems in arms.
+[09:42.240 --> 09:43.920]  People were looking at mobile robots.
+[09:44.080 --> 09:48.900]  They were looking, like I said, this was the age where MEMS was taking off, microsystems.
+[09:48.940 --> 09:50.740]  People, we hadn't gotten to nanotechnology yet.
+[09:50.820 --> 09:52.220]  It hadn't become a buzzword.
+[09:52.220 --> 09:54.220]  And, and so.
+[09:54.800 --> 10:02.520]  And so I started thinking, well, the trends are towards MEMS, you know, factory floor robot times arms were not a research topic.
+[10:03.420 --> 10:12.860]  And so it occurred to me, what if I just did all of this big robot stuff under microscopes and high precision positioners?
+[10:12.920 --> 10:13.560]  And, um.
+[10:14.120 --> 10:18.120]  So what did you think about in terms of like applications in the first place?
+[10:18.120 --> 10:24.280]  So, so what made you like really interested and say, okay, this is, this is something where, where the future will go to?
+[10:24.560 --> 10:24.760]  Yeah.
+[10:24.800 --> 10:29.920]  I, I, I think the first, I didn't think a lot about applications.
+[10:29.920 --> 10:39.640]  I just thought about, about, you know, things I didn't understand and trying to figure them out, like the physics of, of, of how parts interact at these scales.
+[10:39.640 --> 10:54.680]  I'd never really, you know, I'd had courses, but hadn't thought much about things like van der Waals forces or electrostatic attractions, surface tension, even, you know, with a little water, you know, just with humidity, you get the, all these, these interaction forces.
+[10:54.680 --> 10:58.100]  And, and, and just trying to understand that became interesting.
+[10:58.100 --> 11:06.560]  I was really just really driven by, I think, uh, just intellectual curiosity, but, you know, I'm an engineer and at some point I want to make sure what I do is useful.
+[11:06.720 --> 11:06.960]  Right.
+[11:06.960 --> 11:09.800]  And so then they go, what, what can we do with this?
+[11:09.880 --> 11:19.160]  Well, you know, everybody, when MEMS was doing, you know, it was all photolithography and deposition etching.
+[11:19.500 --> 11:23.280]  It was all this kind of addition, subtraction, photolithography processes.
+[11:23.480 --> 11:24.420]  And I thought, well, you could make more.
+[11:24.420 --> 11:25.180]  Complicated things.
+[11:25.180 --> 11:34.680]  If you could figure out ways to assemble things at small scales, that was probably a little naive of me to think that, but I, you know, I didn't know any better and it was something worth exploring, I think.
+[11:35.420 --> 11:43.980]  So it, you know, initially you're driven by curiosity and then I think you start to see some of these problems and then you start thinking, okay, now what are some of the applications we're going to find for this?
+[11:44.940 --> 11:46.280]  Which is the story of robotics, right?
+[11:46.280 --> 11:50.660]  We, we, we, we've got, we've got a lot of hammers looking for nails to hit right in the field.
+[11:50.660 --> 11:54.400]  And, and so we've got a lot of technologies, but we're trying to figure out where.
+[11:54.420 --> 11:59.460]  They fit and that's, you know, sometimes you'll say it should be the other way around, right?
+[11:59.460 --> 12:01.700]  That you, you want to find the problem and then try to solve it.
+[12:01.700 --> 12:06.120]  But I mean, I think in research, it's, it's, it goes both ways.
+[12:06.360 --> 12:09.840]  So a lot of your applications are of course in medicine.
+[12:10.220 --> 12:14.880]  So what makes you actually become interested in this topic?
+[12:16.660 --> 12:18.940]  So I think it was probably 1990, 91.
+[12:18.940 --> 12:24.300]  I was a first year PhD student at Carnegie Mellon and we would have Friday.
+[12:24.300 --> 12:24.420]  After.
+[12:24.420 --> 12:32.520]  Afternoons robotic seminar, they bring in speakers from all over and you'd, you'd have read their papers and then you get to meet them and listen to them talk.
+[12:32.520 --> 12:36.480]  It was really, really, I think a great thing for a student to see.
+[12:36.480 --> 12:54.300]  And, and this guy came in from IBM and he had been working he'd been a researcher and had been using some of their industrial arms to do hip implants on dogs, to try to drill into dogs thighs.
+[12:54.300 --> 12:56.640]  For that and talked about robot surgery of the future.
+[12:56.640 --> 13:04.500]  This guy was a guy by the name of Russ Taylor, who's now at, at Johns hop has been there for decades at Johns Hopkins and is kind of the father of medical robotics.
+[13:04.500 --> 13:08.120]  But at the time he was just doing kind of these crazy ideas.
+[13:08.120 --> 13:19.980]  He had these, these, these long visions of using robots to operate on people, which at the time just seemed crazy to me, but it's something that, that, that struck me as, oh, that's interesting.
+[13:19.980 --> 13:21.180]  Whenever that's going to go.
+[13:22.320 --> 13:23.820]  So I always kind of followed the field.
+[13:23.820 --> 13:24.280]  Never really.
+[13:24.300 --> 13:25.020]  Moved into it.
+[13:25.020 --> 13:43.780]  But then as I started working with trying to make micro robots, when in, in really about 2003 was when I started thinking about making micro robots, one of the applications was going to be, oh, can these things move through your body and deliver drugs, for instance, to the, to your retina, like your retinal disease or, or in your brain to unblock blame to brain tumors.
+[13:43.780 --> 13:47.260]  And so that pulled me back into that field of medical robotics.
+[13:47.260 --> 13:54.120]  And if you go back at 2003, if you look at that timeframe intuitive surgical had come to the.
+[13:54.300 --> 13:55.840]  Just come into clinics.
+[13:55.840 --> 13:58.860]  Just around that timeframe with their, their DaVinci robot.
+[13:58.860 --> 14:01.080]  It was not very successful at the beginning.
+[14:01.080 --> 14:06.920]  They were trying to do single bypass heart surgery, but wasn't making an impact.
+[14:06.920 --> 14:10.940]  But then they found prostate surgery and all of a sudden started started taking off.
+[14:10.940 --> 14:14.160]  And the other thing on the, that came to the market then was a given imaging camera pill.
+[14:14.160 --> 14:23.820]  So a little pill, it's about a 11 millimeters in diameter at about 29 millimeters long, and it has a, a camera light wireless transfer and it would take.
+[14:23.820 --> 14:30.200]  You would swallow it and it would take pictures of your gastrointestinal tract and and that was coming out.
+[14:30.200 --> 14:38.640]  And so I looked at those things in 2003 and I was like, ah, you know, here's where maybe if we think 20 years in the future, here's where micro robots might, might be.
+[14:38.640 --> 14:48.540]  They might look at going, you know, smaller moving through the body and deeper into the brain or, or in some, some GI gastrointestinal disease.
+[14:49.820 --> 14:53.740]  And so, so went down that path.
+[14:53.740 --> 15:05.720]  And it just, you know, I'm always, always second guessing myself and trying to think if, if, if this is a dumb idea or has it got no future or not, but it just always continued to compel me.
+[15:05.720 --> 15:13.020]  And I always felt like, oh, there's, there's something here and there's, there's actually some good, good arguments, but there's some really hard problems to solve.
+[15:13.320 --> 15:13.460]  Yeah.
+[15:13.460 --> 15:18.140]  I think a lot of your applications are also on vascular, right?
+[15:18.640 --> 15:23.740]  Could you maybe explain a little bit of what the problems there and, and what happened?
+[15:24.620 --> 15:25.660]  Sure, sure.
+[15:25.920 --> 15:34.280]  So, so we've got, of course, blood vessels, all we've got, you know, miles and miles of kilometers and kilometers of blood vessels in our body and it goes everywhere.
+[15:35.820 --> 15:41.580]  And two, the two leading causes of death in the world are from blockages in our blood vessels.
+[15:41.760 --> 15:43.780]  That's a myocardial infarction or heart attacks.
+[15:43.780 --> 15:48.140]  And the other is ischemic stroke or blood blockages in the brain.
+[15:48.240 --> 15:49.800]  They're blood, the blood vessel diseases.
+[15:49.800 --> 15:52.800]  And so you've got basically this roadmap, this roadmap.
+[15:53.740 --> 15:54.620]  You've got this roadway, right?
+[15:54.620 --> 16:00.820]  This, this path to get to all these locations, but they're hard to get to, and they're very delicate.
+[16:00.820 --> 16:06.280]  And if you damage blood vessels, I mean, in the brain, I mean, it's, it's a very bad outcome.
+[16:07.500 --> 16:19.220]  And so, so we had been developing ways of making micro robots move with magnetic fields, generating these external fields, we'd make the micro robots out of magnetic elements.
+[16:19.220 --> 16:22.660]  So the, the three elements that are magnetic are, are iron, cobalt and nickel.
+[16:22.660 --> 16:23.620]  And then you, you.
+[16:23.620 --> 16:28.140]  different alloys of those and so you if you make some of the put some of those those materials on
+[16:28.140 --> 16:33.980]  your robot then it'll respond to magnetic fields and you can guide it so we had developed a lot of
+[16:33.980 --> 16:43.580]  technology a lot of inside i think we developed a lot of math and physics in how to generate these
+[16:43.580 --> 16:47.860]  fields and and then the fields get stronger weaker we call those field gradients those
+[16:47.860 --> 16:55.740]  and and understood all of a sudden how we could model this and control it just like we do a robot
+[16:55.740 --> 17:01.480]  arm and so and so in the beginning you were mostly applying it to like free floating rocks
+[17:01.480 --> 17:05.000]  at the beginning we were applying it to free floating robots we were just trying to figure
+[17:05.000 --> 17:09.880]  out how to make free floating robots move under control and i think in 2009 we finally figured
+[17:09.880 --> 17:14.600]  out a good way to do that with what five degrees of freedom so that we can move it translate it
+[17:14.600 --> 17:17.700]  x y and z and point it then in two directions we don't get the
+[17:17.700 --> 17:17.840]  the
+[17:17.860 --> 17:24.400]  the long axis of it we can't really control but but we learn how to do that and and that was
+[17:24.400 --> 17:29.080]  important i think that was kind of a breakthrough in the field that showed we can control these
+[17:29.080 --> 17:33.800]  things very precisely but but then if you think about translating i mean you think oh
+[17:33.800 --> 17:37.300]  am i going to just inject these into the body and let them move around
+[17:37.300 --> 17:41.340]  probably not and you realize oh these there's got all these vascular surgeons these
+[17:41.340 --> 17:47.700]  and interventional radiologists that are putting wires and catheters into blood vessels
+[17:47.700 --> 17:54.280]  so probably you're going to use that as a release mechanism and then and then so we started looking
+[17:54.280 --> 18:00.040]  at that and realize oh if we just put magnets on the tip of these guide wires these catheters and
+[18:00.040 --> 18:04.580]  things then we can we can use the same math and physics we were using for guiding the robots and
+[18:04.580 --> 18:11.240]  so that then has driven us down the path of of treating vascular disease with that
+[18:11.240 --> 18:15.000]  would you just briefly summarize how
+[18:15.000 --> 18:15.200]  you
+[18:15.200 --> 18:17.540]  yeah you actually
+[18:17.700 --> 18:25.960]  come from the point where there's actually a blockage in the vascular system what is the
+[18:25.960 --> 18:31.380]  doctor actually doing to it we actually create and sure yes the robot actually control during
+[18:31.380 --> 18:36.500]  this yeah yeah so the first thing is to recognize that you've got a blockage and if you have a
+[18:36.500 --> 18:42.780]  stroke there's an acronym fast then f stands for face a stands for so if your face gets numb or
+[18:42.780 --> 18:47.560]  droops a stands for arm s is speech if your speech gets slow
+[18:47.700 --> 18:49.720]  a kind of slurred
+[18:49.720 --> 18:53.320]  if your arm hurts then the t the last
+[18:53.320 --> 18:58.080]  letter stands for time that means you need to get to a hospital as quickly as possible
+[18:58.080 --> 19:06.500]  they bring you in the hospital and they'll do a ct scan usually an x-ray they could do an m r but usually do a ct scan and try and figure out if you've got a blockage somewhere
+[19:06.500 --> 19:09.540]  and if they determine that you do have a blockage
+[19:09.540 --> 19:17.660]  then they want to send you to an interventionalist or an interventional radiologist and so how do you actually see the blockage so they see it with a
+[19:17.660 --> 19:25.200]  x-rays so they look through your body with x-rays they scored a contrast agent they scored something that's got a high atomic number
+[19:25.200 --> 19:37.520]  it bounces the x-rays bounce off of and so you can see it looks like a kind of a road way they In fact they call it making a road map like literally and it's basically injected into the bloodstream so they
+[19:37.520 --> 19:47.640]  then you basically see that at some point the bloodstream is not advancing anymore and then you can be you'll see that you'll see you'll see a blockage you'll see that the blood is not flowing that the
+[19:47.640 --> 19:53.280]  contrast agent, those particles they put into your blood, those micro and nanoparticles are not
+[19:53.280 --> 19:58.940]  moving further. And so then they can identify that. And so then they figured, okay, here's where
+[19:58.940 --> 20:04.880]  the blockage is. And if you're lucky, you're at a hospital with a stroke center where they can
+[20:04.880 --> 20:11.280]  wheel you then into a room and a radiologist will insert a wire, usually into your femoral artery
+[20:11.280 --> 20:17.060]  down near your groin and try to string it all the way up into your brain. And once they get to where
+[20:17.060 --> 20:21.660]  that clot is, then they'll put another catheter. This wire is very small, less than a millimeter
+[20:21.660 --> 20:27.800]  in size. Then they'll put a catheter over that. Catheter has a, is hollow inside, a lumen we call
+[20:27.800 --> 20:34.880]  it. And then, and then there's a way that catheter can then suck out that blood clot and, or there's
+[20:34.880 --> 20:42.960]  other ways they can get it to, and that's called a mechanical thrombectomy. So that is important to
+[20:42.960 --> 20:46.440]  do quickly. And there's a lot of data that shows
+[20:46.440 --> 20:47.040]  speed.
+[20:47.060 --> 20:52.340]  Speed is of the essence. So one study showed that if, if, if when you feel, first see those
+[20:52.340 --> 20:57.940]  symptoms from fast, if you can get treated within 150 minutes of the onset of those symptoms,
+[20:57.940 --> 21:04.120]  you have a 90% chance of leaving the hospital being functionally independent. The more time
+[21:04.120 --> 21:10.840]  that this goes untreated, the more brain cells that are dying and you're losing brain tissue
+[21:10.840 --> 21:16.920]  and eventually you will die. The patient will die. So time is of the essence. And so,
+[21:17.060 --> 21:21.820]  how do you actually realize that you have a scroll? So, so what it's like, so it was typical symptoms.
+[21:21.820 --> 21:32.360]  Yeah. So, so, so, so face, arm and speech are the first things. Is your face numb or droopy? Is your
+[21:32.360 --> 21:41.720]  arm sore, hurting? Is your speech slurred? And if you see those, if you, you notice those symptoms,
+[21:41.720 --> 21:46.580]  then you think, okay, this is serious. I better go have, I better get to a clinic that can diagnose
+[21:46.580 --> 21:46.900]  me.
+[21:47.060 --> 21:50.360]  And, and figure out if I have this, or it could be something else, but, but.
+[21:50.560 --> 21:55.300]  And is there always like a moment where you realize that you have a stroke or is that also
+[21:55.300 --> 22:00.420]  sometimes something which should like come, come up very slowly and then you realize that?
+[22:00.420 --> 22:06.180]  Yeah, they can, yeah, yeah. They can go slowly. Also with heart, heart, heart attacks, often this
+[22:06.180 --> 22:11.300]  is a calcification. It can occur over time and you just, you know, you hear people talking about
+[22:11.300 --> 22:14.840]  feeling like there's an elephant on their chest, you know, and these, these feelings and a lot of
+[22:14.840 --> 22:15.660]  people ignore them.
+[22:17.060 --> 22:23.120]  Or, or don't think they're serious. But if you, if you feel those symptoms, you realize
+[22:23.120 --> 22:31.440]  time is of the essence. It doesn't make sense to wait. And you go to an emergency room,
+[22:32.940 --> 22:37.560]  they'll ask you some questions. They'll realize right away whether, whether they need to go
+[22:37.560 --> 22:46.400]  further or whether they can find it something else. But, and so then, and then if they diagnose that,
+[22:46.400 --> 22:46.580]  then it's important to go to the doctor.
+[22:46.580 --> 22:51.800]  And it's important that you, you, you get to an interventionalist, a doctor that can,
+[22:51.920 --> 22:55.720]  that can go in and treat this. So if you're lucky, you went to a hospital where there's,
+[22:55.880 --> 22:59.320]  there's one there. If you're not lucky, if you're not as lucky, then you're either going to have to
+[22:59.320 --> 23:03.560]  go by ambulance or helicopter to the nearest center where they do support that. And that
+[23:03.560 --> 23:04.480]  takes time. So.
+[23:05.160 --> 23:10.800]  And could you maybe also talk very briefly about how those blockages actually go on?
+[23:13.260 --> 23:14.960]  Well, there's different ways they can form.
+[23:16.580 --> 23:21.620]  Some is just, you know, atherosclerosis, you get deposits and then some of those deposits will
+[23:21.620 --> 23:27.320]  break loose. People who suffer from heart arrhythmias, particularly atrial fibrillation,
+[23:27.320 --> 23:34.580]  are more prone. So, and if you do have some of these heart arrhythmias, sometimes they will give
+[23:34.580 --> 23:41.380]  you blood thinners to make your blood purposely less viscous so that it flows better. Problem
+[23:41.380 --> 23:45.900]  with that is you get cut, then you bleed more, but, but that's better than, than having these
+[23:46.580 --> 23:51.260]  blood clots. But, but yeah, these are things that can build up over time and then, and then
+[23:51.260 --> 23:55.220]  something will come loose and it'll, it'll create this, this blood clot.
+[23:55.420 --> 23:55.500]  Yeah.
+[23:55.620 --> 24:01.260]  And did you maybe along this journey learn anything about how you could prevent
+[24:01.260 --> 24:04.060]  those blood clots from one?
+[24:04.220 --> 24:11.360]  I mean, yeah, you always hear things, right? Don't smoke. Smoking's not good. Doesn't help.
+[24:11.640 --> 24:16.420]  Eat healthy. You know, that's why we, you know, we talk about cholesterol,
+[24:16.580 --> 24:23.080]  and, and fats and, and trying to reduce those, eating properly. Diet, exercise is good.
+[24:23.820 --> 24:30.880]  So a lot of the things you hear are, are really focused on, on trying to, to prevent these kinds
+[24:30.880 --> 24:35.380]  of blockages from occurring. And are you following all those advice?
+[24:36.000 --> 24:43.320]  Let's see. Well, I don't smoke. I could probably eat more healthy, but I, I do get, I do get
+[24:43.320 --> 24:46.500]  checked from my doctor.
+[24:46.580 --> 24:51.200]  I'm on my cholesterol levels and, and whether the, one of the things they, you know, treatments,
+[24:51.320 --> 24:54.500]  if you do have high cholesterol and you can't treat it with diet is they give you statins
+[24:54.500 --> 24:59.820]  and those have proven to be very effective. They have side effects, but they're also,
+[25:00.020 --> 25:05.120]  I think the clinical evidence that, that, that some of these drugs are, are effective is,
+[25:05.220 --> 25:12.740]  is indisputable. So yeah, I, I certainly think of that and, and, you know, I work with a lot
+[25:12.740 --> 25:16.360]  of the surgeons who know all this stuff, you know, so they're always, and I actually,
+[25:16.580 --> 25:22.780]  sometimes get to go watch, go watch procedures and, and, and get an understanding of what's,
+[25:22.840 --> 25:26.360]  what's going on and what it looks like to get one of these, at least what it looks like
+[25:26.360 --> 25:26.880]  in x-rays.
+[25:29.720 --> 25:36.440]  We also started a lot of different companies and I would say also very successful companies.
+[25:36.800 --> 25:41.320]  Maybe you could share a little bit about which companies you're currently involved in.
+[25:41.320 --> 25:46.560]  And yeah, so we, we, when I first started working in micro robotics,
+[25:46.580 --> 25:53.500]  I think one of the 1998, we started thinking about how to manipulate biological cells and
+[25:53.500 --> 26:00.200]  one of the first things I wanted to do was figure out how much force was I exerting on
+[26:00.200 --> 26:03.300]  the individual cells when I was trying to grasp them and manipulate them.
+[26:04.080 --> 26:09.560]  And so I, I tried to buy something. I went online and, you know, actually an idea,
+[26:09.560 --> 26:12.780]  I'm not sure if we had catalogs or what's online, but anyway, I couldn't find anything
+[26:12.780 --> 26:16.560]  and realized that there,
+[26:16.580 --> 26:18.080]  there was really a gap in the market.
+[26:18.080 --> 26:21.080]  There wasn't something to make force measurements at those scales.
+[26:21.080 --> 26:28.080]  And so we, we were learning MEMS technology, microelectromechanical systems, and some of this.
+[26:28.080 --> 26:33.320]  And so we spent four years learning how to build, make force sensors at these proper scales.
+[26:34.700 --> 26:40.520]  And so that then turned into a spinoff company we spun out in 2007 called FemtoTools.
+[26:40.520 --> 26:46.340]  And so what we had been able to develop was a force sensor, which compared to all,
+[26:46.580 --> 26:51.820]  over the years, then other things came to market, but we've always found our force sensor was cheaper.
+[26:51.820 --> 26:56.080]  It was more precise and faster than anything on the market.
+[26:56.080 --> 27:01.580]  We were able to build, beat people, beat the competition in there.
+[27:01.580 --> 27:04.580]  And so eventually found a, a good market for that.
+[27:04.580 --> 27:11.080]  And then that, that company was just acquired a few months ago by Oxford Instruments,
+[27:11.080 --> 27:15.080]  a much bigger company now that's going to be able to, that's in scientific instrumentation.
+[27:15.080 --> 27:16.080]  And so they'll be able to expand that.
+[27:16.080 --> 27:17.840]  They'll be able to expand the market for that device.
+[27:17.840 --> 27:20.420]  So that's been successful.
+[27:20.420 --> 27:26.840]  We, we also founded a company in 2010 called AM Scientific,
+[27:26.840 --> 27:32.220]  and that company was able to treat patients suffering from heart arrhythmias and, and, and that.
+[27:32.220 --> 27:38.320]  And then more recently, Nanoflex Robotics is a company that spun off in 2001, 2021,
+[27:38.320 --> 27:45.740]  I mean, November, 2021, and it's, it is trying to address this ischemic stroke.
+[27:45.740 --> 27:46.080]  This, this ischemic stroke.
+[27:46.080 --> 27:53.080]  The blood clot in the brain issue with our magnetic fields and being able to do that in a remote procedure.
+[27:53.080 --> 27:56.580]  In other words, the doctor doesn't need to be near the patient.
+[27:56.580 --> 28:03.080]  He can do it from, he or she can do it from, from pretty much anywhere in the world, as long as they're at the, at the right hospitals.
+[28:03.080 --> 28:06.080]  So let me just quickly talk about magnetic fields.
+[28:06.080 --> 28:11.080]  So are there any, actually any disadvantages to using magnetic fields?
+[28:11.080 --> 28:14.080]  Is it inferring somehow with the human body?
+[28:14.080 --> 28:15.080]  Are there any?
+[28:15.080 --> 28:16.080]  Well, there's, there's a lot.
+[28:16.080 --> 28:44.980]  Yeah. So we are very comfortable with putting human bodies in magnetic fields. That's what magnetic resonance imaging is all about. We know what's safe and we know what's not. What's not safe is when they oscillate very quickly. So they're rapidly moving. But the magnetic fields we use are slow and they're much weaker than MR fields. So they are probably 50 to 100 times weaker than an MR field. So we know that the fields are safe.
+[28:46.080 --> 29:02.280]  We're not worried about any problem. We have to worry about interference with other equipment in the room. But those are engineering problems that we solve. But the problem with magnetic fields is they drop off with the cube of the distance.
+[29:02.280 --> 29:16.060]  So if I go from one centimeter away from my electromagnet to 10 centimeters away, the field has actually gotten a thousand times weaker. And so that's the challenge is dealing with weak fields and developing devices that can respond.
+[29:16.080 --> 29:36.440]  So that's really the disadvantage of magnetics more than anything is that you need to figure out how to generate these. It takes some power, it takes some energy to generate high enough fields. But we can generate these throughout the human body in ways that we think are effective.
+[29:36.780 --> 29:43.360]  So what would happen if I actually have a magnetic field which is switching very quickly?
+[29:44.500 --> 29:46.060]  What would be the...
+[29:46.080 --> 30:15.140]  Well, so you can start heating tissue. And I mean, basically, it can become almost like a microwaving, you know, cooking thing. But we know what the limits are for that. And we're not even close. And with MR, you know, you hear about people who, you know, have tattoos and have, you know, problems with some of the particles in their heating. But we're far from those kinds of dangers with our systems.
+[30:16.080 --> 30:33.160]  Okay, let me get back a little bit to startups again. So how difficult was it actually to make the switch from academic research to industrial applications to developing a product? And what were maybe some lessons which you learned along the way?
+[30:34.760 --> 30:45.820]  Well, it's a different kind of challenge, for sure. It's one thing to do research and publish articles and give talks on it. It's a completely different thing to produce a product that people want to pay money for.
+[30:46.080 --> 31:15.940]  It's difficult to understand markets, if you're in the medical space, to understand regulatory agencies. And I guess that's one of the things that is interesting to me is trying to understand that. But it's also, it can be extremely stressful, because you've got a company going, you've got to have budgets. And if you can't keep the money coming in, you know, you've got to lay off people, eventually your company goes under.
+[31:16.080 --> 31:19.940]  And that's a stress level you don't have when you're just doing research, right?
+[31:22.940 --> 31:38.280]  I think the lessons learned are, you know, the most important thing with a company is the team. You've got to have a good group of people that work well together that can handle the stress and the uncertainty of a company.
+[31:39.860 --> 31:45.940]  The second thing is the technology. And of course, that's what I'm interested in, is trying to move my technology out.
+[31:46.080 --> 32:12.140]  I'm interested in the development of the lab and trying to understand what's the advantage of this technology or the state of the art that's out there. And then the third is the business plan. And is there a way to make money off of what you're thinking of? Are you going to be able to get a return on the investment? And I think, so team is key. Technology, for my preferences as an engineer, that's absolutely important as well.
+[32:12.140 --> 32:14.800]  So the business plan, I figure if we're in a good area.
+[32:16.080 --> 32:46.060]  There's good business people out there, and they'll, we'll figure out ways to make money. And, and that's one thing I can say, working with companies that I've developed a lot of respect for are good business people, people that really have a good business sense, and good sales people, people that are really able to market their ideas effectively. And that's a skill set as an engineer, I never appreciated as much until I started looking at getting these things, you know, trying to try to move technology out of the lab and into into commercialization.
+[32:46.080 --> 32:47.460]  commercial viability.
+[32:48.240 --> 32:57.900]  So when you say what a good team, so what would you say are the most important attributes of someone who you would try to hire, for example?
+[32:58.380 --> 33:06.840]  Well, I think a good, you know, first of all, a team has to be passionate about what they're doing, they're going to be hard times.
+[33:06.840 --> 33:08.320]  So passion is basically
+[33:08.340 --> 33:14.040]  passion is is very important. They've also got to be good team players, they got to get along with each other.
+[33:16.080 --> 33:32.080]  You know, you want, you want people that, you know, stand up for themselves, but also can, can, can interact and, and and give, you know, give ground as well and and and, and and deal with others in effective ways, I think that's important.
+[33:32.800 --> 33:45.080]  You want people that can, that are that deal with uncertainty, you know, you go in, you think you know what the business is, you know you think what the business case is, and then all of a sudden, you realize, wait a minute, we were wrong.
+[33:45.120 --> 33:45.820]  You know, we did this.
+[33:45.840 --> 33:46.040]  We're wrong.
+[33:46.080 --> 33:49.980]  see this part of it we didn't understand this part of the business and and people that can
+[33:49.980 --> 33:55.900]  recognize that and know you know when when do you stick with your original idea and when do you
+[33:55.900 --> 34:00.180]  decide wait a minute we've got to shift gears and and that decision can be very very difficult to
+[34:00.180 --> 34:04.800]  make you you don't want to give up too soon but you also don't want to don't want to wait too
+[34:04.800 --> 34:09.760]  long either those are those are hard hard questions that need to be answered and answered
+[34:09.760 --> 34:17.780]  effectively besides being a very successful fun founder of startup you're also a very successful
+[34:17.780 --> 34:24.360]  research group right so i just wanted to quickly ask you about what makes and makes for example
+[34:24.360 --> 34:29.660]  someone an a player in your research group what other attributes which someone needs to have for
+[34:29.660 --> 34:36.320]  for conducting really successful research in micro-robotics well similar to you know the team
+[34:36.320 --> 34:39.680]  for a company you want people that are that are excited that you know you can
+[34:39.680 --> 34:39.740]  see the team for a company you want people that are that are excited that you know you
+[34:39.740 --> 34:42.500]  the spark in their eyes when you're talking about ideas they're interested
+[34:42.500 --> 34:51.860]  they have an open mind they're trying to to make connections that a lot of other people
+[34:51.860 --> 34:57.880]  don't even think about so you want that you want teamwork is is key we we're robotic we're a
+[34:57.880 --> 35:02.000]  robotics group fundamentally which means we build systems which means it's not like sitting around
+[35:02.000 --> 35:06.240]  thinking deep thoughts and all of a sudden you know you've solved this one problem it's a lot
+[35:06.240 --> 35:09.240]  of things have to come together and i think that
+[35:09.740 --> 35:16.120]  getting getting people that can work together effectively is important
+[35:16.120 --> 35:23.220]  hard work is key everybody's out there you know if you want to be the top in your field you gotta
+[35:23.220 --> 35:27.340]  you gotta work work as hard or harder than everybody else and and there are a lot of
+[35:27.340 --> 35:33.160]  groups out there that are really spend a lot of time and a lot of late nights a lot of weekends
+[35:33.160 --> 35:39.540]  a lot of holidays trying to hit that deadline and and so i think that's also key to them and so
+[35:39.740 --> 35:45.380]  how do you personally actually balance all those things which you have to do daily so for example
+[35:45.380 --> 35:51.560]  writing grants reading research papers actually doing research supervising students how do they
+[35:51.560 --> 35:58.420]  actually you know structure a typical day how does a typical day i don't know if i have a typical day
+[35:58.420 --> 36:04.380]  let's see but well first you need a good support team you know i have excellent administrative
+[36:04.380 --> 36:09.260]  staff that have been with me for more than 20 years some of them
+[36:09.740 --> 36:14.640]  and so you know you can trust them right so i don't have to pay attention necessarily to some
+[36:14.640 --> 36:19.480]  of those details like you know things like budgets or hiring and all you know a lot of these things
+[36:19.480 --> 36:24.440]  that are really important to do well you got to have people that you can trust and they can take
+[36:24.440 --> 36:32.420]  care of that for you and then it's a hierarchy in a way that you know we have i have a co-director
+[36:32.420 --> 36:38.500]  who's a chemist i'm a mechanical engineer so he takes he takes the you know the materials and
+[36:38.500 --> 36:39.720]  fabrication side of things i take the materials and fabrication side of things and i take the
+[36:39.740 --> 36:46.320]  systems side and then and then we have scientists and postdocs who you know take responsibilities
+[36:46.320 --> 36:52.140]  and then the phd students and then we've got our master's thesis and our bachelor's thesis you know
+[36:52.140 --> 37:00.940]  and it's a hierarchy and you know it's important that we all are on the same page i appreciate the
+[37:00.940 --> 37:05.360]  importance of having a good clear vision statement for your group a good clear mission statement this
+[37:05.360 --> 37:09.580]  is what we're about and what we do and and then we just need to communicate
+[37:09.740 --> 37:15.540]  and get together periodically and make sure we're all on the same page and know what's going on
+[37:15.540 --> 37:23.220]  so yeah one question which i was really burning to ask you is basically about the future of
+[37:23.220 --> 37:31.480]  micro robotics nano robotics so what is basically the smallest scale where we could go to what would
+[37:31.480 --> 37:36.900]  you say do you think it would be actually possible to have like atomic scale robots
+[37:36.900 --> 37:39.220]  manipulating something so you know
+[37:39.740 --> 37:44.300]  we were in nanorobot i mean we are in nanorobotics and we talk about it but but
+[37:44.300 --> 37:46.260]  but if you look at microorganisms
+[37:46.260 --> 37:54.540]  microorganisms there aren't many interesting microorganisms that are smaller than a micron
+[37:54.540 --> 37:58.640]  in size so that's a millionth of a meter that's about one one hundredth the size of a
+[37:58.640 --> 38:08.020]  grain of a strand of hair so and so you know why is that why why are bacteria not much smaller
+[38:08.020 --> 38:09.720]  than that bacteria that propel themselves to the ground and they're not going to be able to
+[38:09.740 --> 38:16.660]  themselves a flagellated bacteria like e coli and it comes back to this phenomenon called brownian
+[38:16.660 --> 38:22.220]  motion which is where when you get below a micron in size all of a sudden these these things get
+[38:22.220 --> 38:29.180]  knocked around by the atoms individually and and a guy by the name of robert brown a scotsman back
+[38:29.180 --> 38:38.780]  in i think the 1700s 1800s was looking at pollen grains under a microscope and he started he noticed
+[38:38.780 --> 38:39.720]  them dancing around and he noticed them dancing around and he noticed them dancing around and he
+[38:39.740 --> 38:46.820]  thought i found the life force this is a magical force look these things have but so then he was a
+[38:46.820 --> 38:52.980]  good scientist so then he took some granite particles and he put them under the microscope
+[38:52.980 --> 38:57.380]  and he saw the same thing he's like okay i guess i didn't find the life force but he he's noticed
+[38:57.380 --> 39:03.500]  this phenomena and and and didn't really understand and it wasn't until albert einstein in one of his
+[39:03.500 --> 39:09.140]  1905 papers his famous year where he explained that connection and explained statistically how
+[39:09.740 --> 39:14.240]  they can actually make you know these particles are much much larger than an atom but they can
+[39:14.240 --> 39:19.640]  actually be knocked around by that and that's where i think from a micro robotic standpoint
+[39:19.640 --> 39:24.740]  for me it gets less interesting because things just are getting knocked around by atoms there's
+[39:24.740 --> 39:27.980]  still a lot of interesting work of course going on in nanoparticles we do a lot of work with
+[39:27.980 --> 39:34.400]  nanoparticles and things but but in terms of making things move it's it's really a micron
+[39:34.400 --> 39:39.380]  is kind of a limit and then below that it's it's adding material properties to our
+[39:39.740 --> 39:47.540]  basically say that one micron is the limits one micron is about where where we look and and most
+[39:47.540 --> 39:52.320]  of the the devices we're making now are in the hundreds of microns to millimeter to a millimeter
+[39:52.320 --> 39:57.880]  i think this right now we're we're working with with some devices that are about 800 microns about
+[39:57.880 --> 40:05.680]  an eighth a millimeter an eighth of a millimeter in size and and we can move those within within
+[40:05.680 --> 40:09.140]  the brain within the body at at human scales
+[40:09.740 --> 40:14.980]  and as we get smaller and smaller it gets harder and harder we'll get better at it it's just a lot
+[40:14.980 --> 40:19.140]  of a lot of parameters a lot of things have to come together and all this to get this stuff to work
+[40:19.140 --> 40:27.540]  well yeah you control robots mostly by using magnetic fields right do you think there are
+[40:27.540 --> 40:33.200]  also alternatives ways before you can manipulate yeah so people yeah people have looked at
+[40:33.200 --> 40:38.740]  using light from light doesn't penetrate the body if you want to do it in a very well
+[40:39.740 --> 40:42.160]  people have also looked at using
+[40:42.160 --> 40:49.920]  chemistries catalytic motors and things like that but a lot of the chemistries are toxic so those
+[40:49.920 --> 40:53.940]  aren't very good but but one area that's interesting is using ultrasound so we we you know
+[40:53.940 --> 40:59.780]  ultrasounds used to to look in the body a lot but we can also use that those ultrasonic that
+[40:59.780 --> 41:04.440]  ultrasonic energy and harvest it in a device and cause it to move and i think there's some
+[41:04.440 --> 41:08.720]  interesting work there we've done a little in it but but other people are doing much much more i
+[41:08.720 --> 41:09.720]  think there's a lot of possibilities there's a lot of possibilities there's a lot of possibilities
+[41:09.740 --> 41:14.560]  there and that makes sense and do you think there are also a lot of different applications
+[41:14.560 --> 41:20.740]  outside of the medical fields so do you think we might see some applications for example in
+[41:20.740 --> 41:27.420]  climate change or agricultural sciences yeah we we we kind of stumbled across
+[41:27.420 --> 41:33.260]  materials that can actually degrade micropollutants
+[41:33.260 --> 41:37.560]  so we were we were coding our micro robots with
+[41:39.740 --> 41:45.500]  magneto electric material we say thinking we would we could use it to help diffuse the drugs
+[41:45.500 --> 41:52.160]  when we wanted but what we found it was doing was destroying the drugs and then the kind of the light
+[41:52.160 --> 41:55.760]  bulb went off in the head of some of my chemists and they said oh you know what we there's this
+[41:55.760 --> 42:01.920]  problem with micropollutants in the environment things like pesticides some of these drugs coming
+[42:01.920 --> 42:08.500]  out of hospitals getting to the you know water chain from also chemical industry and they're
+[42:08.500 --> 42:09.700]  very difficult to remove
+[42:09.740 --> 42:14.200]  and expensive and not very environmentally friendly actually to remove
+[42:14.200 --> 42:21.780]  and so we some of my group spun off a company called oxyle and so they're trying to then
+[42:21.780 --> 42:28.180]  commercialize this technology for for removing these micropollutants including these forever
+[42:28.180 --> 42:33.900]  chemicals these pfas these that are out there that's become such a big topic now and so they
+[42:33.900 --> 42:39.220]  can actually degrade these chemicals and so they're you've got a
+[42:39.740 --> 42:45.980]  growing company and are making headway in in trying to use some of this technology so i think
+[42:45.980 --> 42:51.620]  environmental remediation water cleanup soil cleanup those are certainly possibilities that
+[42:51.620 --> 42:58.680]  we can consider that this technology anything where you want you know large groups of small
+[42:58.680 --> 43:03.360]  things to move around and and deal with a large-scale problem i think you can we can find
+[43:03.360 --> 43:07.420]  perhaps some technologies coming out of this that are that are going to be interesting in the future
+[43:07.420 --> 43:09.180]  yes
+[43:09.740 --> 43:15.260]  um yeah let me ask you a small fun question okay well maybe you have seen this movie transcendence
+[43:16.300 --> 43:23.740]  it's basically a movie about an ai which is taking over the world and at some point it does a lot of
+[43:23.740 --> 43:31.580]  researching on nano or robots and then suddenly it can like transform every element on the planet
+[43:31.580 --> 43:38.060]  and it always do a lot of like maybe yeah it can restore for example a human body or they can like
+[43:39.740 --> 43:45.220]  yeah rearrange things for agricultural sciences so do you think something like that could be
+[43:45.220 --> 43:52.940]  possible in the future using young robots or is it far away yeah i i'm not too worried about this
+[43:52.940 --> 43:58.620]  movie let's see who is the actor in there johnny depp that's right i watched part of that movie and
+[43:58.620 --> 44:05.180]  then i was like okay this is a little too far too too crazy for me okay i can see where this is going
+[44:05.180 --> 44:09.580]  there's a book by michael creighton called prey that's kind of in the same vein and i'm not sure
+[44:09.580 --> 44:17.960]  vein and i think it's fun to think about that i mean we're we're inspired a lot by science fiction
+[44:17.960 --> 44:24.800]  you know we talk about fantastic voyage the movie that came out in 1966 on the little submarine
+[44:24.800 --> 44:28.800]  that's swimming through a scientist's body trying to cure him of of some disease
+[44:28.800 --> 44:35.800]  you know science fiction is great gives us a lot of motivation i guess as an engineer i'm trying
+[44:35.800 --> 44:39.660]  to figure out okay the vision is great but how do i actually get there right what what's
+[44:39.660 --> 44:44.780]  and what makes sense and sometimes the reality is actually far more interesting than the
+[44:44.780 --> 44:48.160]  than the stories of science fiction people create most of the time you find
+[44:48.160 --> 44:53.040]  oh wow this is really hard i don't think we could solve this problem but but who knows you know
+[44:53.040 --> 45:00.060]  we always learn more there's always more to learn so but it's a long way away if it is coming
+[45:00.060 --> 45:04.320]  but at least one thing which seems to be possible is to like transport
+[45:04.320 --> 45:05.780]  drugs through the
+[45:05.800 --> 45:13.180]  human body using robots so i just wanted to like ask you how far are we there what kind of drugs
+[45:13.180 --> 45:19.840]  can we transport what kind of diseases can we work yeah yeah well so so the groups i know and
+[45:19.840 --> 45:28.920]  the companies i know are looking at primarily two two diseases one are our brain cancer the
+[45:28.920 --> 45:34.800]  things like gliomas glioblastomas these very very aggressive brain cancers there's not a lot you can
+[45:34.800 --> 45:35.540]  do for them
+[45:35.800 --> 45:37.720]  and so
+[45:37.720 --> 45:44.100]  i think one of the reasons to look at these is is
+[45:44.100 --> 45:50.800]  you can get regulatory approval more quickly because there's such a such a need
+[45:50.800 --> 45:56.080]  and there is a case to be made for how you might be able to treat some of these these
+[45:56.080 --> 45:59.900]  these kind of spider tumors that are that are infiltrating the brain so that makes sense
+[45:59.900 --> 46:03.800]  the other thing i think are are these
+[46:03.800 --> 46:05.780]  vascular diseases we talked about are the ones that are the most important for us to treat
+[46:05.800 --> 46:08.720]  so we talked about the blood clots in the heart and in the brain
+[46:08.720 --> 46:12.020]  right now we have
+[46:12.020 --> 46:19.220]  you know standard of care is is putting a wire in and trying to use it with a catheter to bring it
+[46:19.220 --> 46:24.340]  out and i think that can be very effective but i think we can do better but it's going to take a
+[46:24.340 --> 46:27.620]  long time if we're going to we have to do it safely you know you don't want to take a step
+[46:27.620 --> 46:33.740]  back and that makes it a hard problem to solve it's not like a self-driving car that can crash
+[46:33.740 --> 46:35.780]  once in a while you you want to do it safely you don't want to do it safely you don't want to do it
+[46:35.780 --> 46:44.320]  to, you don't want to give a patient a lower standard of care than what's currently available.
+[46:44.460 --> 46:50.300]  And that makes it hard. But I think there are things we can do. I think we can go deeper into
+[46:50.300 --> 46:54.980]  the brain where we can't reach some of these wires. I think we can treat some of these diseases in
+[46:54.980 --> 47:05.000]  ways we haven't thought of before. But it's not easy. That's why we do it, right? It's a challenge
+[47:05.000 --> 47:12.200]  and it's fun when you start solving pieces of the puzzle. And if we say we should go deeper into
+[47:12.200 --> 47:16.860]  the brain, does it mean that we are also doing some manipulation in the brain? Or is it more
+[47:16.860 --> 47:23.240]  just about delivering drugs really to a targeted area? Yeah, it's more about delivering drugs to
+[47:23.240 --> 47:27.940]  targeted areas. So we can only reach certain, you know, I talked about these mechanical thrombectomies
+[47:27.940 --> 47:33.580]  and the guide wires, they can only go a certain level into the brain before they're just too big.
+[47:33.980 --> 47:34.940]  And if we can make
+[47:34.940 --> 47:39.100]  smaller devices, we can actually start breaking up maybe further, deeper into the brain. If you
+[47:39.100 --> 47:43.360]  talk to neurosurgeons and some of the doctors who deal with these people, yeah, we take the
+[47:43.360 --> 47:48.160]  blood clot out, but they're still not the same, right? They still can have some side effects from
+[47:48.160 --> 47:51.860]  that. And they believe, some of them believe that there's blockages deeper in the brain that we're
+[47:51.860 --> 47:56.840]  just not able to get to. So maybe there's something we can do there. You know, people talk about
+[47:56.840 --> 48:01.540]  things like Alzheimer's, right? And these plaques in the brain, and are there ways we can help break
+[48:01.540 --> 48:04.920]  those up with some of these? I mean, these are all far out ideas.
+[48:04.940 --> 48:10.700]  But they're not unrealistic ideas, and they're certainly worth investigation. So I think,
+[48:12.140 --> 48:17.100]  but no, we're not, we're not looking at manipulating people's brains in some nefarious way,
+[48:17.100 --> 48:22.540]  right? So that sounds good. Yeah. And if you look actually back over your whole career,
+[48:22.540 --> 48:27.100]  what would you say is like, one thing which you're most proud of, proud of?
+[48:27.100 --> 48:33.900]  Oh, that's easy. The students will come out of my lap. Yeah, yeah.
+[48:33.900 --> 48:34.400]  Yeah.
+[48:34.940 --> 48:39.660]  Great people come through, you know, you work with good people, and you watch them go out and
+[48:39.660 --> 48:46.060]  create these great labs. It's, it's very gratifying. And what would you say, what would you say to
+[48:46.060 --> 48:52.060]  someone who wants to actually go into the whole field of micro robotics? What kind of things
+[48:52.060 --> 48:55.680]  should someone like that study? What kind of topics should they?
+[48:55.940 --> 49:01.080]  Well, it's a, it's a very broad field. So, so we, you know, my group's lucky that,
+[49:01.300 --> 49:04.920]  you know, I'm like, I'm a mechanical engineer, I'm a robotic systems kind of guy,
+[49:04.940 --> 49:13.000]  I can integrate X-ray systems with magnetic navigation systems with controllers for doctors.
+[49:13.000 --> 49:18.760]  But then I get to work very closely with a chemist, and in his team, and they bring in that
+[49:18.760 --> 49:27.000]  side of it. And so I, I always think of students, it's not always the case, but I think a student's
+[49:27.000 --> 49:31.360]  either more gravitating to physics or chemistry, right? And I've always gravitated more to physics.
+[49:31.360 --> 49:34.920]  And my, my co director, Salvador, he always, he gravitates more to the chemistry side of things.
+[49:34.940 --> 49:43.400]  They're both super important. And I think, you know, the most important thing is find what you're
+[49:43.400 --> 49:50.080]  doing, interesting and fascinating. So you look forward to doing it. And then, and then you got
+[49:50.080 --> 49:55.340]  to work as a part of the team and, and, and bring all these different pieces of the puzzle together.
+[49:55.900 --> 49:59.980]  And it's not just the chemists and the physics side, you guys also work with the medical doctors
+[49:59.980 --> 50:04.840]  and convince them that what you're doing is interesting, and then also learn from them
+[50:04.840 --> 50:04.920]  that you're doing a good job. And so I think, you know, I think it's a, it's a, it's a, it's a,
+
+[50:04.940 --> 50:09.160]  and try to understand more deeply what it is they're really doing. And is there something way I can
+[50:09.160 --> 50:12.960]  help? And then if you really want to get this out of the lab, you gotta, you gotta think about the
+[50:12.960 --> 50:19.640]  business side and what investments it's going to take to bring this to fruition. And how can you
+[50:19.640 --> 50:27.680]  make a case to the investors that this is worth taking a risk on? And so it, it's, it's, it's a
+[50:27.680 --> 50:33.640]  very multidisciplinary problem, very interdisciplinary problem. And so if you work in
+[50:33.640 --> 50:41.840]  such a, yeah, high discipline, interdisciplinary topic, so, so how difficult is it actually to get
+[50:41.840 --> 50:47.820]  so many teams and so many people from different industries, from different subjects,
+[50:48.960 --> 50:55.440]  expertise together? And how do you actually put them all onto one problem? How, how do you have
+[50:55.440 --> 51:03.400]  such a large, heterogeneous group together? Yeah, I think, again, it, it, it comes back to the people.
+[51:03.640 --> 51:08.260]  And so you want people that are deep in areas, but then have broader, broad interests and are
+[51:08.260 --> 51:13.220]  willing to work on other problems. So you, you, you need, you know, good chemists, good materials
+[51:13.220 --> 51:18.720]  people, you need good programmers, right? You need good systems level people. You want, you want
+[51:18.720 --> 51:24.900]  to meet those doctors that can see the future and see where, you know, where this is going to go in
+[51:24.900 --> 51:32.820]  20 years. And it's just networking, right? It's just talking to people, giving talks and,
+[51:33.640 --> 51:41.220]  and it's just part of, you know, what interests you, what excites you. And I, I've always, you
+[51:41.220 --> 51:45.840]  know, like to move from, you know, problem to problem and, and try to understand how things
+[51:45.840 --> 51:52.000]  work. And I think, you know, then you, you find like-minded people and, and, you know, somebody
+[51:52.000 --> 51:55.160]  can solve this problem, somebody else solves this problem. And, and all of a sudden you've got,
+[51:55.240 --> 52:02.740]  you know, one plus one is three, right? So it's cool. And recently we had such a big, yeah,
+[52:03.640 --> 52:11.240]  revolution with ZGPT and all the large language models. Do you think that would actually get some
+[52:11.240 --> 52:15.380]  benefits to, to new fields coming from, from models like that?
+[52:18.380 --> 52:23.620]  Well, I, I think that remains to be seen. We do look at transformers. We have done learning. We
+[52:23.620 --> 52:27.960]  have, I don't, I'm having a hard time seeing in, in a lot of our work, how we can apply some of
+[52:27.960 --> 52:31.420]  these large language models, but we're looking, we are looking at it. We're, we're considering
+[52:31.420 --> 52:32.540]  and trying to figure it out.
+[52:33.640 --> 52:41.660]  My big hope for chat GPT is, has always been, I work with people. I'm, I'm lucky. English is my
+[52:41.660 --> 52:47.440]  first language and I'm lucky that English is a language of science. Communication in English for
+[52:47.440 --> 52:53.680]  me comes relatively easy. I've got these brilliant people, you know, English can be their second,
+[52:53.800 --> 53:01.700]  third, fourth language and anything that helps them communicate their ideas more effectively
+[53:01.700 --> 53:06.740]  without having to worry about, oh, did I, you know, lose the wrong verb here with this noun or
+[53:06.740 --> 53:13.640]  something, anything that can help them write better and communicate better is good. I don't
+[53:13.640 --> 53:19.140]  believe chat GPT is going to solve our research problems for us, at least in its current forms and
+[53:19.140 --> 53:27.240]  in the near future. But if it can help us write more clear texts, it can help us organize our,
+[53:27.240 --> 53:31.580]  our communication better. I think that's the big win because I always tell my students, you know,
+[53:31.700 --> 53:37.380]  you can do the best science in the world, but if you can't communicate it, it's, it's, it's all for
+[53:37.380 --> 53:43.880]  not. And I think that's my hope for chat GPT is it will help. It will eventually, we will help us
+[53:43.880 --> 53:51.280]  communicate better and we can focus on the ideas more and less on crafting that perfect paragraph
+[53:51.280 --> 53:58.440]  or sentence, right? Which I appreciate. I love great writing, but I, I think, you know, we also
+[53:58.440 --> 53:59.780]  want to focus on our ideas, right?
+[54:01.140 --> 54:01.620]  And
+[54:01.700 --> 54:07.400]  is there some, some project which you have just maybe started to work on, which you're super
+[54:07.400 --> 54:08.360]  excited about?
+[54:09.800 --> 54:17.300]  Well, the most exciting research I've done is always the research I'm working on. So we're,
+[54:17.300 --> 54:25.460]  we're getting now to the point where we've got robotic capsules. These are capsules that we can
+[54:25.460 --> 54:31.580]  move, that we can see that can perform a task. And we're able to move these now at human
+[54:31.580 --> 54:31.680]  speed. And we're able to move these now at human speed. And we're able to move these now at human
+[54:31.680 --> 54:33.780]  speed. And we're able to move these now at human speed. And when you see them, you're able to
+[54:33.780 --> 54:48.080]  see, you you'll see
+[54:48.080 --> 54:54.360]  that trails have continued to change on different scales in
+[54:54.360 --> 54:55.600]  the body. And after you see it, you'll think, oh, of course, but you don't realize how many years and how many wrong paths it took to get there. And
+[54:55.600 --> 54:59.060]  so I'm looking forward to upcoming trials that are going to demonstrate that and, and I'll look forward to getting getting that paper out. And and then the other thing that we've learned a lot over the last several years is how to generate these magnetic fields in the body.Coreate, more correctly, because you don't apply a push-access for purposes of testing and testing again if you're December 27th with F vielleicht of zaw at the group
+[54:59.060 --> 55:03.580]  how to generate these magnetic fields in the body and i think there's a lot more we can do with them
+[55:03.580 --> 55:12.900]  we just we just did a an animal trial where we guided an endoscope in a pig controlling it from
+[55:12.900 --> 55:19.060]  zurich and hong kong so 9300 kilometers away first time anybody had done it that way in a pig
+[55:19.060 --> 55:24.820]  and i think that's going to open up possibilities and then and then what i'm really looking for and
+[55:24.820 --> 55:31.580]  i i spent a lot of time going to a small got a lot of connections down in in africa to ghana
+[55:31.580 --> 55:38.700]  to botwana to south africa we're looking at how we can use some of this technology in remote clinics
+[55:38.700 --> 55:45.960]  i was just in a clinic a while ago in south africa where if you show up there with a stroke
+[55:45.960 --> 55:51.020]  you've got a five to eight hour truck ride to the nearest center to get treated well by that time
+[55:51.020 --> 55:54.800]  you're you're not in good shape but they really have the infrastructure
+[55:54.820 --> 55:59.960]  that if we put a system in there we could have a surgeon from zurich switzerland for instance
+[55:59.960 --> 56:07.400]  connecting down there and helping guide a procedure and so that to me is is exciting
+[56:07.400 --> 56:13.080]  as well so i'll be next week flying down to johannesburg and then and then driving up and
+[56:13.080 --> 56:21.080]  visiting some of my my colleagues there and and looking at ways we can start some some of these
+[56:21.080 --> 56:24.640]  remote surgical experiments and and and show how this
+[56:24.820 --> 56:27.880]  technology that we're developing for micro robotics though can translate to
+[56:27.880 --> 56:31.920]  curing some of the most devastating diseases that we have
+[56:31.920 --> 56:41.980]  yeah speaking of africa you also were in the peace corps right for some time maybe
+[56:41.980 --> 56:49.180]  squeaky talk a little bit about your time well sure yeah yeah so i mean so the united states
+[56:49.180 --> 56:54.560]  peace corps is an organization started in 1961 when john f kennedy was president
+[56:54.820 --> 57:02.940]  the idea was to to to send americans to these you know around remote places in the world
+[57:02.940 --> 57:09.420]  and and you had you had three goals as a peace corps volunteer you still do
+[57:09.420 --> 57:18.200]  one was to bring some skill to this that's needed in this place when i was a peace corps
+[57:18.200 --> 57:20.480]  volunteer my skill was i taught math in high school
+[57:20.480 --> 57:20.760]  so
+[57:20.760 --> 57:24.400]  the other thing
+[57:24.820 --> 57:28.440]  you're supposed to do is train a local person to take your job you're supposed to work yourself
+[57:28.440 --> 57:34.420]  out of a job so that's your your second goal then your third goal is to come back home come back to
+[57:34.420 --> 57:40.260]  the united states my home at the time and educate the other americans about about this great country
+[57:40.260 --> 57:46.340]  so i was in botswana and so actually my wife was also a peace corps volunteer we met each other in
+[57:46.340 --> 57:54.540]  africa and so that's so we've enjoyed doing over the last more than 30 years now is telling people
+[57:54.540 --> 57:54.800]  what a great country is and what a great country is and what a great country is and what a great
+[57:54.820 --> 57:57.160]  place this is how great the people are right and
+[57:57.160 --> 58:06.220]  and so so yeah so the peace corps is in some people forget for some reason chinese people
+[58:06.220 --> 58:10.560]  think it's a it's a military thing but it's not it's a it's a purely civilian thing and it
+[58:10.560 --> 58:17.380]  it's a great thing to do when you have particularly when you're young when you don't have a lot of
+[58:17.380 --> 58:22.540]  responsibilities and you're willing to live at very low levels i think we made i made about
+[58:22.540 --> 58:24.800]  two hundred dollars a month just enough to live on in this village and i think it's a great thing to do
+[58:24.820 --> 58:25.120]  village
+[58:25.120 --> 58:30.160]  i was there about two and a half years my wife was there for i think just over three years
+[58:30.160 --> 58:36.540]  i taught math math in a junior high in high school junior high school math which i learned
+[58:36.540 --> 58:43.060]  how hard teaching is man i have a lot of respect for for real teachers as a professor i get up and
+[58:43.060 --> 58:49.400]  i give lectures you know a few hours a week or so but doing it all day long is that's a hard job
+[58:49.400 --> 58:54.800]  and uh it was yeah it was it was certainly like a lot of work but i think it's a great thing to do
+[58:54.820 --> 59:01.500]  life-changing experience for me and so in 2002 you actually moved from the u.s i think to switzerland
+[59:01.500 --> 59:08.440]  so so why did you actually make this move and what do you love about switzerland yeah well i think
+[59:08.440 --> 59:12.360]  we were at minnesota at the time we'd been there and my wife and i were just you know we had just
+[59:12.360 --> 59:20.260]  been talking our kids were small we had they were four four seven and nine i think we were like you
+[59:20.260 --> 59:24.800]  know minnesota's nice we like people here but you know maybe there's another career
+[59:24.820 --> 59:28.420]  step maybe we can think about moving again somewhere else and i happened to get an email
+[59:28.420 --> 59:33.180]  i knew there was a position open at the unit at this the swiss federal institute of technology
+[59:33.180 --> 59:37.820]  eth zurich but i didn't ever thought of dreaming of applying for it i got an email and so i
+[59:37.820 --> 59:43.480]  just about the time we were having this discussion so i said to my wife it doesn't hurt to send a cv
+[59:43.480 --> 59:48.280]  and i i went it was a beautiful day in june the mountains were out zurich's a beautiful city
+[59:48.280 --> 59:54.000]  especially when the weather's nice and i'm like i said to my wife dana you need to come out here
+[59:54.820 --> 01:00:03.340]  so we came and said oh let's let's see how this goes for five years and it's life's been
+[01:00:03.340 --> 01:00:08.460]  interesting so we've raised our kids their daughters are there i've got a grandson now
+[01:00:08.460 --> 01:00:16.700]  there so it's we've been there you know almost 22 years now so but you know switzerland is a lot
+[01:00:16.700 --> 01:00:19.800]  of similarities between switzerland and the united states i think a very innovative country
+[01:00:19.800 --> 01:00:24.340]  but it's a much smaller country so that changes you know it's
+[01:00:24.820 --> 01:00:29.480]  and there's of course a lot of differences too but it's it's it's a nice place to live in a
+[01:00:29.480 --> 01:00:35.020]  beautiful country is there something which you're missing about the u.s mostly it's away from family
+[01:00:35.020 --> 01:00:40.320]  parents are older my wife's family's in west coast my folks are in the mid midwest and
+[01:00:40.320 --> 01:00:46.980]  i look for chances to get back to the u.s just to stop by see how they're doing and we've got
+[01:00:46.980 --> 01:00:51.560]  family there and i think that's what we miss most more more than anything is is just families
+[01:00:51.560 --> 01:00:54.800]  nice yeah thank you so much for having me and i'll see you next time
+[01:00:54.820 --> 01:01:00.400]  for doing the podcast maybe you have like some last words to the robotics community is something
+[01:01:00.400 --> 01:01:09.580]  which maybe people could do better in the community well i think robotics is a a wonderful
+[01:01:09.580 --> 01:01:16.360]  thing to study i think it's it combines two things that i love it combines technology
+[01:01:16.360 --> 01:01:22.140]  i like building stuff i like making stuff but you also have to be a bit of a philosopher
+[01:01:22.140 --> 01:01:24.600]  you have to think of the nature of intelligence
+[01:01:24.820 --> 01:01:30.180]  you have to think of the nature of of the unit of the world how do you model the world
+[01:01:30.180 --> 01:01:34.200]  and these can be deeply philosophical questions so i think
+[01:01:34.200 --> 01:01:41.100]  that's what you see you know at the at these meetings you see people developing really cool
+[01:01:41.100 --> 01:01:45.320]  technologies and then you people talking about representations and oh how do we represent this
+[01:01:45.320 --> 01:01:49.400]  and you know what's the nature of that and i think these are these are great questions that
+[01:01:49.400 --> 01:01:54.340]  you go back to to philosophers from centuries ago who asked the same
+[01:01:54.820 --> 01:01:59.720]  very very similar questions and that's one of the reasons i love the field and i was lucky to fall
+[01:01:59.720 --> 01:02:07.000]  into it by accident and more or less well that sounds very good thank you so much thanks andreas
+[01:02:07.000 --> 01:02:07.860]  it's a pleasure
+
