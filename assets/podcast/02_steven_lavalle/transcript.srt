@@ -1,0 +1,6296 @@
+1
+00:00:00,000 --> 00:00:02,960
+Welcome to the Andreas Orthey podcast series on robotics.
+
+2
+00:00:03,640 --> 00:00:06,080
+My guest in this episode is Steven Lavalle.
+
+3
+00:00:06,960 --> 00:00:12,440
+Steven is a robotics professor at the University of Ulu and one of the pioneers of robot motion
+
+4
+00:00:12,440 --> 00:00:12,760
+planning.
+
+5
+00:00:13,260 --> 00:00:17,960
+He's widely known in the robotics community for his work on the rapidly exploring random
+
+6
+00:00:17,960 --> 00:00:22,860
+tree, one of the most efficient algorithms to move robots from A to B.
+
+7
+00:00:23,720 --> 00:00:29,380
+In addition, Steven also wrote the book Planning Algorithms, which is considered by many to
+
+8
+00:00:29,380 --> 00:00:32,580
+be one of the foundational works for robotics research.
+
+9
+00:00:33,280 --> 00:00:35,600
+I'm grateful that he was able to join me.
+
+10
+00:00:35,860 --> 00:00:37,900
+Please welcome Steven Lavalle.
+
+11
+00:00:38,380 --> 00:00:40,740
+Thank you so much for being here, Steven.
+
+12
+00:00:40,740 --> 00:00:40,860
+Sure.
+
+13
+00:00:41,200 --> 00:00:43,260
+I read the biography on your website.
+
+14
+00:00:43,400 --> 00:00:43,520
+Yeah.
+
+15
+00:00:43,700 --> 00:00:46,120
+You were born in St. Louis in Missouri.
+
+16
+00:00:46,480 --> 00:00:46,680
+Yeah.
+
+17
+00:00:47,420 --> 00:00:51,620
+And you say that you're coming more from like a working class family.
+
+18
+00:00:52,100 --> 00:00:54,960
+So what did actually your parents do when you grew up?
+
+19
+00:00:55,400 --> 00:00:57,360
+Yeah, well, my dad was a printing press operator.
+
+20
+00:00:57,360 --> 00:00:57,920
+Oh.
+
+21
+00:00:57,920 --> 00:01:01,640
+And my mom did some bookkeeping and was mostly a homemaker.
+
+22
+00:01:02,500 --> 00:01:06,040
+My parents got divorced when I was young, though, and then went through a number of
+
+23
+00:01:06,040 --> 00:01:07,400
+trials and different kinds of things.
+
+24
+00:01:07,720 --> 00:01:08,000
+Okay.
+
+25
+00:01:08,620 --> 00:01:16,860
+And can you maybe like trace back your fascination with robotics to like some kind of specific
+
+26
+00:01:16,860 --> 00:01:22,280
+memory or specific moment where you thought, okay, robotics, that doesn't like my career.
+
+27
+00:01:22,520 --> 00:01:23,980
+I want to go into that field.
+
+28
+00:01:23,980 --> 00:01:26,920
+Well, I was fascinated by AI because of the movie 2001.
+
+29
+00:01:27,200 --> 00:01:27,840
+I saw that.
+
+30
+00:01:27,840 --> 00:01:29,160
+I saw that when I was about 10 years old or so.
+
+31
+00:01:29,300 --> 00:01:29,760
+That's amazing.
+
+32
+00:01:30,080 --> 00:01:31,340
+It was about 10 years old itself.
+
+33
+00:01:31,580 --> 00:01:36,120
+And so Hal 9000 was done at the University of Illinois, according to the movie.
+
+34
+00:01:36,280 --> 00:01:39,880
+It was done in Urbana, Illinois, which is exactly where I did my PhD during the time
+
+35
+00:01:39,880 --> 00:01:40,640
+when it was supposed to be.
+
+36
+00:01:41,020 --> 00:01:42,760
+So I was fascinated with that.
+
+37
+00:01:42,860 --> 00:01:43,520
+So I knew AI.
+
+38
+00:01:44,000 --> 00:01:45,960
+I love the robots in Star Wars, of course.
+
+39
+00:01:46,020 --> 00:01:46,460
+Who doesn't?
+
+40
+00:01:47,660 --> 00:01:50,760
+But a lot of it just came in graduate school by just kind of narrowing it down.
+
+41
+00:01:50,860 --> 00:01:54,840
+I didn't like some of the more abstract kind of AI, more philosophical kinds of things
+
+42
+00:01:54,840 --> 00:01:55,720
+that were going on at the time.
+
+43
+00:01:56,460 --> 00:01:57,820
+It wasn't as far along.
+
+44
+00:01:57,840 --> 00:01:59,200
+It wasn't as far along as it is today.
+
+45
+00:02:00,140 --> 00:02:03,040
+And so I ended up finding robotics really appealing.
+
+46
+00:02:03,200 --> 00:02:05,360
+My advisor, Seth Hutchinson, was new and doing robotics.
+
+47
+00:02:05,580 --> 00:02:08,100
+And it just seemed very honest in what it was trying to deliver.
+
+48
+00:02:08,400 --> 00:02:12,180
+It had some practical engineering aspect to it, but also great opportunities to go deep
+
+49
+00:02:12,180 --> 00:02:13,860
+in mathematics and algorithms.
+
+50
+00:02:13,860 --> 00:02:15,500
+And all the things I loved were kind of there.
+
+51
+00:02:15,720 --> 00:02:17,380
+But I wasn't worried about it.
+
+52
+00:02:17,380 --> 00:02:17,800
+And it was nice.
+
+53
+00:02:17,920 --> 00:02:21,680
+Somehow I learned that the magic of whatever intelligence was, was kind of elusive.
+
+54
+00:02:22,040 --> 00:02:25,920
+And I thought, well, let's just see if we can make machines do interesting things, mechanical
+
+55
+00:02:25,920 --> 00:02:27,140
+machines in the real world.
+
+56
+00:02:27,140 --> 00:02:27,200
+Yeah.
+
+57
+00:02:27,840 --> 00:02:32,480
+And what were some favorite subjects which you really liked to explore when you were
+
+58
+00:02:32,480 --> 00:02:37,680
+younger, which already maybe put the foundation for your later career?
+
+59
+00:02:38,740 --> 00:02:40,600
+Well, I fell in love with coding.
+
+60
+00:02:41,160 --> 00:02:42,200
+I was able to get started.
+
+61
+00:02:42,200 --> 00:02:42,900
+When was that?
+
+62
+00:02:43,060 --> 00:02:43,840
+So at which age?
+
+63
+00:02:43,980 --> 00:02:46,960
+When I was about 14, I started.
+
+64
+00:02:47,600 --> 00:02:49,020
+I was playing video games a lot.
+
+65
+00:02:49,100 --> 00:02:51,700
+We had home video game systems like Atari 2600 and stuff.
+
+66
+00:02:51,740 --> 00:02:54,060
+And I heard that some kid up the street was able to make games.
+
+67
+00:02:54,260 --> 00:02:55,220
+That's really weird.
+
+68
+00:02:55,320 --> 00:02:56,020
+Like, how do you do that?
+
+69
+00:02:56,020 --> 00:02:57,600
+You can't make the cartridges or something.
+
+70
+00:02:57,840 --> 00:02:57,960
+Yeah.
+
+71
+00:02:58,040 --> 00:03:00,880
+So I learned about programming, got a book on BASIC.
+
+72
+00:03:01,360 --> 00:03:04,580
+I programmed in the store because we couldn't afford a computer or anything.
+
+73
+00:03:04,760 --> 00:03:08,520
+So the sales guy was really nice at the store and let me just stand there typing in programs
+
+74
+00:03:08,520 --> 00:03:08,920
+all day.
+
+75
+00:03:09,200 --> 00:03:10,020
+So it's like...
+
+76
+00:03:10,020 --> 00:03:11,480
+What kind of games did you actually develop?
+
+77
+00:03:12,480 --> 00:03:16,620
+Well, a little bit later, I was able to work in summers when I was 16 and get a Commodore
+
+78
+00:03:16,620 --> 00:03:17,100
+64.
+
+79
+00:03:17,440 --> 00:03:20,580
+And I had a Timex Sinclair 1000 before that, which was like a 2K device.
+
+80
+00:03:21,220 --> 00:03:22,180
+So I don't know.
+
+81
+00:03:22,300 --> 00:03:25,500
+I mean, games that were probably similar to that kind of, the things in that kind of time
+
+82
+00:03:25,500 --> 00:03:27,640
+period, like little ships flying around and shooting.
+
+83
+00:03:27,640 --> 00:03:29,480
+And obstacle avoidance.
+
+84
+00:03:29,580 --> 00:03:31,620
+But interestingly, they're very motion planning like.
+
+85
+00:03:32,220 --> 00:03:33,540
+So, yeah.
+
+86
+00:03:33,880 --> 00:03:40,840
+I also made a map of the US down to the level of state boundaries.
+
+87
+00:03:41,100 --> 00:03:44,880
+And then I figured out how to do like rotations and translations and different kind of shearings
+
+88
+00:03:44,880 --> 00:03:45,100
+of it.
+
+89
+00:03:45,120 --> 00:03:46,960
+I was experimenting with linear transformations and stuff.
+
+90
+00:03:47,020 --> 00:03:47,500
+And it was really neat.
+
+91
+00:03:47,760 --> 00:03:49,360
+I could zoom in and zoom out and stuff.
+
+92
+00:03:49,500 --> 00:03:54,760
+And so it wasn't quite like Google Maps, but it was like a 1980s version of that.
+
+93
+00:03:54,760 --> 00:03:56,760
+You did basically already like a very...
+
+94
+00:03:57,640 --> 00:04:02,280
+primitive way maybe of transformations in computer graphics.
+
+95
+00:04:02,280 --> 00:04:02,600
+Yeah.
+
+96
+00:04:02,760 --> 00:04:04,120
+Did all of that already like...
+
+97
+00:04:04,120 --> 00:04:04,240
+Yeah.
+
+98
+00:04:04,280 --> 00:04:05,860
+I just found those things fascinating anyway.
+
+99
+00:04:05,940 --> 00:04:07,520
+I didn't know what I was doing too much at the time.
+
+100
+00:04:07,580 --> 00:04:09,400
+I didn't learn a lot of math until a little later.
+
+101
+00:04:10,260 --> 00:04:12,840
+And did you have any other hobbies besides coding?
+
+102
+00:04:14,300 --> 00:04:19,060
+Well, I noticed that I was better at math than a lot of other people were and stuff.
+
+103
+00:04:19,140 --> 00:04:20,160
+It came easy for me.
+
+104
+00:04:20,340 --> 00:04:23,360
+And what was strange is that basic algebra was very hard for me.
+
+105
+00:04:23,360 --> 00:04:24,980
+But when I got to calculus, it was much easier.
+
+106
+00:04:25,300 --> 00:04:27,580
+And then things that were supposed to be even harder were even easier.
+
+107
+00:04:27,580 --> 00:04:28,820
+Somehow like they converted.
+
+108
+00:04:28,920 --> 00:04:30,580
+I'm not saying the higher levels aren't hard.
+
+109
+00:04:30,660 --> 00:04:31,560
+It gets very intense.
+
+110
+00:04:31,800 --> 00:04:34,900
+But it got more beautiful and more natural the more I learned.
+
+111
+00:04:35,000 --> 00:04:36,260
+So that was very attractive to me.
+
+112
+00:04:36,640 --> 00:04:41,500
+And so I knew that when I went to the university, I thought pure computer science wasn't enough.
+
+113
+00:04:41,620 --> 00:04:47,520
+I wanted to do computer engineering because it would give me an excuse to learn more of what I thought was the fundamental math.
+
+114
+00:04:47,800 --> 00:04:50,020
+It's really just calculus and differential equations at the start.
+
+115
+00:04:50,080 --> 00:04:53,500
+There's other kinds of math I wasn't even aware of yet that I learned about later in grad school.
+
+116
+00:04:53,500 --> 00:04:54,180
+But that was kind of it.
+
+117
+00:04:54,260 --> 00:04:57,500
+I wanted to have this combination of math and playing with computers.
+
+118
+00:04:57,580 --> 00:05:04,200
+And there was actually a little bit of struggle to get into university for you, right?
+
+119
+00:05:05,200 --> 00:05:07,340
+Could you maybe talk a little bit about that?
+
+120
+00:05:07,520 --> 00:05:08,900
+A struggle to get into university?
+
+121
+00:05:08,900 --> 00:05:09,300
+Yeah.
+
+122
+00:05:11,140 --> 00:05:18,620
+Well, I mean, the challenge is at some point in my second year of high school, I decided to really start trying in school.
+
+123
+00:05:18,620 --> 00:05:21,220
+So I had a couple of really inspirational teachers.
+
+124
+00:05:21,680 --> 00:05:23,240
+It was my Spanish teacher and my English teacher.
+
+125
+00:05:23,240 --> 00:05:26,780
+They came from women who came from liberal arts and humanities.
+
+126
+00:05:26,780 --> 00:05:27,140
+That were high school students.
+
+127
+00:05:27,140 --> 00:05:27,200
+Yeah.
+
+128
+00:05:27,200 --> 00:05:27,300
+Yeah.
+
+129
+00:05:27,300 --> 00:05:27,400
+Yeah.
+
+130
+00:05:27,400 --> 00:05:27,440
+Yeah.
+
+131
+00:05:27,440 --> 00:05:27,500
+Yeah.
+
+132
+00:05:27,500 --> 00:05:27,560
+Yeah.
+
+133
+00:05:27,580 --> 00:05:33,520
+I think quite empathetic and recognize that I had some kind of talent and they really helped push to encourage me.
+
+134
+00:05:33,520 --> 00:05:34,800
+They said, you can do anything, you know?
+
+135
+00:05:34,800 --> 00:05:35,500
+And I thought, really?
+
+136
+00:05:35,640 --> 00:05:37,580
+It didn't seem really.
+
+137
+00:05:37,660 --> 00:05:37,840
+That's not what binge eating taught me.
+
+138
+00:05:37,840 --> 00:05:38,740
+That's not what other people had told me.
+
+139
+00:05:38,740 --> 00:05:40,100
+That is good motivation.
+
+140
+00:05:40,360 --> 00:05:48,600
+The headmaster of my school before high school told my dad that I'd very likely end up in prison and be most likely to be incarcerated out of the class.
+
+141
+00:05:48,600 --> 00:05:50,080
+So he was quite serious.
+
+142
+00:05:50,080 --> 00:05:54,340
+So I was used to thinking I'm like a trouble problem kid like that.
+
+143
+00:05:54,340 --> 00:05:56,820
+So, but anyway, I started trying really, really hard.
+
+144
+00:05:56,820 --> 00:05:57,420
+And by the time I was 15.
+
+145
+00:05:57,420 --> 00:05:57,500
+Right.
+
+146
+00:05:57,500 --> 00:06:01,620
+I was a senior, I was the top student in every subject, you know, humanities or whatever. It
+
+147
+00:06:01,620 --> 00:06:05,500
+wasn't a super competitive high school. It was a good high school. It was a Catholic school and
+
+148
+00:06:05,500 --> 00:06:08,860
+the people there were, you know, there's some really good teachers that were very well committed.
+
+149
+00:06:09,120 --> 00:06:13,440
+And so then I went to the University of Missouri for a year because I could not afford to go to
+
+150
+00:06:13,440 --> 00:06:16,300
+the University of Illinois, because if you're not in that state, you have to pay three times
+
+151
+00:06:16,300 --> 00:06:19,880
+the tuition. And I couldn't figure out how to arrange all the borrowing. But eventually,
+
+152
+00:06:19,880 --> 00:06:23,040
+I figured out how to borrow all the money and kind of arrange everything. And I transferred
+
+153
+00:06:23,040 --> 00:06:25,940
+over to the University. So how did you do that? Just from family and friends?
+
+154
+00:06:26,540 --> 00:06:29,820
+No, there's like different loan programs. My girlfriend at the time
+
+155
+00:06:29,820 --> 00:06:34,340
+told me about something called the, I forgot it's called the something,
+
+156
+00:06:34,800 --> 00:06:40,440
+something foundation of St. Louis, St. Louis Scholarship Foundation. And it was run by women,
+
+157
+00:06:40,460 --> 00:06:44,380
+and it was for women, but they decided to start adding men to it. And so I was able to get money
+
+158
+00:06:44,380 --> 00:06:47,340
+from that. I was very grateful for that. It was a zero interest loan. And then there were some
+
+159
+00:06:47,340 --> 00:06:52,300
+government programs. And then I was able, I had to somehow hide one of the loans from the
+
+160
+00:06:52,300 --> 00:06:53,020
+administration. And so I had to somehow hide one of the loans from the administration. And so I
+
+161
+00:06:53,020 --> 00:06:55,140
+had to somehow hide one of the loans from the administration at the university. Because if
+
+162
+00:06:55,140 --> 00:06:59,600
+I had mentioned that loan, then they would give me less money of aid, because they still make sure
+
+163
+00:06:59,600 --> 00:07:03,260
+you're a few thousand short anyway, like as if I then need to work odd jobs or something to pay
+
+164
+00:07:03,260 --> 00:07:06,520
+for. But I knew that the education at the University of Illinois engineering would be
+
+165
+00:07:06,520 --> 00:07:10,920
+very intense. I wanted to be able to just work all, I mean, work on the school all the time and
+
+166
+00:07:10,920 --> 00:07:14,880
+not work some odd jobs. That's an unfair thing to do to people too. You're a little more poor,
+
+167
+00:07:14,980 --> 00:07:19,220
+so you got to work a side job while you're in engineering. That's right. And I just,
+
+168
+00:07:19,220 --> 00:07:22,940
+I worked all the time there. I was so intense. I was so, I knew what the stakes were,
+
+169
+00:07:23,020 --> 00:07:27,020
+because I'd been kind of down before and I just didn't want to leave anything to chance, you know.
+
+170
+00:07:27,500 --> 00:07:32,140
+So you didn't enjoy like university life and some partying, but you just...
+
+171
+00:07:32,140 --> 00:07:35,560
+No, it was just hard work. In grad school, it got a little more relaxed because it's less
+
+172
+00:07:35,560 --> 00:07:38,000
+structured. I worked very hard in grad school, but then I took some good breaks,
+
+173
+00:07:38,360 --> 00:07:42,720
+did some traveling or even a little partying with some people in the lab and stuff. That was okay.
+
+174
+00:07:43,260 --> 00:07:46,680
+And so what kind of subjects did you actually study at the university,
+
+175
+00:07:47,680 --> 00:07:52,800
+which maybe really fascinated you or which like inspired you to go further?
+
+176
+00:07:53,020 --> 00:07:54,520
+To go into this area of robotics?
+
+177
+00:07:55,840 --> 00:07:58,520
+To go into... Well, robotics was mainly... In my first year of graduate school,
+
+178
+00:07:58,520 --> 00:08:02,800
+I just kind of eliminated all the areas of AI and also picked an advisor that I felt really
+
+179
+00:08:02,800 --> 00:08:06,520
+comfortable with. So my advisor, Seth Hutchinson, was doing robotics and that's how I narrowed it
+
+180
+00:08:06,520 --> 00:08:12,860
+down to that. But at the same time, my fascination was in physics and math and those kinds of things.
+
+181
+00:08:12,980 --> 00:08:16,960
+Robotics has enough of that, I think. And as I took more advanced areas of mathematics,
+
+182
+00:08:17,560 --> 00:08:22,780
+like I took a graduate level real analysis my second year of grad school and I took algebraic
+
+183
+00:08:22,780 --> 00:08:23,000
+to politics. I took algebraic to politics. I took algebraic to politics. I took algebraic to politics.
+
+184
+00:08:23,020 --> 00:08:28,000
+I took algebraic to psychology and other kind of courses. I attended a lot of courses too that
+
+185
+00:08:28,000 --> 00:08:33,580
+were also very advanced. They're kind of like PhD preparatory courses in mathematics. They're
+
+186
+00:08:33,580 --> 00:08:38,960
+exactly for the math people and very pure. No one's thought about... And I learned the philosophy of
+
+187
+00:08:38,960 --> 00:08:41,760
+math and what those people are trying to do. And that was really helpful in engineering.
+
+188
+00:08:42,160 --> 00:08:45,380
+Because then if I want to make up notation or I want to figure out what the right question is to
+
+189
+00:08:45,380 --> 00:08:49,320
+ask, a tendency towards minimalism, don't make up Shark Tank. Don't make up a bunch of extra stuff
+
+190
+00:08:49,320 --> 00:08:52,660
+that doesn't need to be there. These kinds of things mathematicians are very good at. So that
+
+191
+00:08:52,660 --> 00:08:57,700
+helped shape me tremendously for the rest of my career. And so this was already like during your
+
+192
+00:08:57,700 --> 00:09:02,900
+master studies? That was during... Yeah, well, master's and PhD was kind of the same program.
+
+193
+00:09:03,100 --> 00:09:08,160
+So it was kind of near the end of my coursework for PhD. A course near the end of undergrad that
+
+194
+00:09:08,160 --> 00:09:13,440
+really helped me was my... I had an undergraduate advisor, Franco Preparato, who happened to be
+
+195
+00:09:13,440 --> 00:09:17,320
+one of the founding fathers of computational geometry, wrote a book on that. And he suggested
+
+196
+00:09:17,320 --> 00:09:21,580
+I take an algorithms class over on the computer science side because I was a computer engineering
+
+197
+00:09:21,580 --> 00:09:22,420
+kind of electrical and computer engineering student. And he said, well, I'm going to take
+
+198
+00:09:22,420 --> 00:09:22,440
+a computer science class over on the computer science side because I was a computer engineering
+
+199
+00:09:22,440 --> 00:09:22,640
+kind of electrical and computer engineering. And he said, well, I'm going to take a computer science
+
+200
+00:09:22,660 --> 00:09:26,900
+student. So I went and did that. And it was a really hard class. And it was way more...
+
+201
+00:09:27,640 --> 00:09:31,800
+Algorithms was way more mathematical in some sense, closer to pure mathematics than my
+
+202
+00:09:31,800 --> 00:09:36,340
+engineering courses were. It was as if the math and engineering had been kind of stale. I had been
+
+203
+00:09:36,340 --> 00:09:40,120
+in engineering for a couple of generations and no one remembers why it's there anymore. They just
+
+204
+00:09:40,120 --> 00:09:44,020
+know that you need to know it. And they're proud of it, that it's really hard. But when you get
+
+205
+00:09:44,020 --> 00:09:48,200
+the more... When it's closer to the source of mathematics, the beauty comes out. And they're
+
+206
+00:09:48,200 --> 00:09:52,440
+trying to explain things and understand things really well. There's no terror of proofs doing
+
+207
+00:09:52,440 --> 00:09:56,720
+proofs is like a horror for most engineering students. But that's because it's like some kind
+
+208
+00:09:56,720 --> 00:10:02,820
+of exercise to show you how challenging or how tough mathematical stuff can be. Whereas in
+
+209
+00:10:02,820 --> 00:10:06,720
+mathematics, it's like, no, you're convincing another human why something is true and trying
+
+210
+00:10:06,720 --> 00:10:10,780
+to do it very clearly and very cleanly. Very much almost like writing a program, trying to
+
+211
+00:10:10,780 --> 00:10:15,720
+describe in a very precise way how something should work. And so how do you actually think
+
+212
+00:10:15,720 --> 00:10:21,360
+about mathematics? Is this for you a very visual process where you try to imagine something in
+
+213
+00:10:21,360 --> 00:10:22,220
+your head, like draw a picture of something? Yeah.
+
+214
+00:10:22,220 --> 00:10:27,340
+Or is it more like symbolic that you try to...
+
+215
+00:10:28,040 --> 00:10:31,780
+Yeah, that's right. It depends on what kind of math it is. And I think there's
+
+216
+00:10:32,420 --> 00:10:36,480
+very often two different kinds of mathematicians. There's the ones that tend to gravitate more
+
+217
+00:10:36,480 --> 00:10:40,980
+towards real analysis, which is more visual, I would say. It looks kind of like it's the math
+
+218
+00:10:40,980 --> 00:10:45,380
+of calculus and then some. I like topology a lot. All these things are a little more visual.
+
+219
+00:10:45,920 --> 00:10:50,160
+The other group of people tend to like algebra more. And I probably not as... I appreciate
+
+220
+00:10:50,160 --> 00:10:51,780
+algebra as a beautiful art. And I learned...
+
+221
+00:10:52,220 --> 00:10:56,600
+I appreciate it. And I got better at it as I got older, but I wasn't as natural. So I tend to think
+
+222
+00:10:56,600 --> 00:11:01,540
+more visually somehow. And motion planning is like that as well. It has this kind of... I love
+
+223
+00:11:01,540 --> 00:11:06,080
+visualizing high-dimensional information, configuration spaces and information spaces,
+
+224
+00:11:06,380 --> 00:11:10,220
+whatever visualize means. It's somehow in my head and I can kind of see it, but it doesn't look like
+
+225
+00:11:10,220 --> 00:11:14,360
+the things around us in the world right now. And how hard was it actually to get into this
+
+226
+00:11:14,360 --> 00:11:18,700
+PhD program once you have... once you finished actually...
+
+227
+00:11:18,700 --> 00:11:22,200
+I was the number one ranked student. So I had a perfect...
+
+228
+00:11:22,220 --> 00:11:25,780
+grade point average when I applied to graduate school. I didn't... I could hardly afford to apply
+
+229
+00:11:25,780 --> 00:11:29,240
+to many places. And I did not know that you should probably apply in the US to like six or seven
+
+230
+00:11:29,240 --> 00:11:34,900
+places. So I just applied to MIT and Illinois. MIT rejected me. I was number one in the number
+
+231
+00:11:34,900 --> 00:11:39,360
+three school. Our university is ranked number three in the country. But I'd only been there
+
+232
+00:11:39,360 --> 00:11:41,440
+for a couple of years because I transferred...
+
+233
+00:11:41,440 --> 00:11:46,500
+Oh, I finished one year early too. So I hadn't probably done enough because I was accelerated.
+
+234
+00:11:46,640 --> 00:11:50,460
+I was working really fast through things. And so I think if I had to do it over again,
+
+235
+00:11:50,740 --> 00:11:51,940
+I'd probably slow down more.
+
+236
+00:11:52,220 --> 00:11:55,460
+But it costs money. I had to borrow money. So I don't think it's fair. But I guess
+
+237
+00:11:55,460 --> 00:11:58,720
+if I would have had more money, I would have been able to stretch out my undergraduate,
+
+238
+00:11:58,920 --> 00:12:02,740
+get to know professors better, do more research projects, get better letters of recommendation.
+
+239
+00:12:02,740 --> 00:12:05,820
+And those are very important. I know how to get myself into MIT now with that
+
+240
+00:12:05,820 --> 00:12:10,380
+kind of capability. But at that time, there's no feasible way for me to do it.
+
+241
+00:12:10,420 --> 00:12:11,500
+That's what I kind of think happened.
+
+242
+00:12:11,820 --> 00:12:17,740
+So the way for today's students to get into MIT would be to do more networking,
+
+243
+00:12:18,140 --> 00:12:20,840
+to get more professors...
+
+244
+00:12:20,840 --> 00:12:21,340
+Yeah.
+
+245
+00:12:21,520 --> 00:12:22,200
+...onto your campus.
+
+246
+00:12:22,220 --> 00:12:26,460
+And now there's expectations to publish and things like this. This was like the late 1980s.
+
+247
+00:12:26,680 --> 00:12:31,100
+And also, don't put all your eggs in one basket. I mean, you should... If you want to be at a top
+
+248
+00:12:31,100 --> 00:12:34,740
+school, fine. And you say you want to be in America and be at a top school, apply to Berkeley
+
+249
+00:12:34,740 --> 00:12:39,340
+and Stanford and Cornell and a bunch of other schools as well, whatever your favorite ones are.
+
+250
+00:12:39,480 --> 00:12:43,860
+But put some top ones, maybe a few fallback ones. I really did nothing. I just said,
+
+251
+00:12:43,960 --> 00:12:47,860
+okay, well, I can stay in Illinois. They had this wonderful place called the Beckman Institute,
+
+252
+00:12:48,000 --> 00:12:51,040
+which looked like the place that was going to be where they built the HAL 9000
+
+253
+00:12:51,040 --> 00:12:58,620
+from 2001. It was a very new facility, huge donation from an alumnus, Arnold Beckman.
+
+254
+00:12:58,860 --> 00:13:03,280
+And I was really excited. It seemed all about pursuing the foundations of intelligence,
+
+255
+00:13:03,280 --> 00:13:08,720
+both with physics and biology and computer science people all there together.
+
+256
+00:13:09,260 --> 00:13:11,780
+And your PhD advisor was Seth Hutchinson.
+
+257
+00:13:12,120 --> 00:13:12,500
+That's right.
+
+258
+00:13:12,800 --> 00:13:20,460
+So how was it actually like working with him? And what kind of advices did you get from him?
+
+259
+00:13:20,500 --> 00:13:21,000
+Yeah. Well, it was great.
+
+260
+00:13:21,000 --> 00:13:21,020
+It was great.
+
+261
+00:13:21,020 --> 00:13:25,840
+great working with him. He was, he's only eight years older than me. And so I couldn't believe
+
+262
+00:13:25,840 --> 00:13:29,600
+that he was a professor. I thought a professor had to be some stodgy old person that I never,
+
+263
+00:13:30,060 --> 00:13:33,940
+that I had no connection with whatsoever. But the fact that there wasn't a generation gap
+
+264
+00:13:33,940 --> 00:13:39,220
+and his dad was a printing press operator too. So also I had this sense of like, he's telling,
+
+265
+00:13:39,280 --> 00:13:42,460
+he was telling me I could be a professor. And I'm like, I never thought of something as ridiculous
+
+266
+00:13:42,460 --> 00:13:46,660
+as that. I just, I just, at each point when I finished my degree, I knew I wanted the next one
+
+267
+00:13:46,660 --> 00:13:50,400
+because I was kind of bored and I was afraid to go to industry and be told what to do all the time.
+
+268
+00:13:50,400 --> 00:13:54,420
+I had a lot of my own independent ideas, but, but what to do after PhD, I did not really have
+
+269
+00:13:54,420 --> 00:13:58,800
+a plan. I was so high up and so far beyond what I had ever dreamed about that I didn't really think
+
+270
+00:13:58,800 --> 00:14:02,660
+about it. So he helped encourage me and explain the academic system to me because he also grew
+
+271
+00:14:02,660 --> 00:14:07,500
+up in kind of a working class environment and he had to learn all that stuff himself the hard way.
+
+272
+00:14:07,560 --> 00:14:10,760
+And he was very good at teaching me, you know, what I need to be doing, making sure I'm very
+
+273
+00:14:10,760 --> 00:14:14,980
+prepared in presentations and, and how to interact with, with professors and what's important to
+
+274
+00:14:14,980 --> 00:14:19,520
+focus on and these kinds of things. So, so it was really good. Yeah. And what were like the first
+
+275
+00:14:19,520 --> 00:14:20,380
+topics you, you were talking about?
+
+276
+00:14:20,400 --> 00:14:23,380
+Like maybe even the first paper that you wrote?
+
+277
+00:14:23,640 --> 00:14:29,320
+Yeah, well, it was his suggestion mainly to work on computer vision. So I worked on image,
+
+278
+00:14:29,440 --> 00:14:33,820
+like a Bayesian image segmentation approach. And the idea was to calculate a probability
+
+279
+00:14:33,820 --> 00:14:39,100
+distribution over the space of image segmentations. So I worked feverishly on that, published maybe
+
+280
+00:14:39,100 --> 00:14:42,860
+eight or nine papers on that. I think I can remember the exact number, including three
+
+281
+00:14:42,860 --> 00:14:48,740
+journal papers from that. So in, in very good places too. So, so I worked very intensely and
+
+282
+00:14:48,740 --> 00:14:50,120
+then his jaw dropped.
+
+283
+00:14:50,400 --> 00:14:54,400
+And I started writing and I was like, I'm going to do this. So I started writing for a master's
+
+284
+00:14:54,400 --> 00:14:59,540
+and then I'm going to do motion planning for my PhD. And I told him it's his fault. He, he, he,
+
+285
+00:14:59,540 --> 00:15:04,000
+he ran a great class on motion planning using Latom's book in 91. And, and so I said, no, I'm
+
+286
+00:15:04,000 --> 00:15:06,800
+going to, I'm going to, I'm going to change to that. And he's like, well, I was very productive
+
+287
+00:15:06,800 --> 00:15:13,040
+as a student. And so it's like, well, you know, okay. So, so I switched over and did that. And
+
+288
+00:15:13,040 --> 00:15:18,080
+by 95, I had finished, it was about 92 when I was telling them that. And by 95, I had, I had
+
+289
+00:15:18,080 --> 00:15:22,180
+switched over. I also fell in love with game theory at the time too. And so it was a, one of
+
+290
+00:15:22,180 --> 00:15:26,840
+my PhD thesis was called a game theoretic foundation for motion planning, I think.
+
+291
+00:15:27,720 --> 00:15:30,480
+And so what was actually the first paper that you wrote on motion planning?
+
+292
+00:15:32,940 --> 00:15:38,820
+I had, I can't remember where it was published, but it involved using some kind of game theory
+
+293
+00:15:38,820 --> 00:15:42,880
+to move robots around, but they were just on, on a grid or something. I think it was in 93,
+
+294
+00:15:42,880 --> 00:15:47,980
+but I can't remember the exact location of it. But, but then very quickly I discovered the
+
+295
+00:15:48,080 --> 00:15:53,760
+principle of dynamic programming by going to the library. And I read old articles of papers
+
+296
+00:15:53,760 --> 00:15:57,740
+that were talking about value iteration and Bellman's principle of optimality for like
+
+297
+00:15:57,740 --> 00:16:02,100
+one-dimensional problems. And I think, Hey, wait a minute. I think, you know, we're like decades
+
+298
+00:16:02,100 --> 00:16:06,000
+later now in the nineties and we have fancy expensive computers. I bet I can get two or
+
+299
+00:16:06,000 --> 00:16:09,740
+three dimensional problems working maybe with obstacles and all this stuff. So I tried that
+
+300
+00:16:09,740 --> 00:16:12,940
+stuff and it worked beautifully. And that's when the papers I'm more proud of sort of came out,
+
+301
+00:16:13,020 --> 00:16:17,280
+like multiple robot coordination and, and some papers with like stochastic feedback,
+
+302
+00:16:17,460 --> 00:16:18,060
+optimal planning.
+
+303
+00:16:18,080 --> 00:16:23,560
+could all be done with, with value iteration, which is the basis of, you know, reinforcement
+
+304
+00:16:23,560 --> 00:16:26,700
+learning. A lot of the other things that people seem to like today, nobody knew that stuff then
+
+305
+00:16:26,700 --> 00:16:30,140
+or cared, but, but that was, you know, I felt like I hit a jackpot on that stuff.
+
+306
+00:16:30,360 --> 00:16:34,520
+So, and so in 1995, you finished actually your PhD thesis, right?
+
+307
+00:16:34,640 --> 00:16:34,960
+That's correct.
+
+308
+00:16:35,340 --> 00:16:39,100
+So, so what kind of options did you consider to go forward?
+
+309
+00:16:39,320 --> 00:16:43,800
+Well, the, the day I finished my PhD, oh, I applied to about maybe 40 places for faculty
+
+310
+00:16:43,800 --> 00:16:47,380
+positions and got not a single interest. I had about 20 publications,
+
+311
+00:16:47,380 --> 00:16:51,940
+which was a lot. It was about as many publications as the whole lab, the rest of my research group
+
+312
+00:16:51,940 --> 00:16:57,480
+combined. And, and they were in good places too. I mean, like a lot of computer vision ones and a
+
+313
+00:16:57,480 --> 00:17:01,960
+lot of robotics ones. So they were all in, in, well, not all, but, but most were in top places.
+
+314
+00:17:02,480 --> 00:17:07,700
+And, but I applied to all these places, total rejection. I defended my thesis with no offer
+
+315
+00:17:07,700 --> 00:17:10,480
+anywhere. And I was just going to go back to Missouri. I'm like, all right, well, I tried,
+
+316
+00:17:10,480 --> 00:17:17,320
+you know? And then, um, after my defense, I went out and did some nice partying with some friends.
+
+317
+00:17:17,380 --> 00:17:21,520
+It kind of celebrate. And then I didn't realize that shortly after my defense,
+
+318
+00:17:21,520 --> 00:17:26,100
+I got an email from Jean-Claude Latombe saying, Hey, you know, come to Stanford for a postdoc
+
+319
+00:17:26,100 --> 00:17:29,880
+position. I had asked him and I had asked Matt Mason if they happen to have any funding.
+
+320
+00:17:30,360 --> 00:17:34,480
+And I sent them those days you had to send papers. So I sent like federal expressed,
+
+321
+00:17:34,600 --> 00:17:38,780
+like express mailed a package of papers to both of those guys. Matt's a great guy. I have great
+
+322
+00:17:38,780 --> 00:17:42,260
+relationship with him, but he didn't have any money for a postdoc, but, uh, but Jean-Claude
+
+323
+00:17:42,260 --> 00:17:46,200
+Latombe did. And so I'm like, oh, I guess I'm going to Stanford. So I did that.
+
+324
+00:17:46,580 --> 00:17:47,020
+Nice.
+
+325
+00:17:47,380 --> 00:17:53,600
+And so, so maybe what would be your advice to like PhD students of today of how you,
+
+326
+00:17:53,660 --> 00:17:58,500
+they can be like as productive as you have been during this time when you wrote your PhD?
+
+327
+00:17:58,800 --> 00:18:05,320
+I don't really know. I mean, I was, it's really hard to do both quantity and quality and research,
+
+328
+00:18:05,320 --> 00:18:09,660
+but I was so motivated. I was just absolutely determined and passionate too. I mean,
+
+329
+00:18:09,660 --> 00:18:13,840
+I just love the work and I was always thinking about it. So if it's not a total passion project,
+
+330
+00:18:13,840 --> 00:18:17,100
+if you're just kind of feel like you're gaming it or scheming it all the time,
+
+331
+00:18:17,160 --> 00:18:17,360
+then I would say, yeah, I would say, yeah, I would say, yeah, I would say, yeah, I would say,
+
+332
+00:18:17,360 --> 00:18:21,340
+I don't know what to say, but, but, but I just, I had a lot of papers just because I had so many
+
+333
+00:18:21,340 --> 00:18:24,120
+ideas and I was just thinking about it all the time and working really hard on it.
+
+334
+00:18:24,480 --> 00:18:27,880
+And my advisor was very good at giving me the right kinds of guidance and the right kind of
+
+335
+00:18:27,880 --> 00:18:33,220
+feedback to make, help me turn into a good writer and to express myself well and in papers and come
+
+336
+00:18:33,220 --> 00:18:36,840
+up with the right formulations. But I had all this mathematics background, which he encouraged me to
+
+337
+00:18:36,840 --> 00:18:40,300
+take more math and do that. He wished he could, he said, but he didn't get a chance to take as
+
+338
+00:18:40,300 --> 00:18:43,840
+much as I was able to take and stuff. So, um, so I think just kind of setting the conditions,
+
+339
+00:18:43,840 --> 00:18:46,980
+right. And making sure you're in a, are you in a research group that,
+
+340
+00:18:47,360 --> 00:18:50,780
+has pretty open funding that gives you the, if you're very creative and very passionate,
+
+341
+00:18:50,860 --> 00:18:54,240
+can you do the things you want to do and listen to advice of your advisor and such?
+
+342
+00:18:54,520 --> 00:18:58,320
+Or are you in a group where you have to do these very applied projects and they're on a schedule
+
+343
+00:18:58,320 --> 00:19:02,540
+and you have to do this and do this and this, and then it's tough. You may be in a group where
+
+344
+00:19:02,540 --> 00:19:05,960
+a student may be in a group where there's a lot of other people in the group who are more senior
+
+345
+00:19:05,960 --> 00:19:09,180
+and it's very collaborative. Then you have to get in, you should get involved in the
+
+346
+00:19:09,180 --> 00:19:13,040
+collaborations and eventually start to take a leadership role for more experimental researches
+
+347
+00:19:13,040 --> 00:19:16,900
+like that. But we did not have a group like that. We were doing more individual work at the time.
+
+348
+00:19:16,900 --> 00:19:19,420
+And that's how more of the work was back then too.
+
+349
+00:19:20,200 --> 00:19:23,960
+And so basically in 1995, you arrived to California.
+
+350
+00:19:25,360 --> 00:19:30,960
+Yeah. Drove my car across country with a, actually drove a rental truck, pulling my car behind the
+
+351
+00:19:30,960 --> 00:19:34,400
+truck and just showed up. Wow. And was it your first time in California?
+
+352
+00:19:35,520 --> 00:19:42,320
+No, I had been once for something in 1994. Was ICRA in San Diego in 94? I think,
+
+353
+00:19:42,500 --> 00:19:46,400
+yeah, I think, I think, I think, I think it was,
+
+354
+00:19:46,900 --> 00:19:48,400
+was ICRA and yeah.
+
+355
+00:19:49,420 --> 00:19:54,660
+Okay. And how did you like California? Was it like a big change for you?
+
+356
+00:19:55,080 --> 00:19:59,640
+Yeah. I mean, I, I was more there to do the work. So the Stanford campus was very beautiful
+
+357
+00:19:59,640 --> 00:20:04,680
+and intimidating. It just, it just exuberates, like it just, just wealth is just like, like
+
+358
+00:20:04,680 --> 00:20:09,240
+everywhere. It looks so perfect and it looked kind of like intimidating in some ways, but,
+
+359
+00:20:09,300 --> 00:20:13,400
+but yet I was able to work there. So it was very nice. Weather was perfect, which was strange.
+
+360
+00:20:13,660 --> 00:20:16,520
+Like there was no, there were no seasons. So it was just sunny and nice all the time.
+
+361
+00:20:16,900 --> 00:20:19,960
+Which is not too great when you're busy working anyway. So I was,
+
+362
+00:20:20,080 --> 00:20:23,220
+I don't want to feel like, oh, I wish I were outside when I got so, but
+
+363
+00:20:23,220 --> 00:20:27,340
+culturally is great. The restaurants were great. The people were great. The students.
+
+364
+00:20:27,840 --> 00:20:33,100
+So, and what was your first big project you worked on during your time as opposed to at Stanford?
+
+365
+00:20:33,100 --> 00:20:39,800
+Well, I was, I was funded under a DARPA project, which we called the intelligent observer,
+
+366
+00:20:40,020 --> 00:20:46,260
+which was one robot that was following another one with a camera. I guess the robot could follow a human in more modern times,
+
+367
+00:20:46,300 --> 00:20:46,780
+but they had a,
+
+368
+00:20:46,900 --> 00:20:54,340
+so they had these nomad robots and they were called a little cylindrical robots with a mobile base.
+
+369
+00:20:54,680 --> 00:20:59,880
+And, and we had, yeah, cameras with one following the other. And we got some nice papers out of that.
+
+370
+00:20:59,880 --> 00:21:09,400
+I was first author on a couple of papers. One of them used dynamic programming and value iteration to help them to figure out how one robot can maintain visibility of another.
+
+371
+00:21:09,940 --> 00:21:15,200
+And we had another one I was really happy about called, we called it the visibility based pursuit evasion problem.
+
+372
+00:21:15,580 --> 00:21:16,540
+Because one time the,
+
+373
+00:21:16,900 --> 00:21:18,940
+the one robot went out of the field of view of the other.
+
+374
+00:21:19,300 --> 00:21:22,420
+And one of the students, David Lynn said, well, how do we find it again?
+
+375
+00:21:22,420 --> 00:21:23,740
+And I thought that's a really interesting problem.
+
+376
+00:21:23,740 --> 00:21:26,920
+We went to the board and started talking about it and it led to this beautiful work.
+
+377
+00:21:26,920 --> 00:21:28,860
+And, and I'm very happy about that.
+
+378
+00:21:28,860 --> 00:21:32,520
+And it stimulated a thread of work from other researchers and myself contributed.
+
+379
+00:21:32,860 --> 00:21:42,640
+Rajiv Motwani, the famous randomized algorithms researcher was, was on the paper along with Leo Gibas, a famous computational geometry algorithms person, and Jean-Claude Latombe as well.
+
+380
+00:21:42,640 --> 00:21:46,260
+And the students, David Lynn and I were on that, the student David Lynn and I.
+
+381
+00:21:46,900 --> 00:21:51,340
+And so during this time, I heard that computer vision algorithms were not like super stable.
+
+382
+00:21:51,340 --> 00:21:54,080
+And one day Bill Gates visited your lab.
+
+383
+00:21:54,080 --> 00:21:55,060
+Oh, you know too much.
+
+384
+00:21:55,060 --> 00:21:55,480
+Yeah.
+
+385
+00:21:56,260 --> 00:21:57,100
+I've heard the stories there.
+
+386
+00:21:57,100 --> 00:21:58,540
+So, so what is actually the story?
+
+387
+00:21:58,960 --> 00:22:00,580
+Well, we were in the Gates building.
+
+388
+00:22:00,580 --> 00:22:02,840
+We moved into the brand new Gates building.
+
+389
+00:22:02,840 --> 00:22:04,420
+He gave the naming contribution.
+
+390
+00:22:05,900 --> 00:22:10,360
+I heard that, that the Packard family gave more, but somehow the naming contribution was, was, was this.
+
+391
+00:22:10,840 --> 00:22:14,860
+And so Bill Gates himself comes by for demos and, you know, we were pretty stressed about it.
+
+392
+00:22:14,860 --> 00:22:16,860
+And I think around 3 AM or so, we got everything.
+
+393
+00:22:16,860 --> 00:22:17,460
+Working right.
+
+394
+00:22:17,460 --> 00:22:25,680
+So that one robots following the other with the camera, but you know, it's too sunny in California and the Gates building had giant windows, kind of like these here that, that I'm with.
+
+395
+00:22:25,680 --> 00:22:28,960
+And so, man, it didn't work because the lighting conditions are different.
+
+396
+00:22:28,960 --> 00:22:30,720
+Everyone knows it's sensitive to lighting conditions.
+
+397
+00:22:30,720 --> 00:22:32,400
+So the thresholds are wrong or whatever.
+
+398
+00:22:32,400 --> 00:22:33,860
+And so it just kind of did nothing.
+
+399
+00:22:33,860 --> 00:22:35,540
+So I'm like the distance you are from me.
+
+400
+00:22:35,540 --> 00:22:38,120
+I'm like that with Bill Gates and Jean-Claude Latombe, my boss is there.
+
+401
+00:22:38,120 --> 00:22:38,460
+And I'm like,
+
+402
+00:22:40,380 --> 00:22:41,540
+so what did he say?
+
+403
+00:22:41,540 --> 00:22:43,380
+Actually, I don't remember her really.
+
+404
+00:22:43,380 --> 00:22:45,800
+It was just kind of a surreal moment of everything was so surreal.
+
+405
+00:22:45,800 --> 00:22:46,220
+It was just, yeah.
+
+406
+00:22:46,220 --> 00:22:46,800
+Yeah.
+
+407
+00:22:46,860 --> 00:22:49,140
+I think Jean-Claude Latombe just kind of chalked it a little.
+
+408
+00:22:49,140 --> 00:22:51,520
+I was like, yeah, well, that's how these kind of demos go.
+
+409
+00:22:51,520 --> 00:22:51,800
+You know?
+
+410
+00:22:51,800 --> 00:22:51,820
+Yeah.
+
+411
+00:22:52,540 --> 00:22:52,940
+Yeah.
+
+412
+00:22:53,520 --> 00:22:59,840
+And so after your postdoc at Stanford, you got a position as assistant professor at Iowa State.
+
+413
+00:22:59,840 --> 00:23:00,340
+Iowa State.
+
+414
+00:23:00,340 --> 00:23:00,480
+Yeah.
+
+415
+00:23:00,480 --> 00:23:05,160
+I applied to like maybe 60 places and only one, only one interviewed me and it was Iowa State.
+
+416
+00:23:05,620 --> 00:23:11,780
+And luckily they, they, they, they chose me and I, and I had to decide Silicon Valley was looking pretty exciting at the time.
+
+417
+00:23:13,280 --> 00:23:16,760
+But because things are really heating up because of the internet and there was the big question
+
+418
+00:23:16,760 --> 00:23:18,540
+of what's, how do we search for stuff?
+
+419
+00:23:18,540 --> 00:23:20,620
+You know, I was all like, Google wasn't quite founded yet.
+
+420
+00:23:20,980 --> 00:23:24,200
+So I liked the Bay Area, but I still said, you know, I, I really don't like the idea of
+
+421
+00:23:24,200 --> 00:23:24,840
+going to a company.
+
+422
+00:23:24,840 --> 00:23:25,780
+I want to be an academic.
+
+423
+00:23:26,200 --> 00:23:26,940
+I'll go to Iowa.
+
+424
+00:23:26,980 --> 00:23:29,280
+It'll be, and I'll, I'll try to do good stuff there.
+
+425
+00:23:29,380 --> 00:23:29,880
+Yeah.
+
+426
+00:23:30,100 --> 00:23:31,620
+And it was a great, I liked the people there.
+
+427
+00:23:31,620 --> 00:23:32,040
+It was nice.
+
+428
+00:23:32,040 --> 00:23:33,200
+People in the department were really good.
+
+429
+00:23:33,200 --> 00:23:33,380
+So.
+
+430
+00:23:33,380 --> 00:23:33,880
+Yeah.
+
+431
+00:23:34,140 --> 00:23:39,960
+And I think at Iowa State you made like one of the big contributions from you, which is
+
+432
+00:23:39,960 --> 00:23:41,580
+the Rapidly Exploring Randall Tree.
+
+433
+00:23:41,580 --> 00:23:42,080
+Yeah.
+
+434
+00:23:42,280 --> 00:23:42,980
+Also called RRT.
+
+435
+00:23:42,980 --> 00:23:43,460
+That's right.
+
+436
+00:23:43,460 --> 00:23:43,760
+Yeah.
+
+437
+00:23:43,760 --> 00:23:45,940
+I thought of it while driving in the car in Ames, Iowa.
+
+438
+00:23:45,940 --> 00:23:46,740
+I know exactly where I was.
+
+439
+00:23:46,760 --> 00:23:48,400
+I was at, it was very nice.
+
+440
+00:23:49,020 --> 00:23:54,320
+So can you tell me a little bit about the history of how RRT actually came to be developed
+
+441
+00:23:54,320 --> 00:23:54,820
+by you?
+
+442
+00:23:55,280 --> 00:24:01,140
+So what were actually, I don't know, the predecessors of RRT, how did it happen?
+
+443
+00:24:01,400 --> 00:24:05,560
+Well, going back to Seth Hutchinson's motion planning class, I learned from La Tombe's
+
+444
+00:24:05,560 --> 00:24:10,520
+book and from that class about the randomized potential field method and doing a kind of
+
+445
+00:24:10,520 --> 00:24:12,740
+gradient descent and using random walks to escape.
+
+446
+00:24:13,000 --> 00:24:16,740
+And I thought about random walks and said, you know, random walks are unfortunate because
+
+447
+00:24:16,760 --> 00:24:19,680
+it's just one ridiculously long path and it's very uncontrollable.
+
+448
+00:24:20,180 --> 00:24:25,060
+Why wouldn't you try to like just have a kind of space filling tree just kind of gradually?
+
+449
+00:24:25,160 --> 00:24:27,520
+Because I could see that in my head, but I don't know how to make it.
+
+450
+00:24:27,700 --> 00:24:30,180
+But it just felt like there ought to be a simple algorithm that does that.
+
+451
+00:24:30,560 --> 00:24:33,760
+So this was like 93 or so when I was thinking like that.
+
+452
+00:24:34,220 --> 00:24:39,200
+In 95, I met James Kuffner, really bright and fun student who was in La Tombe's group.
+
+453
+00:24:39,920 --> 00:24:41,120
+And Jean-Claude La Tombe was gone a lot.
+
+454
+00:24:41,180 --> 00:24:41,960
+He was climbing mountains.
+
+455
+00:24:41,960 --> 00:24:43,900
+He'd go away for six weeks at a time and things.
+
+456
+00:24:44,060 --> 00:24:46,740
+And so a lot of the students were alone with the class.
+
+457
+00:24:46,740 --> 00:24:47,280
+The postdoc.
+
+458
+00:24:47,520 --> 00:24:50,640
+And so we just had a wonderful time hacking and trying stuff.
+
+459
+00:24:50,780 --> 00:24:56,460
+And so we tried picking points at random on the tree and then going in random directions.
+
+460
+00:24:56,580 --> 00:25:02,100
+It'd be like a random, it looked like a very tree-like version of a random walk.
+
+461
+00:25:02,360 --> 00:25:04,080
+Instead of walking, you just have a tree version.
+
+462
+00:25:04,200 --> 00:25:04,780
+And it was horrible.
+
+463
+00:25:05,380 --> 00:25:09,340
+And then we tried doing some potential function kind of stuff to bias which samples you pick
+
+464
+00:25:09,340 --> 00:25:10,140
+on the tree and stuff.
+
+465
+00:25:10,140 --> 00:25:11,760
+And it sort of worked okay.
+
+466
+00:25:11,960 --> 00:25:14,180
+And James made a nice little hovercraft simulation.
+
+467
+00:25:14,640 --> 00:25:16,120
+He was so good with coding and such.
+
+468
+00:25:16,120 --> 00:25:18,900
+And I'd never met anybody better than me at coding until I met him.
+
+469
+00:25:18,900 --> 00:25:20,340
+And then I'm like, oh, okay, there's another level.
+
+470
+00:25:20,500 --> 00:25:21,440
+It was really amazing.
+
+471
+00:25:22,040 --> 00:25:23,900
+And so we did the stuff.
+
+472
+00:25:24,100 --> 00:25:25,400
+And we showed Jean-Claude La Tombe.
+
+473
+00:25:25,500 --> 00:25:28,840
+And he was kind of like, don't waste your time on this.
+
+474
+00:25:29,020 --> 00:25:30,280
+Go back, do what you're supposed to be doing.
+
+475
+00:25:30,340 --> 00:25:32,120
+And I was supposed to be working on the mobile robot and stuff.
+
+476
+00:25:32,360 --> 00:25:33,260
+So I was like, okay, fine.
+
+477
+00:25:33,360 --> 00:25:34,520
+So I stopped doing that.
+
+478
+00:25:35,060 --> 00:25:38,680
+But then when I got to Iowa for the first year of being a professor, I'm still thinking
+
+479
+00:25:38,680 --> 00:25:40,100
+it's running like a background process.
+
+480
+00:25:40,180 --> 00:25:41,460
+And then one day it just occurred to me.
+
+481
+00:25:41,940 --> 00:25:44,320
+I'm like, the space needs to be sampled, not the tree.
+
+482
+00:25:44,960 --> 00:25:45,600
+Just pick points.
+
+483
+00:25:46,120 --> 00:25:47,020
+In the space.
+
+484
+00:25:47,140 --> 00:25:50,420
+And each point you pick is like an advisor saying, hey, the tree ought to be over here.
+
+485
+00:25:50,760 --> 00:25:53,680
+So find the nearest node in the tree and drive it over there.
+
+486
+00:25:53,960 --> 00:25:54,960
+At least step towards it.
+
+487
+00:25:55,260 --> 00:25:57,620
+And then it kind of goes away, almost like whack-a-mole.
+
+488
+00:25:57,680 --> 00:25:59,160
+These little heads pop up, come towards me.
+
+489
+00:25:59,240 --> 00:26:00,340
+And I imagine it like that.
+
+490
+00:26:00,640 --> 00:26:01,580
+I'm like, oh, that's easy to code.
+
+491
+00:26:01,640 --> 00:26:02,500
+Let me go home and try it.
+
+492
+00:26:03,120 --> 00:26:04,680
+And so I tried it.
+
+493
+00:26:04,880 --> 00:26:06,760
+And it took a couple hours to hack it up.
+
+494
+00:26:06,920 --> 00:26:08,320
+And it was beautiful.
+
+495
+00:26:08,400 --> 00:26:10,000
+I just made these beautiful fractal pictures.
+
+496
+00:26:10,200 --> 00:26:11,780
+And next day I contacted James.
+
+497
+00:26:11,820 --> 00:26:12,940
+I hadn't talked to him in over a year.
+
+498
+00:26:13,060 --> 00:26:15,420
+And I said, James, I think we have it.
+
+499
+00:26:15,420 --> 00:26:16,100
+This is amazing.
+
+500
+00:26:16,120 --> 00:26:17,560
+And he knew right away, too.
+
+501
+00:26:17,640 --> 00:26:21,400
+And so we raced to the ICRA deadline to make some cool results and stuff.
+
+502
+00:26:22,180 --> 00:26:22,320
+Yeah.
+
+503
+00:26:22,880 --> 00:26:23,320
+Fascinating.
+
+504
+00:26:24,160 --> 00:26:28,000
+And I think RT has also really stood the test of time.
+
+505
+00:26:28,200 --> 00:26:32,840
+I mean, you got this milestone award at ICRA, I think, 2019.
+
+506
+00:26:33,240 --> 00:26:33,420
+Yeah.
+
+507
+00:26:33,860 --> 00:26:43,220
+So what do we actually think were the most important factors for this long-term success of RT that it still developed up until today?
+
+508
+00:26:43,620 --> 00:26:46,100
+Yeah, well, during that time when we were very excited.
+
+509
+00:26:46,160 --> 00:26:47,120
+I mean, I think we were very excited.
+
+510
+00:26:47,120 --> 00:26:49,220
+Some interesting things happened.
+
+511
+00:26:49,320 --> 00:26:56,420
+One of them was James was very focused in his PhD on ordinary path planning, like going from point A to point B in a configuration space with obstacles.
+
+512
+00:26:56,700 --> 00:26:59,180
+I was obsessed because of my electrical engineering background.
+
+513
+00:26:59,320 --> 00:27:01,860
+My PhD was in electrical, so I got further away from computers even.
+
+514
+00:27:02,580 --> 00:27:09,960
+I was obsessed with handling the control problem, like being able to apply inputs to steer a dynamical system, which the RT was, I thought, pretty good at.
+
+515
+00:27:10,040 --> 00:27:13,660
+And I did not want to compete with probabilistic roadmaps and all the other things.
+
+516
+00:27:13,820 --> 00:27:15,540
+But James was like, no, I need to get this working.
+
+517
+00:27:15,540 --> 00:27:16,000
+He had to.
+
+518
+00:27:16,120 --> 00:27:24,160
+It was a virtual human kind of project, all in graphics, where he had to have it like this character was moving chess pieces around on a board, and it needed to work really fast to be interactive.
+
+519
+00:27:24,900 --> 00:27:26,780
+And so he was under a lot of pressure to do that.
+
+520
+00:27:26,800 --> 00:27:28,280
+That was kind of his assignment for his PhD.
+
+521
+00:27:28,980 --> 00:27:31,420
+And he pushed more in that direction.
+
+522
+00:27:31,540 --> 00:27:36,260
+And then we had this idea of bidirectional trees right away, even for the first ICRA paper.
+
+523
+00:27:36,380 --> 00:27:41,540
+But then for the second paper, this RRT Connect ended up being really important.
+
+524
+00:27:41,540 --> 00:27:46,000
+This idea of trying to connect the trees together in a very special way and also connect all the way to the random.
+
+525
+00:27:46,120 --> 00:27:49,560
+So that ended up being the fastest planner around by a lot.
+
+526
+00:27:49,980 --> 00:27:57,440
+And then it's so easy to implement and play around with that people started coming up with variations of it for different kinds of problems.
+
+527
+00:27:57,940 --> 00:28:05,420
+And so the fact that you can easily get started and then try it on your problem or the next problem and so forth and so on, it's kind of like what happens with deep learning.
+
+528
+00:28:05,520 --> 00:28:06,520
+People are like, oh, I can do better.
+
+529
+00:28:06,620 --> 00:28:08,560
+And then they come up with some different architectures and different ideas.
+
+530
+00:28:08,840 --> 00:28:09,880
+Except this was very simple.
+
+531
+00:28:09,960 --> 00:28:13,000
+It didn't need massive amounts of hardware and software infrastructure.
+
+532
+00:28:13,220 --> 00:28:14,700
+So it was some fairly simple coding.
+
+533
+00:28:14,700 --> 00:28:15,900
+As long as you have collision detection.
+
+534
+00:28:16,120 --> 00:28:17,120
+And then you have the RRT factors, which became available.
+
+535
+00:28:17,300 --> 00:28:22,940
+Most of them from University of North Carolina, Dinesh Manosha, Ming Lin and others produced these nice collision detection packages.
+
+536
+00:28:23,400 --> 00:28:26,300
+So you could get started pretty fast with these.
+
+537
+00:28:26,460 --> 00:28:28,580
+So that just caused a big flurry of research.
+
+538
+00:28:29,120 --> 00:28:33,220
+Some people trying to improve RRTs and some people just simply using them as a module for something else.
+
+539
+00:28:34,420 --> 00:28:38,760
+And you also coined during this time the notion of sampling-based planning.
+
+540
+00:28:39,020 --> 00:28:39,220
+Yes.
+
+541
+00:28:39,380 --> 00:28:42,980
+I think the term randomized was not in there.
+
+542
+00:28:43,500 --> 00:28:43,820
+That's right.
+
+543
+00:28:43,820 --> 00:28:46,020
+It is on purpose because you don't...
+
+544
+00:28:46,120 --> 00:28:52,960
+You don't really believe in randomization, but you would actually say that this whole sampling should be more like in a deterministic way.
+
+545
+00:28:53,060 --> 00:28:53,600
+Is that correct?
+
+546
+00:28:54,000 --> 00:28:55,200
+Well, it's complicated.
+
+547
+00:28:55,480 --> 00:28:59,620
+So there's a branch of algorithms called randomized algorithms, which became really popular.
+
+548
+00:28:59,740 --> 00:29:03,000
+Rajiv Maltwani, who was very influential there, and he was a collaborator of the group.
+
+549
+00:29:03,640 --> 00:29:05,780
+As I said, I collaborated with him on one of our other papers.
+
+550
+00:29:06,120 --> 00:29:07,200
+That was a very important trend.
+
+551
+00:29:07,240 --> 00:29:12,660
+And it's very valuable there because normally algorithmic analysis uses worst case analysis for everything.
+
+552
+00:29:12,660 --> 00:29:16,100
+But it turns out for a lot of algorithms, maybe the input was structured.
+
+553
+00:29:16,120 --> 00:29:20,300
+In some bad way so that the worst case happens because the input wasn't structured very well.
+
+554
+00:29:20,360 --> 00:29:21,140
+It was in a bad...
+
+555
+00:29:21,140 --> 00:29:22,100
+Maybe you're sorting numbers.
+
+556
+00:29:22,200 --> 00:29:24,140
+Maybe they're in a bad ordering for some particular algorithm.
+
+557
+00:29:24,560 --> 00:29:33,980
+So it turns out randomly shuffling the inputs ends up helping the algorithmic analysis because it becomes like an average case mixed with worst case.
+
+558
+00:29:34,540 --> 00:29:35,600
+And that's a big help.
+
+559
+00:29:35,800 --> 00:29:37,320
+So the randomized typically meant that.
+
+560
+00:29:37,400 --> 00:29:38,960
+So that I believe in, and that's very sound.
+
+561
+00:29:39,380 --> 00:29:44,660
+But the kind of probabilistic path planning or randomized path planning, whether there's two different kind of names floating around for it,
+
+562
+00:29:44,960 --> 00:29:46,100
+that was a little more like saying,
+
+563
+00:29:46,120 --> 00:29:48,320
+okay, I need to sample the space somehow for these algorithms.
+
+564
+00:29:48,960 --> 00:29:49,900
+And it's important to be random.
+
+565
+00:29:50,020 --> 00:29:53,040
+But to truly be random, that means it can't be too uniform.
+
+566
+00:29:54,100 --> 00:29:56,280
+Uniform random is quite different than uniform.
+
+567
+00:29:56,700 --> 00:29:57,440
+A grid is uniform.
+
+568
+00:29:57,900 --> 00:30:00,940
+And you can make other things that are not very structured like a grid, but they're still uniform.
+
+569
+00:30:01,420 --> 00:30:04,920
+If you start putting a bunch of buckets in space, divide the space into buckets,
+
+570
+00:30:05,320 --> 00:30:08,880
+and you put a thousand random samples down and you have, say, 20 buckets,
+
+571
+00:30:09,220 --> 00:30:13,380
+some buckets need to have too many points and some need to have not enough for it to really look random.
+
+572
+00:30:13,900 --> 00:30:16,040
+If they all have the exact same number, that's too...
+
+573
+00:30:16,120 --> 00:30:16,620
+Uniform.
+
+574
+00:30:17,880 --> 00:30:20,660
+And also you can get deterministic guarantees with random sequences.
+
+575
+00:30:20,920 --> 00:30:25,000
+You can make sure that every open set, every neighborhood in the space has been touched or covered.
+
+576
+00:30:25,420 --> 00:30:28,600
+And that's a very important property rather than just hoping it happens with probability.
+
+577
+00:30:30,340 --> 00:30:30,840
+Yeah.
+
+578
+00:30:31,740 --> 00:30:32,580
+Makes a lot of sense.
+
+579
+00:30:32,840 --> 00:30:37,300
+So I just wanted to ask you about Chatshippity.
+
+580
+00:30:37,300 --> 00:30:42,440
+So today we are really living a completely different area because of big data.
+
+581
+00:30:42,460 --> 00:30:45,820
+Do you think that something like NeuroticShip,
+
+582
+00:30:46,120 --> 00:30:49,620
+CPT or so could really make motion planning deprecated?
+
+583
+00:30:50,920 --> 00:30:57,000
+Yeah, I think I follow the philosophy that's pretty close to what Ken Goldberg was talking about at this conference on the first day.
+
+584
+00:30:57,460 --> 00:30:59,440
+We mentioned this term, good old fashioned engineering.
+
+585
+00:30:59,800 --> 00:31:00,620
+And I think there's...
+
+586
+00:31:01,120 --> 00:31:04,560
+I don't see these kinds of techniques replacing good old fashioned engineering.
+
+587
+00:31:04,560 --> 00:31:10,080
+I think you don't want to learn force equals mass times acceleration by going and getting a bunch of data and such.
+
+588
+00:31:10,080 --> 00:31:15,880
+So I think it's very important for us to understand what are the right places where we need models.
+
+589
+00:31:15,880 --> 00:31:17,380
+And how to exploit those.
+
+590
+00:31:17,380 --> 00:31:19,760
+And what are the right places to exploit learning and use that.
+
+591
+00:31:19,760 --> 00:31:25,380
+It's also very important to me to have understandable robots, understandable autonomous systems in general.
+
+592
+00:31:25,380 --> 00:31:26,880
+So that's built...
+
+593
+00:31:26,880 --> 00:31:35,260
+They have to be built from some kind of principle, some models and tools where we can do mathematical analysis so that we can have safety, predictability, characterizability, these kinds of things.
+
+594
+00:31:35,260 --> 00:31:39,460
+And I don't see that going away anytime soon, this kind of need for these things.
+
+595
+00:31:39,460 --> 00:31:41,380
+In some applications, maybe it won't matter.
+
+596
+00:31:41,380 --> 00:31:44,680
+Or for one module inside of a system that is very safe, it's okay for it to be a little unnoticed.
+
+597
+00:31:44,680 --> 00:31:44,880
+Yeah.
+
+598
+00:31:44,880 --> 00:31:45,140
+Yeah.
+
+599
+00:31:45,140 --> 00:31:45,240
+Yeah.
+
+600
+00:31:45,240 --> 00:31:45,260
+Yeah.
+
+601
+00:31:45,260 --> 00:31:45,360
+Yeah.
+
+602
+00:31:45,360 --> 00:31:45,380
+Yeah.
+
+603
+00:31:45,380 --> 00:31:45,480
+Yeah.
+
+604
+00:31:45,480 --> 00:31:45,520
+Yeah.
+
+605
+00:31:45,520 --> 00:31:45,580
+Yeah.
+
+606
+00:31:45,580 --> 00:31:45,600
+Yeah.
+
+607
+00:31:45,600 --> 00:31:45,620
+Yeah.
+
+608
+00:31:45,620 --> 00:31:45,640
+Yeah.
+
+609
+00:31:45,640 --> 00:31:45,700
+Yeah.
+
+610
+00:31:45,700 --> 00:31:45,720
+Yeah.
+
+611
+00:31:45,720 --> 00:31:45,800
+Yeah.
+
+612
+00:31:45,800 --> 00:31:45,860
+Yeah.
+
+613
+00:31:45,880 --> 00:31:46,140
+Yeah.
+
+614
+00:31:46,140 --> 00:31:46,240
+Yeah.
+
+615
+00:31:46,240 --> 00:31:46,260
+Yeah.
+
+616
+00:31:46,260 --> 00:31:46,300
+Yeah.
+
+617
+00:31:46,300 --> 00:31:46,640
+Yeah.
+
+618
+00:31:46,640 --> 00:31:46,860
+Yeah.
+
+619
+00:31:46,860 --> 00:31:46,880
+Yeah.
+
+620
+00:31:46,880 --> 00:31:46,940
+Yeah.
+
+621
+00:31:46,940 --> 00:31:47,080
+Yeah.
+
+622
+00:31:47,080 --> 00:31:47,160
+Yeah.
+
+623
+00:31:51,240 --> 00:31:52,720
+And that's how it looks to me.
+
+624
+00:31:53,300 --> 00:31:58,100
+And do you believe that there's still value in doing like fundamental motion planning research?
+
+625
+00:31:58,200 --> 00:31:59,700
+So something like...
+
+626
+00:31:59,700 --> 00:32:01,640
+Which could like replace RT, for example.
+
+627
+00:32:02,220 --> 00:32:08,880
+Or do you think that this is really the best we could have ever come up with and there's not really value in it?
+
+628
+00:32:09,100 --> 00:32:10,420
+Well, I hope it's the best.
+
+629
+00:32:10,560 --> 00:32:11,480
+No, just kidding.
+
+630
+00:32:13,040 --> 00:32:15,780
+Well, I think there's definitely a lot of room for fundamental...
+
+631
+00:32:15,780 --> 00:32:20,920
+fundamental planning research. Planning research or computational control theory,
+
+632
+00:32:21,020 --> 00:32:23,760
+it's almost the same kind of thing, largely. A lot of the problems are kind of the same.
+
+633
+00:32:24,160 --> 00:32:30,040
+So there's a lot of openings for that. I think that the thing is,
+
+634
+00:32:31,120 --> 00:32:36,080
+right now the planning has been, or up to now, the planning has been mainly on configuration space
+
+635
+00:32:36,080 --> 00:32:42,080
+or an extended phase space. I'm very excited about information spaces, which is the space
+
+636
+00:32:42,080 --> 00:32:45,960
+you naturally live in when you don't have perfect state information. And I think that's where the
+
+637
+00:32:45,960 --> 00:32:49,840
+kind of wild frontier is and a lot of potential is there. Also, a lot of different types of feedback
+
+638
+00:32:49,840 --> 00:32:54,840
+motion planning where it's not a path you're computing, but rather a policy. And there's
+
+639
+00:32:54,840 --> 00:32:57,900
+lots of opportunities there as well. So I think there's a lot of room for movement in that.
+
+640
+00:32:58,560 --> 00:33:04,220
+And there's always probably more room for mathematical analysis and better characterizations
+
+641
+00:33:04,220 --> 00:33:06,380
+and these kinds of things. And I think those will improve.
+
+642
+00:33:07,440 --> 00:33:11,260
+And do you believe that information spaces is something which could maybe replace
+
+643
+00:33:11,260 --> 00:33:12,060
+configuration space?
+
+644
+00:33:12,080 --> 00:33:16,420
+Information spaces, which have been so unifiedly used in robotics.
+
+645
+00:33:16,720 --> 00:33:20,040
+Well, let's put it this way. If you take something like, imagine the notion of a digital twin,
+
+646
+00:33:20,180 --> 00:33:25,580
+right? So there's an outside world and I want to capture all of it and put it inside the robot's
+
+647
+00:33:25,580 --> 00:33:30,200
+brain and have a perfect sort of copy. So that's kind of the way the configuration space planning
+
+648
+00:33:30,200 --> 00:33:33,880
+looks, right? Because in the robot's brain, it has a perfect model of all the geometry.
+
+649
+00:33:34,520 --> 00:33:38,180
+So the information space is a replacement for the case where you don't want to do that,
+
+650
+00:33:38,440 --> 00:33:41,140
+where you just say, okay, maybe my goal is to vacuum the floors.
+
+651
+00:33:41,400 --> 00:33:42,060
+Do I need a configuration space?
+
+652
+00:33:42,060 --> 00:33:44,620
+Do I need a complete map of the environment to do that with exact localization?
+
+653
+00:33:44,680 --> 00:33:50,100
+Or maybe I can just kind of slop around or do some clever local strategies and just kind of make it work.
+
+654
+00:33:50,140 --> 00:33:54,420
+Maybe there's some other ways to do it that do not require constructing a complete geometric map.
+
+655
+00:33:54,640 --> 00:33:57,980
+It's like humans can do a lot of things without having complete precise maps and such.
+
+656
+00:33:58,600 --> 00:34:01,340
+So that's what the information space is. It's like it is a replacement.
+
+657
+00:34:01,920 --> 00:34:08,260
+But if you're going to do a digital twin, the information space just reduces to being the configuration space.
+
+658
+00:34:08,320 --> 00:34:10,060
+So it's, in fact, a big generalization of that.
+
+659
+00:34:10,060 --> 00:34:10,100
+Yeah.
+
+660
+00:34:10,720 --> 00:34:11,020
+Yeah.
+
+661
+00:34:11,020 --> 00:34:11,040
+Yeah.
+
+662
+00:34:11,040 --> 00:34:11,060
+Yeah.
+
+663
+00:34:11,060 --> 00:34:11,120
+Yeah.
+
+664
+00:34:11,120 --> 00:34:11,140
+Yeah.
+
+665
+00:34:11,140 --> 00:34:11,160
+Yeah.
+
+666
+00:34:11,160 --> 00:34:11,180
+Yeah.
+
+667
+00:34:11,180 --> 00:34:11,200
+Yeah.
+
+668
+00:34:11,200 --> 00:34:11,260
+Yeah.
+
+669
+00:34:11,260 --> 00:34:11,280
+Yeah.
+
+670
+00:34:11,280 --> 00:34:11,320
+Yeah.
+
+671
+00:34:11,320 --> 00:34:11,380
+Yeah.
+
+672
+00:34:11,380 --> 00:34:11,400
+Yeah.
+
+673
+00:34:11,400 --> 00:34:11,420
+Yeah.
+
+674
+00:34:11,420 --> 00:34:11,440
+Yeah.
+
+675
+00:34:11,440 --> 00:34:11,480
+Yeah.
+
+676
+00:34:11,480 --> 00:34:11,520
+Yeah.
+
+677
+00:34:11,520 --> 00:34:11,540
+Yeah.
+
+678
+00:34:11,540 --> 00:34:12,200
+Yeah.
+
+679
+00:34:12,200 --> 00:34:12,240
+Yeah.
+
+680
+00:34:12,240 --> 00:34:12,300
+Yeah.
+
+681
+00:34:12,300 --> 00:34:12,640
+Yeah.
+
+682
+00:34:12,640 --> 00:34:12,760
+Yeah.
+
+683
+00:34:12,760 --> 00:34:12,800
+Yeah.
+
+684
+00:34:12,800 --> 00:34:12,840
+Yeah.
+
+685
+00:34:12,840 --> 00:34:12,880
+Yeah.
+
+686
+00:34:12,880 --> 00:34:12,900
+Yeah.
+
+687
+00:34:12,900 --> 00:34:12,960
+Yeah.
+
+688
+00:34:12,960 --> 00:34:13,180
+Yeah.
+
+689
+00:34:13,180 --> 00:34:13,260
+Yeah.
+
+690
+00:34:13,260 --> 00:34:13,320
+Yeah.
+
+691
+00:34:13,320 --> 00:34:13,360
+Yeah.
+
+692
+00:34:13,360 --> 00:34:13,420
+Yeah.
+
+693
+00:34:13,420 --> 00:34:13,440
+Yeah.
+
+694
+00:34:13,440 --> 00:34:13,860
+Yeah.
+
+695
+00:34:13,860 --> 00:34:13,980
+Yeah.
+
+696
+00:34:13,980 --> 00:34:14,040
+Yeah.
+
+697
+00:34:14,040 --> 00:34:14,080
+Yeah.
+
+698
+00:34:14,080 --> 00:34:14,100
+Yeah.
+
+699
+00:34:14,100 --> 00:34:14,360
+Yeah.
+
+700
+00:34:14,360 --> 00:34:15,620
+surficient robot brain.
+
+701
+00:34:15,800 --> 00:34:18,320
+So how does it actually tie in with that?
+
+702
+00:34:18,660 --> 00:34:24,280
+So it basically says that the robot brain, I'm not reallychi talking about neurons and such,
+
+703
+00:34:24,280 --> 00:34:28,880
+but let's imagine that it's just some very general discrete time or discrete event dynamical
+
+704
+00:34:28,880 --> 00:34:32,120
+system, and it can be over a continuous state space or discrete state space.
+
+705
+00:34:32,500 --> 00:34:34,040
+So it's a very general setting.
+
+706
+00:34:34,660 --> 00:34:39,480
+And then we have sensors that measure information, measure whatever it is from the outside world.
+
+707
+00:34:39,540 --> 00:34:40,240
+They get observations.
+
+708
+00:34:40,240 --> 00:34:42,120
+And then there's actuation that goes out.
+
+709
+00:34:42,620 --> 00:34:46,780
+And through this kind of interaction, the question is, if you express a task in the
+
+710
+00:34:46,780 --> 00:34:50,380
+outside world, it could be in terms of you want to see these kind of sensor readings
+
+711
+00:34:50,380 --> 00:34:53,740
+and you want to actuate these things, or maybe there's a state that you can reason about.
+
+712
+00:34:53,820 --> 00:34:54,360
+It's external.
+
+713
+00:34:54,880 --> 00:34:59,960
+In order to achieve these things, what's the smallest kind of like computation unit?
+
+714
+00:35:00,100 --> 00:35:01,980
+We call it an information transition system.
+
+715
+00:35:02,360 --> 00:35:06,160
+There's the internal states are information states just means internal states.
+
+716
+00:35:06,220 --> 00:35:08,060
+There's no kind of meaning to the information necessarily.
+
+717
+00:35:08,060 --> 00:35:09,440
+It may or may not have meaning to it.
+
+718
+00:35:09,440 --> 00:35:16,380
+In a semantic sense, but basically, our theory says in a very general setting that there's
+
+719
+00:35:16,380 --> 00:35:22,840
+always a smallest information space or information transition system for any given task.
+
+720
+00:35:23,160 --> 00:35:24,060
+And it's unique.
+
+721
+00:35:24,440 --> 00:35:26,360
+Now, finding it is very challenging.
+
+722
+00:35:26,460 --> 00:35:29,880
+We found some before, and I think the search is on to find the rest of them.
+
+723
+00:35:29,960 --> 00:35:30,980
+Can you find some automatically?
+
+724
+00:35:31,140 --> 00:35:31,400
+Maybe.
+
+725
+00:35:32,220 --> 00:35:37,520
+I think Jason O'Kane and Dylan Schell at Texas A&M, for example, are interested in this as well.
+
+726
+00:35:37,820 --> 00:35:39,420
+Well, yeah.
+
+727
+00:35:39,440 --> 00:35:43,200
+Let me talk a little bit about your book, Planning Algorithms.
+
+728
+00:35:43,200 --> 00:35:49,140
+I think in 2004, you had a sabbatical and you just concentrated on writing this book.
+
+729
+00:35:49,620 --> 00:35:57,280
+And I think it's a very special book because it's super comprehensive and there is such a big attention to detail in the book.
+
+730
+00:35:57,680 --> 00:36:03,000
+So what did it actually take to write such a big monumental book?
+
+731
+00:36:03,220 --> 00:36:06,240
+And also, how did you get inspired to do that?
+
+732
+00:36:06,600 --> 00:36:09,320
+Yeah, well, I thought Jean-Claude de Tombe's book was really cool.
+
+733
+00:36:09,320 --> 00:36:09,400
+Yeah.
+
+734
+00:36:09,440 --> 00:36:12,300
+It was really cool in 1991, and it had some impact on me.
+
+735
+00:36:12,700 --> 00:36:15,680
+I could see the respect that he got and the impact he was able to have.
+
+736
+00:36:15,840 --> 00:36:20,720
+And in 1994 or so, when I was nearing the end of my PhD, I had a vision.
+
+737
+00:36:21,040 --> 00:36:23,500
+I was writing a thesis, and I loved writing.
+
+738
+00:36:23,780 --> 00:36:27,820
+And in pulling everything together for my thesis, I could see how to unify all kinds of things.
+
+739
+00:36:27,860 --> 00:36:29,900
+In that case, it was a kind of game theoretic framework.
+
+740
+00:36:30,400 --> 00:36:31,780
+And I was like, you know, I want to go bigger than this.
+
+741
+00:36:31,780 --> 00:36:39,060
+I want to really try to unify control theory, discrete like AI kind of planning, and continuous motion planning, and kind of pull everything together.
+
+742
+00:36:39,440 --> 00:36:40,780
+And I thought I could do a good job on that.
+
+743
+00:36:41,040 --> 00:36:49,840
+So across the 90s, I was thinking about this all the time and just kind of building the landscape in my mind and doing research and kind of still putting the pieces together.
+
+744
+00:36:49,940 --> 00:36:56,140
+So once I could kind of see the whole landscape in my head, in 2004, I'm like, okay, I'm ready to do a massive brain dump.
+
+745
+00:36:56,520 --> 00:37:03,280
+And so I went to Poland, Poznań, and Professor Krzysztof Kozłowski was my host there.
+
+746
+00:37:03,940 --> 00:37:09,380
+And I just mostly I couldn't use the university too much because they had a lot of rules about.
+
+747
+00:37:09,440 --> 00:37:11,960
+When you could go to the office and they controlled the keys and stuff.
+
+748
+00:37:12,120 --> 00:37:19,400
+So I eventually just got an apartment with high speed internet near the university and just kind of quarantined myself for the most part and just worked like crazy.
+
+749
+00:37:20,620 --> 00:37:24,400
+I wrote about 650 pages in 20 weeks.
+
+750
+00:37:25,620 --> 00:37:29,380
+And mostly I'd roll out of bed at about seven in the morning and just start writing.
+
+751
+00:37:29,480 --> 00:37:30,440
+It was my best time to write.
+
+752
+00:37:30,780 --> 00:37:34,660
+And then I would write all morning, maybe eat a little bit of cereal or something.
+
+753
+00:37:35,120 --> 00:37:36,180
+Muesli, I'd eat a little muesli.
+
+754
+00:37:36,180 --> 00:37:39,380
+And then I'd go and get lunch.
+
+755
+00:37:40,200 --> 00:37:44,380
+Meet some of the assistants at the university, practice my Polish.
+
+756
+00:37:44,860 --> 00:37:52,540
+And then in the afternoon, I would do proofreading of whatever I had just written or maybe the day before, whatever it was, I would do proofreading until dinner time.
+
+757
+00:37:52,960 --> 00:37:55,920
+And then I would start reading materials.
+
+758
+00:37:56,040 --> 00:38:00,900
+I brought a lot of materials with me and I would try to read and start to concentrate on what the next part was I was going to write the next day.
+
+759
+00:38:01,140 --> 00:38:07,300
+And then by about nine or ten at night, I would drink a big beer and then pass out.
+
+760
+00:38:08,000 --> 00:38:09,160
+I'd be dreaming about it.
+
+761
+00:38:09,160 --> 00:38:11,240
+I definitely work a lot when I sleep.
+
+762
+00:38:11,800 --> 00:38:14,240
+So things would be kind of somehow crystallized when I got up in the morning.
+
+763
+00:38:14,340 --> 00:38:16,080
+I'd roll out of bed and the process just kept repeating.
+
+764
+00:38:16,100 --> 00:38:17,460
+So basically total immersion.
+
+765
+00:38:17,740 --> 00:38:18,600
+It was like that, yeah.
+
+766
+00:38:18,740 --> 00:38:19,720
+And things were clearer.
+
+767
+00:38:20,300 --> 00:38:23,560
+These concepts were clearer to me than anything I'd ever been in my life.
+
+768
+00:38:23,720 --> 00:38:24,660
+It was so beautiful.
+
+769
+00:38:25,140 --> 00:38:29,920
+But it was very antisocial and destructive in a lot of ways because I couldn't do that forever.
+
+770
+00:38:30,300 --> 00:38:32,980
+But during that time, the clarity was just amazing.
+
+771
+00:38:33,120 --> 00:38:37,080
+And there was never like a time when you thought, okay, I don't want to do this anymore.
+
+772
+00:38:37,200 --> 00:38:38,120
+I want to give up here.
+
+773
+00:38:38,120 --> 00:38:39,920
+No, there's a lot of stress.
+
+774
+00:38:39,980 --> 00:38:41,200
+Am I going to be on schedule or not?
+
+775
+00:38:41,300 --> 00:38:42,940
+Some of those chapters I wrote really fast.
+
+776
+00:38:43,000 --> 00:38:45,380
+It was about two weeks per chapter I was trying to go there.
+
+777
+00:38:45,440 --> 00:38:49,400
+But some of them got harder and some of them were easier.
+
+778
+00:38:49,500 --> 00:38:51,100
+I was able to catch up and it was kind of difficult.
+
+779
+00:38:51,280 --> 00:38:57,400
+And then I went back to Illinois and then wrote the remaining third or so later in that year.
+
+780
+00:38:57,600 --> 00:38:59,060
+Except for the information space chapter.
+
+781
+00:38:59,060 --> 00:39:00,500
+That was the hardest to write by far.
+
+782
+00:39:01,220 --> 00:39:04,580
+And I finished that in 2015 sometime when we were getting kind of near the end.
+
+783
+00:39:04,840 --> 00:39:05,580
+And the introduction.
+
+784
+00:39:05,740 --> 00:39:06,320
+But that wasn't hard.
+
+785
+00:39:06,320 --> 00:39:07,640
+I just saved it for last.
+
+786
+00:39:08,120 --> 00:39:10,640
+And how did you actually get this book published?
+
+787
+00:39:10,820 --> 00:39:11,880
+I mean, how did you get it?
+
+788
+00:39:11,960 --> 00:39:13,000
+How did you find the publisher?
+
+789
+00:39:13,180 --> 00:39:16,560
+How did you convince them that it was actually a good idea to write such a book?
+
+790
+00:39:16,720 --> 00:39:17,240
+Yeah, very good question.
+
+791
+00:39:17,500 --> 00:39:20,280
+I was always posting it on the internet for free when it was just course notes.
+
+792
+00:39:20,820 --> 00:39:25,500
+And I thought at that time, when you search for things, you know, Google search was not localized.
+
+793
+00:39:25,840 --> 00:39:31,460
+And the EDU domain, which my university was on, came up very high in searches.
+
+794
+00:39:31,760 --> 00:39:34,280
+So I felt I'm going to put stuff on the internet and get my word out.
+
+795
+00:39:35,180 --> 00:39:37,180
+I got used to using the internet that way in Iowa.
+
+796
+00:39:37,320 --> 00:39:38,100
+I had moved to Illinois.
+
+797
+00:39:38,140 --> 00:39:39,100
+By 2001.
+
+798
+00:39:39,320 --> 00:39:41,560
+But I still had this mentality of just putting it on the internet.
+
+799
+00:39:41,640 --> 00:39:42,340
+So it was already there.
+
+800
+00:39:42,740 --> 00:39:44,000
+95% of the way done.
+
+801
+00:39:44,480 --> 00:39:47,600
+And I just contacted the editor-in-chief for the right division.
+
+802
+00:39:47,740 --> 00:39:50,880
+I think it was Computer Science and Mathematics for Cambridge University Press.
+
+803
+00:39:50,920 --> 00:39:51,700
+That was my first choice.
+
+804
+00:39:52,220 --> 00:39:58,500
+One reason why was because there was a book by Alan Hatcher, the mathematician, who I think he's at Cornell.
+
+805
+00:39:59,080 --> 00:40:00,500
+I might be wrong.
+
+806
+00:40:00,980 --> 00:40:04,280
+And he published his algebraic topology book for free.
+
+807
+00:40:04,520 --> 00:40:06,120
+And it was, I mean, it was online for free.
+
+808
+00:40:06,160 --> 00:40:07,480
+And he published it with Cambridge.
+
+809
+00:40:07,480 --> 00:40:07,840
+And so I said, well, I'm going to put it on the internet.
+
+810
+00:40:07,840 --> 00:40:07,860
+And he published it with Cambridge.
+
+811
+00:40:07,860 --> 00:40:08,080
+And so I said, well, I'm going to put it on the internet.
+
+812
+00:40:08,100 --> 00:40:10,140
+And he said, hey, can I get the Alan Hatcher deal, whatever that was?
+
+813
+00:40:10,520 --> 00:40:13,780
+And they checked it out and replied back in a day or two and said, yeah.
+
+814
+00:40:14,380 --> 00:40:15,000
+So that was easy.
+
+815
+00:40:15,620 --> 00:40:17,600
+If not, I was going to go through a lot of other plans.
+
+816
+00:40:17,660 --> 00:40:20,740
+I was going to look for a local publisher, like even a little regional publisher,
+
+817
+00:40:20,840 --> 00:40:25,580
+do anything I could to get that book out there without just having all this money going to the publishers and such.
+
+818
+00:40:25,820 --> 00:40:27,780
+I wanted it to be accessible to everyone.
+
+819
+00:40:27,840 --> 00:40:32,200
+But I thought a printed copy, especially in that time period, would be really important to people.
+
+820
+00:40:32,200 --> 00:40:38,080
+And so I think there were almost like a thousand references which he had in the book.
+
+821
+00:40:38,100 --> 00:40:41,560
+So how did you actually manage to go through all those papers?
+
+822
+00:40:41,740 --> 00:40:45,560
+How did you actually organize yourself to retain this information?
+
+823
+00:40:45,920 --> 00:40:48,780
+Well, that was everything I accumulated going all the way back to my PhD.
+
+824
+00:40:48,840 --> 00:40:50,440
+And I was very scholarly for PhD.
+
+825
+00:40:50,560 --> 00:40:53,900
+I spent a lot of time in the library, a lot of time always trying to build a landscape.
+
+826
+00:40:54,100 --> 00:40:55,660
+I call it like a landscape of literature.
+
+827
+00:40:56,420 --> 00:41:02,080
+And very often, to go into a new area that I don't know as much about, the first paper is very painful, very hard to read.
+
+828
+00:41:02,360 --> 00:41:04,840
+But I was falling back on all that mathematics that I mentioned before.
+
+829
+00:41:04,920 --> 00:41:07,280
+So things are kind of easy, unless it's a poorly written paper.
+
+830
+00:41:07,280 --> 00:41:07,620
+A lot of...
+
+831
+00:41:07,620 --> 00:41:09,460
+The engineering papers are kind of showy.
+
+832
+00:41:10,040 --> 00:41:11,940
+But I'm like, oh, that's just cumbersome notation.
+
+833
+00:41:12,100 --> 00:41:14,580
+They kind of show off or they don't quite know how to express things right.
+
+834
+00:41:14,900 --> 00:41:15,700
+I skip that stuff.
+
+835
+00:41:15,780 --> 00:41:18,180
+I try to find the really good papers, learn the stuff well.
+
+836
+00:41:18,260 --> 00:41:24,640
+And then if there's other papers that I want to reference that kind of fall into that, I can skim them a little more quickly and kind of say, oh, I can see what they're doing.
+
+837
+00:41:24,680 --> 00:41:26,000
+And I see how it's related to these things.
+
+838
+00:41:26,280 --> 00:41:28,100
+So I can give the right recommendation to the author.
+
+839
+00:41:28,400 --> 00:41:36,220
+If you want this variant or that variant or these people showed this bound, you know, so these kind of things, just enough to make sure my statement is correct and where it fits and everything was like that.
+
+840
+00:41:36,220 --> 00:41:37,100
+So I didn't just...
+
+841
+00:41:37,100 --> 00:41:39,160
+At the start of writing the book, sit down and read a thousand papers.
+
+842
+00:41:39,320 --> 00:41:43,260
+But it was something accumulated over probably a decade, more than a decade leading up to that.
+
+843
+00:41:44,120 --> 00:41:45,280
+And I...
+
+844
+00:41:45,280 --> 00:41:49,720
+So I guess all the papers were not like in PDF format.
+
+845
+00:41:50,140 --> 00:41:50,860
+No, they weren't.
+
+846
+00:41:50,960 --> 00:41:52,600
+I had to like print all of them.
+
+847
+00:41:52,820 --> 00:41:52,980
+You're right.
+
+848
+00:41:53,080 --> 00:41:54,220
+Like make big...
+
+849
+00:41:54,880 --> 00:41:55,820
+I had copies of it.
+
+850
+00:41:56,100 --> 00:41:58,740
+I had a whole suitcase just filled with books and papers and stuff.
+
+851
+00:41:58,740 --> 00:41:59,760
+So that was very frustrating.
+
+852
+00:42:00,180 --> 00:42:01,800
+And I kept going back to the US every...
+
+853
+00:42:01,800 --> 00:42:06,860
+I went six weeks in Poland, one week back, six weeks in Poland, one week back, and then eight weeks in Poland.
+
+854
+00:42:07,000 --> 00:42:07,080
+So I...
+
+855
+00:42:07,100 --> 00:42:08,680
+I could exchange stuff as well.
+
+856
+00:42:10,000 --> 00:42:10,360
+Nice.
+
+857
+00:42:10,500 --> 00:42:20,020
+And do you think if you look back at the book, are there some parts which you find a little bit like deprecated right now or you would like rewrite in hindsight?
+
+858
+00:42:20,480 --> 00:42:20,660
+Yeah.
+
+859
+00:42:20,740 --> 00:42:22,440
+Like, do I want to cringe when I read something back?
+
+860
+00:42:22,820 --> 00:42:26,880
+That was my biggest fear when I was writing it is that I would look back 10 or 20 years later.
+
+861
+00:42:26,960 --> 00:42:27,520
+I kid you not.
+
+862
+00:42:27,920 --> 00:42:28,440
+And have this...
+
+863
+00:42:28,440 --> 00:42:32,140
+So there was like my future self imagined looking back at me going, don't screw this up.
+
+864
+00:42:32,180 --> 00:42:32,820
+Don't screw this up.
+
+865
+00:42:33,000 --> 00:42:33,680
+It'll be embarrassing.
+
+866
+00:42:33,680 --> 00:42:37,060
+And I think because it was mostly fundamental stuff and mostly mathematical.
+
+867
+00:42:37,100 --> 00:42:40,160
+And things like this that I could...
+
+868
+00:42:40,160 --> 00:42:42,920
+Well, that's what I decided to do and not be too speculative about anything.
+
+869
+00:42:43,300 --> 00:42:43,720
+There's no...
+
+870
+00:42:43,720 --> 00:42:45,140
+I don't think there's much speculation in there.
+
+871
+00:42:45,760 --> 00:42:48,980
+And so I don't have any regrets about what's written there.
+
+872
+00:42:49,080 --> 00:42:49,860
+There's stuff I would add.
+
+873
+00:42:51,080 --> 00:43:02,280
+Happy and proud of the fact that I covered quite a bit of reinforcement learning and worked that right into my coverage of value iteration and optimal control kind of form of planning and stuff.
+
+874
+00:43:02,320 --> 00:43:02,920
+It fits perfectly.
+
+875
+00:43:03,160 --> 00:43:06,920
+I guess I could add now instead of like grid-based representations for cost...
+
+876
+00:43:07,100 --> 00:43:09,040
+Cost-to-go functions, we could have neural representations.
+
+877
+00:43:09,040 --> 00:43:11,080
+And I could easily tie into that.
+
+878
+00:43:11,080 --> 00:43:16,180
+I could add asymptotically optimal planners like RRT-STAR and a bunch of other things that came after that.
+
+879
+00:43:17,380 --> 00:43:20,540
+And afterwards, you also published two more books, I think.
+
+880
+00:43:20,700 --> 00:43:20,860
+Yeah.
+
+881
+00:43:21,360 --> 00:43:24,600
+So did it actually become easier to write books?
+
+882
+00:43:25,180 --> 00:43:29,800
+And what were maybe some lessons which you learned during this period of writing books?
+
+883
+00:43:29,900 --> 00:43:33,860
+Well, it became harder because I have more time spent on family.
+
+884
+00:43:34,000 --> 00:43:36,080
+Some challenging family issues, but also children.
+
+885
+00:43:36,300 --> 00:43:36,860
+Children.
+
+886
+00:43:37,100 --> 00:43:37,960
+And other things.
+
+887
+00:43:38,240 --> 00:43:41,800
+So it got harder to really block off the time to do that.
+
+888
+00:43:42,940 --> 00:43:45,500
+The sensing and filtering book is kind of small.
+
+889
+00:43:45,620 --> 00:43:47,940
+It was like a teaser book for the bigger book that was supposed to come.
+
+890
+00:43:48,420 --> 00:43:52,960
+And I was set to write that on sabbatical in Finland in 2012.
+
+891
+00:43:53,640 --> 00:43:57,160
+Also, there was due to be an RRT book, which I wrote a part of.
+
+892
+00:43:58,000 --> 00:44:00,940
+And my co-authors got busy in companies and stuff.
+
+893
+00:44:00,980 --> 00:44:02,480
+And then I got busy in companies and stuff.
+
+894
+00:44:02,540 --> 00:44:03,340
+And a lot of stuff happened.
+
+895
+00:44:03,340 --> 00:44:05,920
+So that one might one day be revived.
+
+896
+00:44:05,980 --> 00:44:06,340
+Who knows?
+
+897
+00:44:06,580 --> 00:44:06,900
+But...
+
+898
+00:44:07,100 --> 00:44:09,820
+But then after the VR thing, I wrote a VR book.
+
+899
+00:44:10,000 --> 00:44:13,320
+That was a lot easier to write than the...
+
+900
+00:44:13,320 --> 00:44:16,380
+It has a lot more words and pictures, put it that way, than the planning algorithm of the book.
+
+901
+00:44:16,500 --> 00:44:17,180
+So I could kind of...
+
+902
+00:44:17,180 --> 00:44:18,880
+And it's shorter, so I could pull that off more quickly.
+
+903
+00:44:18,880 --> 00:44:23,720
+So you still have an RRT book on your shelf, which you want to publish at some point?
+
+904
+00:44:23,920 --> 00:44:26,440
+Yeah, in a Linux directory somewhere.
+
+905
+00:44:27,920 --> 00:44:28,440
+Nice.
+
+906
+00:44:29,140 --> 00:44:35,580
+Yeah, and I guess almost everyone who likes to write also normally likes to read.
+
+907
+00:44:35,920 --> 00:44:36,320
+So...
+
+908
+00:44:36,320 --> 00:44:36,940
+Yeah.
+
+909
+00:44:36,940 --> 00:44:41,820
+What are maybe like some books which you really like to read or maybe like some kind of books?
+
+910
+00:44:42,560 --> 00:44:43,800
+Yeah, that's a good question.
+
+911
+00:44:43,860 --> 00:44:46,780
+I'm not a super reader in some sense.
+
+912
+00:44:46,780 --> 00:44:48,720
+I actually write better than I read.
+
+913
+00:44:48,860 --> 00:44:49,060
+I don't know.
+
+914
+00:44:49,080 --> 00:44:50,540
+My reading rate's always been kind of slow.
+
+915
+00:44:50,720 --> 00:44:52,060
+And I don't know all the reasons for that.
+
+916
+00:44:52,080 --> 00:44:58,260
+A lot of my family members have struggles with like ADD, ADHD, and different kinds of things like that.
+
+917
+00:44:58,360 --> 00:45:00,940
+So my attention wanders quickly sometimes.
+
+918
+00:45:01,920 --> 00:45:02,620
+I liked...
+
+919
+00:45:02,620 --> 00:45:05,560
+In my 20s, I was kind of able to get my reading speed up enough to...
+
+920
+00:45:05,560 --> 00:45:06,740
+When I took breaks from my research.
+
+921
+00:45:06,940 --> 00:45:08,040
+I was able to read a lot of novels.
+
+922
+00:45:08,220 --> 00:45:10,100
+I loved like Asimov's robot novels.
+
+923
+00:45:10,480 --> 00:45:12,940
+I loved Arthur C. Clarke's books as well.
+
+924
+00:45:13,080 --> 00:45:13,620
+Greg Baer.
+
+925
+00:45:13,760 --> 00:45:16,180
+A lot of other like hard science fiction.
+
+926
+00:45:16,360 --> 00:45:17,140
+So that was really nice.
+
+927
+00:45:17,620 --> 00:45:20,400
+In terms of technical books, I love math books.
+
+928
+00:45:20,560 --> 00:45:21,660
+And I collect math books.
+
+929
+00:45:22,080 --> 00:45:24,560
+I have just rows and rows and rows of math books.
+
+930
+00:45:24,800 --> 00:45:26,360
+And I was able to...
+
+931
+00:45:26,360 --> 00:45:30,660
+Luckily, as a professor, I was able to buy them on my budget, like unrestricted money, and bring them with me.
+
+932
+00:45:30,680 --> 00:45:31,380
+So I still have them.
+
+933
+00:45:31,620 --> 00:45:32,940
+I have a home office with tons of them.
+
+934
+00:45:32,940 --> 00:45:35,760
+Many of them are yellow books, like Springer Verlag.
+
+935
+00:45:36,940 --> 00:45:39,560
+ETMs, graduate texts in mathematics, and undergrad ones as well.
+
+936
+00:45:39,840 --> 00:45:41,900
+A lot of them are missing now because I hand them out to students.
+
+937
+00:45:42,040 --> 00:45:45,720
+And then we both forget to have them come back to me and stuff like that.
+
+938
+00:45:46,220 --> 00:45:49,300
+But I could name some of those kind of books maybe.
+
+939
+00:45:49,540 --> 00:45:50,860
+But a lot of math books anyway.
+
+940
+00:45:51,340 --> 00:45:56,160
+Is there maybe some book in particular which really influenced you and your life?
+
+941
+00:45:56,360 --> 00:45:58,340
+And maybe the trajectory of your life even?
+
+942
+00:46:00,140 --> 00:46:01,100
+Yeah, that's a good question.
+
+943
+00:46:01,100 --> 00:46:04,480
+I can't say there's any one book like that.
+
+944
+00:46:04,980 --> 00:46:06,340
+When I was an assistant professor,
+
+945
+00:46:06,340 --> 00:46:09,460
+I read Ayn Rand's Fountainhead.
+
+946
+00:46:09,900 --> 00:46:13,460
+But I don't get into sort of the politics and philosophy of Ayn Rand and that kind of thing.
+
+947
+00:46:13,760 --> 00:46:18,420
+But I found the book very inspiring because there was one character who was super passionate and creative,
+
+948
+00:46:18,700 --> 00:46:24,580
+and another character who was more obsessed with success and always needed the creative guy's help to do this.
+
+949
+00:46:24,980 --> 00:46:27,860
+And Howard Rourke, I think, was the hero of that.
+
+950
+00:46:27,940 --> 00:46:29,340
+And so Howard Rourke was like...
+
+951
+00:46:30,180 --> 00:46:32,500
+It clearly separated things out for me.
+
+952
+00:46:32,580 --> 00:46:33,960
+I wanted to be the one who's passionate.
+
+953
+00:46:33,960 --> 00:46:35,700
+And I'll go down.
+
+954
+00:46:35,700 --> 00:46:40,340
+I'll go down being passionate, trying to do the right things before I'll try to make the choices to succeed better.
+
+955
+00:46:41,120 --> 00:46:45,100
+And that helped me to think about those things when I was starting off as an assistant professor.
+
+956
+00:46:45,480 --> 00:46:48,060
+But again, I don't go further into all the philosophy and all this.
+
+957
+00:46:49,300 --> 00:46:50,660
+I forgot the name of the...
+
+958
+00:46:50,660 --> 00:46:51,520
+Anyway, I forgot.
+
+959
+00:46:51,700 --> 00:46:53,100
+Yeah, anyway, not into the philosophy.
+
+960
+00:46:53,360 --> 00:46:58,160
+In 2012, you actually got an email that changed a little bit the trajectory of your life.
+
+961
+00:46:58,720 --> 00:47:00,440
+You joined Oculus.
+
+962
+00:47:01,080 --> 00:47:04,440
+And so how did this actually happen that you switched to industry?
+
+963
+00:47:05,700 --> 00:47:06,760
+What was the Oculus head sense?
+
+964
+00:47:07,160 --> 00:47:08,760
+Yeah, that was quite an out-of-the-blue thing.
+
+965
+00:47:08,820 --> 00:47:10,740
+And that disrupted my project to make more books.
+
+966
+00:47:10,940 --> 00:47:12,220
+I sometimes still regret.
+
+967
+00:47:12,600 --> 00:47:14,780
+But yet, it was a pretty good path, so it was all right.
+
+968
+00:47:15,680 --> 00:47:18,200
+Well, I had settled into sabbatical in Finland.
+
+969
+00:47:19,280 --> 00:47:19,960
+The fall was coming.
+
+970
+00:47:19,980 --> 00:47:20,700
+We were very happy.
+
+971
+00:47:20,780 --> 00:47:23,120
+I was there with my wife and two boys.
+
+972
+00:47:24,260 --> 00:47:25,740
+And we really enjoyed it.
+
+973
+00:47:25,860 --> 00:47:27,380
+But actually, my wife was a little bored.
+
+974
+00:47:27,520 --> 00:47:28,980
+She has a PhD in robotics as well.
+
+975
+00:47:29,260 --> 00:47:32,120
+And so she was looking for stuff to do.
+
+976
+00:47:32,880 --> 00:47:34,680
+And anyway, out of the blue, I get this email.
+
+977
+00:47:35,700 --> 00:47:38,600
+It's this company that just got a couple million dollars in a Kickstarter.
+
+978
+00:47:38,780 --> 00:47:43,660
+The email is from a guy named Jack McCauley, who's a UC Berkeley alum from electrical engineering back in the 80s.
+
+979
+00:47:44,380 --> 00:47:48,980
+And basically, they needed help with Euler angles and quaternions.
+
+980
+00:47:48,980 --> 00:47:50,240
+They were Googling for stuff like that.
+
+981
+00:47:50,260 --> 00:47:52,560
+And he found my book, my planning algorithm's book.
+
+982
+00:47:53,280 --> 00:47:55,480
+And I just Googled for the company and said,
+
+983
+00:47:55,660 --> 00:47:57,300
+Oh, these guys are getting a lot of press.
+
+984
+00:47:57,340 --> 00:47:58,800
+And there's a lot of buzz around this.
+
+985
+00:47:59,140 --> 00:48:00,220
+I don't know anything about companies.
+
+986
+00:48:00,300 --> 00:48:01,440
+And I usually want to steer clear.
+
+987
+00:48:02,000 --> 00:48:05,020
+I was also at a point in my life where I was frustrated.
+
+988
+00:48:05,020 --> 00:48:08,680
+I had gone through a divorce, had a lot of different problems financially and stuff.
+
+989
+00:48:08,800 --> 00:48:12,500
+And so I thought, I really want to take care of my family well, my kids.
+
+990
+00:48:13,180 --> 00:48:18,100
+My boys who were, I forgot their ages, were about 10-ish or so.
+
+991
+00:48:18,160 --> 00:48:18,820
+They're three years apart.
+
+992
+00:48:18,920 --> 00:48:21,180
+But then maybe 8 and 11 or 7 and 10.
+
+993
+00:48:21,700 --> 00:48:23,500
+And I may have more kids.
+
+994
+00:48:23,760 --> 00:48:27,640
+And I wanted to put myself in a better financial position for security.
+
+995
+00:48:28,280 --> 00:48:30,540
+And I thought this was, and this looked fun and adventurous.
+
+996
+00:48:30,720 --> 00:48:34,320
+And I remember my video game excitement back in teen years.
+
+997
+00:48:34,320 --> 00:48:36,920
+And this was kind of like working with grown-up teenagers, kind of.
+
+998
+00:48:37,020 --> 00:48:39,480
+Palmer Lucky himself was 19 when he started the company.
+
+999
+00:48:40,060 --> 00:48:41,140
+And so I thought, this is kind of fun.
+
+1000
+00:48:41,200 --> 00:48:42,880
+Maybe this is like a good chance to explore, like,
+
+1001
+00:48:42,940 --> 00:48:47,660
+what if I had gone like the entrepreneurial route instead of professorial route?
+
+1002
+00:48:48,220 --> 00:48:50,280
+And so it seemed exciting to try that.
+
+1003
+00:48:50,560 --> 00:48:51,860
+And my wife was looking for things to do.
+
+1004
+00:48:51,920 --> 00:48:54,360
+So I convinced them that we would just be a two-person consulting team.
+
+1005
+00:48:54,360 --> 00:48:54,680
+I'm ready.
+
+1006
+00:48:54,920 --> 00:48:55,600
+We work together.
+
+1007
+00:48:55,840 --> 00:48:57,820
+And we started writing code for them.
+
+1008
+00:48:57,840 --> 00:48:59,100
+She's a better coder than me anyway.
+
+1009
+00:48:59,140 --> 00:49:02,020
+And she's really good at coding mathematical things.
+
+1010
+00:49:02,040 --> 00:49:02,800
+She's very meticulous.
+
+1011
+00:49:02,800 --> 00:49:04,040
+And so...
+
+1012
+00:49:04,320 --> 00:49:05,560
+So we coded different parts.
+
+1013
+00:49:05,700 --> 00:49:07,680
+We wrote like core math parts.
+
+1014
+00:49:07,840 --> 00:49:11,220
+And then we started writing the core tracking parts, head tracking parts.
+
+1015
+00:49:11,540 --> 00:49:14,080
+And then got into sensor calibration and all kinds of stuff.
+
+1016
+00:49:14,100 --> 00:49:18,300
+We even had a robot arm in Finland with the first Oculus sensor board on it.
+
+1017
+00:49:18,640 --> 00:49:21,740
+And I encouraged, I begged them to buy me a robot.
+
+1018
+00:49:21,960 --> 00:49:24,900
+They were suspicious because they go, oh, sure, buy the roboticist a robot.
+
+1019
+00:49:25,000 --> 00:49:25,980
+You just want to play with your robot.
+
+1020
+00:49:26,160 --> 00:49:26,400
+No.
+
+1021
+00:49:27,040 --> 00:49:30,600
+It's a perfect thing to do, to do very systematic, carefully controlled motions.
+
+1022
+00:49:30,760 --> 00:49:31,580
+So we can...
+
+1023
+00:49:31,580 --> 00:49:34,100
+So I know what the acceleration is supposed to be and what the angular velocity...
+
+1024
+00:49:34,320 --> 00:49:39,040
+And then you have to calibrate these sensors better than they are in smartphones to get
+
+1025
+00:49:39,040 --> 00:49:40,820
+them to work for something like head tracking.
+
+1026
+00:49:41,000 --> 00:49:41,700
+That's what we figured.
+
+1027
+00:49:42,200 --> 00:49:46,100
+So that was basically your main contribution to Oculus?
+
+1028
+00:49:46,340 --> 00:49:51,940
+That was the main contribution at the time was the core math software and head tracking.
+
+1029
+00:49:52,400 --> 00:49:54,640
+And then when I...
+
+1030
+00:49:54,880 --> 00:49:58,940
+We did about six months of consulting work and then to get some shares and things like
+
+1031
+00:49:58,940 --> 00:50:02,340
+that, let's say they strongly encouraged.
+
+1032
+00:50:02,660 --> 00:50:03,620
+I think I had to move to Southern California.
+
+1033
+00:50:03,620 --> 00:50:03,640
+Yeah.
+
+1034
+00:50:03,640 --> 00:50:03,700
+Yeah.
+
+1035
+00:50:03,700 --> 00:50:03,720
+Yeah.
+
+1036
+00:50:03,720 --> 00:50:03,780
+Yeah.
+
+1037
+00:50:03,780 --> 00:50:03,800
+Yeah.
+
+1038
+00:50:03,800 --> 00:50:03,860
+Yeah.
+
+1039
+00:50:03,860 --> 00:50:03,880
+Yeah.
+
+1040
+00:50:03,880 --> 00:50:03,940
+Yeah.
+
+1041
+00:50:03,940 --> 00:50:04,000
+Yeah.
+
+1042
+00:50:04,000 --> 00:50:04,020
+Yeah.
+
+1043
+00:50:04,020 --> 00:50:04,040
+Yeah.
+
+1044
+00:50:04,040 --> 00:50:04,140
+Yeah.
+
+1045
+00:50:04,140 --> 00:50:04,180
+Yeah.
+
+1046
+00:50:04,180 --> 00:50:04,240
+Yeah.
+
+1047
+00:50:04,320 --> 00:50:04,360
+Yeah.
+
+1048
+00:50:04,360 --> 00:50:04,380
+Yeah.
+
+1049
+00:50:04,840 --> 00:50:05,920
+Bail on the sabbatical.
+
+1050
+00:50:06,040 --> 00:50:06,860
+It was a big mess.
+
+1051
+00:50:07,380 --> 00:50:08,060
+Kids were crying.
+
+1052
+00:50:08,180 --> 00:50:09,100
+They loved Finland so much.
+
+1053
+00:50:09,160 --> 00:50:10,140
+They wanted to stay in school there.
+
+1054
+00:50:10,520 --> 00:50:10,920
+But...
+
+1055
+00:50:10,920 --> 00:50:13,420
+So I ended up moving straight to...
+
+1056
+00:50:13,420 --> 00:50:14,580
+I think it was March of 2013.
+
+1057
+00:50:14,760 --> 00:50:17,480
+We moved straight to Irvine, California.
+
+1058
+00:50:18,080 --> 00:50:23,040
+And then there, I started working on more improved head tracking for the three-degree
+
+1059
+00:50:23,040 --> 00:50:24,660
+of freedom system that was part of DK1.
+
+1060
+00:50:24,760 --> 00:50:30,400
+And then for DK2, I worked on the six-degree of freedom tracking, but also got really heavily
+
+1061
+00:50:30,400 --> 00:50:31,300
+into human perception.
+
+1062
+00:50:31,420 --> 00:50:34,300
+I hired a couple of perceptual psychologists and we started working on all...
+
+1063
+00:50:34,300 --> 00:50:39,200
+sort of aspects. And I played a kind of chief scientist role. And I was also helpful in
+
+1064
+00:50:39,200 --> 00:50:44,060
+a number of things. I guess when they brought investors around too, there was, I think some
+
+1065
+00:50:44,060 --> 00:50:49,040
+of the investors liked having a, you know, academic gray beard or whatever you want to call it, kind
+
+1066
+00:50:49,040 --> 00:50:54,080
+of with a little more background and things like that. And do you believe that nowadays virtual
+
+1067
+00:50:54,080 --> 00:50:59,160
+reality is almost solved or completely solved? Or do you think there's like some open research
+
+1068
+00:50:59,160 --> 00:51:03,900
+questions which we need to solve? No, it's a very active and growing research field. The communities
+
+1069
+00:51:03,900 --> 00:51:09,240
+of research, university research are growing. It's a mess. So there's quite a bit to do.
+
+1070
+00:51:09,560 --> 00:51:14,080
+The headsets have not improved a lot since, I mean, they've improved some, but not by huge
+
+1071
+00:51:14,080 --> 00:51:19,200
+leaps and bounds, I would say, given all the hundreds of billions of dollars and amounts
+
+1072
+00:51:19,200 --> 00:51:23,760
+have been invested. One of the reasons why is because of nanophotonics, optical engineering
+
+1073
+00:51:23,760 --> 00:51:28,320
+kinds of problems, wave guides and these kinds of things. It's hardcore applied physics. And it's
+
+1074
+00:51:28,320 --> 00:51:32,240
+not chips. It's something else. And there's people who do it in the world. Finland, in fact, is very
+
+1075
+00:51:32,240 --> 00:51:33,840
+good for these things because of...
+
+1076
+00:51:33,900 --> 00:51:38,860
+Nokia culture and things. But these are very difficult things. And in robotics, we know that
+
+1077
+00:51:38,860 --> 00:51:44,920
+robots tend to do really well when there's better components, right? So this is one thing that I
+
+1078
+00:51:44,920 --> 00:51:49,180
+believe Dieter Fox mentioned in his keynote here, that once the sick laser became available,
+
+1079
+00:51:50,080 --> 00:51:56,780
+the robot systems they could build just grew tremendously. For VR, we were able to make good
+
+1080
+00:51:56,780 --> 00:52:03,080
+headsets because of the smartphone screens and the MEMS IMUs and the GPUs and mobile GPUs,
+
+1081
+00:52:03,100 --> 00:52:03,880
+all these things. And so we're able to do a lot of things. And so I think it's a very difficult
+
+1082
+00:52:03,900 --> 00:52:07,300
+thing to do. But there's not another generation of these kinds of things. So what are we going to do?
+
+1083
+00:52:07,360 --> 00:52:11,140
+We can't just program our way through these. So that's going to involve a lot of advances and
+
+1084
+00:52:11,140 --> 00:52:16,560
+things. But I think on the fundamental side, the advances are there. It's more of industry's turn
+
+1085
+00:52:16,560 --> 00:52:20,000
+to find the right applications for these things and make the right products and these kinds of
+
+1086
+00:52:20,000 --> 00:52:23,160
+things, which is... They're good at spending money, but they might not be always good at
+
+1087
+00:52:23,160 --> 00:52:26,040
+finding the right direction. Talking about applications,
+
+1088
+00:52:26,380 --> 00:52:30,180
+so what do you think would be one killer application for virtual reality?
+
+1089
+00:52:30,740 --> 00:52:33,880
+I don't know. I think if I knew what it was, I would invest in it or start a company.
+
+1090
+00:52:33,900 --> 00:52:38,120
+And do that. I don't want to start a company. Maybe not. I'll trick somebody else into doing it.
+
+1091
+00:52:38,700 --> 00:52:44,820
+But one thing I'm excited about is telepresence, using virtual reality and robots. So tele-embodiment.
+
+1092
+00:52:45,120 --> 00:52:48,640
+I think that's a kind of killer app, but it's not going to be the first one.
+
+1093
+00:52:49,080 --> 00:52:53,140
+It'll be something more along the lines of a VR version of TikTok or something. Who knows?
+
+1094
+00:52:54,240 --> 00:52:58,540
+And so you were still at Oculus when Facebook bought Oculus, right?
+
+1095
+00:52:58,680 --> 00:52:59,180
+Yeah, that's correct.
+
+1096
+00:52:59,220 --> 00:53:00,460
+So how was this time?
+
+1097
+00:53:00,460 --> 00:53:03,540
+I went for one day of Facebook onboarding.
+
+1098
+00:53:03,900 --> 00:53:07,940
+Then I went back to the University of Illinois. I went and traveled and gave a few talks on behalf
+
+1099
+00:53:07,940 --> 00:53:09,120
+of the company around...
+
+1100
+00:53:09,120 --> 00:53:11,080
+Wasn't it so horrible, this one day of onboarding?
+
+1101
+00:53:11,500 --> 00:53:15,860
+No, it was a fun day, I guess. But I never really had any intention to stay there.
+
+1102
+00:53:16,260 --> 00:53:20,360
+I had a big, I had a sweet golden handcuffs deal that I just walked away from.
+
+1103
+00:53:20,860 --> 00:53:25,880
+But I own some shares in Oculus anyway. So, you know, I...
+
+1104
+00:53:25,880 --> 00:53:26,520
+You didn't really care.
+
+1105
+00:53:26,960 --> 00:53:30,140
+Yeah, I mean, it was a lot that I walked away from, but I already got a lot. So
+
+1106
+00:53:30,220 --> 00:53:33,620
+I wanted to... What's very important to me is to have control over...
+
+1107
+00:53:33,620 --> 00:53:37,460
+Control over my time, you know, what I spend my time on. I'm mostly curiosity driven.
+
+1108
+00:53:38,080 --> 00:53:42,580
+And so for my work, it's very important. I don't... I lose my passion right away if I'm just kind of told what to do all day,
+
+1109
+00:53:42,860 --> 00:53:45,440
+or if other people are making decisions that are out of my control and things.
+
+1110
+00:53:45,780 --> 00:53:52,140
+And I want to spend time with my family and enjoy life. And, you know, I could have worked there for five years to go through all the kind of process like a lot of other people did.
+
+1111
+00:53:52,140 --> 00:53:54,520
+But I was certainly offered everything, but yeah.
+
+1112
+00:53:55,380 --> 00:53:58,820
+So, and then basically went back to academic life.
+
+1113
+00:53:59,060 --> 00:54:01,880
+Yeah, well, not right away, because things got crazy.
+
+1114
+00:54:01,880 --> 00:54:03,520
+Because an Oculus was purchased for $3,000.
+
+1115
+00:54:03,620 --> 00:54:04,220
+$3 billion.
+
+1116
+00:54:04,620 --> 00:54:10,120
+Then a lot of things happened. I started doing angel investing. A lot of companies wanted advice.
+
+1117
+00:54:10,860 --> 00:54:12,120
+I met with some billionaires.
+
+1118
+00:54:13,880 --> 00:54:21,200
+And that changed a lot of things. People from Hollywood, like just a lot of different doors were open. So I explored as much as I could.
+
+1119
+00:54:21,380 --> 00:54:22,500
+I was from Hollywood.
+
+1120
+00:54:22,640 --> 00:54:32,300
+Yeah, I met Brett Leonard, for example, who was the director who created Lawnmower Man, the film about VR from the 90s.
+
+1121
+00:54:33,060 --> 00:54:33,560
+We also met a lot of people. Yeah.
+
+1122
+00:54:33,620 --> 00:54:39,520
+I met a lot of other people when we were in Oculus. But these are people that he was already reading the VR book that I had online.
+
+1123
+00:54:40,300 --> 00:54:49,080
+And he had a small company going with a couple of other people from Hollywood. Not actors, but people who actually, you know, produce things and such.
+
+1124
+00:54:49,080 --> 00:54:55,920
+And they were trying to do VR storytelling kinds of things. And they liked what they read in my book, my VR book.
+
+1125
+00:54:56,680 --> 00:55:01,960
+And so we started doing some things like that. But then, you know, the whole ecosystem was kind of going down kind of quickly.
+
+1126
+00:55:02,120 --> 00:55:03,600
+So it was around 2015, 2016.
+
+1127
+00:55:03,620 --> 00:55:15,460
+I worked for Huawei for a while as a vice president and chief scientist of VR, AR, MR. That was fascinating. Spent a lot of time in China and US and Finland.
+
+1128
+00:55:15,620 --> 00:55:21,600
+There's different branches of Huawei all over the place. I learned a lot about Chinese culture and technology there. That was wonderful.
+
+1129
+00:55:22,520 --> 00:55:26,420
+But I ultimately left that kind of fast because I wanted to focus more on my family.
+
+1130
+00:55:27,620 --> 00:55:30,080
+Yep. And then eventually just went back to university completely.
+
+1131
+00:55:30,480 --> 00:55:33,080
+And I think they also wanted to invest into big...
+
+1132
+00:55:33,620 --> 00:55:36,380
+I think our building is near the campus or something, right?
+
+1133
+00:55:37,560 --> 00:55:38,360
+In which place?
+
+1134
+00:55:39,080 --> 00:55:40,300
+In the US, I think.
+
+1135
+00:55:41,540 --> 00:55:42,980
+Yeah, I don't know about that. University of Illinois?
+
+1136
+00:55:43,800 --> 00:55:52,660
+Yeah, I think I read this somewhere that Huawei wanted to invest there, but then somehow this deal actually fell through.
+
+1137
+00:55:52,660 --> 00:55:54,160
+Yeah, yeah, that's right. That's right.
+
+1138
+00:55:54,220 --> 00:56:00,720
+Well, it was right on the time where the university was encouraging me to, and everyone, to do lots of cooperation with China.
+
+1139
+00:56:00,880 --> 00:56:02,660
+You know, they're putting campuses there, doing all kinds of things.
+
+1140
+00:56:03,080 --> 00:56:03,600
+And I said,
+
+1141
+00:56:03,640 --> 00:56:07,620
+Well, Huawei invited me to be some high-ranking person.
+
+1142
+00:56:07,780 --> 00:56:12,680
+In fact, I was in meetings where it's just all Chinese people and all speaking Chinese all day.
+
+1143
+00:56:12,800 --> 00:56:14,300
+And I'm the only... I don't know Chinese language.
+
+1144
+00:56:14,560 --> 00:56:18,140
+And they're very nice, but they weren't very international at that level.
+
+1145
+00:56:18,260 --> 00:56:19,280
+They're a very international company.
+
+1146
+00:56:19,420 --> 00:56:21,660
+And I have lots of great things to say about them.
+
+1147
+00:56:21,880 --> 00:56:25,820
+But at that level, I was the highest-ranking non-Chinese person around and stuff.
+
+1148
+00:56:26,000 --> 00:56:28,200
+So it was a very good opportunity.
+
+1149
+00:56:29,480 --> 00:56:31,600
+But I lost my... Sorry, go back to your question again, because I think I...
+
+1150
+00:56:32,260 --> 00:56:33,600
+Well, somehow...
+
+1151
+00:56:34,140 --> 00:56:35,900
+They were like a political tension.
+
+1152
+00:56:35,980 --> 00:56:36,540
+Oh, yes, about that. Yeah.
+
+1153
+00:56:36,620 --> 00:56:39,520
+So then it all kind of... Yeah, then it got kind of bad.
+
+1154
+00:56:39,700 --> 00:56:42,060
+So the university very quickly changed its stance.
+
+1155
+00:56:42,940 --> 00:56:46,740
+And I think they were under some pressure to do that from the government and things like this.
+
+1156
+00:56:46,840 --> 00:56:48,260
+And so, so fine, you know.
+
+1157
+00:56:49,180 --> 00:56:53,660
+Shortly after that time, I left and moved to Finland anyway for a huge number of reasons.
+
+1158
+00:56:53,960 --> 00:56:56,620
+But that was a factor.
+
+1159
+00:56:56,660 --> 00:56:58,300
+I left Huawei at the time, too, as well.
+
+1160
+00:56:58,300 --> 00:57:00,600
+For a while, I tried to get Huawei to transfer me to Finland.
+
+1161
+00:57:01,520 --> 00:57:02,860
+But that was very confusing for them.
+
+1162
+00:57:02,940 --> 00:57:03,600
+They either transferred me...
+
+1163
+00:57:03,640 --> 00:57:07,040
+People from China to country X or country X to China.
+
+1164
+00:57:07,140 --> 00:57:09,440
+But they never transferred somebody from country X to country Y.
+
+1165
+00:57:09,880 --> 00:57:11,520
+They said that makes no sense.
+
+1166
+00:57:11,600 --> 00:57:14,540
+I'm like, OK, well, I can't keep working for you from America.
+
+1167
+00:57:14,680 --> 00:57:14,860
+Sorry.
+
+1168
+00:57:15,140 --> 00:57:15,300
+Yeah.
+
+1169
+00:57:16,040 --> 00:57:16,300
+OK.
+
+1170
+00:57:16,440 --> 00:57:19,940
+And so then you basically went back to academic life.
+
+1171
+00:57:20,100 --> 00:57:20,940
+Went back to academic life.
+
+1172
+00:57:21,020 --> 00:57:23,620
+Full swing, full force in Finland then.
+
+1173
+00:57:23,680 --> 00:57:23,920
+Yeah.
+
+1174
+00:57:24,300 --> 00:57:24,500
+Cool.
+
+1175
+00:57:24,500 --> 00:57:28,360
+So I would like to talk a little bit about doing successful research.
+
+1176
+00:57:28,520 --> 00:57:31,760
+So I think you are like one of the most exceptional.
+
+1177
+00:57:32,520 --> 00:57:33,500
+You had a very exceptional...
+
+1178
+00:57:33,600 --> 00:57:35,000
+You had a very exceptional research career, I would say.
+
+1179
+00:57:35,320 --> 00:57:37,380
+What do you think were actually the biggest...
+
+1180
+00:57:37,380 --> 00:57:39,120
+Had the biggest impact on the success?
+
+1181
+00:57:39,840 --> 00:57:43,300
+And is there maybe someone who really deeply influenced you?
+
+1182
+00:57:45,160 --> 00:57:46,620
+Yeah, it's really a lot of people.
+
+1183
+00:57:46,780 --> 00:57:50,720
+I mean, I could cite just a couple of critical teachers in high school that inspired me.
+
+1184
+00:57:50,820 --> 00:57:52,060
+I had a great PhD advisor.
+
+1185
+00:57:53,340 --> 00:57:57,980
+And just lots of conversations with researchers and conferences.
+
+1186
+00:57:58,220 --> 00:58:00,180
+Or they visited us at Illinois or Stanford.
+
+1187
+00:58:00,180 --> 00:58:03,040
+I don't think there's any one kind of thing.
+
+1188
+00:58:03,040 --> 00:58:04,420
+It's just a lot of...
+
+1189
+00:58:04,420 --> 00:58:07,560
+I think I was a very shy person and worked very hard.
+
+1190
+00:58:07,620 --> 00:58:08,620
+But it was very hard for me socially.
+
+1191
+00:58:08,880 --> 00:58:14,960
+And so I think trying to overcome those fears and trying to get myself out there a little more.
+
+1192
+00:58:15,240 --> 00:58:16,100
+It was slow going.
+
+1193
+00:58:16,540 --> 00:58:22,340
+But everyone has to work on their strengths and try to fix their weaknesses and not let those stop them.
+
+1194
+00:58:22,620 --> 00:58:23,680
+And so those were challenges.
+
+1195
+00:58:23,800 --> 00:58:24,700
+But I was able to get through those.
+
+1196
+00:58:24,760 --> 00:58:27,940
+But ultimately, I got to know enough people and found many inspiring researchers.
+
+1197
+00:58:27,940 --> 00:58:31,940
+And so what kind of attributes do you think successful research are really...
+
+1198
+00:58:33,040 --> 00:58:33,540
+Needs to have?
+
+1199
+00:58:34,620 --> 00:58:35,860
+Well, you have to love what you do.
+
+1200
+00:58:36,020 --> 00:58:36,940
+Have a great passion.
+
+1201
+00:58:37,140 --> 00:58:42,440
+I think the passion is more important than wanting to win the prizes or wanting to get the great...
+
+1202
+00:58:42,440 --> 00:58:45,720
+You know, we like to have a secure job where you can keep doing research.
+
+1203
+00:58:45,960 --> 00:58:48,560
+But I think one has to be careful about gaming it too much.
+
+1204
+00:58:48,760 --> 00:58:53,300
+So I think for me, given the background that I had come from growing up,
+
+1205
+00:58:53,540 --> 00:58:58,040
+I was already at such high levels that I'm not afraid to lose my tenure track position or whatever.
+
+1206
+00:58:58,040 --> 00:58:59,040
+I just can't...
+
+1207
+00:59:00,000 --> 00:59:01,340
+I'm going to do what I think is the right thing.
+
+1208
+00:59:01,760 --> 00:59:02,920
+And I'm much more...
+
+1209
+00:59:03,040 --> 00:59:05,200
+A tolerant of risk than a lot of people, perhaps,
+
+1210
+00:59:05,260 --> 00:59:07,800
+because I think the levels I went to were much higher than I imagined anyway.
+
+1211
+00:59:07,880 --> 00:59:09,420
+I'm just like, let's just see how far this goes.
+
+1212
+00:59:09,560 --> 00:59:11,360
+You know, it's not double or nothing, double or nothing.
+
+1213
+00:59:11,520 --> 00:59:12,680
+It's double, double, double.
+
+1214
+00:59:12,760 --> 00:59:15,400
+And then I'll fall back on something that's still pretty darn good.
+
+1215
+00:59:15,740 --> 00:59:20,420
+So I think it's important to be able to take risks and stick close to your passion.
+
+1216
+00:59:20,700 --> 00:59:22,860
+And hopefully, you know, you have good values.
+
+1217
+00:59:22,980 --> 00:59:25,420
+I love teaching and working with students.
+
+1218
+00:59:25,420 --> 00:59:26,260
+That's also very important.
+
+1219
+00:59:26,260 --> 00:59:29,960
+There's kind of like intellectual renewal going on all the time.
+
+1220
+00:59:30,880 --> 00:59:32,340
+And I think also in the last...
+
+1221
+00:59:32,340 --> 00:59:32,500
+I would say...
+
+1222
+00:59:33,040 --> 00:59:41,460
+Maybe like 15 or 20 years, the age index became like really the biggest indicator of performance for research.
+
+1223
+00:59:41,740 --> 00:59:47,380
+And what are your thoughts on the age index as such an important metric for research?
+
+1224
+00:59:47,460 --> 00:59:49,700
+Is it maybe a bit too much?
+
+1225
+00:59:49,780 --> 00:59:53,700
+Is it like something which is a good proxy for research?
+
+1226
+00:59:54,180 --> 00:59:56,140
+I think it's random garbage.
+
+1227
+00:59:57,380 --> 00:59:58,520
+It's random garbage.
+
+1228
+00:59:58,700 --> 01:00:00,540
+It just looks like...
+
+1229
+01:00:00,540 --> 01:00:01,140
+It looks like...
+
+1230
+01:00:01,840 --> 01:00:02,940
+The older you get, the bigger...
+
+1231
+01:00:03,040 --> 01:00:03,580
+The bigger it gets.
+
+1232
+01:00:03,720 --> 01:00:05,560
+And the kind of busier you are, the bigger it gets.
+
+1233
+01:00:05,620 --> 01:00:12,800
+So if you publish a lot, you got to be active enough to kind of, you know, you got to be in some community and get out there enough to like market your stuff, I guess.
+
+1234
+01:00:12,840 --> 01:00:14,120
+And then you can get a kind of a big number.
+
+1235
+01:00:14,220 --> 01:00:15,160
+But I don't know.
+
+1236
+01:00:16,060 --> 01:00:26,020
+One interesting thing, P.R. Kumar, professor who was at Illinois for many years, and he worked in a stochastic control theory, wrote a book with Varaya on stochastic control.
+
+1237
+01:00:26,080 --> 01:00:26,560
+Really nice book.
+
+1238
+01:00:27,380 --> 01:00:31,960
+He was giving a lecture once to young graduate students, and he was explaining the academic career.
+
+1239
+01:00:32,040 --> 01:00:33,000
+And he said something really cool.
+
+1240
+01:00:33,040 --> 01:00:34,300
+It gets nerdy and cool.
+
+1241
+01:00:34,380 --> 01:00:41,720
+He said that in the beginning of your career, people apply the L1 metric to it, which is basically just looking at the sum of the things you've done.
+
+1242
+01:00:42,360 --> 01:00:46,620
+And then as you get older, they apply the L infinity metric, which is what's the maximum thing that you've done.
+
+1243
+01:00:47,140 --> 01:00:48,640
+And I think that's a more interesting way.
+
+1244
+01:00:48,760 --> 01:00:54,480
+It's harder to assess if you don't have the expertise, but that's a pretty good way to do it.
+
+1245
+01:00:54,560 --> 01:00:58,120
+So you can be more kind of, did you publish in a bunch of prestigious places when you're junior?
+
+1246
+01:00:58,480 --> 01:00:59,200
+That shows something.
+
+1247
+01:00:59,280 --> 01:01:01,120
+It's hard to do that, and it shows the kind of productivity.
+
+1248
+01:01:01,300 --> 01:01:02,880
+But only time tells, really.
+
+1249
+01:01:03,580 --> 01:01:07,780
+Over 10 or 20 years, did you really have some big groundbreaking thing or something really big?
+
+1250
+01:01:07,780 --> 01:01:16,100
+So if I'm done with research tomorrow, and I look back, and I have the RRT or something, that's a pretty big thing.
+
+1251
+01:01:16,160 --> 01:01:16,560
+And that's cool.
+
+1252
+01:01:16,660 --> 01:01:20,140
+And I have this kind of monster book that I'm quite proud of.
+
+1253
+01:01:20,200 --> 01:01:24,240
+And if those are my L infinity metric, the things that I remember for, that's fine.
+
+1254
+01:01:24,500 --> 01:01:30,140
+If my H index were 2, because I had, let's say, a landmark RRT paper in that book, that'd be fine.
+
+1255
+01:01:31,020 --> 01:01:31,420
+No.
+
+1256
+01:01:31,420 --> 01:01:34,420
+Well, that sounds good.
+
+1257
+01:01:35,800 --> 01:01:38,580
+So let me talk a little bit about your time allocation.
+
+1258
+01:01:38,740 --> 01:01:43,340
+I mean, you have so many things that you have to keep up at the same time.
+
+1259
+01:01:43,420 --> 01:01:44,000
+You have to teach.
+
+1260
+01:01:44,060 --> 01:01:44,600
+You have to write.
+
+1261
+01:01:44,660 --> 01:01:45,380
+You have to read.
+
+1262
+01:01:45,580 --> 01:01:46,920
+You have to supervise students.
+
+1263
+01:01:47,140 --> 01:01:48,140
+You have to do research.
+
+1264
+01:01:48,400 --> 01:01:53,640
+So what is actually a way of how you structure, for example, your day and how do you...
+
+1265
+01:01:53,640 --> 01:01:57,580
+I'm a very unstructured person, and I don't do very well with schedules.
+
+1266
+01:01:57,580 --> 01:01:59,640
+So I do try to...
+
+1267
+01:01:59,640 --> 01:02:01,000
+So you don't have this daily habit of...
+
+1268
+01:02:01,000 --> 01:02:01,780
+No.
+
+1269
+01:02:02,060 --> 01:02:03,700
+...getting up at 5 a.m.?
+
+1270
+01:02:03,700 --> 01:02:04,180
+No, no, no.
+
+1271
+01:02:04,640 --> 01:02:12,680
+I always make sure I sleep enough, and I always try to make sure my students or people in my group know that I'm available and such.
+
+1272
+01:02:12,680 --> 01:02:16,320
+But I like a model more where they push me when they want something.
+
+1273
+01:02:16,720 --> 01:02:17,380
+I tell them that.
+
+1274
+01:02:17,440 --> 01:02:19,280
+I'm not going to have regular meetings all the time.
+
+1275
+01:02:19,420 --> 01:02:20,480
+And I don't chase people.
+
+1276
+01:02:20,700 --> 01:02:21,700
+They need to come to me.
+
+1277
+01:02:22,080 --> 01:02:23,660
+So people usually do well like that with me.
+
+1278
+01:02:24,780 --> 01:02:26,280
+And things have changed over the years.
+
+1279
+01:02:26,480 --> 01:02:27,680
+I think right now...
+
+1280
+01:02:28,480 --> 01:02:30,680
+I'm not retired, but I'm in...
+
+1281
+01:02:30,680 --> 01:02:32,440
+I like to say the tired phase of my career.
+
+1282
+01:02:32,560 --> 01:02:39,700
+So before retired, I'm tired in the sense that I probably have more work-life balance than ever, and I'm spending a lot of time with my family.
+
+1283
+01:02:39,820 --> 01:02:41,160
+I'm traveling typically less.
+
+1284
+01:02:42,200 --> 01:02:43,220
+I wasn't sure whether I...
+
+1285
+01:02:43,220 --> 01:02:46,040
+This is such an amazing event, but I had to really think about it.
+
+1286
+01:02:46,120 --> 01:02:47,500
+I'm spending time away from my family.
+
+1287
+01:02:47,720 --> 01:02:50,420
+And so I really try to balance things out in that direction.
+
+1288
+01:02:50,420 --> 01:02:59,680
+And then I also have six, I think six right now, six or seven postdoctoral researchers, postdoc or higher researchers on my team.
+
+1289
+01:03:00,040 --> 01:03:00,520
+And then...
+
+1290
+01:03:00,520 --> 01:03:00,560
+And then...
+
+1291
+01:03:00,560 --> 01:03:00,660
+And then...
+
+1292
+01:03:00,660 --> 01:03:04,580
+And then they spend a lot of time working with students and we bounce ideas off of each other and things.
+
+1293
+01:03:04,640 --> 01:03:06,260
+And so they handle a lot of things as well.
+
+1294
+01:03:06,720 --> 01:03:09,140
+And also there's another colleague of mine named Timo Oyala.
+
+1295
+01:03:09,140 --> 01:03:12,640
+He's a professor who runs the center that we're...
+
+1296
+01:03:12,640 --> 01:03:13,600
+That our group is a part of.
+
+1297
+01:03:13,720 --> 01:03:15,080
+And we kind of run the group together.
+
+1298
+01:03:15,420 --> 01:03:21,200
+And he handles all of the expected like crazy bureaucratic things that I don't understand, half of which are in Finnish.
+
+1299
+01:03:21,460 --> 01:03:22,760
+And that makes my life wonderful.
+
+1300
+01:03:22,760 --> 01:03:26,080
+So I can just focus on research and teaching a bit.
+
+1301
+01:03:27,240 --> 01:03:30,540
+And is there anything you believe like younger researchers...
+
+1302
+01:03:30,540 --> 01:03:32,540
+And robotics should do differently or...
+
+1303
+01:03:32,540 --> 01:03:34,540
+Well, I don't...
+
+1304
+01:03:34,540 --> 01:03:37,800
+I think it's fairly general thing to ask and everyone's different.
+
+1305
+01:03:38,480 --> 01:03:42,860
+But I think, you know, make sure you play to your strengths and fix your weaknesses just generally.
+
+1306
+01:03:43,160 --> 01:03:49,800
+And I would say, you know, don't think everything needs to be just deep learning and go with the herd and all these things.
+
+1307
+01:03:50,120 --> 01:03:53,480
+I encourage everyone to dig deeper, you know, do some good scholarly work.
+
+1308
+01:03:53,520 --> 01:03:55,860
+Whatever is analogous to when I used to go to the library.
+
+1309
+01:03:56,280 --> 01:03:57,340
+You know, work hard to find things.
+
+1310
+01:03:57,340 --> 01:04:00,340
+Don't just search and something falls into your lap and you assume that's...
+
+1311
+01:04:00,860 --> 01:04:02,000
+That's the complete search on things.
+
+1312
+01:04:02,400 --> 01:04:06,600
+And study as much fundamental mathematics the most as you possibly can.
+
+1313
+01:04:07,180 --> 01:04:08,340
+And, you know, get good at those things.
+
+1314
+01:04:08,380 --> 01:04:09,680
+Because those are much harder to learn later.
+
+1315
+01:04:10,180 --> 01:04:13,100
+So do it while your brain is sharp and you have free time, not a lot of commitments.
+
+1316
+01:04:14,320 --> 01:04:18,600
+So really like keeping your knowledge in mathematics is like one of the most important things.
+
+1317
+01:04:18,600 --> 01:04:19,240
+I think so, yeah.
+
+1318
+01:04:19,320 --> 01:04:20,140
+Younger people could do.
+
+1319
+01:04:20,360 --> 01:04:20,840
+That's right.
+
+1320
+01:04:20,980 --> 01:04:22,240
+If you're terrible at it, then fine.
+
+1321
+01:04:22,360 --> 01:04:25,620
+You know, do more experimental work or do something else or change fields.
+
+1322
+01:04:25,620 --> 01:04:26,100
+I don't know.
+
+1323
+01:04:26,280 --> 01:04:27,760
+But at least for the way...
+
+1324
+01:04:27,760 --> 01:04:29,660
+I can't say one thing fits everyone.
+
+1325
+01:04:30,540 --> 01:04:35,360
+But definitely think about things you should learn now while you're not as encumbered.
+
+1326
+01:04:35,360 --> 01:04:38,080
+And your body's younger and you can put more hours into things and stuff like that.
+
+1327
+01:04:38,080 --> 01:04:39,520
+Because it's much harder later.
+
+1328
+01:04:40,220 --> 01:04:43,820
+So in 2018, you actually moved permanently to Finland.
+
+1329
+01:04:44,120 --> 01:04:46,560
+So what fascinates you about Finland?
+
+1330
+01:04:46,900 --> 01:04:48,000
+Why did you make this move?
+
+1331
+01:04:48,440 --> 01:04:52,720
+Yeah, well, you know, in the life of a researcher and professor, we get to travel all over the world.
+
+1332
+01:04:52,720 --> 01:04:55,720
+And you get to hang out with people from your own research area.
+
+1333
+01:04:55,720 --> 01:05:00,520
+So you almost imagine like what would life be like if I were living in this country?
+
+1334
+01:05:00,520 --> 01:05:05,520
+And so probably these people you work with who also have the same passion for robotics or motion planning and stuff.
+
+1335
+01:05:05,520 --> 01:05:07,520
+Probably that's what it would be like.
+
+1336
+01:05:07,520 --> 01:05:12,520
+So I just, you know, I went to Europe a lot and I started from the sabbatical.
+
+1337
+01:05:12,520 --> 01:05:13,520
+I lived in Poland.
+
+1338
+01:05:13,520 --> 01:05:14,520
+I found that fascinating.
+
+1339
+01:05:14,520 --> 01:05:20,520
+I found, you know, Germany's nice, Netherlands, UK, a lot of different countries.
+
+1340
+01:05:20,520 --> 01:05:23,520
+But I kept finding the Nordic countries probably the most appealing somehow.
+
+1341
+01:05:23,520 --> 01:05:29,520
+I like the sort of very advanced in technology, very clean, very...
+
+1342
+01:05:29,520 --> 01:05:30,020
+Yeah.
+
+1343
+01:05:30,520 --> 01:05:32,520
+Oriented towards preserving nature.
+
+1344
+01:05:32,520 --> 01:05:35,520
+And I thought Sweden was very nice and Norway.
+
+1345
+01:05:35,520 --> 01:05:39,520
+But Finland out of the end was probably the one that captivated me the most.
+
+1346
+01:05:39,520 --> 01:05:42,520
+And it's in that same like Eastern European strip.
+
+1347
+01:05:42,520 --> 01:05:45,520
+And so I like Poland and my mom came from Eastern Europe.
+
+1348
+01:05:45,520 --> 01:05:47,520
+And so that was important.
+
+1349
+01:05:47,520 --> 01:05:58,520
+My wife's Ukrainian and her parents were living with us in Illinois, even in California during Oculus because of the war in Ukraine from Kharkiv.
+
+1350
+01:05:58,520 --> 01:05:59,520
+And so we had to get them out of there because it looked like they were going to be there.
+
+1351
+01:05:59,520 --> 01:06:04,520
+We had to get them out of there because it looked like that city was going to go next the same way as the Donbas.
+
+1352
+01:06:04,520 --> 01:06:05,520
+But it didn't.
+
+1353
+01:06:05,520 --> 01:06:06,520
+Now it is.
+
+1354
+01:06:06,520 --> 01:06:07,520
+Now it's being bombed all the time.
+
+1355
+01:06:07,520 --> 01:06:11,520
+But then her father got ALS in the US.
+
+1356
+01:06:11,520 --> 01:06:12,520
+And there was no way we could...
+
+1357
+01:06:12,520 --> 01:06:13,520
+It was really hard for us to care for him.
+
+1358
+01:06:13,520 --> 01:06:17,520
+Even with Oculus earnings, it's ridiculously expensive.
+
+1359
+01:06:17,520 --> 01:06:18,520
+And they had good insurance.
+
+1360
+01:06:18,520 --> 01:06:20,520
+But of course, nobody covers stuff like that.
+
+1361
+01:06:20,520 --> 01:06:28,520
+And I just was so in love with the system in Finland where it's, you know, free education and healthcare and people are just very thoughtful and nice.
+
+1362
+01:06:28,520 --> 01:06:30,520
+Not arrogant about things, but just very, very nice.
+
+1363
+01:06:30,520 --> 01:06:34,520
+So we brought everyone, including my in-laws, to Finland.
+
+1364
+01:06:34,520 --> 01:06:37,520
+And they're still caring for my wife's father.
+
+1365
+01:06:37,520 --> 01:06:39,520
+And it's been six years.
+
+1366
+01:06:39,520 --> 01:06:43,520
+And he had a prognosis of only living about a year in America.
+
+1367
+01:06:43,520 --> 01:06:44,520
+And it's just very easy.
+
+1368
+01:06:44,520 --> 01:06:48,520
+And he's in a care center that's attached to our apartment building.
+
+1369
+01:06:48,520 --> 01:06:52,520
+So where my mother-in-law doesn't even have to go outside in the winter to see him every night and everything.
+
+1370
+01:06:52,520 --> 01:06:56,520
+So it's just that really helps us get a lot of work done because things are just taken care of.
+
+1371
+01:06:56,520 --> 01:06:57,520
+And it's just a great example of how they take care of us.
+
+1372
+01:06:57,520 --> 01:07:00,520
+And I thought to teach my children.
+
+1373
+01:07:00,520 --> 01:07:01,520
+I have four kids.
+
+1374
+01:07:01,520 --> 01:07:03,520
+I have two adult kids who are there with us.
+
+1375
+01:07:03,520 --> 01:07:05,520
+Well, my oldest son is studying in Switzerland now.
+
+1376
+01:07:05,520 --> 01:07:08,520
+But the rest, he just moved away a month or two ago.
+
+1377
+01:07:08,520 --> 01:07:10,520
+But they're all essentially there in Finland.
+
+1378
+01:07:10,520 --> 01:07:16,520
+And I want them to learn those values that we should all take care of each other.
+
+1379
+01:07:16,520 --> 01:07:21,520
+And you should not be trying to just get a pile of money so that you can get healthcare and education and these kind of things.
+
+1380
+01:07:21,520 --> 01:07:25,520
+So I thought, okay, I made some money in America, but I just don't believe in the values.
+
+1381
+01:07:25,520 --> 01:07:26,520
+I believe for my children.
+
+1382
+01:07:26,520 --> 01:07:27,520
+I want them to know that.
+
+1383
+01:07:27,520 --> 01:07:29,520
+I want them to learn these Finnish values.
+
+1384
+01:07:29,520 --> 01:07:31,520
+And then maybe there's other countries with similar values.
+
+1385
+01:07:31,520 --> 01:07:33,520
+But I thought the Finns implement that very nicely.
+
+1386
+01:07:33,520 --> 01:07:36,520
+And they're very practical and not so arrogant about it.
+
+1387
+01:07:36,520 --> 01:07:39,520
+They've never had a big imperial empire or anything like that.
+
+1388
+01:07:39,520 --> 01:07:41,520
+They're just proud to have their country.
+
+1389
+01:07:41,520 --> 01:07:44,520
+And they're even apologetic for speaking Finnish in their own country.
+
+1390
+01:07:44,520 --> 01:07:46,520
+It's absurd.
+
+1391
+01:07:46,520 --> 01:07:49,520
+So have you already learned a little bit of Finnish?
+
+1392
+01:07:49,520 --> 01:07:52,520
+I heard that it's one of the most difficult languages.
+
+1393
+01:07:52,520 --> 01:07:53,520
+It is.
+
+1394
+01:07:53,520 --> 01:07:55,520
+It's quite outrageously hard.
+
+1395
+01:07:55,520 --> 01:07:56,520
+And there's a lot of reasons for that.
+
+1396
+01:07:56,520 --> 01:07:58,520
+Probably don't want to go into all the reasons here.
+
+1397
+01:07:58,520 --> 01:08:00,520
+But I speak Finnish at a basic level.
+
+1398
+01:08:00,520 --> 01:08:02,520
+But I'm still working on it all the time.
+
+1399
+01:08:02,520 --> 01:08:04,520
+My seven-year-old girl is the best Finnish speaker in the family now.
+
+1400
+01:08:04,520 --> 01:08:05,520
+She's perfect.
+
+1401
+01:08:05,520 --> 01:08:12,520
+She speaks Russian from Ukrainian, Russian, and then English and Finnish all perfectly.
+
+1402
+01:08:12,520 --> 01:08:17,520
+And is there still something about the U.S. which you miss, which you don't have in Finland?
+
+1403
+01:08:17,520 --> 01:08:18,520
+Yeah.
+
+1404
+01:08:18,520 --> 01:08:25,520
+I mean, I think the amount of diversity, especially in cities and in universities, cultural diversity, ethnic diversity, people from all over the place.
+
+1405
+01:08:25,520 --> 01:08:32,520
+I really miss that, especially because it tends to lead to excellent restaurants that are made for the people from that country.
+
+1406
+01:08:32,520 --> 01:08:35,520
+Like the Chinese food at the University of Illinois on the Champaign-Urbana campus.
+
+1407
+01:08:35,520 --> 01:08:40,520
+We had something like 7,000, a rough estimate, of Chinese students there.
+
+1408
+01:08:40,520 --> 01:08:46,520
+They had every different type of trendy, cool restaurant that I had seen in China that I learned about when I was at Huawei.
+
+1409
+01:08:46,520 --> 01:08:47,520
+And it was there.
+
+1410
+01:08:47,520 --> 01:08:49,520
+And I could just have that stuff and enjoy it.
+
+1411
+01:08:49,520 --> 01:08:54,520
+And it was like that for every other country and culture and stuff, especially in the big cities and stuff.
+
+1412
+01:08:54,520 --> 01:08:55,520
+So I miss that.
+
+1413
+01:08:55,520 --> 01:08:56,520
+Yeah.
+
+1414
+01:08:56,520 --> 01:09:03,520
+I saw once that you gave a talk at a big conference remotely from your sauna in Finland, which was very cool.
+
+1415
+01:09:03,520 --> 01:09:08,520
+So what actually fascinates you about saunas and what kind of benefits do you get from them?
+
+1416
+01:09:08,520 --> 01:09:11,520
+Well, sauna is a Finnish word.
+
+1417
+01:09:11,520 --> 01:09:12,520
+I even say sauna.
+
+1418
+01:09:12,520 --> 01:09:13,520
+That's how you say it in Finnish.
+
+1419
+01:09:13,520 --> 01:09:15,520
+And it is a Finnish word.
+
+1420
+01:09:15,520 --> 01:09:16,520
+I said it incorrectly.
+
+1421
+01:09:16,520 --> 01:09:20,520
+So sauna is English, and that's the pronunciation of it.
+
+1422
+01:09:20,520 --> 01:09:22,520
+And that's their gift to the English language, that word.
+
+1423
+01:09:22,520 --> 01:09:23,520
+And it's like a report.
+
+1424
+01:09:23,520 --> 01:09:24,520
+Yeah.
+
+1425
+01:09:24,520 --> 01:09:26,520
+And it's like a reverse swimming pool.
+
+1426
+01:09:26,520 --> 01:09:29,520
+So in some hot parts of the world, everyone has a swimming pool to jump in to cool off.
+
+1427
+01:09:29,520 --> 01:09:33,520
+So in a cold part of the world, you jump in the sauna to heat back up again.
+
+1428
+01:09:33,520 --> 01:09:35,520
+But it's also a very special place to Finns.
+
+1429
+01:09:35,520 --> 01:09:38,520
+It's a place to, you know, you go in.
+
+1430
+01:09:38,520 --> 01:09:42,520
+In my video, I wasn't naked, but usually you're supposed to be in the sauna naked.
+
+1431
+01:09:42,520 --> 01:09:43,520
+Otherwise, it'll burn you.
+
+1432
+01:09:43,520 --> 01:09:48,520
+It's 80 degrees Celsius in there with a hot steam coming over from the coals and everything.
+
+1433
+01:09:48,520 --> 01:09:50,520
+And it's a place to connect with people.
+
+1434
+01:09:50,520 --> 01:09:52,520
+And like a lot of people have business meetings and other kind of things there.
+
+1435
+01:09:52,520 --> 01:09:54,520
+It's like a humbling kind of thing.
+
+1436
+01:09:54,520 --> 01:09:57,520
+Is that the Finnish thing that you have business meetings in the sauna?
+
+1437
+01:09:57,520 --> 01:09:58,520
+Yeah.
+
+1438
+01:09:58,520 --> 01:09:59,520
+Nice.
+
+1439
+01:09:59,520 --> 01:10:00,520
+That's right.
+
+1440
+01:10:00,520 --> 01:10:01,520
+And so they'll bring visitors.
+
+1441
+01:10:01,520 --> 01:10:04,520
+And of course, the Finns will chuckle a little because it's quite hot.
+
+1442
+01:10:04,520 --> 01:10:05,520
+Yeah.
+
+1443
+01:10:05,520 --> 01:10:07,520
+So it's a very important thing to them.
+
+1444
+01:10:07,520 --> 01:10:09,520
+And I think it's an interesting part of their culture.
+
+1445
+01:10:09,520 --> 01:10:13,520
+And I've come to, you feel like you're burning to death the first couple of times, but I've
+
+1446
+01:10:13,520 --> 01:10:14,520
+come to really enjoy it.
+
+1447
+01:10:14,520 --> 01:10:18,520
+The Finnish sauna is the hottest of all the world saunas, typically said.
+
+1448
+01:10:18,520 --> 01:10:21,520
+Let's talk a little bit more about your future aspirations.
+
+1449
+01:10:21,520 --> 01:10:25,520
+So where do you see your lab, for example, in the next 10 years?
+
+1450
+01:10:25,520 --> 01:10:29,520
+And what kind of problems do you want to have solved by then?
+
+1451
+01:10:29,520 --> 01:10:31,520
+I think I can never predict stuff like that.
+
+1452
+01:10:31,520 --> 01:10:32,520
+It's really hard to say.
+
+1453
+01:10:32,520 --> 01:10:38,520
+Right now, we have a very exciting ERC project called Foundations of Perception Engineering.
+
+1454
+01:10:38,520 --> 01:10:42,520
+We're looking at mathematical and scientific foundations of what VR is, including VR applied
+
+1455
+01:10:42,520 --> 01:10:43,520
+to robots.
+
+1456
+01:10:43,520 --> 01:10:45,520
+What would it mean for a robot to experience VR?
+
+1457
+01:10:45,520 --> 01:10:47,520
+So we're having a great time with that.
+
+1458
+01:10:47,520 --> 01:10:50,520
+And I think we're doing the groundwork for that.
+
+1459
+01:10:50,520 --> 01:10:51,520
+So I think in five years, we're going to be able to do that.
+
+1460
+01:10:51,520 --> 01:10:55,520
+And in five to 10 years, there'll be a lot of spinoff kinds of things from that.
+
+1461
+01:10:55,520 --> 01:10:58,520
+I keep gravitating more and more back into robotics.
+
+1462
+01:10:58,520 --> 01:11:04,520
+I even got, thanks to the interest of my son, I published an RRT paper with him and another
+
+1463
+01:11:04,520 --> 01:11:09,520
+researcher in my group, Pashak Sakchak, and published that at IRO last year.
+
+1464
+01:11:09,520 --> 01:11:13,520
+And so I probably will do more motion planning kinds of things again and stuff like that.
+
+1465
+01:11:13,520 --> 01:11:16,520
+But otherwise, I'm just generally curiosity driven.
+
+1466
+01:11:16,520 --> 01:11:19,520
+And whatever I say I'll do, I probably change my mind because something more interesting
+
+1467
+01:11:19,520 --> 01:11:20,520
+will come along.
+
+1468
+01:11:20,520 --> 01:11:21,520
+But I think that's fine.
+
+1469
+01:11:21,520 --> 01:11:26,520
+I think this is super fascinating that your son is actually going into the same niche
+
+1470
+01:11:26,520 --> 01:11:29,520
+topic of doing research in motion planning.
+
+1471
+01:11:29,520 --> 01:11:31,520
+How did this actually happen?
+
+1472
+01:11:31,520 --> 01:11:33,520
+Well, that's a complicated thing.
+
+1473
+01:11:33,520 --> 01:11:35,520
+When we moved to Finland, he was 17.
+
+1474
+01:11:35,520 --> 01:11:38,520
+And it was hard for him to progress in the Finnish system because they keep saying, well,
+
+1475
+01:11:38,520 --> 01:11:43,520
+you need to learn Finnish and then go to night school and complete basic education and then
+
+1476
+01:11:43,520 --> 01:11:46,520
+complete three more years upper secondary education, and then you can go to the university.
+
+1477
+01:11:46,520 --> 01:11:48,520
+And he was very stressed out about that.
+
+1478
+01:11:48,520 --> 01:11:49,520
+And he didn't want to leave and go back to America.
+
+1479
+01:11:49,520 --> 01:11:52,520
+He didn't want to leave and go back to America to start going to college there.
+
+1480
+01:11:52,520 --> 01:11:56,520
+And he did not have a high school degree completed from the US, which they would accept.
+
+1481
+01:11:56,520 --> 01:11:58,520
+So he took a graduate equivalence exam.
+
+1482
+01:11:58,520 --> 01:12:02,520
+And now he's studying at a small university in Lugano, Switzerland.
+
+1483
+01:12:02,520 --> 01:12:04,520
+It's an American university.
+
+1484
+01:12:04,520 --> 01:12:06,520
+And he's studying political science, actually.
+
+1485
+01:12:06,520 --> 01:12:10,520
+But I taught him everything I know for in, well, not everything probably, but I taught
+
+1486
+01:12:10,520 --> 01:12:14,520
+him a lot of mathematics and algorithms and coding.
+
+1487
+01:12:14,520 --> 01:12:15,520
+He did a lot on his own as well.
+
+1488
+01:12:15,520 --> 01:12:17,520
+And he was just fascinated with it.
+
+1489
+01:12:17,520 --> 01:12:21,520
+And I think it was good to kind of build his confidence while he was kind of stuck in Finland
+
+1490
+01:12:21,520 --> 01:12:25,520
+as a young adult and trying to figure out what he wanted to do.
+
+1491
+01:12:25,520 --> 01:12:29,520
+And so I brought him to WAFER and ICRA and IROS.
+
+1492
+01:12:29,520 --> 01:12:33,520
+And he really enjoyed the people and had a really great time.
+
+1493
+01:12:33,520 --> 01:12:35,520
+But he's trying to decide between that and political science.
+
+1494
+01:12:35,520 --> 01:12:39,520
+And now he's getting a degree because he could take courses in Finland.
+
+1495
+01:12:39,520 --> 01:12:44,520
+But even if he petitioned and took every course as a resident, he's allowed to, they still
+
+1496
+01:12:44,520 --> 01:12:45,520
+won't give him the degree.
+
+1497
+01:12:45,520 --> 01:12:46,520
+Or if he publishes all the papers for a PhD.
+
+1498
+01:12:46,520 --> 01:12:48,520
+They won't give him the degree.
+
+1499
+01:12:48,520 --> 01:12:52,520
+Because in the Finnish system, you know, things are very, apparently it's like that all over
+
+1500
+01:12:52,520 --> 01:12:53,520
+Europe.
+
+1501
+01:12:53,520 --> 01:12:56,520
+You have to kind of go, there's no exceptions to the kind of standard rules and stuff.
+
+1502
+01:12:56,520 --> 01:12:59,520
+So he'll have to figure out what he wants to do after he finishes his degree.
+
+1503
+01:12:59,520 --> 01:13:01,520
+But it was a wonderful time to work with him.
+
+1504
+01:13:01,520 --> 01:13:02,520
+It was exciting.
+
+1505
+01:13:02,520 --> 01:13:05,520
+Reminded me of like when was goofing around with James Kuffner on the RRT in the first
+
+1506
+01:13:05,520 --> 01:13:06,520
+place.
+
+1507
+01:13:06,520 --> 01:13:07,520
+We just had so much fun.
+
+1508
+01:13:07,520 --> 01:13:10,520
+You know, he was, you know, my son Alex was doing a lot of the coding.
+
+1509
+01:13:10,520 --> 01:13:11,520
+I was doing a lot of the mathematical stuff.
+
+1510
+01:13:11,520 --> 01:13:14,520
+And Bashak was also doing even more of the mathematical stuff.
+
+1511
+01:13:14,520 --> 01:13:15,520
+And we had a really great time.
+
+1512
+01:13:15,520 --> 01:13:16,520
+And, you know, I think that's a really good thing.
+
+1513
+01:13:16,520 --> 01:13:21,520
+Are there any robotics applications that you think would be like super useful in your
+
+1514
+01:13:21,520 --> 01:13:27,520
+own life, which you would really like, yeah, have available for you and for example, in
+
+1515
+01:13:27,520 --> 01:13:28,520
+your household?
+
+1516
+01:13:28,520 --> 01:13:29,520
+Yeah.
+
+1517
+01:13:29,520 --> 01:13:32,520
+Well, we have robotic mops and vacuum cleaners and those work pretty well.
+
+1518
+01:13:32,520 --> 01:13:36,520
+I would love to have some kind of robotic telepresence device and I'd love to have virtual
+
+1519
+01:13:36,520 --> 01:13:40,520
+reality headsets working well enough so I could pop something on quickly and feel like
+
+1520
+01:13:40,520 --> 01:13:45,520
+I'm somewhere else and just inhabit a robot and have it go out running around, looking
+
+1521
+01:13:45,520 --> 01:13:46,520
+around and interacting with other people.
+
+1522
+01:13:46,520 --> 01:13:47,520
+I think that'd be really nice.
+
+1523
+01:13:47,520 --> 01:13:51,520
+It'd be a great thing for the world to have, especially for people with limited mobility.
+
+1524
+01:13:51,520 --> 01:13:53,520
+And it's like a shared autonomy kind of thing.
+
+1525
+01:13:53,520 --> 01:13:57,520
+So there's, you know, robots and autonomy kind of there as well, but it's also a human
+
+1526
+01:13:57,520 --> 01:13:58,520
+robot interaction.
+
+1527
+01:13:58,520 --> 01:14:02,520
+But you kind of want to forget that there's a robot and see a different body and interact
+
+1528
+01:14:02,520 --> 01:14:03,520
+with the world.
+
+1529
+01:14:03,520 --> 01:14:12,520
+What do you think will actually be some bigger changes in robotics research in the next upcoming
+
+1530
+01:14:12,520 --> 01:14:13,520
+years?
+
+1531
+01:14:13,520 --> 01:14:14,520
+So maybe not only involving your group, but like, you know, like, you know, like, you're
+
+1532
+01:14:14,520 --> 01:14:15,520
+going to be doing a lot of things.
+
+1533
+01:14:15,520 --> 01:14:16,520
+I don't know.
+
+1534
+01:14:16,520 --> 01:14:17,520
+That's very hard.
+
+1535
+01:14:17,520 --> 01:14:18,520
+It's very hard to predict.
+
+1536
+01:14:18,520 --> 01:14:19,520
+Perhaps the deep learning stuff will hit the trough of disillusionment and people will
+
+1537
+01:14:19,520 --> 01:14:20,520
+understand kind of what they can and can't do a little better.
+
+1538
+01:14:20,520 --> 01:14:21,520
+There'll be some enlightenment period on that.
+
+1539
+01:14:21,520 --> 01:14:22,520
+And then some gradual road to progress to be like a, I don't know if the Gartner hype cycle
+
+1540
+01:14:22,520 --> 01:14:23,520
+is always right.
+
+1541
+01:14:23,520 --> 01:14:24,520
+I always think of, there should be like a, like a Fourier analysis version of the Gartner
+
+1542
+01:14:24,520 --> 01:14:25,520
+hype cycle where there's like the cycles are happening at different frequencies and
+
+1543
+01:14:25,520 --> 01:14:26,520
+and there's like, you know, there's a whole lot of thinking going on in the space.
+
+1544
+01:14:26,520 --> 01:14:27,520
+It's very hard to predict.
+
+1545
+01:14:27,520 --> 01:14:28,520
+I think that's a really interesting topic.
+
+1546
+01:14:28,520 --> 01:14:29,520
+I mean, it's a really interesting topic.
+
+1547
+01:14:29,520 --> 01:14:30,520
+I think there's a lot of thinking going on in the space.
+
+1548
+01:14:30,520 --> 01:14:37,520
+It's hard to predict.
+
+1549
+01:14:37,520 --> 01:14:52,540
+But I think there will be some kind of, you can feel it happening already, that there's
+
+1550
+01:14:52,540 --> 01:15:00,140
+some gain and understanding of what those things are good for and not good for.
+
+1551
+01:15:00,140 --> 01:15:00,400
+I hope there will be some sort of enlightenment period on that and a gradual road to progress.
+
+1552
+01:15:00,400 --> 01:15:03,920
+hope there's a lot of interest in getting back to a lot of the fundamentals and doing deeper
+
+1553
+01:15:03,920 --> 01:15:08,360
+kind of research and not being so obsessed with how many papers can I publish as quickly as
+
+1554
+01:15:08,360 --> 01:15:12,800
+possible and to increase the h-index or whatever kind of thing so I'd love to see something going
+
+1555
+01:15:12,800 --> 01:15:16,240
+back to fundamentals I doubt it will happen I will certainly not predict that it will happen
+
+1556
+01:15:16,240 --> 01:15:21,900
+but that's what I would love to see happen and do you have any advice to people choosing a research
+
+1557
+01:15:21,900 --> 01:15:28,360
+career in robotics what should say for example pick a subject and yeah I think I've already said
+
+1558
+01:15:28,360 --> 01:15:32,780
+some of that right so I think that the fundamentals the mathematics and algorithms and control theory
+
+1559
+01:15:32,780 --> 01:15:37,200
+these kind of things are very very important maybe material science is important because if you want
+
+1560
+01:15:37,200 --> 01:15:42,080
+to do something more with in actuators and haptics and things like that so so then I would say you'd
+
+1561
+01:15:42,080 --> 01:15:46,180
+better learn some physics really well applied physics things like materials things like that so
+
+1562
+01:15:46,180 --> 01:15:50,900
+it probably depends on the on the maybe kind of discipline but make sure you're very passionate
+
+1563
+01:15:50,900 --> 01:15:55,800
+about it when I got into robotics it wasn't a very popular area so you had to be really passionate
+
+1564
+01:15:55,800 --> 01:15:58,340
+about it so so it is a big
+
+1565
+01:15:58,340 --> 01:16:01,960
+area now so I think just make sure you're not doing it just because it sounds cool and it's
+
+1566
+01:16:01,960 --> 01:16:06,360
+popular you have to make sure you really love the the questions and problems you know for long-term
+
+1567
+01:16:06,360 --> 01:16:11,100
+commitment because it's it's not always fun in academia and doing the research and stuff it has
+
+1568
+01:16:11,100 --> 01:16:16,440
+a lot of ups and downs cool yeah I think I'm already through with all my questions okay is
+
+1569
+01:16:16,440 --> 01:16:22,720
+there anything else you want to tell no I don't think so thanks very much I've had a great time
+
+1570
+01:16:22,720 --> 01:16:26,820
+here at this event too and yeah it's it's I think it's just a very fun community I've I've seen other
+
+1571
+01:16:26,820 --> 01:16:27,320
+communities
+
+1572
+01:16:28,340 --> 01:16:32,660
+drifting around in academia and such and I like the robotics attitude the best I think people are
+
+1573
+01:16:32,660 --> 01:16:38,540
+a lot of fun it feels like a big family yeah well thank you so much for for coming by all right thank
+
+1574
+01:16:38,540 --> 01:16:38,740
+you
+

@@ -1,0 +1,1574 @@
+[0.00s - 2.96s] Welcome to the Andreas Orthey podcast series on robotics.
+[3.64s - 6.08s] My guest in this episode is Steven Lavalle.
+[6.96s - 12.44s] Steven is a robotics professor at the University of Oulu and one of the pioneers of robot motion
+[12.44s - 12.76s] planning.
+[13.26s - 17.96s] He's widely known in the robotics community for his work on the rapidly exploring random
+[17.96s - 22.86s] tree, one of the most efficient algorithms to move robots from A to B.
+[23.72s - 29.38s] In addition, Steven also wrote the book Planning Algorithms, which is considered by many to
+[29.38s - 32.58s] be one of the foundational works for robotics research.
+[33.28s - 35.60s] I'm grateful that he was able to join me.
+[35.86s - 37.90s] Please welcome Steven Lavalle.
+[38.38s - 40.74s] Thank you so much for being here, Steven.
+[40.74s - 40.86s] Sure.
+[41.20s - 43.26s] I read the biography on your website.
+[43.40s - 43.52s] Yeah.
+[43.70s - 46.12s] You were born in St. Louis in Missouri.
+[46.48s - 46.68s] Yeah.
+[47.42s - 51.62s] And you say that you're coming more from like a working class family.
+[52.10s - 54.96s] So what did actually your parents do when you grew up?
+[55.40s - 57.36s] Yeah, well, my dad was a printing press operator.
+[57.36s - 57.92s] Oh.
+[57.92s - 61.64s] And my mom did some bookkeeping and was mostly a homemaker.
+[62.50s - 66.04s] My parents got divorced when I was young, though, and then went through a number of
+[66.04s - 67.40s] trials and different kinds of things.
+[67.72s - 68.00s] Okay.
+[68.62s - 76.86s] And can you maybe like trace back your fascination with robotics to like some kind of specific
+[76.86s - 82.28s] memory or specific moment where you thought, okay, robotics, that doesn't like my career.
+[82.52s - 83.98s] I want to go into that field.
+[83.98s - 86.92s] Well, I was fascinated by AI because of the movie 2001.
+[87.20s - 87.84s] I saw that.
+[87.84s - 89.16s] I saw that when I was about 10 years old or so.
+[89.30s - 89.76s] That's amazing.
+[90.08s - 91.34s] It was about 10 years old itself.
+[91.58s - 96.12s] And so Hal 9000 was done at the University of Illinois, according to the movie.
+[96.28s - 99.88s] It was done in Urbana, Illinois, which is exactly where I did my PhD during the time
+[99.88s - 100.64s] when it was supposed to be.
+[101.02s - 102.76s] So I was fascinated with that.
+[102.86s - 103.52s] So I knew AI.
+[104.00s - 105.96s] I love the robots in Star Wars, of course.
+[106.02s - 106.46s] Who doesn't?
+[107.66s - 110.76s] But a lot of it just came in graduate school by just kind of narrowing it down.
+[110.86s - 114.84s] I didn't like some of the more abstract kind of AI, more philosophical kinds of things
+[114.84s - 115.72s] that were going on at the time.
+[116.46s - 117.82s] It wasn't as far along.
+[117.84s - 119.20s] It wasn't as far along as it is today.
+[120.14s - 123.04s] And so I ended up finding robotics really appealing.
+[123.20s - 125.36s] My advisor, Seth Hutchinson, was new and doing robotics.
+[125.58s - 128.10s] And it just seemed very honest in what it was trying to deliver.
+[128.40s - 132.18s] It had some practical engineering aspect to it, but also great opportunities to go deep
+[132.18s - 133.86s] in mathematics and algorithms.
+[133.86s - 135.50s] And all the things I loved were kind of there.
+[135.72s - 137.38s] But I wasn't worried about it.
+[137.38s - 137.80s] And it was nice.
+[137.92s - 141.68s] Somehow I learned that the magic of whatever intelligence was, was kind of elusive.
+[142.04s - 145.92s] And I thought, well, let's just see if we can make machines do interesting things, mechanical
+[145.92s - 147.14s] machines in the real world.
+[147.14s - 147.20s] Yeah.
+[147.84s - 152.48s] And what were some favorite subjects which you really liked to explore when you were
+[152.48s - 157.68s] younger, which already maybe put the foundation for your later career?
+[158.74s - 160.60s] Well, I fell in love with coding.
+[161.16s - 162.20s] I was able to get started.
+[162.20s - 162.90s] When was that?
+[163.06s - 163.84s] So at which age?
+[163.98s - 166.96s] When I was about 14, I started.
+[167.60s - 169.02s] I was playing video games a lot.
+[169.10s - 171.70s] We had home video game systems like Atari 2600 and stuff.
+[171.74s - 174.06s] And I heard that some kid up the street was able to make games.
+[174.26s - 175.22s] That's really weird.
+[175.32s - 176.02s] Like, how do you do that?
+[176.02s - 177.60s] You can't make the cartridges or something.
+[177.84s - 177.96s] Yeah.
+[178.04s - 180.88s] So I learned about programming, got a book on BASIC.
+[181.36s - 184.58s] I programmed in the store because we couldn't afford a computer or anything.
+[184.76s - 188.52s] So the sales guy was really nice at the store and let me just stand there typing in programs
+[188.52s - 188.92s] all day.
+[189.20s - 190.02s] So it's like...
+[190.02s - 191.48s] What kind of games did you actually develop?
+[192.48s - 196.62s] Well, a little bit later, I was able to work in summers when I was 16 and get a Commodore
+[196.62s - 197.10s] 64.
+[197.44s - 200.58s] And I had a Timex Sinclair 1000 before that, which was like a 2K device.
+[201.22s - 202.18s] So I don't know.
+[202.30s - 205.50s] I mean, games that were probably similar to that kind of, the things in that kind of time
+[205.50s - 207.64s] period, like little ships flying around and shooting.
+[207.64s - 209.48s] And obstacle avoidance.
+[209.58s - 211.62s] But interestingly, they're very motion planning like.
+[212.22s - 213.54s] So, yeah.
+[213.88s - 220.84s] I also made a map of the US down to the level of state boundaries.
+[221.10s - 224.88s] And then I figured out how to do like rotations and translations and different kind of shearings
+[224.88s - 225.10s] of it.
+[225.12s - 226.96s] I was experimenting with linear transformations and stuff.
+[227.02s - 227.50s] And it was really neat.
+[227.76s - 229.36s] I could zoom in and zoom out and stuff.
+[229.50s - 234.76s] And so it wasn't quite like Google Maps, but it was like a 1980s version of that.
+[234.76s - 236.76s] You did basically already like a very...
+[237.64s - 242.28s] primitive way maybe of transformations in computer graphics.
+[242.28s - 242.60s] Yeah.
+[242.76s - 244.12s] Did all of that already like...
+[244.12s - 244.24s] Yeah.
+[244.28s - 245.86s] I just found those things fascinating anyway.
+[245.94s - 247.52s] I didn't know what I was doing too much at the time.
+[247.58s - 249.40s] I didn't learn a lot of math until a little later.
+[250.26s - 252.84s] And did you have any other hobbies besides coding?
+[254.30s - 259.06s] Well, I noticed that I was better at math than a lot of other people were and stuff.
+[259.14s - 260.16s] It came easy for me.
+[260.34s - 263.36s] And what was strange is that basic algebra was very hard for me.
+[263.36s - 264.98s] But when I got to calculus, it was much easier.
+[265.30s - 267.58s] And then things that were supposed to be even harder were even easier.
+[267.58s - 268.82s] Somehow like they converted.
+[268.92s - 270.58s] I'm not saying the higher levels aren't hard.
+[270.66s - 271.56s] It gets very intense.
+[271.80s - 274.90s] But it got more beautiful and more natural the more I learned.
+[275.00s - 276.26s] So that was very attractive to me.
+[276.64s - 281.50s] And so I knew that when I went to the university, I thought pure computer science wasn't enough.
+[281.62s - 287.52s] I wanted to do computer engineering because it would give me an excuse to learn more of what I thought was the fundamental math.
+[287.80s - 290.02s] It's really just calculus and differential equations at the start.
+[290.08s - 293.50s] There's other kinds of math I wasn't even aware of yet that I learned about later in grad school.
+[293.50s - 294.18s] But that was kind of it.
+[294.26s - 297.50s] I wanted to have this combination of math and playing with computers.
+[297.58s - 304.20s] And there was actually a little bit of struggle to get into university for you, right?
+[305.20s - 307.34s] Could you maybe talk a little bit about that?
+[307.52s - 308.90s] A struggle to get into university?
+[308.90s - 309.30s] Yeah.
+[311.14s - 318.62s] Well, I mean, the challenge is at some point in my second year of high school, I decided to really start trying in school.
+[318.62s - 321.22s] So I had a couple of really inspirational teachers.
+[321.68s - 323.24s] It was my Spanish teacher and my English teacher.
+[323.24s - 326.78s] They came from women who came from liberal arts and humanities.
+[326.78s - 327.14s] That were high school students.
+[327.14s - 327.20s] Yeah.
+[327.20s - 327.30s] Yeah.
+[327.30s - 327.40s] Yeah.
+[327.40s - 327.44s] Yeah.
+[327.44s - 327.50s] Yeah.
+[327.50s - 327.56s] Yeah.
+[327.58s - 333.52s] I think quite empathetic and recognize that I had some kind of talent and they really helped push to encourage me.
+[333.52s - 334.80s] They said, you can do anything, you know?
+[334.80s - 335.50s] And I thought, really?
+[335.64s - 337.58s] It didn't seem really.
+[337.66s - 337.84s] That's not what binge eating taught me.
+[337.84s - 338.74s] That's not what other people had told me.
+[338.74s - 340.10s] That is good motivation.
+[340.36s - 348.60s] The headmaster of my school before high school told my dad that I'd very likely end up in prison and be most likely to be incarcerated out of the class.
+[348.60s - 350.08s] So he was quite serious.
+[350.08s - 354.34s] So I was used to thinking I'm like a trouble problem kid like that.
+[354.34s - 356.82s] So, but anyway, I started trying really, really hard.
+[356.82s - 357.42s] And by the time I was 15.
+[357.42s - 357.50s] Right.
+[357.50s - 361.62s] I was a senior, I was the top student in every subject, you know, humanities or whatever. It
+[361.62s - 365.50s] wasn't a super competitive high school. It was a good high school. It was a Catholic school and
+[365.50s - 368.86s] the people there were, you know, there's some really good teachers that were very well committed.
+[369.12s - 373.44s] And so then I went to the University of Missouri for a year because I could not afford to go to
+[373.44s - 376.30s] the University of Illinois, because if you're not in that state, you have to pay three times
+[376.30s - 379.88s] the tuition. And I couldn't figure out how to arrange all the borrowing. But eventually,
+[379.88s - 383.04s] I figured out how to borrow all the money and kind of arrange everything. And I transferred
+[383.04s - 385.94s] over to the University. So how did you do that? Just from family and friends?
+[386.54s - 389.82s] No, there's like different loan programs. My girlfriend at the time
+[389.82s - 394.34s] told me about something called the, I forgot it's called the something,
+[394.80s - 400.44s] something foundation of St. Louis, St. Louis Scholarship Foundation. And it was run by women,
+[400.46s - 404.38s] and it was for women, but they decided to start adding men to it. And so I was able to get money
+[404.38s - 407.34s] from that. I was very grateful for that. It was a zero interest loan. And then there were some
+[407.34s - 412.30s] government programs. And then I was able, I had to somehow hide one of the loans from the
+[412.30s - 413.02s] administration. And so I had to somehow hide one of the loans from the administration. And so I
+[413.02s - 415.14s] had to somehow hide one of the loans from the administration at the university. Because if
+[415.14s - 419.60s] I had mentioned that loan, then they would give me less money of aid, because they still make sure
+[419.60s - 423.26s] you're a few thousand short anyway, like as if I then need to work odd jobs or something to pay
+[423.26s - 426.52s] for. But I knew that the education at the University of Illinois engineering would be
+[426.52s - 430.92s] very intense. I wanted to be able to just work all, I mean, work on the school all the time and
+[430.92s - 434.88s] not work some odd jobs. That's an unfair thing to do to people too. You're a little more poor,
+[434.98s - 439.22s] so you got to work a side job while you're in engineering. That's right. And I just,
+[439.22s - 442.94s] I worked all the time there. I was so intense. I was so, I knew what the stakes were,
+[443.02s - 447.02s] because I'd been kind of down before and I just didn't want to leave anything to chance, you know.
+[447.50s - 452.14s] So you didn't enjoy like university life and some partying, but you just...
+[452.14s - 455.56s] No, it was just hard work. In grad school, it got a little more relaxed because it's less
+[455.56s - 458.00s] structured. I worked very hard in grad school, but then I took some good breaks,
+[458.36s - 462.72s] did some traveling or even a little partying with some people in the lab and stuff. That was okay.
+[463.26s - 466.68s] And so what kind of subjects did you actually study at the university,
+[467.68s - 472.80s] which maybe really fascinated you or which like inspired you to go further?
+[473.02s - 474.52s] To go into this area of robotics?
+[475.84s - 478.52s] To go into... Well, robotics was mainly... In my first year of graduate school,
+[478.52s - 482.80s] I just kind of eliminated all the areas of AI and also picked an advisor that I felt really
+[482.80s - 486.52s] comfortable with. So my advisor, Seth Hutchinson, was doing robotics and that's how I narrowed it
+[486.52s - 492.86s] down to that. But at the same time, my fascination was in physics and math and those kinds of things.
+[492.98s - 496.96s] Robotics has enough of that, I think. And as I took more advanced areas of mathematics,
+[497.56s - 502.78s] like I took a graduate level real analysis my second year of grad school and I took algebraic
+[502.78s - 503.00s] to politics. I took algebraic to politics. I took algebraic to politics. I took algebraic to politics.
+[503.02s - 508.00s] I took algebraic to psychology and other kind of courses. I attended a lot of courses too that
+[508.00s - 513.58s] were also very advanced. They're kind of like PhD preparatory courses in mathematics. They're
+[513.58s - 518.96s] exactly for the math people and very pure. No one's thought about... And I learned the philosophy of
+[518.96s - 521.76s] math and what those people are trying to do. And that was really helpful in engineering.
+[522.16s - 525.38s] Because then if I want to make up notation or I want to figure out what the right question is to
+[525.38s - 529.32s] ask, a tendency towards minimalism, don't make up Shark Tank. Don't make up a bunch of extra stuff
+[529.32s - 532.66s] that doesn't need to be there. These kinds of things mathematicians are very good at. So that
+[532.66s - 537.70s] helped shape me tremendously for the rest of my career. And so this was already like during your
+[537.70s - 542.90s] master studies? That was during... Yeah, well, master's and PhD was kind of the same program.
+[543.10s - 548.16s] So it was kind of near the end of my coursework for PhD. A course near the end of undergrad that
+[548.16s - 553.44s] really helped me was my... I had an undergraduate advisor, Franco Preparato, who happened to be
+[553.44s - 557.32s] one of the founding fathers of computational geometry, wrote a book on that. And he suggested
+[557.32s - 561.58s] I take an algorithms class over on the computer science side because I was a computer engineering
+[561.58s - 562.42s] kind of electrical and computer engineering student. And he said, well, I'm going to take
+[562.42s - 562.44s] a computer science class over on the computer science side because I was a computer engineering
+[562.44s - 562.64s] kind of electrical and computer engineering. And he said, well, I'm going to take a computer science
+[562.66s - 566.90s] student. So I went and did that. And it was a really hard class. And it was way more...
+[567.64s - 571.80s] Algorithms was way more mathematical in some sense, closer to pure mathematics than my
+[571.80s - 576.34s] engineering courses were. It was as if the math and engineering had been kind of stale. I had been
+[576.34s - 580.12s] in engineering for a couple of generations and no one remembers why it's there anymore. They just
+[580.12s - 584.02s] know that you need to know it. And they're proud of it, that it's really hard. But when you get
+[584.02s - 588.20s] the more... When it's closer to the source of mathematics, the beauty comes out. And they're
+[588.20s - 592.44s] trying to explain things and understand things really well. There's no terror of proofs doing
+[592.44s - 596.72s] proofs is like a horror for most engineering students. But that's because it's like some kind
+[596.72s - 602.82s] of exercise to show you how challenging or how tough mathematical stuff can be. Whereas in
+[602.82s - 606.72s] mathematics, it's like, no, you're convincing another human why something is true and trying
+[606.72s - 610.78s] to do it very clearly and very cleanly. Very much almost like writing a program, trying to
+[610.78s - 615.72s] describe in a very precise way how something should work. And so how do you actually think
+[615.72s - 621.36s] about mathematics? Is this for you a very visual process where you try to imagine something in
+[621.36s - 622.22s] your head, like draw a picture of something? Yeah.
+[622.22s - 627.34s] Or is it more like symbolic that you try to...
+[628.04s - 631.78s] Yeah, that's right. It depends on what kind of math it is. And I think there's
+[632.42s - 636.48s] very often two different kinds of mathematicians. There's the ones that tend to gravitate more
+[636.48s - 640.98s] towards real analysis, which is more visual, I would say. It looks kind of like it's the math
+[640.98s - 645.38s] of calculus and then some. I like topology a lot. All these things are a little more visual.
+[645.92s - 650.16s] The other group of people tend to like algebra more. And I probably not as... I appreciate
+[650.16s - 651.78s] algebra as a beautiful art. And I learned...
+[652.22s - 656.60s] I appreciate it. And I got better at it as I got older, but I wasn't as natural. So I tend to think
+[656.60s - 661.54s] more visually somehow. And motion planning is like that as well. It has this kind of... I love
+[661.54s - 666.08s] visualizing high-dimensional information, configuration spaces and information spaces,
+[666.38s - 670.22s] whatever visualize means. It's somehow in my head and I can kind of see it, but it doesn't look like
+[670.22s - 674.36s] the things around us in the world right now. And how hard was it actually to get into this
+[674.36s - 678.70s] PhD program once you have... once you finished actually...
+[678.70s - 682.20s] I was the number one ranked student. So I had a perfect...
+[682.22s - 685.78s] grade point average when I applied to graduate school. I didn't... I could hardly afford to apply
+[685.78s - 689.24s] to many places. And I did not know that you should probably apply in the US to like six or seven
+[689.24s - 694.90s] places. So I just applied to MIT and Illinois. MIT rejected me. I was number one in the number
+[694.90s - 699.36s] three school. Our university is ranked number three in the country. But I'd only been there
+[699.36s - 701.44s] for a couple of years because I transferred...
+[701.44s - 706.50s] Oh, I finished one year early too. So I hadn't probably done enough because I was accelerated.
+[706.64s - 710.46s] I was working really fast through things. And so I think if I had to do it over again,
+[710.74s - 711.94s] I'd probably slow down more.
+[712.22s - 715.46s] But it costs money. I had to borrow money. So I don't think it's fair. But I guess
+[715.46s - 718.72s] if I would have had more money, I would have been able to stretch out my undergraduate,
+[718.92s - 722.74s] get to know professors better, do more research projects, get better letters of recommendation.
+[722.74s - 725.82s] And those are very important. I know how to get myself into MIT now with that
+[725.82s - 730.38s] kind of capability. But at that time, there's no feasible way for me to do it.
+[730.42s - 731.50s] That's what I kind of think happened.
+[731.82s - 737.74s] So the way for today's students to get into MIT would be to do more networking,
+[738.14s - 740.84s] to get more professors...
+[740.84s - 741.34s] Yeah.
+[741.52s - 742.20s] ...onto your campus.
+[742.22s - 746.46s] And now there's expectations to publish and things like this. This was like the late 1980s.
+[746.68s - 751.10s] And also, don't put all your eggs in one basket. I mean, you should... If you want to be at a top
+[751.10s - 754.74s] school, fine. And you say you want to be in America and be at a top school, apply to Berkeley
+[754.74s - 759.34s] and Stanford and Cornell and a bunch of other schools as well, whatever your favorite ones are.
+[759.48s - 763.86s] But put some top ones, maybe a few fallback ones. I really did nothing. I just said,
+[763.96s - 767.86s] okay, well, I can stay in Illinois. They had this wonderful place called the Beckman Institute,
+[768.00s - 771.04s] which looked like the place that was going to be where they built the HAL 9000
+[771.04s - 778.62s] from 2001. It was a very new facility, huge donation from an alumnus, Arnold Beckman.
+[778.86s - 783.28s] And I was really excited. It seemed all about pursuing the foundations of intelligence,
+[783.28s - 788.72s] both with physics and biology and computer science people all there together.
+[789.26s - 791.78s] And your PhD advisor was Seth Hutchinson.
+[792.12s - 792.50s] That's right.
+[792.80s - 800.46s] So how was it actually like working with him? And what kind of advices did you get from him?
+[800.50s - 801.00s] Yeah. Well, it was great.
+[801.00s - 801.02s] It was great.
+[801.02s - 805.84s] great working with him. He was, he's only eight years older than me. And so I couldn't believe
+[805.84s - 809.60s] that he was a professor. I thought a professor had to be some stodgy old person that I never,
+[810.06s - 813.94s] that I had no connection with whatsoever. But the fact that there wasn't a generation gap
+[813.94s - 819.22s] and his dad was a printing press operator too. So also I had this sense of like, he's telling,
+[819.28s - 822.46s] he was telling me I could be a professor. And I'm like, I never thought of something as ridiculous
+[822.46s - 826.66s] as that. I just, I just, at each point when I finished my degree, I knew I wanted the next one
+[826.66s - 830.40s] because I was kind of bored and I was afraid to go to industry and be told what to do all the time.
+[830.40s - 834.42s] I had a lot of my own independent ideas, but, but what to do after PhD, I did not really have
+[834.42s - 838.80s] a plan. I was so high up and so far beyond what I had ever dreamed about that I didn't really think
+[838.80s - 842.66s] about it. So he helped encourage me and explain the academic system to me because he also grew
+[842.66s - 847.50s] up in kind of a working class environment and he had to learn all that stuff himself the hard way.
+[847.56s - 850.76s] And he was very good at teaching me, you know, what I need to be doing, making sure I'm very
+[850.76s - 854.98s] prepared in presentations and, and how to interact with, with professors and what's important to
+[854.98s - 859.52s] focus on and these kinds of things. So, so it was really good. Yeah. And what were like the first
+[859.52s - 860.38s] topics you, you were talking about?
+[860.40s - 863.38s] Like maybe even the first paper that you wrote?
+[863.64s - 869.32s] Yeah, well, it was his suggestion mainly to work on computer vision. So I worked on image,
+[869.44s - 873.82s] like a Bayesian image segmentation approach. And the idea was to calculate a probability
+[873.82s - 879.10s] distribution over the space of image segmentations. So I worked feverishly on that, published maybe
+[879.10s - 882.86s] eight or nine papers on that. I think I can remember the exact number, including three
+[882.86s - 888.74s] journal papers from that. So in, in very good places too. So, so I worked very intensely and
+[888.74s - 890.12s] then his jaw dropped.
+[890.40s - 894.40s] And I started writing and I was like, I'm going to do this. So I started writing for a master's
+[894.40s - 899.54s] and then I'm going to do motion planning for my PhD. And I told him it's his fault. He, he, he,
+[899.54s - 904.00s] he ran a great class on motion planning using Latom's book in 91. And, and so I said, no, I'm
+[904.00s - 906.80s] going to, I'm going to, I'm going to change to that. And he's like, well, I was very productive
+[906.80s - 913.04s] as a student. And so it's like, well, you know, okay. So, so I switched over and did that. And
+[913.04s - 918.08s] by 95, I had finished, it was about 92 when I was telling them that. And by 95, I had, I had
+[918.08s - 922.18s] switched over. I also fell in love with game theory at the time too. And so it was a, one of
+[922.18s - 926.84s] my PhD thesis was called a game theoretic foundation for motion planning, I think.
+[927.72s - 930.48s] And so what was actually the first paper that you wrote on motion planning?
+[932.94s - 938.82s] I had, I can't remember where it was published, but it involved using some kind of game theory
+[938.82s - 942.88s] to move robots around, but they were just on, on a grid or something. I think it was in 93,
+[942.88s - 947.98s] but I can't remember the exact location of it. But, but then very quickly I discovered the
+[948.08s - 953.76s] principle of dynamic programming by going to the library. And I read old articles of papers
+[953.76s - 957.74s] that were talking about value iteration and Bellman's principle of optimality for like
+[957.74s - 962.10s] one-dimensional problems. And I think, Hey, wait a minute. I think, you know, we're like decades
+[962.10s - 966.00s] later now in the nineties and we have fancy expensive computers. I bet I can get two or
+[966.00s - 969.74s] three dimensional problems working maybe with obstacles and all this stuff. So I tried that
+[969.74s - 972.94s] stuff and it worked beautifully. And that's when the papers I'm more proud of sort of came out,
+[973.02s - 977.28s] like multiple robot coordination and, and some papers with like stochastic feedback,
+[977.46s - 978.06s] optimal planning.
+[978.08s - 983.56s] could all be done with, with value iteration, which is the basis of, you know, reinforcement
+[983.56s - 986.70s] learning. A lot of the other things that people seem to like today, nobody knew that stuff then
+[986.70s - 990.14s] or cared, but, but that was, you know, I felt like I hit a jackpot on that stuff.
+[990.36s - 994.52s] So, and so in 1995, you finished actually your PhD thesis, right?
+[994.64s - 994.96s] That's correct.
+[995.34s - 999.10s] So, so what kind of options did you consider to go forward?
+[999.32s - 1003.80s] Well, the, the day I finished my PhD, oh, I applied to about maybe 40 places for faculty
+[1003.80s - 1007.38s] positions and got not a single interest. I had about 20 publications,
+[1007.38s - 1011.94s] which was a lot. It was about as many publications as the whole lab, the rest of my research group
+[1011.94s - 1017.48s] combined. And, and they were in good places too. I mean, like a lot of computer vision ones and a
+[1017.48s - 1021.96s] lot of robotics ones. So they were all in, in, well, not all, but, but most were in top places.
+[1022.48s - 1027.70s] And, but I applied to all these places, total rejection. I defended my thesis with no offer
+[1027.70s - 1030.48s] anywhere. And I was just going to go back to Missouri. I'm like, all right, well, I tried,
+[1030.48s - 1037.32s] you know? And then, um, after my defense, I went out and did some nice partying with some friends.
+[1037.38s - 1041.52s] It kind of celebrate. And then I didn't realize that shortly after my defense,
+[1041.52s - 1046.10s] I got an email from Jean-Claude Latombe saying, Hey, you know, come to Stanford for a postdoc
+[1046.10s - 1049.88s] position. I had asked him and I had asked Matt Mason if they happen to have any funding.
+[1050.36s - 1054.48s] And I sent them those days you had to send papers. So I sent like federal expressed,
+[1054.60s - 1058.78s] like express mailed a package of papers to both of those guys. Matt's a great guy. I have great
+[1058.78s - 1062.26s] relationship with him, but he didn't have any money for a postdoc, but, uh, but Jean-Claude
+[1062.26s - 1066.20s] Latombe did. And so I'm like, oh, I guess I'm going to Stanford. So I did that.
+[1066.58s - 1067.02s] Nice.
+[1067.38s - 1073.60s] And so, so maybe what would be your advice to like PhD students of today of how you,
+[1073.66s - 1078.50s] they can be like as productive as you have been during this time when you wrote your PhD?
+[1078.80s - 1085.32s] I don't really know. I mean, I was, it's really hard to do both quantity and quality and research,
+[1085.32s - 1089.66s] but I was so motivated. I was just absolutely determined and passionate too. I mean,
+[1089.66s - 1093.84s] I just love the work and I was always thinking about it. So if it's not a total passion project,
+[1093.84s - 1097.10s] if you're just kind of feel like you're gaming it or scheming it all the time,
+[1097.16s - 1097.36s] then I would say, yeah, I would say, yeah, I would say, yeah, I would say, yeah, I would say,
+[1097.36s - 1101.34s] I don't know what to say, but, but, but I just, I had a lot of papers just because I had so many
+[1101.34s - 1104.12s] ideas and I was just thinking about it all the time and working really hard on it.
+[1104.48s - 1107.88s] And my advisor was very good at giving me the right kinds of guidance and the right kind of
+[1107.88s - 1113.22s] feedback to make, help me turn into a good writer and to express myself well and in papers and come
+[1113.22s - 1116.84s] up with the right formulations. But I had all this mathematics background, which he encouraged me to
+[1116.84s - 1120.30s] take more math and do that. He wished he could, he said, but he didn't get a chance to take as
+[1120.30s - 1123.84s] much as I was able to take and stuff. So, um, so I think just kind of setting the conditions,
+[1123.84s - 1126.98s] right. And making sure you're in a, are you in a research group that,
+[1127.36s - 1130.78s] has pretty open funding that gives you the, if you're very creative and very passionate,
+[1130.86s - 1134.24s] can you do the things you want to do and listen to advice of your advisor and such?
+[1134.52s - 1138.32s] Or are you in a group where you have to do these very applied projects and they're on a schedule
+[1138.32s - 1142.54s] and you have to do this and do this and this, and then it's tough. You may be in a group where
+[1142.54s - 1145.96s] a student may be in a group where there's a lot of other people in the group who are more senior
+[1145.96s - 1149.18s] and it's very collaborative. Then you have to get in, you should get involved in the
+[1149.18s - 1153.04s] collaborations and eventually start to take a leadership role for more experimental researches
+[1153.04s - 1156.90s] like that. But we did not have a group like that. We were doing more individual work at the time.
+[1156.90s - 1159.42s] And that's how more of the work was back then too.
+[1160.20s - 1163.96s] And so basically in 1995, you arrived to California.
+[1165.36s - 1170.96s] Yeah. Drove my car across country with a, actually drove a rental truck, pulling my car behind the
+[1170.96s - 1174.40s] truck and just showed up. Wow. And was it your first time in California?
+[1175.52s - 1182.32s] No, I had been once for something in 1994. Was ICRA in San Diego in 94? I think,
+[1182.50s - 1186.40s] yeah, I think, I think, I think, I think it was,
+[1186.90s - 1188.40s] was ICRA and yeah.
+[1189.42s - 1194.66s] Okay. And how did you like California? Was it like a big change for you?
+[1195.08s - 1199.64s] Yeah. I mean, I, I was more there to do the work. So the Stanford campus was very beautiful
+[1199.64s - 1204.68s] and intimidating. It just, it just exuberates, like it just, just wealth is just like, like
+[1204.68s - 1209.24s] everywhere. It looks so perfect and it looked kind of like intimidating in some ways, but,
+[1209.30s - 1213.40s] but yet I was able to work there. So it was very nice. Weather was perfect, which was strange.
+[1213.66s - 1216.52s] Like there was no, there were no seasons. So it was just sunny and nice all the time.
+[1216.90s - 1219.96s] Which is not too great when you're busy working anyway. So I was,
+[1220.08s - 1223.22s] I don't want to feel like, oh, I wish I were outside when I got so, but
+[1223.22s - 1227.34s] culturally is great. The restaurants were great. The people were great. The students.
+[1227.84s - 1233.10s] So, and what was your first big project you worked on during your time as opposed to at Stanford?
+[1233.10s - 1239.80s] Well, I was, I was funded under a DARPA project, which we called the intelligent observer,
+[1240.02s - 1246.26s] which was one robot that was following another one with a camera. I guess the robot could follow a human in more modern times,
+[1246.30s - 1246.78s] but they had a,
+[1246.90s - 1254.34s] so they had these nomad robots and they were called a little cylindrical robots with a mobile base.
+[1254.68s - 1259.88s] And, and we had, yeah, cameras with one following the other. And we got some nice papers out of that.
+[1259.88s - 1269.40s] I was first author on a couple of papers. One of them used dynamic programming and value iteration to help them to figure out how one robot can maintain visibility of another.
+[1269.94s - 1275.20s] And we had another one I was really happy about called, we called it the visibility based pursuit evasion problem.
+[1275.58s - 1276.54s] Because one time the,
+[1276.90s - 1278.94s] the one robot went out of the field of view of the other.
+[1279.30s - 1282.42s] And one of the students, David Lynn said, well, how do we find it again?
+[1282.42s - 1283.74s] And I thought that's a really interesting problem.
+[1283.74s - 1286.92s] We went to the board and started talking about it and it led to this beautiful work.
+[1286.92s - 1288.86s] And, and I'm very happy about that.
+[1288.86s - 1292.52s] And it stimulated a thread of work from other researchers and myself contributed.
+[1292.86s - 1302.64s] Rajiv Motwani, the famous randomized algorithms researcher was, was on the paper along with Leo Gibas, a famous computational geometry algorithms person, and Jean-Claude Latombe as well.
+[1302.64s - 1306.26s] And the students, David Lynn and I were on that, the student David Lynn and I.
+[1306.90s - 1311.34s] And so during this time, I heard that computer vision algorithms were not like super stable.
+[1311.34s - 1314.08s] And one day Bill Gates visited your lab.
+[1314.08s - 1315.06s] Oh, you know too much.
+[1315.06s - 1315.48s] Yeah.
+[1316.26s - 1317.10s] I've heard the stories there.
+[1317.10s - 1318.54s] So, so what is actually the story?
+[1318.96s - 1320.58s] Well, we were in the Gates building.
+[1320.58s - 1322.84s] We moved into the brand new Gates building.
+[1322.84s - 1324.42s] He gave the naming contribution.
+[1325.90s - 1330.36s] I heard that, that the Packard family gave more, but somehow the naming contribution was, was, was this.
+[1330.84s - 1334.86s] And so Bill Gates himself comes by for demos and, you know, we were pretty stressed about it.
+[1334.86s - 1336.86s] And I think around 3 AM or so, we got everything.
+[1336.86s - 1337.46s] Working right.
+[1337.46s - 1345.68s] So that one robots following the other with the camera, but you know, it's too sunny in California and the Gates building had giant windows, kind of like these here that, that I'm with.
+[1345.68s - 1348.96s] And so, man, it didn't work because the lighting conditions are different.
+[1348.96s - 1350.72s] Everyone knows it's sensitive to lighting conditions.
+[1350.72s - 1352.40s] So the thresholds are wrong or whatever.
+[1352.40s - 1353.86s] And so it just kind of did nothing.
+[1353.86s - 1355.54s] So I'm like the distance you are from me.
+[1355.54s - 1358.12s] I'm like that with Bill Gates and Jean-Claude Latombe, my boss is there.
+[1358.12s - 1358.46s] And I'm like,
+[1360.38s - 1361.54s] so what did he say?
+[1361.54s - 1363.38s] Actually, I don't remember her really.
+[1363.38s - 1365.80s] It was just kind of a surreal moment of everything was so surreal.
+[1365.80s - 1366.22s] It was just, yeah.
+[1366.22s - 1366.80s] Yeah.
+[1366.86s - 1369.14s] I think Jean-Claude Latombe just kind of chalked it a little.
+[1369.14s - 1371.52s] I was like, yeah, well, that's how these kind of demos go.
+[1371.52s - 1371.80s] You know?
+[1371.80s - 1371.82s] Yeah.
+[1372.54s - 1372.94s] Yeah.
+[1373.52s - 1379.84s] And so after your postdoc at Stanford, you got a position as assistant professor at Iowa State.
+[1379.84s - 1380.34s] Iowa State.
+[1380.34s - 1380.48s] Yeah.
+[1380.48s - 1385.16s] I applied to like maybe 60 places and only one, only one interviewed me and it was Iowa State.
+[1385.62s - 1391.78s] And luckily they, they, they, they chose me and I, and I had to decide Silicon Valley was looking pretty exciting at the time.
+[1393.28s - 1396.76s] But because things are really heating up because of the internet and there was the big question
+[1396.76s - 1398.54s] of what's, how do we search for stuff?
+[1398.54s - 1400.62s] You know, I was all like, Google wasn't quite founded yet.
+[1400.98s - 1404.20s] So I liked the Bay Area, but I still said, you know, I, I really don't like the idea of
+[1404.20s - 1404.84s] going to a company.
+[1404.84s - 1405.78s] I want to be an academic.
+[1406.20s - 1406.94s] I'll go to Iowa.
+[1406.98s - 1409.28s] It'll be, and I'll, I'll try to do good stuff there.
+[1409.38s - 1409.88s] Yeah.
+[1410.10s - 1411.62s] And it was a great, I liked the people there.
+[1411.62s - 1412.04s] It was nice.
+[1412.04s - 1413.20s] People in the department were really good.
+[1413.20s - 1413.38s] So.
+[1413.38s - 1413.88s] Yeah.
+[1414.14s - 1419.96s] And I think at Iowa State you made like one of the big contributions from you, which is
+[1419.96s - 1421.58s] the Rapidly Exploring Randall Tree.
+[1421.58s - 1422.08s] Yeah.
+[1422.28s - 1422.98s] Also called RRT.
+[1422.98s - 1423.46s] That's right.
+[1423.46s - 1423.76s] Yeah.
+[1423.76s - 1425.94s] I thought of it while driving in the car in Ames, Iowa.
+[1425.94s - 1426.74s] I know exactly where I was.
+[1426.76s - 1428.40s] I was at, it was very nice.
+[1429.02s - 1434.32s] So can you tell me a little bit about the history of how RRT actually came to be developed
+[1434.32s - 1434.82s] by you?
+[1435.28s - 1441.14s] So what were actually, I don't know, the predecessors of RRT, how did it happen?
+[1441.40s - 1445.56s] Well, going back to Seth Hutchinson's motion planning class, I learned from La Tombe's
+[1445.56s - 1450.52s] book and from that class about the randomized potential field method and doing a kind of
+[1450.52s - 1452.74s] gradient descent and using random walks to escape.
+[1453.00s - 1456.74s] And I thought about random walks and said, you know, random walks are unfortunate because
+[1456.76s - 1459.68s] it's just one ridiculously long path and it's very uncontrollable.
+[1460.18s - 1465.06s] Why wouldn't you try to like just have a kind of space filling tree just kind of gradually?
+[1465.16s - 1467.52s] Because I could see that in my head, but I don't know how to make it.
+[1467.70s - 1470.18s] But it just felt like there ought to be a simple algorithm that does that.
+[1470.56s - 1473.76s] So this was like 93 or so when I was thinking like that.
+[1474.22s - 1479.20s] In 95, I met James Kuffner, really bright and fun student who was in La Tombe's group.
+[1479.92s - 1481.12s] And Jean-Claude La Tombe was gone a lot.
+[1481.18s - 1481.96s] He was climbing mountains.
+[1481.96s - 1483.90s] He'd go away for six weeks at a time and things.
+[1484.06s - 1486.74s] And so a lot of the students were alone with the class.
+[1486.74s - 1487.28s] The postdoc.
+[1487.52s - 1490.64s] And so we just had a wonderful time hacking and trying stuff.
+[1490.78s - 1496.46s] And so we tried picking points at random on the tree and then going in random directions.
+[1496.58s - 1502.10s] It'd be like a random, it looked like a very tree-like version of a random walk.
+[1502.36s - 1504.08s] Instead of walking, you just have a tree version.
+[1504.20s - 1504.78s] And it was horrible.
+[1505.38s - 1509.34s] And then we tried doing some potential function kind of stuff to bias which samples you pick
+[1509.34s - 1510.14s] on the tree and stuff.
+[1510.14s - 1511.76s] And it sort of worked okay.
+[1511.96s - 1514.18s] And James made a nice little hovercraft simulation.
+[1514.64s - 1516.12s] He was so good with coding and such.
+[1516.12s - 1518.90s] And I'd never met anybody better than me at coding until I met him.
+[1518.90s - 1520.34s] And then I'm like, oh, okay, there's another level.
+[1520.50s - 1521.44s] It was really amazing.
+[1522.04s - 1523.90s] And so we did the stuff.
+[1524.10s - 1525.40s] And we showed Jean-Claude La Tombe.
+[1525.50s - 1528.84s] And he was kind of like, don't waste your time on this.
+[1529.02s - 1530.28s] Go back, do what you're supposed to be doing.
+[1530.34s - 1532.12s] And I was supposed to be working on the mobile robot and stuff.
+[1532.36s - 1533.26s] So I was like, okay, fine.
+[1533.36s - 1534.52s] So I stopped doing that.
+[1535.06s - 1538.68s] But then when I got to Iowa for the first year of being a professor, I'm still thinking
+[1538.68s - 1540.10s] it's running like a background process.
+[1540.18s - 1541.46s] And then one day it just occurred to me.
+[1541.94s - 1544.32s] I'm like, the space needs to be sampled, not the tree.
+[1544.96s - 1545.60s] Just pick points.
+[1546.12s - 1547.02s] In the space.
+[1547.14s - 1550.42s] And each point you pick is like an advisor saying, hey, the tree ought to be over here.
+[1550.76s - 1553.68s] So find the nearest node in the tree and drive it over there.
+[1553.96s - 1554.96s] At least step towards it.
+[1555.26s - 1557.62s] And then it kind of goes away, almost like whack-a-mole.
+[1557.68s - 1559.16s] These little heads pop up, come towards me.
+[1559.24s - 1560.34s] And I imagine it like that.
+[1560.64s - 1561.58s] I'm like, oh, that's easy to code.
+[1561.64s - 1562.50s] Let me go home and try it.
+[1563.12s - 1564.68s] And so I tried it.
+[1564.88s - 1566.76s] And it took a couple hours to hack it up.
+[1566.92s - 1568.32s] And it was beautiful.
+[1568.40s - 1570.00s] I just made these beautiful fractal pictures.
+[1570.20s - 1571.78s] And next day I contacted James.
+[1571.82s - 1572.94s] I hadn't talked to him in over a year.
+[1573.06s - 1575.42s] And I said, James, I think we have it.
+[1575.42s - 1576.10s] This is amazing.
+[1576.12s - 1577.56s] And he knew right away, too.
+[1577.64s - 1581.40s] And so we raced to the ICRA deadline to make some cool results and stuff.
+[1582.18s - 1582.32s] Yeah.
+[1582.88s - 1583.32s] Fascinating.
+[1584.16s - 1588.00s] And I think RT has also really stood the test of time.
+[1588.20s - 1592.84s] I mean, you got this milestone award at ICRA, I think, 2019.
+[1593.24s - 1593.42s] Yeah.
+[1593.86s - 1603.22s] So what do we actually think were the most important factors for this long-term success of RT that it still developed up until today?
+[1603.62s - 1606.10s] Yeah, well, during that time when we were very excited.
+[1606.16s - 1607.12s] I mean, I think we were very excited.
+[1607.12s - 1609.22s] Some interesting things happened.
+[1609.32s - 1616.42s] One of them was James was very focused in his PhD on ordinary path planning, like going from point A to point B in a configuration space with obstacles.
+[1616.70s - 1619.18s] I was obsessed because of my electrical engineering background.
+[1619.32s - 1621.86s] My PhD was in electrical, so I got further away from computers even.
+[1622.58s - 1629.96s] I was obsessed with handling the control problem, like being able to apply inputs to steer a dynamical system, which the RT was, I thought, pretty good at.
+[1630.04s - 1633.66s] And I did not want to compete with probabilistic roadmaps and all the other things.
+[1633.82s - 1635.54s] But James was like, no, I need to get this working.
+[1635.54s - 1636.00s] He had to.
+[1636.12s - 1644.16s] It was a virtual human kind of project, all in graphics, where he had to have it like this character was moving chess pieces around on a board, and it needed to work really fast to be interactive.
+[1644.90s - 1646.78s] And so he was under a lot of pressure to do that.
+[1646.80s - 1648.28s] That was kind of his assignment for his PhD.
+[1648.98s - 1651.42s] And he pushed more in that direction.
+[1651.54s - 1656.26s] And then we had this idea of bidirectional trees right away, even for the first ICRA paper.
+[1656.38s - 1661.54s] But then for the second paper, this RRT Connect ended up being really important.
+[1661.54s - 1666.00s] This idea of trying to connect the trees together in a very special way and also connect all the way to the random.
+[1666.12s - 1669.56s] So that ended up being the fastest planner around by a lot.
+[1669.98s - 1677.44s] And then it's so easy to implement and play around with that people started coming up with variations of it for different kinds of problems.
+[1677.94s - 1685.42s] And so the fact that you can easily get started and then try it on your problem or the next problem and so forth and so on, it's kind of like what happens with deep learning.
+[1685.52s - 1686.52s] People are like, oh, I can do better.
+[1686.62s - 1688.56s] And then they come up with some different architectures and different ideas.
+[1688.84s - 1689.88s] Except this was very simple.
+[1689.96s - 1693.00s] It didn't need massive amounts of hardware and software infrastructure.
+[1693.22s - 1694.70s] So it was some fairly simple coding.
+[1694.70s - 1695.90s] As long as you have collision detection.
+[1696.12s - 1697.12s] And then you have the RRT factors, which became available.
+[1697.30s - 1702.94s] Most of them from University of North Carolina, Dinesh Manosha, Ming Lin and others produced these nice collision detection packages.
+[1703.40s - 1706.30s] So you could get started pretty fast with these.
+[1706.46s - 1708.58s] So that just caused a big flurry of research.
+[1709.12s - 1713.22s] Some people trying to improve RRTs and some people just simply using them as a module for something else.
+[1714.42s - 1718.76s] And you also coined during this time the notion of sampling-based planning.
+[1719.02s - 1719.22s] Yes.
+[1719.38s - 1722.98s] I think the term randomized was not in there.
+[1723.50s - 1723.82s] That's right.
+[1723.82s - 1726.02s] It is on purpose because you don't...
+[1726.12s - 1732.96s] You don't really believe in randomization, but you would actually say that this whole sampling should be more like in a deterministic way.
+[1733.06s - 1733.60s] Is that correct?
+[1734.00s - 1735.20s] Well, it's complicated.
+[1735.48s - 1739.62s] So there's a branch of algorithms called randomized algorithms, which became really popular.
+[1739.74s - 1743.00s] Rajiv Maltwani, who was very influential there, and he was a collaborator of the group.
+[1743.64s - 1745.78s] As I said, I collaborated with him on one of our other papers.
+[1746.12s - 1747.20s] That was a very important trend.
+[1747.24s - 1752.66s] And it's very valuable there because normally algorithmic analysis uses worst case analysis for everything.
+[1752.66s - 1756.10s] But it turns out for a lot of algorithms, maybe the input was structured.
+[1756.12s - 1760.30s] In some bad way so that the worst case happens because the input wasn't structured very well.
+[1760.36s - 1761.14s] It was in a bad...
+[1761.14s - 1762.10s] Maybe you're sorting numbers.
+[1762.20s - 1764.14s] Maybe they're in a bad ordering for some particular algorithm.
+[1764.56s - 1773.98s] So it turns out randomly shuffling the inputs ends up helping the algorithmic analysis because it becomes like an average case mixed with worst case.
+[1774.54s - 1775.60s] And that's a big help.
+[1775.80s - 1777.32s] So the randomized typically meant that.
+[1777.40s - 1778.96s] So that I believe in, and that's very sound.
+[1779.38s - 1784.66s] But the kind of probabilistic path planning or randomized path planning, whether there's two different kind of names floating around for it,
+[1784.96s - 1786.10s] that was a little more like saying,
+[1786.12s - 1788.32s] okay, I need to sample the space somehow for these algorithms.
+[1788.96s - 1789.90s] And it's important to be random.
+[1790.02s - 1793.04s] But to truly be random, that means it can't be too uniform.
+[1794.10s - 1796.28s] Uniform random is quite different than uniform.
+[1796.70s - 1797.44s] A grid is uniform.
+[1797.90s - 1800.94s] And you can make other things that are not very structured like a grid, but they're still uniform.
+[1801.42s - 1804.92s] If you start putting a bunch of buckets in space, divide the space into buckets,
+[1805.32s - 1808.88s] and you put a thousand random samples down and you have, say, 20 buckets,
+[1809.22s - 1813.38s] some buckets need to have too many points and some need to have not enough for it to really look random.
+[1813.90s - 1816.04s] If they all have the exact same number, that's too...
+[1816.12s - 1816.62s] Uniform.
+[1817.88s - 1820.66s] And also you can get deterministic guarantees with random sequences.
+[1820.92s - 1825.00s] You can make sure that every open set, every neighborhood in the space has been touched or covered.
+[1825.42s - 1828.60s] And that's a very important property rather than just hoping it happens with probability.
+[1830.34s - 1830.84s] Yeah.
+[1831.74s - 1832.58s] Makes a lot of sense.
+[1832.84s - 1837.30s] So I just wanted to ask you about Chatshippity.
+[1837.30s - 1842.44s] So today we are really living a completely different area because of big data.
+[1842.46s - 1845.82s] Do you think that something like NeuroticShip,
+[1846.12s - 1849.62s] CPT or so could really make motion planning deprecated?
+[1850.92s - 1857.00s] Yeah, I think I follow the philosophy that's pretty close to what Ken Goldberg was talking about at this conference on the first day.
+[1857.46s - 1859.44s] We mentioned this term, good old fashioned engineering.
+[1859.80s - 1860.62s] And I think there's...
+[1861.12s - 1864.56s] I don't see these kinds of techniques replacing good old fashioned engineering.
+[1864.56s - 1870.08s] I think you don't want to learn force equals mass times acceleration by going and getting a bunch of data and such.
+[1870.08s - 1875.88s] So I think it's very important for us to understand what are the right places where we need models.
+[1875.88s - 1877.38s] And how to exploit those.
+[1877.38s - 1879.76s] And what are the right places to exploit learning and use that.
+[1879.76s - 1885.38s] It's also very important to me to have understandable robots, understandable autonomous systems in general.
+[1885.38s - 1886.88s] So that's built...
+[1886.88s - 1895.26s] They have to be built from some kind of principle, some models and tools where we can do mathematical analysis so that we can have safety, predictability, characterizability, these kinds of things.
+[1895.26s - 1899.46s] And I don't see that going away anytime soon, this kind of need for these things.
+[1899.46s - 1901.38s] In some applications, maybe it won't matter.
+[1901.38s - 1904.68s] Or for one module inside of a system that is very safe, it's okay for it to be a little unnoticed.
+[1904.68s - 1904.88s] Yeah.
+[1904.88s - 1905.14s] Yeah.
+[1905.14s - 1905.24s] Yeah.
+[1905.24s - 1905.26s] Yeah.
+[1905.26s - 1905.36s] Yeah.
+[1905.36s - 1905.38s] Yeah.
+[1905.38s - 1905.48s] Yeah.
+[1905.48s - 1905.52s] Yeah.
+[1905.52s - 1905.58s] Yeah.
+[1905.58s - 1905.60s] Yeah.
+[1905.60s - 1905.62s] Yeah.
+[1905.62s - 1905.64s] Yeah.
+[1905.64s - 1905.70s] Yeah.
+[1905.70s - 1905.72s] Yeah.
+[1905.72s - 1905.80s] Yeah.
+[1905.80s - 1905.86s] Yeah.
+[1905.88s - 1906.14s] Yeah.
+[1906.14s - 1906.24s] Yeah.
+[1906.24s - 1906.26s] Yeah.
+[1906.26s - 1906.30s] Yeah.
+[1906.30s - 1906.64s] Yeah.
+[1906.64s - 1906.86s] Yeah.
+[1906.86s - 1906.88s] Yeah.
+[1906.88s - 1906.94s] Yeah.
+[1906.94s - 1907.08s] Yeah.
+[1907.08s - 1907.16s] Yeah.
+[1911.24s - 1912.72s] And that's how it looks to me.
+[1913.30s - 1918.10s] And do you believe that there's still value in doing like fundamental motion planning research?
+[1918.20s - 1919.70s] So something like...
+[1919.70s - 1921.64s] Which could like replace RT, for example.
+[1922.22s - 1928.88s] Or do you think that this is really the best we could have ever come up with and there's not really value in it?
+[1929.10s - 1930.42s] Well, I hope it's the best.
+[1930.56s - 1931.48s] No, just kidding.
+[1933.04s - 1935.78s] Well, I think there's definitely a lot of room for fundamental...
+[1935.78s - 1940.92s] fundamental planning research. Planning research or computational control theory,
+[1941.02s - 1943.76s] it's almost the same kind of thing, largely. A lot of the problems are kind of the same.
+[1944.16s - 1950.04s] So there's a lot of openings for that. I think that the thing is,
+[1951.12s - 1956.08s] right now the planning has been, or up to now, the planning has been mainly on configuration space
+[1956.08s - 1962.08s] or an extended phase space. I'm very excited about information spaces, which is the space
+[1962.08s - 1965.96s] you naturally live in when you don't have perfect state information. And I think that's where the
+[1965.96s - 1969.84s] kind of wild frontier is and a lot of potential is there. Also, a lot of different types of feedback
+[1969.84s - 1974.84s] motion planning where it's not a path you're computing, but rather a policy. And there's
+[1974.84s - 1977.90s] lots of opportunities there as well. So I think there's a lot of room for movement in that.
+[1978.56s - 1984.22s] And there's always probably more room for mathematical analysis and better characterizations
+[1984.22s - 1986.38s] and these kinds of things. And I think those will improve.
+[1987.44s - 1991.26s] And do you believe that information spaces is something which could maybe replace
+[1991.26s - 1992.06s] configuration space?
+[1992.08s - 1996.42s] Information spaces, which have been so unifiedly used in robotics.
+[1996.72s - 2000.04s] Well, let's put it this way. If you take something like, imagine the notion of a digital twin,
+[2000.18s - 2005.58s] right? So there's an outside world and I want to capture all of it and put it inside the robot's
+[2005.58s - 2010.20s] brain and have a perfect sort of copy. So that's kind of the way the configuration space planning
+[2010.20s - 2013.88s] looks, right? Because in the robot's brain, it has a perfect model of all the geometry.
+[2014.52s - 2018.18s] So the information space is a replacement for the case where you don't want to do that,
+[2018.44s - 2021.14s] where you just say, okay, maybe my goal is to vacuum the floors.
+[2021.40s - 2022.06s] Do I need a configuration space?
+[2022.06s - 2024.62s] Do I need a complete map of the environment to do that with exact localization?
+[2024.68s - 2030.10s] Or maybe I can just kind of slop around or do some clever local strategies and just kind of make it work.
+[2030.14s - 2034.42s] Maybe there's some other ways to do it that do not require constructing a complete geometric map.
+[2034.64s - 2037.98s] It's like humans can do a lot of things without having complete precise maps and such.
+[2038.60s - 2041.34s] So that's what the information space is. It's like it is a replacement.
+[2041.92s - 2048.26s] But if you're going to do a digital twin, the information space just reduces to being the configuration space.
+[2048.32s - 2050.06s] So it's, in fact, a big generalization of that.
+[2050.06s - 2050.10s] Yeah.
+[2050.72s - 2051.02s] Yeah.
+[2051.02s - 2051.04s] Yeah.
+[2051.04s - 2051.06s] Yeah.
+[2051.06s - 2051.12s] Yeah.
+[2051.12s - 2051.14s] Yeah.
+[2051.14s - 2051.16s] Yeah.
+[2051.16s - 2051.18s] Yeah.
+[2051.18s - 2051.20s] Yeah.
+[2051.20s - 2051.26s] Yeah.
+[2051.26s - 2051.28s] Yeah.
+[2051.28s - 2051.32s] Yeah.
+[2051.32s - 2051.38s] Yeah.
+[2051.38s - 2051.40s] Yeah.
+[2051.40s - 2051.42s] Yeah.
+[2051.42s - 2051.44s] Yeah.
+[2051.44s - 2051.48s] Yeah.
+[2051.48s - 2051.52s] Yeah.
+[2051.52s - 2051.54s] Yeah.
+[2051.54s - 2052.20s] Yeah.
+[2052.20s - 2052.24s] Yeah.
+[2052.24s - 2052.30s] Yeah.
+[2052.30s - 2052.64s] Yeah.
+[2052.64s - 2052.76s] Yeah.
+[2052.76s - 2052.80s] Yeah.
+[2052.80s - 2052.84s] Yeah.
+[2052.84s - 2052.88s] Yeah.
+[2052.88s - 2052.90s] Yeah.
+[2052.90s - 2052.96s] Yeah.
+[2052.96s - 2053.18s] Yeah.
+[2053.18s - 2053.26s] Yeah.
+[2053.26s - 2053.32s] Yeah.
+[2053.32s - 2053.36s] Yeah.
+[2053.36s - 2053.42s] Yeah.
+[2053.42s - 2053.44s] Yeah.
+[2053.44s - 2053.86s] Yeah.
+[2053.86s - 2053.98s] Yeah.
+[2053.98s - 2054.04s] Yeah.
+[2054.04s - 2054.08s] Yeah.
+[2054.08s - 2054.10s] Yeah.
+[2054.10s - 2054.36s] Yeah.
+[2054.36s - 2055.62s] surficient robot brain.
+[2055.80s - 2058.32s] So how does it actually tie in with that?
+[2058.66s - 2064.28s] So it basically says that the robot brain, I'm not reallychi talking about neurons and such,
+[2064.28s - 2068.88s] but let's imagine that it's just some very general discrete time or discrete event dynamical
+[2068.88s - 2072.12s] system, and it can be over a continuous state space or discrete state space.
+[2072.50s - 2074.04s] So it's a very general setting.
+[2074.66s - 2079.48s] And then we have sensors that measure information, measure whatever it is from the outside world.
+[2079.54s - 2080.24s] They get observations.
+[2080.24s - 2082.12s] And then there's actuation that goes out.
+[2082.62s - 2086.78s] And through this kind of interaction, the question is, if you express a task in the
+[2086.78s - 2090.38s] outside world, it could be in terms of you want to see these kind of sensor readings
+[2090.38s - 2093.74s] and you want to actuate these things, or maybe there's a state that you can reason about.
+[2093.82s - 2094.36s] It's external.
+[2094.88s - 2099.96s] In order to achieve these things, what's the smallest kind of like computation unit?
+[2100.10s - 2101.98s] We call it an information transition system.
+[2102.36s - 2106.16s] There's the internal states are information states just means internal states.
+[2106.22s - 2108.06s] There's no kind of meaning to the information necessarily.
+[2108.06s - 2109.44s] It may or may not have meaning to it.
+[2109.44s - 2116.38s] In a semantic sense, but basically, our theory says in a very general setting that there's
+[2116.38s - 2122.84s] always a smallest information space or information transition system for any given task.
+[2123.16s - 2124.06s] And it's unique.
+[2124.44s - 2126.36s] Now, finding it is very challenging.
+[2126.46s - 2129.88s] We found some before, and I think the search is on to find the rest of them.
+[2129.96s - 2130.98s] Can you find some automatically?
+[2131.14s - 2131.40s] Maybe.
+[2132.22s - 2137.52s] I think Jason O'Kane and Dylan Schell at Texas A&M, for example, are interested in this as well.
+[2137.82s - 2139.42s] Well, yeah.
+[2139.44s - 2143.20s] Let me talk a little bit about your book, Planning Algorithms.
+[2143.20s - 2149.14s] I think in 2004, you had a sabbatical and you just concentrated on writing this book.
+[2149.62s - 2157.28s] And I think it's a very special book because it's super comprehensive and there is such a big attention to detail in the book.
+[2157.68s - 2163.00s] So what did it actually take to write such a big monumental book?
+[2163.22s - 2166.24s] And also, how did you get inspired to do that?
+[2166.60s - 2169.32s] Yeah, well, I thought Jean-Claude de Tombe's book was really cool.
+[2169.32s - 2169.40s] Yeah.
+[2169.44s - 2172.30s] It was really cool in 1991, and it had some impact on me.
+[2172.70s - 2175.68s] I could see the respect that he got and the impact he was able to have.
+[2175.84s - 2180.72s] And in 1994 or so, when I was nearing the end of my PhD, I had a vision.
+[2181.04s - 2183.50s] I was writing a thesis, and I loved writing.
+[2183.78s - 2187.82s] And in pulling everything together for my thesis, I could see how to unify all kinds of things.
+[2187.86s - 2189.90s] In that case, it was a kind of game theoretic framework.
+[2190.40s - 2191.78s] And I was like, you know, I want to go bigger than this.
+[2191.78s - 2199.06s] I want to really try to unify control theory, discrete like AI kind of planning, and continuous motion planning, and kind of pull everything together.
+[2199.44s - 2200.78s] And I thought I could do a good job on that.
+[2201.04s - 2209.84s] So across the 90s, I was thinking about this all the time and just kind of building the landscape in my mind and doing research and kind of still putting the pieces together.
+[2209.94s - 2216.14s] So once I could kind of see the whole landscape in my head, in 2004, I'm like, okay, I'm ready to do a massive brain dump.
+[2216.52s - 2223.28s] And so I went to Poland, Poznań, and Professor Krzysztof Kozłowski was my host there.
+[2223.94s - 2229.38s] And I just mostly I couldn't use the university too much because they had a lot of rules about.
+[2229.44s - 2231.96s] When you could go to the office and they controlled the keys and stuff.
+[2232.12s - 2239.40s] So I eventually just got an apartment with high speed internet near the university and just kind of quarantined myself for the most part and just worked like crazy.
+[2240.62s - 2244.40s] I wrote about 650 pages in 20 weeks.
+[2245.62s - 2249.38s] And mostly I'd roll out of bed at about seven in the morning and just start writing.
+[2249.48s - 2250.44s] It was my best time to write.
+[2250.78s - 2254.66s] And then I would write all morning, maybe eat a little bit of cereal or something.
+[2255.12s - 2256.18s] Muesli, I'd eat a little muesli.
+[2256.18s - 2259.38s] And then I'd go and get lunch.
+[2260.20s - 2264.38s] Meet some of the assistants at the university, practice my Polish.
+[2264.86s - 2272.54s] And then in the afternoon, I would do proofreading of whatever I had just written or maybe the day before, whatever it was, I would do proofreading until dinner time.
+[2272.96s - 2275.92s] And then I would start reading materials.
+[2276.04s - 2280.90s] I brought a lot of materials with me and I would try to read and start to concentrate on what the next part was I was going to write the next day.
+[2281.14s - 2287.30s] And then by about nine or ten at night, I would drink a big beer and then pass out.
+[2288.00s - 2289.16s] I'd be dreaming about it.
+[2289.16s - 2291.24s] I definitely work a lot when I sleep.
+[2291.80s - 2294.24s] So things would be kind of somehow crystallized when I got up in the morning.
+[2294.34s - 2296.08s] I'd roll out of bed and the process just kept repeating.
+[2296.10s - 2297.46s] So basically total immersion.
+[2297.74s - 2298.60s] It was like that, yeah.
+[2298.74s - 2299.72s] And things were clearer.
+[2300.30s - 2303.56s] These concepts were clearer to me than anything I'd ever been in my life.
+[2303.72s - 2304.66s] It was so beautiful.
+[2305.14s - 2309.92s] But it was very antisocial and destructive in a lot of ways because I couldn't do that forever.
+[2310.30s - 2312.98s] But during that time, the clarity was just amazing.
+[2313.12s - 2317.08s] And there was never like a time when you thought, okay, I don't want to do this anymore.
+[2317.20s - 2318.12s] I want to give up here.
+[2318.12s - 2319.92s] No, there's a lot of stress.
+[2319.98s - 2321.20s] Am I going to be on schedule or not?
+[2321.30s - 2322.94s] Some of those chapters I wrote really fast.
+[2323.00s - 2325.38s] It was about two weeks per chapter I was trying to go there.
+[2325.44s - 2329.40s] But some of them got harder and some of them were easier.
+[2329.50s - 2331.10s] I was able to catch up and it was kind of difficult.
+[2331.28s - 2337.40s] And then I went back to Illinois and then wrote the remaining third or so later in that year.
+[2337.60s - 2339.06s] Except for the information space chapter.
+[2339.06s - 2340.50s] That was the hardest to write by far.
+[2341.22s - 2344.58s] And I finished that in 2015 sometime when we were getting kind of near the end.
+[2344.84s - 2345.58s] And the introduction.
+[2345.74s - 2346.32s] But that wasn't hard.
+[2346.32s - 2347.64s] I just saved it for last.
+[2348.12s - 2350.64s] And how did you actually get this book published?
+[2350.82s - 2351.88s] I mean, how did you get it?
+[2351.96s - 2353.00s] How did you find the publisher?
+[2353.18s - 2356.56s] How did you convince them that it was actually a good idea to write such a book?
+[2356.72s - 2357.24s] Yeah, very good question.
+[2357.50s - 2360.28s] I was always posting it on the internet for free when it was just course notes.
+[2360.82s - 2365.50s] And I thought at that time, when you search for things, you know, Google search was not localized.
+[2365.84s - 2371.46s] And the EDU domain, which my university was on, came up very high in searches.
+[2371.76s - 2374.28s] So I felt I'm going to put stuff on the internet and get my word out.
+[2375.18s - 2377.18s] I got used to using the internet that way in Iowa.
+[2377.32s - 2378.10s] I had moved to Illinois.
+[2378.14s - 2379.10s] By 2001.
+[2379.32s - 2381.56s] But I still had this mentality of just putting it on the internet.
+[2381.64s - 2382.34s] So it was already there.
+[2382.74s - 2384.00s] 95% of the way done.
+[2384.48s - 2387.60s] And I just contacted the editor-in-chief for the right division.
+[2387.74s - 2390.88s] I think it was Computer Science and Mathematics for Cambridge University Press.
+[2390.92s - 2391.70s] That was my first choice.
+[2392.22s - 2398.50s] One reason why was because there was a book by Alan Hatcher, the mathematician, who I think he's at Cornell.
+[2399.08s - 2400.50s] I might be wrong.
+[2400.98s - 2404.28s] And he published his algebraic topology book for free.
+[2404.52s - 2406.12s] And it was, I mean, it was online for free.
+[2406.16s - 2407.48s] And he published it with Cambridge.
+[2407.48s - 2407.84s] And so I said, well, I'm going to put it on the internet.
+[2407.84s - 2407.86s] And he published it with Cambridge.
+[2407.86s - 2408.08s] And so I said, well, I'm going to put it on the internet.
+[2408.10s - 2410.14s] And he said, hey, can I get the Alan Hatcher deal, whatever that was?
+[2410.52s - 2413.78s] And they checked it out and replied back in a day or two and said, yeah.
+[2414.38s - 2415.00s] So that was easy.
+[2415.62s - 2417.60s] If not, I was going to go through a lot of other plans.
+[2417.66s - 2420.74s] I was going to look for a local publisher, like even a little regional publisher,
+[2420.84s - 2425.58s] do anything I could to get that book out there without just having all this money going to the publishers and such.
+[2425.82s - 2427.78s] I wanted it to be accessible to everyone.
+[2427.84s - 2432.20s] But I thought a printed copy, especially in that time period, would be really important to people.
+[2432.20s - 2438.08s] And so I think there were almost like a thousand references which he had in the book.
+[2438.10s - 2441.56s] So how did you actually manage to go through all those papers?
+[2441.74s - 2445.56s] How did you actually organize yourself to retain this information?
+[2445.92s - 2448.78s] Well, that was everything I accumulated going all the way back to my PhD.
+[2448.84s - 2450.44s] And I was very scholarly for PhD.
+[2450.56s - 2453.90s] I spent a lot of time in the library, a lot of time always trying to build a landscape.
+[2454.10s - 2455.66s] I call it like a landscape of literature.
+[2456.42s - 2462.08s] And very often, to go into a new area that I don't know as much about, the first paper is very painful, very hard to read.
+[2462.36s - 2464.84s] But I was falling back on all that mathematics that I mentioned before.
+[2464.92s - 2467.28s] So things are kind of easy, unless it's a poorly written paper.
+[2467.28s - 2467.62s] A lot of...
+[2467.62s - 2469.46s] The engineering papers are kind of showy.
+[2470.04s - 2471.94s] But I'm like, oh, that's just cumbersome notation.
+[2472.10s - 2474.58s] They kind of show off or they don't quite know how to express things right.
+[2474.90s - 2475.70s] I skip that stuff.
+[2475.78s - 2478.18s] I try to find the really good papers, learn the stuff well.
+[2478.26s - 2484.64s] And then if there's other papers that I want to reference that kind of fall into that, I can skim them a little more quickly and kind of say, oh, I can see what they're doing.
+[2484.68s - 2486.00s] And I see how it's related to these things.
+[2486.28s - 2488.10s] So I can give the right recommendation to the author.
+[2488.40s - 2496.22s] If you want this variant or that variant or these people showed this bound, you know, so these kind of things, just enough to make sure my statement is correct and where it fits and everything was like that.
+[2496.22s - 2497.10s] So I didn't just...
+[2497.10s - 2499.16s] At the start of writing the book, sit down and read a thousand papers.
+[2499.32s - 2503.26s] But it was something accumulated over probably a decade, more than a decade leading up to that.
+[2504.12s - 2505.28s] And I...
+[2505.28s - 2509.72s] So I guess all the papers were not like in PDF format.
+[2510.14s - 2510.86s] No, they weren't.
+[2510.96s - 2512.60s] I had to like print all of them.
+[2512.82s - 2512.98s] You're right.
+[2513.08s - 2514.22s] Like make big...
+[2514.88s - 2515.82s] I had copies of it.
+[2516.10s - 2518.74s] I had a whole suitcase just filled with books and papers and stuff.
+[2518.74s - 2519.76s] So that was very frustrating.
+[2520.18s - 2521.80s] And I kept going back to the US every...
+[2521.80s - 2526.86s] I went six weeks in Poland, one week back, six weeks in Poland, one week back, and then eight weeks in Poland.
+[2527.00s - 2527.08s] So I...
+[2527.10s - 2528.68s] I could exchange stuff as well.
+[2530.00s - 2530.36s] Nice.
+[2530.50s - 2540.02s] And do you think if you look back at the book, are there some parts which you find a little bit like deprecated right now or you would like rewrite in hindsight?
+[2540.48s - 2540.66s] Yeah.
+[2540.74s - 2542.44s] Like, do I want to cringe when I read something back?
+[2542.82s - 2546.88s] That was my biggest fear when I was writing it is that I would look back 10 or 20 years later.
+[2546.96s - 2547.52s] I kid you not.
+[2547.92s - 2548.44s] And have this...
+[2548.44s - 2552.14s] So there was like my future self imagined looking back at me going, don't screw this up.
+[2552.18s - 2552.82s] Don't screw this up.
+[2553.00s - 2553.68s] It'll be embarrassing.
+[2553.68s - 2557.06s] And I think because it was mostly fundamental stuff and mostly mathematical.
+[2557.10s - 2560.16s] And things like this that I could...
+[2560.16s - 2562.92s] Well, that's what I decided to do and not be too speculative about anything.
+[2563.30s - 2563.72s] There's no...
+[2563.72s - 2565.14s] I don't think there's much speculation in there.
+[2565.76s - 2568.98s] And so I don't have any regrets about what's written there.
+[2569.08s - 2569.86s] There's stuff I would add.
+[2571.08s - 2582.28s] Happy and proud of the fact that I covered quite a bit of reinforcement learning and worked that right into my coverage of value iteration and optimal control kind of form of planning and stuff.
+[2582.32s - 2582.92s] It fits perfectly.
+[2583.16s - 2586.92s] I guess I could add now instead of like grid-based representations for cost...
+[2587.10s - 2589.04s] Cost-to-go functions, we could have neural representations.
+[2589.04s - 2591.08s] And I could easily tie into that.
+[2591.08s - 2596.18s] I could add asymptotically optimal planners like RRT-STAR and a bunch of other things that came after that.
+[2597.38s - 2600.54s] And afterwards, you also published two more books, I think.
+[2600.70s - 2600.86s] Yeah.
+[2601.36s - 2604.60s] So did it actually become easier to write books?
+[2605.18s - 2609.80s] And what were maybe some lessons which you learned during this period of writing books?
+[2609.90s - 2613.86s] Well, it became harder because I have more time spent on family.
+[2614.00s - 2616.08s] Some challenging family issues, but also children.
+[2616.30s - 2616.86s] Children.
+[2617.10s - 2617.96s] And other things.
+[2618.24s - 2621.80s] So it got harder to really block off the time to do that.
+[2622.94s - 2625.50s] The sensing and filtering book is kind of small.
+[2625.62s - 2627.94s] It was like a teaser book for the bigger book that was supposed to come.
+[2628.42s - 2632.96s] And I was set to write that on sabbatical in Finland in 2012.
+[2633.64s - 2637.16s] Also, there was due to be an RRT book, which I wrote a part of.
+[2638.00s - 2640.94s] And my co-authors got busy in companies and stuff.
+[2640.98s - 2642.48s] And then I got busy in companies and stuff.
+[2642.54s - 2643.34s] And a lot of stuff happened.
+[2643.34s - 2645.92s] So that one might one day be revived.
+[2645.98s - 2646.34s] Who knows?
+[2646.58s - 2646.90s] But...
+[2647.10s - 2649.82s] But then after the VR thing, I wrote a VR book.
+[2650.00s - 2653.32s] That was a lot easier to write than the...
+[2653.32s - 2656.38s] It has a lot more words and pictures, put it that way, than the planning algorithm of the book.
+[2656.50s - 2657.18s] So I could kind of...
+[2657.18s - 2658.88s] And it's shorter, so I could pull that off more quickly.
+[2658.88s - 2663.72s] So you still have an RRT book on your shelf, which you want to publish at some point?
+[2663.92s - 2666.44s] Yeah, in a Linux directory somewhere.
+[2667.92s - 2668.44s] Nice.
+[2669.14s - 2675.58s] Yeah, and I guess almost everyone who likes to write also normally likes to read.
+[2675.92s - 2676.32s] So...
+[2676.32s - 2676.94s] Yeah.
+[2676.94s - 2681.82s] What are maybe like some books which you really like to read or maybe like some kind of books?
+[2682.56s - 2683.80s] Yeah, that's a good question.
+[2683.86s - 2686.78s] I'm not a super reader in some sense.
+[2686.78s - 2688.72s] I actually write better than I read.
+[2688.86s - 2689.06s] I don't know.
+[2689.08s - 2690.54s] My reading rate's always been kind of slow.
+[2690.72s - 2692.06s] And I don't know all the reasons for that.
+[2692.08s - 2698.26s] A lot of my family members have struggles with like ADD, ADHD, and different kinds of things like that.
+[2698.36s - 2700.94s] So my attention wanders quickly sometimes.
+[2701.92s - 2702.62s] I liked...
+[2702.62s - 2705.56s] In my 20s, I was kind of able to get my reading speed up enough to...
+[2705.56s - 2706.74s] When I took breaks from my research.
+[2706.94s - 2708.04s] I was able to read a lot of novels.
+[2708.22s - 2710.10s] I loved like Asimov's robot novels.
+[2710.48s - 2712.94s] I loved Arthur C. Clarke's books as well.
+[2713.08s - 2713.62s] Greg Baer.
+[2713.76s - 2716.18s] A lot of other like hard science fiction.
+[2716.36s - 2717.14s] So that was really nice.
+[2717.62s - 2720.40s] In terms of technical books, I love math books.
+[2720.56s - 2721.66s] And I collect math books.
+[2722.08s - 2724.56s] I have just rows and rows and rows of math books.
+[2724.80s - 2726.36s] And I was able to...
+[2726.36s - 2730.66s] Luckily, as a professor, I was able to buy them on my budget, like unrestricted money, and bring them with me.
+[2730.68s - 2731.38s] So I still have them.
+[2731.62s - 2732.94s] I have a home office with tons of them.
+[2732.94s - 2735.76s] Many of them are yellow books, like Springer Verlag.
+[2736.94s - 2739.56s] ETMs, graduate texts in mathematics, and undergrad ones as well.
+[2739.84s - 2741.90s] A lot of them are missing now because I hand them out to students.
+[2742.04s - 2745.72s] And then we both forget to have them come back to me and stuff like that.
+[2746.22s - 2749.30s] But I could name some of those kind of books maybe.
+[2749.54s - 2750.86s] But a lot of math books anyway.
+[2751.34s - 2756.16s] Is there maybe some book in particular which really influenced you and your life?
+[2756.36s - 2758.34s] And maybe the trajectory of your life even?
+[2760.14s - 2761.10s] Yeah, that's a good question.
+[2761.10s - 2764.48s] I can't say there's any one book like that.
+[2764.98s - 2766.34s] When I was an assistant professor,
+[2766.34s - 2769.46s] I read Ayn Rand's Fountainhead.
+[2769.90s - 2773.46s] But I don't get into sort of the politics and philosophy of Ayn Rand and that kind of thing.
+[2773.76s - 2778.42s] But I found the book very inspiring because there was one character who was super passionate and creative,
+[2778.70s - 2784.58s] and another character who was more obsessed with success and always needed the creative guy's help to do this.
+[2784.98s - 2787.86s] And Howard Rourke, I think, was the hero of that.
+[2787.94s - 2789.34s] And so Howard Rourke was like...
+[2790.18s - 2792.50s] It clearly separated things out for me.
+[2792.58s - 2793.96s] I wanted to be the one who's passionate.
+[2793.96s - 2795.70s] And I'll go down.
+[2795.70s - 2800.34s] I'll go down being passionate, trying to do the right things before I'll try to make the choices to succeed better.
+[2801.12s - 2805.10s] And that helped me to think about those things when I was starting off as an assistant professor.
+[2805.48s - 2808.06s] But again, I don't go further into all the philosophy and all this.
+[2809.30s - 2810.66s] I forgot the name of the...
+[2810.66s - 2811.52s] Anyway, I forgot.
+[2811.70s - 2813.10s] Yeah, anyway, not into the philosophy.
+[2813.36s - 2818.16s] In 2012, you actually got an email that changed a little bit the trajectory of your life.
+[2818.72s - 2820.44s] You joined Oculus.
+[2821.08s - 2824.44s] And so how did this actually happen that you switched to industry?
+[2825.70s - 2826.76s] What was the Oculus head sense?
+[2827.16s - 2828.76s] Yeah, that was quite an out-of-the-blue thing.
+[2828.82s - 2830.74s] And that disrupted my project to make more books.
+[2830.94s - 2832.22s] I sometimes still regret.
+[2832.60s - 2834.78s] But yet, it was a pretty good path, so it was all right.
+[2835.68s - 2838.20s] Well, I had settled into sabbatical in Finland.
+[2839.28s - 2839.96s] The fall was coming.
+[2839.98s - 2840.70s] We were very happy.
+[2840.78s - 2843.12s] I was there with my wife and two boys.
+[2844.26s - 2845.74s] And we really enjoyed it.
+[2845.86s - 2847.38s] But actually, my wife was a little bored.
+[2847.52s - 2848.98s] She has a PhD in robotics as well.
+[2849.26s - 2852.12s] And so she was looking for stuff to do.
+[2852.88s - 2854.68s] And anyway, out of the blue, I get this email.
+[2855.70s - 2858.60s] It's this company that just got a couple million dollars in a Kickstarter.
+[2858.78s - 2863.66s] The email is from a guy named Jack McCauley, who's a UC Berkeley alum from electrical engineering back in the 80s.
+[2864.38s - 2868.98s] And basically, they needed help with Euler angles and quaternions.
+[2868.98s - 2870.24s] They were Googling for stuff like that.
+[2870.26s - 2872.56s] And he found my book, my planning algorithm's book.
+[2873.28s - 2875.48s] And I just Googled for the company and said,
+[2875.66s - 2877.30s] Oh, these guys are getting a lot of press.
+[2877.34s - 2878.80s] And there's a lot of buzz around this.
+[2879.14s - 2880.22s] I don't know anything about companies.
+[2880.30s - 2881.44s] And I usually want to steer clear.
+[2882.00s - 2885.02s] I was also at a point in my life where I was frustrated.
+[2885.02s - 2888.68s] I had gone through a divorce, had a lot of different problems financially and stuff.
+[2888.80s - 2892.50s] And so I thought, I really want to take care of my family well, my kids.
+[2893.18s - 2898.10s] My boys who were, I forgot their ages, were about 10-ish or so.
+[2898.16s - 2898.82s] They're three years apart.
+[2898.92s - 2901.18s] But then maybe 8 and 11 or 7 and 10.
+[2901.70s - 2903.50s] And I may have more kids.
+[2903.76s - 2907.64s] And I wanted to put myself in a better financial position for security.
+[2908.28s - 2910.54s] And I thought this was, and this looked fun and adventurous.
+[2910.72s - 2914.32s] And I remember my video game excitement back in teen years.
+[2914.32s - 2916.92s] And this was kind of like working with grown-up teenagers, kind of.
+[2917.02s - 2919.48s] Palmer Lucky himself was 19 when he started the company.
+[2920.06s - 2921.14s] And so I thought, this is kind of fun.
+[2921.20s - 2922.88s] Maybe this is like a good chance to explore, like,
+[2922.94s - 2927.66s] what if I had gone like the entrepreneurial route instead of professorial route?
+[2928.22s - 2930.28s] And so it seemed exciting to try that.
+[2930.56s - 2931.86s] And my wife was looking for things to do.
+[2931.92s - 2934.36s] So I convinced them that we would just be a two-person consulting team.
+[2934.36s - 2934.68s] I'm ready.
+[2934.92s - 2935.60s] We work together.
+[2935.84s - 2937.82s] And we started writing code for them.
+[2937.84s - 2939.10s] She's a better coder than me anyway.
+[2939.14s - 2942.02s] And she's really good at coding mathematical things.
+[2942.04s - 2942.80s] She's very meticulous.
+[2942.80s - 2944.04s] And so...
+[2944.32s - 2945.56s] So we coded different parts.
+[2945.70s - 2947.68s] We wrote like core math parts.
+[2947.84s - 2951.22s] And then we started writing the core tracking parts, head tracking parts.
+[2951.54s - 2954.08s] And then got into sensor calibration and all kinds of stuff.
+[2954.10s - 2958.30s] We even had a robot arm in Finland with the first Oculus sensor board on it.
+[2958.64s - 2961.74s] And I encouraged, I begged them to buy me a robot.
+[2961.96s - 2964.90s] They were suspicious because they go, oh, sure, buy the roboticist a robot.
+[2965.00s - 2965.98s] You just want to play with your robot.
+[2966.16s - 2966.40s] No.
+[2967.04s - 2970.60s] It's a perfect thing to do, to do very systematic, carefully controlled motions.
+[2970.76s - 2971.58s] So we can...
+[2971.58s - 2974.10s] So I know what the acceleration is supposed to be and what the angular velocity...
+[2974.32s - 2979.04s] And then you have to calibrate these sensors better than they are in smartphones to get
+[2979.04s - 2980.82s] them to work for something like head tracking.
+[2981.00s - 2981.70s] That's what we figured.
+[2982.20s - 2986.10s] So that was basically your main contribution to Oculus?
+[2986.34s - 2991.94s] That was the main contribution at the time was the core math software and head tracking.
+[2992.40s - 2994.64s] And then when I...
+[2994.88s - 2998.94s] We did about six months of consulting work and then to get some shares and things like
+[2998.94s - 3002.34s] that, let's say they strongly encouraged.
+[3002.66s - 3003.62s] I think I had to move to Southern California.
+[3003.62s - 3003.64s] Yeah.
+[3003.64s - 3003.70s] Yeah.
+[3003.70s - 3003.72s] Yeah.
+[3003.72s - 3003.78s] Yeah.
+[3003.78s - 3003.80s] Yeah.
+[3003.80s - 3003.86s] Yeah.
+[3003.86s - 3003.88s] Yeah.
+[3003.88s - 3003.94s] Yeah.
+[3003.94s - 3004.00s] Yeah.
+[3004.00s - 3004.02s] Yeah.
+[3004.02s - 3004.04s] Yeah.
+[3004.04s - 3004.14s] Yeah.
+[3004.14s - 3004.18s] Yeah.
+[3004.18s - 3004.24s] Yeah.
+[3004.32s - 3004.36s] Yeah.
+[3004.36s - 3004.38s] Yeah.
+[3004.84s - 3005.92s] Bail on the sabbatical.
+[3006.04s - 3006.86s] It was a big mess.
+[3007.38s - 3008.06s] Kids were crying.
+[3008.18s - 3009.10s] They loved Finland so much.
+[3009.16s - 3010.14s] They wanted to stay in school there.
+[3010.52s - 3010.92s] But...
+[3010.92s - 3013.42s] So I ended up moving straight to...
+[3013.42s - 3014.58s] I think it was March of 2013.
+[3014.76s - 3017.48s] We moved straight to Irvine, California.
+[3018.08s - 3023.04s] And then there, I started working on more improved head tracking for the three-degree
+[3023.04s - 3024.66s] of freedom system that was part of DK1.
+[3024.76s - 3030.40s] And then for DK2, I worked on the six-degree of freedom tracking, but also got really heavily
+[3030.40s - 3031.30s] into human perception.
+[3031.42s - 3034.30s] I hired a couple of perceptual psychologists and we started working on all...
+[3034.30s - 3039.20s] sort of aspects. And I played a kind of chief scientist role. And I was also helpful in
+[3039.20s - 3044.06s] a number of things. I guess when they brought investors around too, there was, I think some
+[3044.06s - 3049.04s] of the investors liked having a, you know, academic gray beard or whatever you want to call it, kind
+[3049.04s - 3054.08s] of with a little more background and things like that. And do you believe that nowadays virtual
+[3054.08s - 3059.16s] reality is almost solved or completely solved? Or do you think there's like some open research
+[3059.16s - 3063.90s] questions which we need to solve? No, it's a very active and growing research field. The communities
+[3063.90s - 3069.24s] of research, university research are growing. It's a mess. So there's quite a bit to do.
+[3069.56s - 3074.08s] The headsets have not improved a lot since, I mean, they've improved some, but not by huge
+[3074.08s - 3079.20s] leaps and bounds, I would say, given all the hundreds of billions of dollars and amounts
+[3079.20s - 3083.76s] have been invested. One of the reasons why is because of nanophotonics, optical engineering
+[3083.76s - 3088.32s] kinds of problems, wave guides and these kinds of things. It's hardcore applied physics. And it's
+[3088.32s - 3092.24s] not chips. It's something else. And there's people who do it in the world. Finland, in fact, is very
+[3092.24s - 3093.84s] good for these things because of...
+[3093.90s - 3098.86s] Nokia culture and things. But these are very difficult things. And in robotics, we know that
+[3098.86s - 3104.92s] robots tend to do really well when there's better components, right? So this is one thing that I
+[3104.92s - 3109.18s] believe Dieter Fox mentioned in his keynote here, that once the sick laser became available,
+[3110.08s - 3116.78s] the robot systems they could build just grew tremendously. For VR, we were able to make good
+[3116.78s - 3123.08s] headsets because of the smartphone screens and the MEMS IMUs and the GPUs and mobile GPUs,
+[3123.10s - 3123.88s] all these things. And so we're able to do a lot of things. And so I think it's a very difficult
+[3123.90s - 3127.30s] thing to do. But there's not another generation of these kinds of things. So what are we going to do?
+[3127.36s - 3131.14s] We can't just program our way through these. So that's going to involve a lot of advances and
+[3131.14s - 3136.56s] things. But I think on the fundamental side, the advances are there. It's more of industry's turn
+[3136.56s - 3140.00s] to find the right applications for these things and make the right products and these kinds of
+[3140.00s - 3143.16s] things, which is... They're good at spending money, but they might not be always good at
+[3143.16s - 3146.04s] finding the right direction. Talking about applications,
+[3146.38s - 3150.18s] so what do you think would be one killer application for virtual reality?
+[3150.74s - 3153.88s] I don't know. I think if I knew what it was, I would invest in it or start a company.
+[3153.90s - 3158.12s] And do that. I don't want to start a company. Maybe not. I'll trick somebody else into doing it.
+[3158.70s - 3164.82s] But one thing I'm excited about is telepresence, using virtual reality and robots. So tele-embodiment.
+[3165.12s - 3168.64s] I think that's a kind of killer app, but it's not going to be the first one.
+[3169.08s - 3173.14s] It'll be something more along the lines of a VR version of TikTok or something. Who knows?
+[3174.24s - 3178.54s] And so you were still at Oculus when Facebook bought Oculus, right?
+[3178.68s - 3179.18s] Yeah, that's correct.
+[3179.22s - 3180.46s] So how was this time?
+[3180.46s - 3183.54s] I went for one day of Facebook onboarding.
+[3183.90s - 3187.94s] Then I went back to the University of Illinois. I went and traveled and gave a few talks on behalf
+[3187.94s - 3189.12s] of the company around...
+[3189.12s - 3191.08s] Wasn't it so horrible, this one day of onboarding?
+[3191.50s - 3195.86s] No, it was a fun day, I guess. But I never really had any intention to stay there.
+[3196.26s - 3200.36s] I had a big, I had a sweet golden handcuffs deal that I just walked away from.
+[3200.86s - 3205.88s] But I own some shares in Oculus anyway. So, you know, I...
+[3205.88s - 3206.52s] You didn't really care.
+[3206.96s - 3210.14s] Yeah, I mean, it was a lot that I walked away from, but I already got a lot. So
+[3210.22s - 3213.62s] I wanted to... What's very important to me is to have control over...
+[3213.62s - 3217.46s] Control over my time, you know, what I spend my time on. I'm mostly curiosity driven.
+[3218.08s - 3222.58s] And so for my work, it's very important. I don't... I lose my passion right away if I'm just kind of told what to do all day,
+[3222.86s - 3225.44s] or if other people are making decisions that are out of my control and things.
+[3225.78s - 3232.14s] And I want to spend time with my family and enjoy life. And, you know, I could have worked there for five years to go through all the kind of process like a lot of other people did.
+[3232.14s - 3234.52s] But I was certainly offered everything, but yeah.
+[3235.38s - 3238.82s] So, and then basically went back to academic life.
+[3239.06s - 3241.88s] Yeah, well, not right away, because things got crazy.
+[3241.88s - 3243.52s] Because an Oculus was purchased for $3,000.
+[3243.62s - 3244.22s] $3 billion.
+[3244.62s - 3250.12s] Then a lot of things happened. I started doing angel investing. A lot of companies wanted advice.
+[3250.86s - 3252.12s] I met with some billionaires.
+[3253.88s - 3261.20s] And that changed a lot of things. People from Hollywood, like just a lot of different doors were open. So I explored as much as I could.
+[3261.38s - 3262.50s] I was from Hollywood.
+[3262.64s - 3272.30s] Yeah, I met Brett Leonard, for example, who was the director who created Lawnmower Man, the film about VR from the 90s.
+[3273.06s - 3273.56s] We also met a lot of people. Yeah.
+[3273.62s - 3279.52s] I met a lot of other people when we were in Oculus. But these are people that he was already reading the VR book that I had online.
+[3280.30s - 3289.08s] And he had a small company going with a couple of other people from Hollywood. Not actors, but people who actually, you know, produce things and such.
+[3289.08s - 3295.92s] And they were trying to do VR storytelling kinds of things. And they liked what they read in my book, my VR book.
+[3296.68s - 3301.96s] And so we started doing some things like that. But then, you know, the whole ecosystem was kind of going down kind of quickly.
+[3302.12s - 3303.60s] So it was around 2015, 2016.
+[3303.62s - 3315.46s] I worked for Huawei for a while as a vice president and chief scientist of VR, AR, MR. That was fascinating. Spent a lot of time in China and US and Finland.
+[3315.62s - 3321.60s] There's different branches of Huawei all over the place. I learned a lot about Chinese culture and technology there. That was wonderful.
+[3322.52s - 3326.42s] But I ultimately left that kind of fast because I wanted to focus more on my family.
+[3327.62s - 3330.08s] Yep. And then eventually just went back to university completely.
+[3330.48s - 3333.08s] And I think they also wanted to invest into big...
+[3333.62s - 3336.38s] I think our building is near the campus or something, right?
+[3337.56s - 3338.36s] In which place?
+[3339.08s - 3340.30s] In the US, I think.
+[3341.54s - 3342.98s] Yeah, I don't know about that. University of Illinois?
+[3343.80s - 3352.66s] Yeah, I think I read this somewhere that Huawei wanted to invest there, but then somehow this deal actually fell through.
+[3352.66s - 3354.16s] Yeah, yeah, that's right. That's right.
+[3354.22s - 3360.72s] Well, it was right on the time where the university was encouraging me to, and everyone, to do lots of cooperation with China.
+[3360.88s - 3362.66s] You know, they're putting campuses there, doing all kinds of things.
+[3363.08s - 3363.60s] And I said,
+[3363.64s - 3367.62s] Well, Huawei invited me to be some high-ranking person.
+[3367.78s - 3372.68s] In fact, I was in meetings where it's just all Chinese people and all speaking Chinese all day.
+[3372.80s - 3374.30s] And I'm the only... I don't know Chinese language.
+[3374.56s - 3378.14s] And they're very nice, but they weren't very international at that level.
+[3378.26s - 3379.28s] They're a very international company.
+[3379.42s - 3381.66s] And I have lots of great things to say about them.
+[3381.88s - 3385.82s] But at that level, I was the highest-ranking non-Chinese person around and stuff.
+[3386.00s - 3388.20s] So it was a very good opportunity.
+[3389.48s - 3391.60s] But I lost my... Sorry, go back to your question again, because I think I...
+[3392.26s - 3393.60s] Well, somehow...
+[3394.14s - 3395.90s] They were like a political tension.
+[3395.98s - 3396.54s] Oh, yes, about that. Yeah.
+[3396.62s - 3399.52s] So then it all kind of... Yeah, then it got kind of bad.
+[3399.70s - 3402.06s] So the university very quickly changed its stance.
+[3402.94s - 3406.74s] And I think they were under some pressure to do that from the government and things like this.
+[3406.84s - 3408.26s] And so, so fine, you know.
+[3409.18s - 3413.66s] Shortly after that time, I left and moved to Finland anyway for a huge number of reasons.
+[3413.96s - 3416.62s] But that was a factor.
+[3416.66s - 3418.30s] I left Huawei at the time, too, as well.
+[3418.30s - 3420.60s] For a while, I tried to get Huawei to transfer me to Finland.
+[3421.52s - 3422.86s] But that was very confusing for them.
+[3422.94s - 3423.60s] They either transferred me...
+[3423.64s - 3427.04s] People from China to country X or country X to China.
+[3427.14s - 3429.44s] But they never transferred somebody from country X to country Y.
+[3429.88s - 3431.52s] They said that makes no sense.
+[3431.60s - 3434.54s] I'm like, OK, well, I can't keep working for you from America.
+[3434.68s - 3434.86s] Sorry.
+[3435.14s - 3435.30s] Yeah.
+[3436.04s - 3436.30s] OK.
+[3436.44s - 3439.94s] And so then you basically went back to academic life.
+[3440.10s - 3440.94s] Went back to academic life.
+[3441.02s - 3443.62s] Full swing, full force in Finland then.
+[3443.68s - 3443.92s] Yeah.
+[3444.30s - 3444.50s] Cool.
+[3444.50s - 3448.36s] So I would like to talk a little bit about doing successful research.
+[3448.52s - 3451.76s] So I think you are like one of the most exceptional.
+[3452.52s - 3453.50s] You had a very exceptional...
+[3453.60s - 3455.00s] You had a very exceptional research career, I would say.
+[3455.32s - 3457.38s] What do you think were actually the biggest...
+[3457.38s - 3459.12s] Had the biggest impact on the success?
+[3459.84s - 3463.30s] And is there maybe someone who really deeply influenced you?
+[3465.16s - 3466.62s] Yeah, it's really a lot of people.
+[3466.78s - 3470.72s] I mean, I could cite just a couple of critical teachers in high school that inspired me.
+[3470.82s - 3472.06s] I had a great PhD advisor.
+[3473.34s - 3477.98s] And just lots of conversations with researchers and conferences.
+[3478.22s - 3480.18s] Or they visited us at Illinois or Stanford.
+[3480.18s - 3483.04s] I don't think there's any one kind of thing.
+[3483.04s - 3484.42s] It's just a lot of...
+[3484.42s - 3487.56s] I think I was a very shy person and worked very hard.
+[3487.62s - 3488.62s] But it was very hard for me socially.
+[3488.88s - 3494.96s] And so I think trying to overcome those fears and trying to get myself out there a little more.
+[3495.24s - 3496.10s] It was slow going.
+[3496.54s - 3502.34s] But everyone has to work on their strengths and try to fix their weaknesses and not let those stop them.
+[3502.62s - 3503.68s] And so those were challenges.
+[3503.80s - 3504.70s] But I was able to get through those.
+[3504.76s - 3507.94s] But ultimately, I got to know enough people and found many inspiring researchers.
+[3507.94s - 3511.94s] And so what kind of attributes do you think successful research are really...
+[3513.04s - 3513.54s] Needs to have?
+[3514.62s - 3515.86s] Well, you have to love what you do.
+[3516.02s - 3516.94s] Have a great passion.
+[3517.14s - 3522.44s] I think the passion is more important than wanting to win the prizes or wanting to get the great...
+[3522.44s - 3525.72s] You know, we like to have a secure job where you can keep doing research.
+[3525.96s - 3528.56s] But I think one has to be careful about gaming it too much.
+[3528.76s - 3533.30s] So I think for me, given the background that I had come from growing up,
+[3533.54s - 3538.04s] I was already at such high levels that I'm not afraid to lose my tenure track position or whatever.
+[3538.04s - 3539.04s] I just can't...
+[3540.00s - 3541.34s] I'm going to do what I think is the right thing.
+[3541.76s - 3542.92s] And I'm much more...
+[3543.04s - 3545.20s] A tolerant of risk than a lot of people, perhaps,
+[3545.26s - 3547.80s] because I think the levels I went to were much higher than I imagined anyway.
+[3547.88s - 3549.42s] I'm just like, let's just see how far this goes.
+[3549.56s - 3551.36s] You know, it's not double or nothing, double or nothing.
+[3551.52s - 3552.68s] It's double, double, double.
+[3552.76s - 3555.40s] And then I'll fall back on something that's still pretty darn good.
+[3555.74s - 3560.42s] So I think it's important to be able to take risks and stick close to your passion.
+[3560.70s - 3562.86s] And hopefully, you know, you have good values.
+[3562.98s - 3565.42s] I love teaching and working with students.
+[3565.42s - 3566.26s] That's also very important.
+[3566.26s - 3569.96s] There's kind of like intellectual renewal going on all the time.
+[3570.88s - 3572.34s] And I think also in the last...
+[3572.34s - 3572.50s] I would say...
+[3573.04s - 3581.46s] Maybe like 15 or 20 years, the age index became like really the biggest indicator of performance for research.
+[3581.74s - 3587.38s] And what are your thoughts on the age index as such an important metric for research?
+[3587.46s - 3589.70s] Is it maybe a bit too much?
+[3589.78s - 3593.70s] Is it like something which is a good proxy for research?
+[3594.18s - 3596.14s] I think it's random garbage.
+[3597.38s - 3598.52s] It's random garbage.
+[3598.70s - 3600.54s] It just looks like...
+[3600.54s - 3601.14s] It looks like...
+[3601.84s - 3602.94s] The older you get, the bigger...
+[3603.04s - 3603.58s] The bigger it gets.
+[3603.72s - 3605.56s] And the kind of busier you are, the bigger it gets.
+[3605.62s - 3612.80s] So if you publish a lot, you got to be active enough to kind of, you know, you got to be in some community and get out there enough to like market your stuff, I guess.
+[3612.84s - 3614.12s] And then you can get a kind of a big number.
+[3614.22s - 3615.16s] But I don't know.
+[3616.06s - 3626.02s] One interesting thing, P.R. Kumar, professor who was at Illinois for many years, and he worked in a stochastic control theory, wrote a book with Varaya on stochastic control.
+[3626.08s - 3626.56s] Really nice book.
+[3627.38s - 3631.96s] He was giving a lecture once to young graduate students, and he was explaining the academic career.
+[3632.04s - 3633.00s] And he said something really cool.
+[3633.04s - 3634.30s] It gets nerdy and cool.
+[3634.38s - 3641.72s] He said that in the beginning of your career, people apply the L1 metric to it, which is basically just looking at the sum of the things you've done.
+[3642.36s - 3646.62s] And then as you get older, they apply the L infinity metric, which is what's the maximum thing that you've done.
+[3647.14s - 3648.64s] And I think that's a more interesting way.
+[3648.76s - 3654.48s] It's harder to assess if you don't have the expertise, but that's a pretty good way to do it.
+[3654.56s - 3658.12s] So you can be more kind of, did you publish in a bunch of prestigious places when you're junior?
+[3658.48s - 3659.20s] That shows something.
+[3659.28s - 3661.12s] It's hard to do that, and it shows the kind of productivity.
+[3661.30s - 3662.88s] But only time tells, really.
+[3663.58s - 3667.78s] Over 10 or 20 years, did you really have some big groundbreaking thing or something really big?
+[3667.78s - 3676.10s] So if I'm done with research tomorrow, and I look back, and I have the RRT or something, that's a pretty big thing.
+[3676.16s - 3676.56s] And that's cool.
+[3676.66s - 3680.14s] And I have this kind of monster book that I'm quite proud of.
+[3680.20s - 3684.24s] And if those are my L infinity metric, the things that I remember for, that's fine.
+[3684.50s - 3690.14s] If my H index were 2, because I had, let's say, a landmark RRT paper in that book, that'd be fine.
+[3691.02s - 3691.42s] No.
+[3691.42s - 3694.42s] Well, that sounds good.
+[3695.80s - 3698.58s] So let me talk a little bit about your time allocation.
+[3698.74s - 3703.34s] I mean, you have so many things that you have to keep up at the same time.
+[3703.42s - 3704.00s] You have to teach.
+[3704.06s - 3704.60s] You have to write.
+[3704.66s - 3705.38s] You have to read.
+[3705.58s - 3706.92s] You have to supervise students.
+[3707.14s - 3708.14s] You have to do research.
+[3708.40s - 3713.64s] So what is actually a way of how you structure, for example, your day and how do you...
+[3713.64s - 3717.58s] I'm a very unstructured person, and I don't do very well with schedules.
+[3717.58s - 3719.64s] So I do try to...
+[3719.64s - 3721.00s] So you don't have this daily habit of...
+[3721.00s - 3721.78s] No.
+[3722.06s - 3723.70s] ...getting up at 5 a.m.?
+[3723.70s - 3724.18s] No, no, no.
+[3724.64s - 3732.68s] I always make sure I sleep enough, and I always try to make sure my students or people in my group know that I'm available and such.
+[3732.68s - 3736.32s] But I like a model more where they push me when they want something.
+[3736.72s - 3737.38s] I tell them that.
+[3737.44s - 3739.28s] I'm not going to have regular meetings all the time.
+[3739.42s - 3740.48s] And I don't chase people.
+[3740.70s - 3741.70s] They need to come to me.
+[3742.08s - 3743.66s] So people usually do well like that with me.
+[3744.78s - 3746.28s] And things have changed over the years.
+[3746.48s - 3747.68s] I think right now...
+[3748.48s - 3750.68s] I'm not retired, but I'm in...
+[3750.68s - 3752.44s] I like to say the tired phase of my career.
+[3752.56s - 3759.70s] So before retired, I'm tired in the sense that I probably have more work-life balance than ever, and I'm spending a lot of time with my family.
+[3759.82s - 3761.16s] I'm traveling typically less.
+[3762.20s - 3763.22s] I wasn't sure whether I...
+[3763.22s - 3766.04s] This is such an amazing event, but I had to really think about it.
+[3766.12s - 3767.50s] I'm spending time away from my family.
+[3767.72s - 3770.42s] And so I really try to balance things out in that direction.
+[3770.42s - 3779.68s] And then I also have six, I think six right now, six or seven postdoctoral researchers, postdoc or higher researchers on my team.
+[3780.04s - 3780.52s] And then...
+[3780.52s - 3780.56s] And then...
+[3780.56s - 3780.66s] And then...
+[3780.66s - 3784.58s] And then they spend a lot of time working with students and we bounce ideas off of each other and things.
+[3784.64s - 3786.26s] And so they handle a lot of things as well.
+[3786.72s - 3789.14s] And also there's another colleague of mine named Timo Oyala.
+[3789.14s - 3792.64s] He's a professor who runs the center that we're...
+[3792.64s - 3793.60s] That our group is a part of.
+[3793.72s - 3795.08s] And we kind of run the group together.
+[3795.42s - 3801.20s] And he handles all of the expected like crazy bureaucratic things that I don't understand, half of which are in Finnish.
+[3801.46s - 3802.76s] And that makes my life wonderful.
+[3802.76s - 3806.08s] So I can just focus on research and teaching a bit.
+[3807.24s - 3810.54s] And is there anything you believe like younger researchers...
+[3810.54s - 3812.54s] And robotics should do differently or...
+[3812.54s - 3814.54s] Well, I don't...
+[3814.54s - 3817.80s] I think it's fairly general thing to ask and everyone's different.
+[3818.48s - 3822.86s] But I think, you know, make sure you play to your strengths and fix your weaknesses just generally.
+[3823.16s - 3829.80s] And I would say, you know, don't think everything needs to be just deep learning and go with the herd and all these things.
+[3830.12s - 3833.48s] I encourage everyone to dig deeper, you know, do some good scholarly work.
+[3833.52s - 3835.86s] Whatever is analogous to when I used to go to the library.
+[3836.28s - 3837.34s] You know, work hard to find things.
+[3837.34s - 3840.34s] Don't just search and something falls into your lap and you assume that's...
+[3840.86s - 3842.00s] That's the complete search on things.
+[3842.40s - 3846.60s] And study as much fundamental mathematics the most as you possibly can.
+[3847.18s - 3848.34s] And, you know, get good at those things.
+[3848.38s - 3849.68s] Because those are much harder to learn later.
+[3850.18s - 3853.10s] So do it while your brain is sharp and you have free time, not a lot of commitments.
+[3854.32s - 3858.60s] So really like keeping your knowledge in mathematics is like one of the most important things.
+[3858.60s - 3859.24s] I think so, yeah.
+[3859.32s - 3860.14s] Younger people could do.
+[3860.36s - 3860.84s] That's right.
+[3860.98s - 3862.24s] If you're terrible at it, then fine.
+[3862.36s - 3865.62s] You know, do more experimental work or do something else or change fields.
+[3865.62s - 3866.10s] I don't know.
+[3866.28s - 3867.76s] But at least for the way...
+[3867.76s - 3869.66s] I can't say one thing fits everyone.
+[3870.54s - 3875.36s] But definitely think about things you should learn now while you're not as encumbered.
+[3875.36s - 3878.08s] And your body's younger and you can put more hours into things and stuff like that.
+[3878.08s - 3879.52s] Because it's much harder later.
+[3880.22s - 3883.82s] So in 2018, you actually moved permanently to Finland.
+[3884.12s - 3886.56s] So what fascinates you about Finland?
+[3886.90s - 3888.00s] Why did you make this move?
+[3888.44s - 3892.72s] Yeah, well, you know, in the life of a researcher and professor, we get to travel all over the world.
+[3892.72s - 3895.72s] And you get to hang out with people from your own research area.
+[3895.72s - 3900.52s] So you almost imagine like what would life be like if I were living in this country?
+[3900.52s - 3905.52s] And so probably these people you work with who also have the same passion for robotics or motion planning and stuff.
+[3905.52s - 3907.52s] Probably that's what it would be like.
+[3907.52s - 3912.52s] So I just, you know, I went to Europe a lot and I started from the sabbatical.
+[3912.52s - 3913.52s] I lived in Poland.
+[3913.52s - 3914.52s] I found that fascinating.
+[3914.52s - 3920.52s] I found, you know, Germany's nice, Netherlands, UK, a lot of different countries.
+[3920.52s - 3923.52s] But I kept finding the Nordic countries probably the most appealing somehow.
+[3923.52s - 3929.52s] I like the sort of very advanced in technology, very clean, very...
+[3929.52s - 3930.02s] Yeah.
+[3930.52s - 3932.52s] Oriented towards preserving nature.
+[3932.52s - 3935.52s] And I thought Sweden was very nice and Norway.
+[3935.52s - 3939.52s] But Finland out of the end was probably the one that captivated me the most.
+[3939.52s - 3942.52s] And it's in that same like Eastern European strip.
+[3942.52s - 3945.52s] And so I like Poland and my mom came from Eastern Europe.
+[3945.52s - 3947.52s] And so that was important.
+[3947.52s - 3958.52s] My wife's Ukrainian and her parents were living with us in Illinois, even in California during Oculus because of the war in Ukraine from Kharkiv.
+[3958.52s - 3959.52s] And so we had to get them out of there because it looked like they were going to be there.
+[3959.52s - 3964.52s] We had to get them out of there because it looked like that city was going to go next the same way as the Donbas.
+[3964.52s - 3965.52s] But it didn't.
+[3965.52s - 3966.52s] Now it is.
+[3966.52s - 3967.52s] Now it's being bombed all the time.
+[3967.52s - 3971.52s] But then her father got ALS in the US.
+[3971.52s - 3972.52s] And there was no way we could...
+[3972.52s - 3973.52s] It was really hard for us to care for him.
+[3973.52s - 3977.52s] Even with Oculus earnings, it's ridiculously expensive.
+[3977.52s - 3978.52s] And they had good insurance.
+[3978.52s - 3980.52s] But of course, nobody covers stuff like that.
+[3980.52s - 3988.52s] And I just was so in love with the system in Finland where it's, you know, free education and healthcare and people are just very thoughtful and nice.
+[3988.52s - 3990.52s] Not arrogant about things, but just very, very nice.
+[3990.52s - 3994.52s] So we brought everyone, including my in-laws, to Finland.
+[3994.52s - 3997.52s] And they're still caring for my wife's father.
+[3997.52s - 3999.52s] And it's been six years.
+[3999.52s - 4003.52s] And he had a prognosis of only living about a year in America.
+[4003.52s - 4004.52s] And it's just very easy.
+[4004.52s - 4008.52s] And he's in a care center that's attached to our apartment building.
+[4008.52s - 4012.52s] So where my mother-in-law doesn't even have to go outside in the winter to see him every night and everything.
+[4012.52s - 4016.52s] So it's just that really helps us get a lot of work done because things are just taken care of.
+[4016.52s - 4017.52s] And it's just a great example of how they take care of us.
+[4017.52s - 4020.52s] And I thought to teach my children.
+[4020.52s - 4021.52s] I have four kids.
+[4021.52s - 4023.52s] I have two adult kids who are there with us.
+[4023.52s - 4025.52s] Well, my oldest son is studying in Switzerland now.
+[4025.52s - 4028.52s] But the rest, he just moved away a month or two ago.
+[4028.52s - 4030.52s] But they're all essentially there in Finland.
+[4030.52s - 4036.52s] And I want them to learn those values that we should all take care of each other.
+[4036.52s - 4041.52s] And you should not be trying to just get a pile of money so that you can get healthcare and education and these kind of things.
+[4041.52s - 4045.52s] So I thought, okay, I made some money in America, but I just don't believe in the values.
+[4045.52s - 4046.52s] I believe for my children.
+[4046.52s - 4047.52s] I want them to know that.
+[4047.52s - 4049.52s] I want them to learn these Finnish values.
+[4049.52s - 4051.52s] And then maybe there's other countries with similar values.
+[4051.52s - 4053.52s] But I thought the Finns implement that very nicely.
+[4053.52s - 4056.52s] And they're very practical and not so arrogant about it.
+[4056.52s - 4059.52s] They've never had a big imperial empire or anything like that.
+[4059.52s - 4061.52s] They're just proud to have their country.
+[4061.52s - 4064.52s] And they're even apologetic for speaking Finnish in their own country.
+[4064.52s - 4066.52s] It's absurd.
+[4066.52s - 4069.52s] So have you already learned a little bit of Finnish?
+[4069.52s - 4072.52s] I heard that it's one of the most difficult languages.
+[4072.52s - 4073.52s] It is.
+[4073.52s - 4075.52s] It's quite outrageously hard.
+[4075.52s - 4076.52s] And there's a lot of reasons for that.
+[4076.52s - 4078.52s] Probably don't want to go into all the reasons here.
+[4078.52s - 4080.52s] But I speak Finnish at a basic level.
+[4080.52s - 4082.52s] But I'm still working on it all the time.
+[4082.52s - 4084.52s] My seven-year-old girl is the best Finnish speaker in the family now.
+[4084.52s - 4085.52s] She's perfect.
+[4085.52s - 4092.52s] She speaks Russian from Ukrainian, Russian, and then English and Finnish all perfectly.
+[4092.52s - 4097.52s] And is there still something about the U.S. which you miss, which you don't have in Finland?
+[4097.52s - 4098.52s] Yeah.
+[4098.52s - 4105.52s] I mean, I think the amount of diversity, especially in cities and in universities, cultural diversity, ethnic diversity, people from all over the place.
+[4105.52s - 4112.52s] I really miss that, especially because it tends to lead to excellent restaurants that are made for the people from that country.
+[4112.52s - 4115.52s] Like the Chinese food at the University of Illinois on the Champaign-Urbana campus.
+[4115.52s - 4120.52s] We had something like 7,000, a rough estimate, of Chinese students there.
+[4120.52s - 4126.52s] They had every different type of trendy, cool restaurant that I had seen in China that I learned about when I was at Huawei.
+[4126.52s - 4127.52s] And it was there.
+[4127.52s - 4129.52s] And I could just have that stuff and enjoy it.
+[4129.52s - 4134.52s] And it was like that for every other country and culture and stuff, especially in the big cities and stuff.
+[4134.52s - 4135.52s] So I miss that.
+[4135.52s - 4136.52s] Yeah.
+[4136.52s - 4143.52s] I saw once that you gave a talk at a big conference remotely from your sauna in Finland, which was very cool.
+[4143.52s - 4148.52s] So what actually fascinates you about saunas and what kind of benefits do you get from them?
+[4148.52s - 4151.52s] Well, sauna is a Finnish word.
+[4151.52s - 4152.52s] I even say sauna.
+[4152.52s - 4153.52s] That's how you say it in Finnish.
+[4153.52s - 4155.52s] And it is a Finnish word.
+[4155.52s - 4156.52s] I said it incorrectly.
+[4156.52s - 4160.52s] So sauna is English, and that's the pronunciation of it.
+[4160.52s - 4162.52s] And that's their gift to the English language, that word.
+[4162.52s - 4163.52s] And it's like a report.
+[4163.52s - 4164.52s] Yeah.
+[4164.52s - 4166.52s] And it's like a reverse swimming pool.
+[4166.52s - 4169.52s] So in some hot parts of the world, everyone has a swimming pool to jump in to cool off.
+[4169.52s - 4173.52s] So in a cold part of the world, you jump in the sauna to heat back up again.
+[4173.52s - 4175.52s] But it's also a very special place to Finns.
+[4175.52s - 4178.52s] It's a place to, you know, you go in.
+[4178.52s - 4182.52s] In my video, I wasn't naked, but usually you're supposed to be in the sauna naked.
+[4182.52s - 4183.52s] Otherwise, it'll burn you.
+[4183.52s - 4188.52s] It's 80 degrees Celsius in there with a hot steam coming over from the coals and everything.
+[4188.52s - 4190.52s] And it's a place to connect with people.
+[4190.52s - 4192.52s] And like a lot of people have business meetings and other kind of things there.
+[4192.52s - 4194.52s] It's like a humbling kind of thing.
+[4194.52s - 4197.52s] Is that the Finnish thing that you have business meetings in the sauna?
+[4197.52s - 4198.52s] Yeah.
+[4198.52s - 4199.52s] Nice.
+[4199.52s - 4200.52s] That's right.
+[4200.52s - 4201.52s] And so they'll bring visitors.
+[4201.52s - 4204.52s] And of course, the Finns will chuckle a little because it's quite hot.
+[4204.52s - 4205.52s] Yeah.
+[4205.52s - 4207.52s] So it's a very important thing to them.
+[4207.52s - 4209.52s] And I think it's an interesting part of their culture.
+[4209.52s - 4213.52s] And I've come to, you feel like you're burning to death the first couple of times, but I've
+[4213.52s - 4214.52s] come to really enjoy it.
+[4214.52s - 4218.52s] The Finnish sauna is the hottest of all the world saunas, typically said.
+[4218.52s - 4221.52s] Let's talk a little bit more about your future aspirations.
+[4221.52s - 4225.52s] So where do you see your lab, for example, in the next 10 years?
+[4225.52s - 4229.52s] And what kind of problems do you want to have solved by then?
+[4229.52s - 4231.52s] I think I can never predict stuff like that.
+[4231.52s - 4232.52s] It's really hard to say.
+[4232.52s - 4238.52s] Right now, we have a very exciting ERC project called Foundations of Perception Engineering.
+[4238.52s - 4242.52s] We're looking at mathematical and scientific foundations of what VR is, including VR applied
+[4242.52s - 4243.52s] to robots.
+[4243.52s - 4245.52s] What would it mean for a robot to experience VR?
+[4245.52s - 4247.52s] So we're having a great time with that.
+[4247.52s - 4250.52s] And I think we're doing the groundwork for that.
+[4250.52s - 4251.52s] So I think in five years, we're going to be able to do that.
+[4251.52s - 4255.52s] And in five to 10 years, there'll be a lot of spinoff kinds of things from that.
+[4255.52s - 4258.52s] I keep gravitating more and more back into robotics.
+[4258.52s - 4264.52s] I even got, thanks to the interest of my son, I published an RRT paper with him and another
+[4264.52s - 4269.52s] researcher in my group, Pashak Sakchak, and published that at IRO last year.
+[4269.52s - 4273.52s] And so I probably will do more motion planning kinds of things again and stuff like that.
+[4273.52s - 4276.52s] But otherwise, I'm just generally curiosity driven.
+[4276.52s - 4279.52s] And whatever I say I'll do, I probably change my mind because something more interesting
+[4279.52s - 4280.52s] will come along.
+[4280.52s - 4281.52s] But I think that's fine.
+[4281.52s - 4286.52s] I think this is super fascinating that your son is actually going into the same niche
+[4286.52s - 4289.52s] topic of doing research in motion planning.
+[4289.52s - 4291.52s] How did this actually happen?
+[4291.52s - 4293.52s] Well, that's a complicated thing.
+[4293.52s - 4295.52s] When we moved to Finland, he was 17.
+[4295.52s - 4298.52s] And it was hard for him to progress in the Finnish system because they keep saying, well,
+[4298.52s - 4303.52s] you need to learn Finnish and then go to night school and complete basic education and then
+[4303.52s - 4306.52s] complete three more years upper secondary education, and then you can go to the university.
+[4306.52s - 4308.52s] And he was very stressed out about that.
+[4308.52s - 4309.52s] And he didn't want to leave and go back to America.
+[4309.52s - 4312.52s] He didn't want to leave and go back to America to start going to college there.
+[4312.52s - 4316.52s] And he did not have a high school degree completed from the US, which they would accept.
+[4316.52s - 4318.52s] So he took a graduate equivalence exam.
+[4318.52s - 4322.52s] And now he's studying at a small university in Lugano, Switzerland.
+[4322.52s - 4324.52s] It's an American university.
+[4324.52s - 4326.52s] And he's studying political science, actually.
+[4326.52s - 4330.52s] But I taught him everything I know for in, well, not everything probably, but I taught
+[4330.52s - 4334.52s] him a lot of mathematics and algorithms and coding.
+[4334.52s - 4335.52s] He did a lot on his own as well.
+[4335.52s - 4337.52s] And he was just fascinated with it.
+[4337.52s - 4341.52s] And I think it was good to kind of build his confidence while he was kind of stuck in Finland
+[4341.52s - 4345.52s] as a young adult and trying to figure out what he wanted to do.
+[4345.52s - 4349.52s] And so I brought him to WAFER and ICRA and IROS.
+[4349.52s - 4353.52s] And he really enjoyed the people and had a really great time.
+[4353.52s - 4355.52s] But he's trying to decide between that and political science.
+[4355.52s - 4359.52s] And now he's getting a degree because he could take courses in Finland.
+[4359.52s - 4364.52s] But even if he petitioned and took every course as a resident, he's allowed to, they still
+[4364.52s - 4365.52s] won't give him the degree.
+[4365.52s - 4366.52s] Or if he publishes all the papers for a PhD.
+[4366.52s - 4368.52s] They won't give him the degree.
+[4368.52s - 4372.52s] Because in the Finnish system, you know, things are very, apparently it's like that all over
+[4372.52s - 4373.52s] Europe.
+[4373.52s - 4376.52s] You have to kind of go, there's no exceptions to the kind of standard rules and stuff.
+[4376.52s - 4379.52s] So he'll have to figure out what he wants to do after he finishes his degree.
+[4379.52s - 4381.52s] But it was a wonderful time to work with him.
+[4381.52s - 4382.52s] It was exciting.
+[4382.52s - 4385.52s] Reminded me of like when was goofing around with James Kuffner on the RRT in the first
+[4385.52s - 4386.52s] place.
+[4386.52s - 4387.52s] We just had so much fun.
+[4387.52s - 4390.52s] You know, he was, you know, my son Alex was doing a lot of the coding.
+[4390.52s - 4391.52s] I was doing a lot of the mathematical stuff.
+[4391.52s - 4394.52s] And Bashak was also doing even more of the mathematical stuff.
+[4394.52s - 4395.52s] And we had a really great time.
+[4395.52s - 4396.52s] And, you know, I think that's a really good thing.
+[4396.52s - 4401.52s] Are there any robotics applications that you think would be like super useful in your
+[4401.52s - 4407.52s] own life, which you would really like, yeah, have available for you and for example, in
+[4407.52s - 4408.52s] your household?
+[4408.52s - 4409.52s] Yeah.
+[4409.52s - 4412.52s] Well, we have robotic mops and vacuum cleaners and those work pretty well.
+[4412.52s - 4416.52s] I would love to have some kind of robotic telepresence device and I'd love to have virtual
+[4416.52s - 4420.52s] reality headsets working well enough so I could pop something on quickly and feel like
+[4420.52s - 4425.52s] I'm somewhere else and just inhabit a robot and have it go out running around, looking
+[4425.52s - 4426.52s] around and interacting with other people.
+[4426.52s - 4427.52s] I think that'd be really nice.
+[4427.52s - 4431.52s] It'd be a great thing for the world to have, especially for people with limited mobility.
+[4431.52s - 4433.52s] And it's like a shared autonomy kind of thing.
+[4433.52s - 4437.52s] So there's, you know, robots and autonomy kind of there as well, but it's also a human
+[4437.52s - 4438.52s] robot interaction.
+[4438.52s - 4442.52s] But you kind of want to forget that there's a robot and see a different body and interact
+[4442.52s - 4443.52s] with the world.
+[4443.52s - 4452.52s] What do you think will actually be some bigger changes in robotics research in the next upcoming
+[4452.52s - 4453.52s] years?
+[4453.52s - 4454.52s] So maybe not only involving your group, but like, you know, like, you know, like, you're
+[4454.52s - 4455.52s] going to be doing a lot of things.
+[4455.52s - 4456.52s] I don't know.
+[4456.52s - 4457.52s] That's very hard.
+[4457.52s - 4458.52s] It's very hard to predict.
+[4458.52s - 4459.52s] Perhaps the deep learning stuff will hit the trough of disillusionment and people will
+[4459.52s - 4460.52s] understand kind of what they can and can't do a little better.
+[4460.52s - 4461.52s] There'll be some enlightenment period on that.
+[4461.52s - 4462.52s] And then some gradual road to progress to be like a, I don't know if the Gartner hype cycle
+[4462.52s - 4463.52s] is always right.
+[4463.52s - 4464.52s] I always think of, there should be like a, like a Fourier analysis version of the Gartner
+[4464.52s - 4465.52s] hype cycle where there's like the cycles are happening at different frequencies and
+[4465.52s - 4466.52s] and there's like, you know, there's a whole lot of thinking going on in the space.
+[4466.52s - 4467.52s] It's very hard to predict.
+[4467.52s - 4468.52s] I think that's a really interesting topic.
+[4468.52s - 4469.52s] I mean, it's a really interesting topic.
+[4469.52s - 4470.52s] I think there's a lot of thinking going on in the space.
+[4470.52s - 4477.52s] It's hard to predict.
+[4477.52s - 4492.54s] But I think there will be some kind of, you can feel it happening already, that there's
+[4492.54s - 4500.14s] some gain and understanding of what those things are good for and not good for.
+[4500.14s - 4500.40s] I hope there will be some sort of enlightenment period on that and a gradual road to progress.
+[4500.40s - 4503.92s] hope there's a lot of interest in getting back to a lot of the fundamentals and doing deeper
+[4503.92s - 4508.36s] kind of research and not being so obsessed with how many papers can I publish as quickly as
+[4508.36s - 4512.80s] possible and to increase the h-index or whatever kind of thing so I'd love to see something going
+[4512.80s - 4516.24s] back to fundamentals I doubt it will happen I will certainly not predict that it will happen
+[4516.24s - 4521.90s] but that's what I would love to see happen and do you have any advice to people choosing a research
+[4521.90s - 4528.36s] career in robotics what should say for example pick a subject and yeah I think I've already said
+[4528.36s - 4532.78s] some of that right so I think that the fundamentals the mathematics and algorithms and control theory
+[4532.78s - 4537.20s] these kind of things are very very important maybe material science is important because if you want
+[4537.20s - 4542.08s] to do something more with in actuators and haptics and things like that so so then I would say you'd
+[4542.08s - 4546.18s] better learn some physics really well applied physics things like materials things like that so
+[4546.18s - 4550.90s] it probably depends on the on the maybe kind of discipline but make sure you're very passionate
+[4550.90s - 4555.80s] about it when I got into robotics it wasn't a very popular area so you had to be really passionate
+[4555.80s - 4558.34s] about it so so it is a big
+[4558.34s - 4561.96s] area now so I think just make sure you're not doing it just because it sounds cool and it's
+[4561.96s - 4566.36s] popular you have to make sure you really love the the questions and problems you know for long-term
+[4566.36s - 4571.10s] commitment because it's it's not always fun in academia and doing the research and stuff it has
+[4571.10s - 4576.44s] a lot of ups and downs cool yeah I think I'm already through with all my questions okay is
+[4576.44s - 4582.72s] there anything else you want to tell no I don't think so thanks very much I've had a great time
+[4582.72s - 4586.82s] here at this event too and yeah it's it's I think it's just a very fun community I've I've seen other
+[4586.82s - 4587.32s] communities
+[4588.34s - 4592.66s] drifting around in academia and such and I like the robotics attitude the best I think people are
+[4592.66s - 4598.54s] a lot of fun it feels like a big family yeah well thank you so much for for coming by all right thank
+[4598.54s - 4598.74s] you
