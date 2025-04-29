@@ -155,6 +155,7 @@ module Jekyll
 
       # Sort by year (descending), handle non-numeric years gracefully
       publications.sort_by! { |p| p['year'].to_i }.reverse!
+      all_bibtex_entries.sort_by! { |p| p['year'].to_i }.reverse!
 
       # Store in site.data for use in templates
       site.data['publications'] = publications
