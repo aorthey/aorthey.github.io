@@ -22,6 +22,10 @@ nav_order: 2
 <li>
 <a href="https://dblp.org/pid/133/2362.html" target="_blank">Link to dblp Profile</a>
 </li>
+<li>
+<a href="https://orcid.org/0000-0002-1478-1405" target="_blank">Link to orcid Profile</a>
+</li>
+
 
 </ul>
 
@@ -33,7 +37,8 @@ nav_order: 2
 {% assign pubs = site.data.publications | where: "type", type %}
 
 {% for pub in pubs %}
-- {{ pub.authors }}, *{{ pub.title }}*, {{ pub.venue }}, {{ pub.year }}
+- {{ pub.authors }}, *{{ pub.title | replace: '*', '\*' | replace: '_', '\_' | replace: '[', '\[' | replace: ']', '\]' }}*, {{ pub.venue }}, {{ pub.year }}
+
   <div class="links-below-publication">
   <details>
     <summary>BibTeX</summary>
@@ -53,9 +58,9 @@ nav_order: 2
 
 <h2>Student Theses</h2>
 
-- Nicolas Hargus, _Multi-Robot Motion Planning for Disassembly Tasks_, M.Sc. Thesis, Technische Universität Berlin, 2025
+- Nicolas Hargus, _Multi-Robot Motion Planning for Disassembly Tasks_, M.Sc. Thesis, Technische Universität Berlin, 2025 (Expected)
 
-- Servet Bora Bayraktar, _Large-Scale Disassembly: Efficient Planning for Recycling using Path Defragmentation_, M.Sc. Thesis, Technische Universität Berlin, 2025
+- Servet Bora Bayraktar, _Large-Scale Disassembly: Efficient Planning for Recycling using Path Defragmentation_, M.Sc. Thesis, Technische Universität Berlin, 2025 (Expected)
 
 - Lennart Julian Droß, _Synthetic Datasets for Robot Manipulation Tasks using Procedural Content Generation_, B.Sc. Thesis, Technische Universität Berlin, 2025
 

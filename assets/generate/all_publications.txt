@@ -60,7 +60,7 @@
 }
 
 @inproceedings{Grothe2022ICRA,
-	title = {{ST-RRT*: Asymptotically-Optimal Bidirectional Motion Planning through Space-Time}},
+	title = {ST-RRT*: Asymptotically-Optimal Bidirectional Motion Planning through Space-Time},
 	author = {Grothe, Francesco and Hartmann, Valentin N and Orthey, Andreas and Toussaint, Marc},
 	booktitle = {IEEE International Conference on Robotics and Automation},
 	year = {2022},
