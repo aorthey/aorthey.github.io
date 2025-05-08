@@ -14,7 +14,10 @@ nav_order: 2
           <div class="links-wrapper">
           <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
           <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
+          <a target="_blank" class="general-link" href="https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570">@Apple</a>
           <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
+          <a target="_blank" class="general-link" href="https://anchor.fm/s/fb9fc38c/podcast/rss">RSS Feed</a>
+
           </div>
       </div>
 
@@ -33,9 +36,14 @@ nav_order: 2
   <div class="podcast-content">
     <h3>#{{ episode_number }}: {{ podcast.title }}</h3>
     <p>
-      <a target="_blank" class="general-link" href="https://www.youtube.com/watch?v={{ podcast.youtube_id }}">Watch on YouTube</a>
+      {% if podcast.youtube %}
+        <a target="_blank" class="general-link" href="{% if podcast.youtube contains 'http' %}{{ podcast.youtube }}{% else %}https://www.youtube.com/watch?v={{ podcast.youtube }}{% endif %}">Watch on YouTube</a>
+      {% endif %}
       {% if podcast.spotify %}
         <a target="_blank" class="general-link" href="{% if podcast.spotify contains 'http' %}{{ podcast.spotify }}{% else %}https://open.spotify.com/episode/{{ podcast.spotify }}{% endif %}">Listen on Spotify</a>
+      {% endif %}
+      {% if podcast.apple %}
+        <a target="_blank" class="general-link" href="{{ podcast.apple }}">Listen on Apple</a>
       {% endif %}
       {% if podcast.x %}
         <a target="_blank" class="general-link" href="{% if podcast.x contains 'http' %}{{ podcast.x }}{% else %}https://x.com/i/web/status/{{ podcast.x }}{% endif %}">View on X</a>

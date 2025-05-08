@@ -20,15 +20,21 @@ module Jekyll
                 .gsub(/{\"o}/, 'ö')
                 .gsub(/{"o}/, 'ö')
                 .gsub(/"o/, 'ö')
+                .gsub(/{\"O}/, 'Ö')
+                .gsub(/{"O}/, 'Ö')
+                .gsub(/"O/, 'Ö')
                 .gsub(/{\"a}/, 'ä')
                 .gsub(/{"a}/, 'ä')
                 .gsub(/"a/, 'ä')
+                .gsub(/{\"A}/, 'Ä')
+                .gsub(/{"A}/, 'Ä')
+                .gsub(/"A/, 'Ä')
                 .gsub(/{\"u}/, 'ü')
                 .gsub(/{"u}/, 'ü')
                 .gsub(/"u/, 'ü')
-                .gsub(/{\"u}/, 'ü')
-                .gsub(/{"u}/, 'ü')
-                .gsub(/"u/, 'ü')
+                .gsub(/{\"U}/, 'Ü')
+                .gsub(/{"U}/, 'Ü')
+                .gsub(/"U/, 'Ü')
                 .gsub(/{\"i}/, 'ï')
                 .gsub(/{"i}/, 'ï')
                 .gsub(/"i/, 'ï')
@@ -44,6 +50,63 @@ module Jekyll
       end
 
       return cleaned
+    end
+
+    def check_bibtex_for_overleaf(bib)
+      return false unless bib.is_a?(BibTeX::Bibliography)
+
+      valid = true
+      seen_keys = Set.new
+      required_fields = {
+        'article' => %w[author title journal year pages],
+        'book' => %w[author title publisher year],
+        'inproceedings' => %w[author title booktitle year pages],
+        'techreport' => %w[author title institution year],
+        'misc' => %w[author title]
+      }
+
+      bib.entries.each do |key, entry|
+        # Check for duplicate keys
+        if seen_keys.include?(key)
+          puts "Error: Duplicate key '#{key}' found in .bib file"
+          valid = false
+        else
+          seen_keys.add(key)
+        end
+
+        # Check for valid key format (no spaces, valid characters)
+        unless key.match?(/^[a-zA-Z0-9:_-]+$/)
+          puts "Warning: Key '#{key}' contains invalid characters or spaces"
+          valid = false
+        end
+
+        # Check required fields based on entry type
+        entry_type = entry.type.to_s.downcase
+        fields_to_check = required_fields[entry_type] || %w[title]
+
+        fields_to_check.each do |field|
+          unless entry[field] && !entry[field].to_s.strip.empty?
+            puts "Error: Entry '#{key}' (#{entry_type}) missing or empty field: #{field}"
+            valid = false
+          end
+        end
+
+        # Check author field format (should use 'and' for multiple authors)
+        if entry[:author] && entry[:author].include?(',')
+          unless entry[:author].match?(/\band\b/)
+            puts "Warning: Entry '#{key}' has incorrect author format (use 'and' instead of commas)"
+          end
+        end
+
+        # Check pages format for article/inproceedings
+        if %w[article inproceedings].include?(entry_type) && entry[:pages]
+          unless entry[:pages].match?(/\d+\s*--\s*\d+/)
+            puts "Warning: Entry '#{key}' has invalid pages format (expected '1--10')"
+          end
+        end
+      end
+
+      valid
     end
 
     def format_authors(authors_raw)
@@ -104,7 +167,6 @@ module Jekyll
       publications = []
       all_bibtex_entries = [] # Array to store all BibTeX entries
 
-
       # Iterate over BibTeX files
       Dir.glob(File.join(bibtex_dir, '*.bib')).each do |bib_file|
         filename = File.basename(bib_file, '.bib')
@@ -116,6 +178,9 @@ module Jekyll
 
         begin
           bib = BibTeX.open(bib_file)
+          if not check_bibtex_for_overleaf(bib)
+            raise ArgumentError, "Found an error or warning in bibtex file #{bib_file}. Please see messages above."
+          end
           entry = bib.entries.first[1]
 
           authors = format_authors(entry.author)

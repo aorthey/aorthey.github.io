@@ -41,7 +41,7 @@ nav_order: 1
 
 <li class="link-item"> 
 <a href="src/podcast.html">Robotics Podcast Series</a>
-<span class="description">Enjoy my conversations on robotics with some of the most renowned experts in the field.
+<span class="description">Enjoy my conversations on robotics with renowned experts in robotics research.
 </span>
 </li>
 
@@ -58,8 +58,9 @@ nav_order: 1
 <div class="links-wrapper">
 <p>Podcast:
     <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
-    <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
     <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
+    <a target="_blank" class="general-link" href="https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570">@Apple</a>
+    <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
 </p>
 </div>
 </li>

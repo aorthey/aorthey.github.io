@@ -5,6 +5,23 @@ module Jekyll
   class PodcastGenerator < Generator
     safe true
     priority :normal
+    def extract_youtube_id(link)
+      return link unless link.include?('http')
+
+      # Match common YouTube URL patterns
+      patterns = [
+        /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
+        /youtube\.com\/clip\/([a-zA-Z0-9_-]+)/
+      ]
+
+      patterns.each do |pattern|
+        match = link.match(pattern)
+        return match[1] if match
+      end
+
+      # Return original link if no match found
+      return link
+    end
 
     def generate(site)
       podcast_data = []
@@ -26,8 +43,6 @@ module Jekyll
               links_data = YAML.load_file(links_file)
 
               if links_data && links_data["youtube"]
-                youtube_id = links_data["youtube"]
-                #title = fetch_youtube_title(youtube_id)
 
                 outline_path = File.exist?(File.join(folder_path, "outline.txt")) ? "/assets/podcast/#{folder}/outline.txt" : nil
                 errata_path = File.exist?(File.join(folder_path, "errata.txt")) ? "/assets/podcast/#{folder}/errata.txt" : nil
@@ -35,8 +50,10 @@ module Jekyll
 
                 podcast_data << {
                   "folder" => folder,
-                  "youtube_id" => youtube_id,
+                  "youtube" => links_data["youtube"],
+                  "youtube_id" => extract_youtube_id(links_data["youtube"]),
                   "spotify" => links_data["spotify"],
+                  "apple" => links_data["apple"],
                   "x" => links_data["x"],
                   "title" => links_data["title"],
                   "outline" => outline_path,

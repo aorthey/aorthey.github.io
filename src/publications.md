@@ -72,11 +72,11 @@ nav_order: 2
 
 - Servet Bora Bayraktar, _Solving Rearrangement Puzzles Optimally using Fragmentation-Based Motion Planning_, B.Sc. Thesis, Technische Universität Berlin, 2022
 
-- Ilyes Toumi, _Real-time task and motion planning for Dual-arm robotic in a bin-picking application_, M.Sc. Thesis, RWTH Aachen University, 2022
+- Ilyes Toumi, _Real-time task and motion planning for dual-arm robots in a bin-picking application_, M.Sc. Thesis, RWTH Aachen University, 2022
 
 - Jay Prabodh Kamat, _Multimodal Optimization for Manipulation Tasks_, M.Sc. Thesis, Birla Institute of Technology and Science, 2022
 
-- Noran Abdelsalam, _Assembly Sequence Planning for Structures_, B.Sc. Thesis, Technische Universität Berlin, 2021
+- Noran Abdelsalam, _Assembly Sequence Planning of Architectural Structures_, B.Sc. Thesis, Technische Universität Berlin, 2021
 
 - Francesco Grothe, _Bidirectional tree search through space-time for prioritized multi-robot planning_, B.Sc. Thesis, Technische Universität Berlin, 2021
 
