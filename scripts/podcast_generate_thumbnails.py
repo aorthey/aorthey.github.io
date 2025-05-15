@@ -2,9 +2,11 @@ import os
 from PIL import Image
 import math
 from src.generate_thumbnail import create_image_with_headshot
-from src.generate_thumbnail_square import create_square_image_with_half_headshot
+from src.generate_thumbnail_square import create_square_image
 
 # Define the podcast directory and output for combined image
+#border_color = "#2e73ae"
+border_color = "#6da3c5"
 podcast_dir = "assets/podcast"
 podcast_host = "Andreas Orthey"
 combined_output_path = "assets/podcast/combined_thumbnails.png"
@@ -42,15 +44,17 @@ for folder_name in folder_names:
                     output_image_path=output_image_path,
                     name1=name_parts,
                     number=number,
-                    name2=podcast_host
+                    name2=podcast_host,
+                    border_color = border_color
                 )
                 print(f"Generated thumbnail for {folder_name}")
-                create_square_image_with_half_headshot(
+                create_square_image(
                     input_image_path=input_image_path,
                     output_image_path=output_image_square_path,
                     name1=name_parts,
                     number=number,
-                    name2=podcast_host
+                    name2=podcast_host,
+                    border_color = border_color
                 )
                 thumbnail_paths.append(output_image_path)
                 thumbnail_square_paths.append(output_image_square_path)
@@ -61,7 +65,10 @@ for folder_name in folder_names:
             print(f"Skipping folder {folder_name}: Invalid format")
             continue
 
-# Combine thumbnails into a single image
+# Add line_width parameter at the top
+line_width = 1  # Width of the white line between thumbnails
+
+# Combine thumbnails into a single image (rectangular thumbnails)
 if thumbnail_paths:
     # Open all thumbnail images
     images = [Image.open(path) for path in thumbnail_paths]
@@ -69,20 +76,20 @@ if thumbnail_paths:
     # Assume all thumbnails are the same size
     thumb_width, thumb_height = images[0].size
 
-    # Calculate grid dimensions (e.g., 5 thumbnails per row)
+    # Calculate grid dimensions (e.g., 3 thumbnails per row)
     num_rows = math.ceil(len(images) / thumbs_per_row)
 
-    # Create a new blank image for the combined thumbnails
-    combined_width = thumb_width * thumbs_per_row
-    combined_height = thumb_height * num_rows
+    # Create a new blank image for the combined thumbnails, accounting for line_width
+    combined_width = thumb_width * thumbs_per_row + line_width * (thumbs_per_row - 1)
+    combined_height = thumb_height * num_rows + line_width * (num_rows - 1)
     combined_image = Image.new('RGB', (combined_width, combined_height), (255, 255, 255))
 
-    # Paste thumbnails into the combined image
+    # Paste thumbnails into the combined image with white lines
     for idx, img in enumerate(images):
         row = idx // thumbs_per_row
         col = idx % thumbs_per_row
-        x = col * thumb_width
-        y = row * thumb_height
+        x = col * (thumb_width + line_width)
+        y = row * (thumb_height + line_width)
         combined_image.paste(img, (x, y))
 
     # Save the combined image
@@ -91,6 +98,7 @@ if thumbnail_paths:
 else:
     print("No thumbnails were generated.")
 
+# Combine square thumbnails into a single image
 if thumbnail_square_paths:
     # Open all thumbnail images
     images = [Image.open(path) for path in thumbnail_square_paths]
@@ -98,20 +106,20 @@ if thumbnail_square_paths:
     # Assume all thumbnails are the same size
     thumb_width, thumb_height = images[0].size
 
-    # Calculate grid dimensions (e.g., 5 thumbnails per row)
+    # Calculate grid dimensions (e.g., 3 thumbnails per row)
     num_rows = math.ceil(len(images) / thumbs_per_row)
 
-    # Create a new blank image for the combined thumbnails
-    combined_width = thumb_width * thumbs_per_row
-    combined_height = thumb_height * num_rows
+    # Create a new blank image for the combined thumbnails, accounting for line_width
+    combined_width = thumb_width * thumbs_per_row + line_width * (thumbs_per_row - 1)
+    combined_height = thumb_height * num_rows + line_width * (num_rows - 1)
     combined_image = Image.new('RGB', (combined_width, combined_height), (255, 255, 255))
 
-    # Paste thumbnails into the combined image
+    # Paste thumbnails into the combined image with white lines
     for idx, img in enumerate(images):
         row = idx // thumbs_per_row
         col = idx % thumbs_per_row
-        x = col * thumb_width
-        y = row * thumb_height
+        x = col * (thumb_width + line_width)
+        y = row * (thumb_height + line_width)
         combined_image.paste(img, (x, y))
 
     # Save the combined image

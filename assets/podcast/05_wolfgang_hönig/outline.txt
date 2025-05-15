@@ -1,0 +1,48 @@
+Content
+00:35 Research Goals
+01:17 Motivation to do Robotics Research
+01:58 Early Life in Dresden
+03:20 First Programming Experiences
+05:20 From Computer Science to Embedded Systems
+06:36 Master Thesis with NVIDIA
+07:38 Software Engineer at NVIDIA
+09:11 Lessons Learned at NVIDIA
+10:17 Favorite Coding Environment
+10:43 Largest Company in the World in 2025
+11:25 From NVIDIA to Academia
+12:26 Meeting His Wife
+13:17 Difficulty of Getting into a PhD Program
+14:08 Moving to Los Angeles
+15:09 Multi-Robot Coordination Lab
+16:21 PhD work on Drones
+17:06 Virtual Reality and Drones
+18:02 Motion Planning for Multi-Robot Teams
+19:22 Main Challenges for Motion Planning on Drones
+20:35 Understanding the Physics of Multiple Drones
+22:13 Motion Planning for Drones
+25:46 Combining Planning and Learning 
+27:32 Drone Racing
+29:22 Applications of Large Swarms of Drones
+30:30 Where is my Package Delivering Drone?
+33:46 Bird-like Drones
+35:10 Advantages of Bird Designs
+36:10 How to Build a Drone Lab
+38:27 Demonstrations in the Drone Lab
+39:31 Difference between Drone Lab and Real World
+40:39 Drones in Warfare
+41:59 Drone Search And Rescue
+42:52 Larger Drones for Search and Rescue
+44:59 Civilian Applications of Drones
+46:35 Drone Lifetime and Battery Requirements 
+48:07 Connections to Material Science
+49:35 Current Research Projects
+50:36 Most Impactful Paper Ever Written
+51:42 Next Career Milestones
+52:15 Prerequisites to do Drone Research
+52:58 Value of H-Index Metric
+53:58 A Typical Day in Wolfgang's Life
+55:03 Weekly Events in the Research Groups
+55:32 Personal Definition of Success
+57:01 Mentors
+58:09 Counterbalance to Professorship
+01:00:08 Life Lessons Learned
