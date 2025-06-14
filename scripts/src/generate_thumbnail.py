@@ -1,149 +1,20 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
 import cv2
 import numpy as np
 from rembg import remove
 import os
 import colorsys
 import mediapipe as mp
+from scipy.ndimage import binary_dilation, binary_erosion
 
-font_path = "../assets/fonts/cmunrm.ttf"
-text_size = 128
-line_spacing = 1.0
-letter_spacing = 5.0  # In pixels
-canvas_width = 1280
-canvas_height = 720
-x_start = 50
-y_start = 20
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+from generate_thumbnail_helpers import *
+
 headshot_to_border_padding = 30  # Padding of headshot from top and bottom borders
-text_margin = 50  # Margin between text and headshot
-
-def generate_thumbnail_background(
-    name1: str,
-    number: str,
-    name2: str,
-    border_color: str):
-    ################################################################################
-    # Generate Text and Border
-    ################################################################################
-    # Step 1: Create the canvas
-    border_thickness = int(0.04 * canvas_height)
-    canvas = Image.new("RGBA", (canvas_width, canvas_height), (255, 255, 255, 255))
-    draw = ImageDraw.Draw(canvas)
-
-    # Step 2: Draw the border
-    border_rgb = tuple(int(border_color[i:i+2], 16) for i in (1, 3, 5))
-    draw.rectangle(
-        [(0, 0), (canvas_width - 1, canvas_height - 1)],
-        outline=border_rgb,
-        width=border_thickness
-    )
-
-    # Calculate text widths to determine headshot position
-    try:
-        font = ImageFont.truetype(font_path, text_size)
-    except:
-        font = ImageFont.load_default()
-        print("Font not found. Using default font.")
-
-    # Process names: Keep only first word and last word
-    def get_first_last(name):
-        words = name.strip().split()
-        if not words:
-            return "", ""
-        first_name = words[0]
-        last_name = words[-1] if len(words) > 1 else ""
-        return first_name, last_name
-
-    name1_first, name1_last = get_first_last(name1)
-    name2_first, name2_last = get_first_last(name2)
-    line_gap = int(text_size * line_spacing)
-
-    # Define name2 color before text width calculation
-    name2_color = (*border_rgb, 255)
-
-    def draw_text_with_spacing(draw, position, text, font, fill, letter_spacing):
-        x, y = position
-        for i, char in enumerate(text):
-            draw.text((x, y), char, font=font, fill=fill)
-            char_bbox = font.getbbox(char)
-            char_width = char_bbox[2] - char_bbox[0]
-            x += char_width + letter_spacing
-        return x  # Return final x position for width calculation
-
-    # Calculate text widths
-    text_widths = []
-    if name1_first:
-        final_x = draw_text_with_spacing(draw, (x_start, y_start), name1_first, font, (0, 0, 0, 255), letter_spacing)
-        text_widths.append(final_x - x_start)
-    if name1_last:
-        final_x = draw_text_with_spacing(draw, (x_start, y_start + 1 * line_gap), name1_last, font, (0, 0, 0, 255), letter_spacing)
-        text_widths.append(final_x - x_start)
-    number_text = f"#{number}"
-    final_x = draw_text_with_spacing(draw, (x_start, y_start + 2 * line_gap), number_text, font, (128, 128, 128, 255), letter_spacing)
-    text_widths.append(final_x - x_start)
-    if name2_first:
-        final_x = draw_text_with_spacing(draw, (x_start, y_start + 3 * line_gap), name2_first, font, name2_color, letter_spacing)
-        text_widths.append(final_x - x_start)
-    if name2_last:
-        final_x = draw_text_with_spacing(draw, (x_start, y_start + 4 * line_gap), name2_last, font, name2_color, letter_spacing)
-        text_widths.append(final_x - x_start)
-
-    # Calculate maximum text width
-    max_text_width = max(text_widths) if text_widths else 0
-    text_right_boundary = x_start + max_text_width + text_margin
-
-    return (canvas, text_right_boundary)
-
-
-def detect_chin_and_hairline(input_image_path: str) -> tuple:
-    """
-    Detect the position of the chin and hairline (or estimated hairline) in a headshot image.
-
-    Args:
-        input_image_path (str): Path to the input headshot image.
-
-    Returns:
-        tuple: (chin_x, chin_y, hairline_x, hairline_y) representing the coordinates of the chin
-               and hairline (or estimated hairline). Returns None if detection fails.
-    """
-    mp_face_mesh = mp.solutions.face_mesh
-    face_mesh = mp_face_mesh.FaceMesh(
-        static_image_mode=True,
-        max_num_faces=1,
-        refine_landmarks=True,
-        min_detection_confidence=0.5
-    )
-
-    image = Image.open(input_image_path).convert("RGB")
-    image_np = np.array(image)
-    height, width, _ = image_np.shape
-    image_rgb = image_np[:, :, ::-1]
-    results = face_mesh.process(image_rgb)
-
-    if not results.multi_face_landmarks:
-        print("No face detected in the image.")
-        face_mesh.close()
-        return None
-
-    face_landmarks = results.multi_face_landmarks[0]
-    landmarks = face_landmarks.landmark
-
-    chin_landmark = landmarks[152]
-    chin_x = int(chin_landmark.x * width)
-    chin_y = int(chin_landmark.y * height)
-
-    forehead_landmark = landmarks[10]
-    forehead_x = int(forehead_landmark.x * width)
-    forehead_y = int(forehead_landmark.y * height)
-
-    face_height = chin_y - forehead_y
-    hairline_offset = int(face_height * 0.15)
-    hairline_x = forehead_x
-    hairline_y = forehead_y - hairline_offset
-    hairline_y = max(0, hairline_y)
-
-    face_mesh.close()
-    return (chin_x, chin_y, hairline_x, hairline_y)
+headshot_edge_blur_radius = 2  # Slightly increased for smoother edge antialiasing
+headshot_border_thickness = 50  # Increased for wider glow area
+headshot_glow_blur_radius = 30  # Increased for wider glow area
 
 def create_image_with_headshot(
     input_image_path: str,
@@ -154,97 +25,127 @@ def create_image_with_headshot(
     border_color: str,
     debug: bool = False
 ):
-
     canvas, text_right_boundary = generate_thumbnail_background(name1, number, name2, border_color)
-      
+    draw = ImageDraw.Draw(canvas)
+
     ################################################################################
     # Process Headshot and Paste It
     ################################################################################
-    # # Step 1: Load and remove background from the headshot
+    # Step 1: Load headshot and enhance quality
     input_image = Image.open(input_image_path).convert("RGBA")
+
+    original_width, original_height = input_image.size
+
+    # Apply denoising (gentle Gaussian blur) and sharpening
+    # input_image = input_image.filter(ImageFilter.GaussianBlur(radius=0.5))  # Light denoising
+    # input_image = ImageEnhance.Sharpness(input_image).enhance(1.5)  # Moderate sharpening
+
+    # Step 2: Dynamic upscale for higher quality
+    target_min_dimension = 1500  # Increased target for better quality
+    if max(original_width, original_height) < target_min_dimension:
+        upscale_factor = target_min_dimension / max(original_width, original_height)
+        upscaled_size = (int(original_width * upscale_factor), int(original_height * upscale_factor))
+        input_image = input_image.resize(upscaled_size, Image.LANCZOS)
+    else:
+        upscale_factor = 1  # No upscaling if already large enough
+
+    # Step 3: Remove background from the enhanced (possibly upscaled) headshot
     input_array = np.array(input_image)
     output_array = remove(input_array)
     headshot = Image.fromarray(output_array).convert("RGBA")
 
-    # Step 2: Detect chin and hairline
+    # Step 4: Enhance alpha channel for antialiasing
+    alpha = headshot.split()[3]
+    alpha_array = np.array(alpha)
+    # Threshold alpha channel to make it binary (fully opaque or fully transparent)
+    alpha_binary = (alpha_array > 200).astype(np.uint8) * 255
+    alpha_clean = Image.fromarray(alpha_binary)
+
+    # Step 5: Apply cleaned alpha channel to headshot
+    headshot_clean = Image.new("RGBA", headshot.size)
+    headshot_clean.paste(headshot, (0, 0), alpha_clean)
+    headshot = headshot_clean
+
+    # Step 5.5: Create a white glow and apply antialiasing to headshot edges
+    # Create an edge mask for antialiasing and glow
+    alpha_np = np.array(alpha_clean)
+    dilated_alpha = binary_dilation(alpha_np, structure=np.ones((headshot_border_thickness, headshot_border_thickness))).astype(np.uint8) * 255
+    eroded_alpha = binary_erosion(alpha_np, structure=np.ones((headshot_border_thickness, headshot_border_thickness))).astype(np.uint8) * 255
+    edge_mask = dilated_alpha - eroded_alpha
+
+    # Apply Gaussian blur to the alpha channel for smooth antialiasing
+    blurred_alpha = alpha_clean.filter(ImageFilter.GaussianBlur(radius=headshot_edge_blur_radius))
+    blurred_alpha_np = np.array(blurred_alpha)
+    final_alpha_np = np.where(edge_mask > 0, blurred_alpha_np, alpha_np)
+    final_alpha = Image.fromarray(final_alpha_np)
+
+    # Update headshot with antialiased edges
+    headshot_clean = Image.new("RGBA", headshot.size)
+    headshot_clean.paste(headshot, (0, 0), final_alpha)
+    headshot = headshot_clean
+
+    # Create a white glow layer with a smooth fade
+    glow_alpha = Image.fromarray(edge_mask).filter(ImageFilter.GaussianBlur(radius=headshot_glow_blur_radius))
+    glow_layer = Image.new("RGBA", headshot.size, (0, 0, 0, 0))  # Fully transparent base
+    glow_layer.paste((255, 255, 255, 255), (0, 0), glow_alpha)  # White glow only where edge_mask is non-zero
+
+    # Step 6: Detect chin and hairline (on original image, not enhanced, for accuracy)
     detection_result = detect_chin_and_hairline(input_image_path)
     if detection_result is None:
         print("Failed to detect chin and hairline. Skipping ellipsoid drawing and scaling.")
         chin_x, chin_y, hairline_x, hairline_y = 0, 0, 0, 0
-        # Fallback: Use original resizing logic
         headshot_width, headshot_height = headshot.size
         target_height = canvas_height - 2 * headshot_to_border_padding
         aspect_ratio = headshot_width / headshot_height
         target_width = int(target_height * aspect_ratio)
     else:
         chin_x, chin_y, hairline_x, hairline_y = detection_result
-        # Step 3: Scale headshot so chin-to-hairline distance matches
-        # canvas_height - 2 * headshot_to_border_padding
         headshot_width, headshot_height = headshot.size
-        face_height_pixels = abs(chin_y - hairline_y)  # Distance in original image
+        face_height_pixels = abs(chin_y - hairline_y) * upscale_factor  # Adjust for upscaling
         if face_height_pixels == 0:
             print("Invalid face height detected. Using fallback scaling.")
             target_height = canvas_height - 2 * headshot_to_border_padding
             aspect_ratio = headshot_width / headshot_height
             target_width = int(target_height * aspect_ratio)
         else:
-            # Calculate scaling factor so face height matches canvas height
-            # minus headshot_to_border_padding
             target_face_height = canvas_height - 2 * headshot_to_border_padding
             scale_factor = target_face_height / face_height_pixels
             target_height = int(headshot_height * scale_factor)
             target_width = int(headshot_width * scale_factor)
 
-    # Resize headshot
+    # Resize headshot and glow layer with antialiasing
     headshot = headshot.resize((target_width, target_height), Image.LANCZOS)
+    glow_layer = glow_layer.resize((target_width, target_height), Image.LANCZOS)
 
-
-    # Step 7: Paste the headshot
+    # Step 7: Calculate paste position
     if detection_result is not None:
-        # Calculate scaling factor used
         scale_x = target_width / headshot_width
         scale_y = target_height / headshot_height
-        # Calculate where hairline should be (padding from top)
-        headshot_y = headshot_to_border_padding - int(hairline_y * scale_y)  # Offset so hairline_y maps to padding
+        headshot_y = headshot_to_border_padding - int(hairline_y * scale_y * upscale_factor)  # Adjust for upscaling
     else:
-        # Fallback positioning
-        headshot_y = headshot_to_border_padding  # Center vertically within padded area
+        headshot_y = headshot_to_border_padding
 
-    # Center headshot horizontally
     headshot_x = int(text_right_boundary + ((canvas_width - headshot_to_border_padding) - text_right_boundary - target_width) / 2)
 
+    # Step 8: Paste glow layer and headshot onto canvas
+    canvas.paste(glow_layer, (headshot_x, headshot_y), glow_layer)
     canvas.paste(headshot, (headshot_x, headshot_y), headshot)
-    # Step 9: Draw ellipsoids on the canvas at transformed coordinates
+
+    # Step 9: Draw debug ellipsoids if enabled
     if detection_result is not None and debug:
-        # Transform chin and hairline coordinates to canvas
-        canvas_chin_x = headshot_x + chin_x * scale_x
-        canvas_chin_y = headshot_y + chin_y * scale_y
-        canvas_hairline_x = headshot_x + hairline_x * scale_x
-        canvas_hairline_y = headshot_y + hairline_y * scale_y
-
-        # Draw red ellipsoid for chin
-        draw.ellipse(
-            [(canvas_chin_x - 5, canvas_chin_y - 5), (canvas_chin_x + 5, canvas_chin_y + 5)],
-            fill=(255, 0, 0, 255)  # Red
-        )
-
-        # Draw blue ellipsoid for hairline
-        draw.ellipse(
-            [(canvas_hairline_x - 5, canvas_hairline_y - 5), (canvas_hairline_x + 5, canvas_hairline_y + 5)],
-            fill=(0, 0, 255, 255)  # Blue
-        )
+        draw_debug_ellipsoids(draw, detection_result, headshot_x, headshot_y, scale_x, scale_y, upscale_factor)
 
     # Step 10: Save the output
-    ################################################################################
-    ################################################################################
-    canvas.save(output_image_path, "PNG")
+    combined_image = Image.new('RGB', (canvas_width, canvas_height), (255, 255, 255))
+    combined_image.paste(canvas, (0, 0))
+    combined_image.save(output_image_path, "PNG")
 
 if __name__ == "__main__":
     create_image_with_headshot(
-        input_image_path="assets/podcast/02_steven_lavalle/headshot.png",
+        input_image_path="assets/podcast/04_sean_murray/headshot.png",
         output_image_path="output.png",
         name1="Hans P. S. Random",
         number="123",
         name2="Andreas Orthey",
-        border_color="#2e73ae"
-        )
+        border_color = "#6da3c5"
+    )

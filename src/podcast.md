@@ -30,7 +30,7 @@ nav_order: 2
 <div class="podcast-item">
   <div class="thumbnail-container">
   <a href="https://www.youtube.com/watch?v={{ podcast.youtube_id }}">
-    <img align="center" src="http://img.youtube.com/vi/{{ podcast.youtube_id }}/maxresdefault.jpg" alt="{{ podcast.title }} thumbnail">
+    <img align="center" src="{{ podcast.thumbnail }}" alt="{{ podcast.title }} thumbnail">
   </a>
   </div>
   <div class="podcast-content">

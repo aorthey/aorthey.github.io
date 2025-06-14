@@ -40,6 +40,7 @@
 	volume = {8},
 	number = {8},
 	pages = {4529--4536},
+	youtube = {Q-meni-gESI},
 	pdf = {https://arxiv.org/pdf/2212.02955.pdf},
 }
 
@@ -210,6 +211,7 @@
 	pages = {3576--3581},
 	year = {2015},
 	code = {https://github.com/aorthey/irreducible-curvature-projection},
+	youtube = {YXXN3TsvcHE},
 }
 
 @inproceedings{Stasse2014,

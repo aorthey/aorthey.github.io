@@ -1,14 +1,15 @@
 require 'httparty'
 require 'yaml'
+require 'fastimage' # Add this to check image dimensions
 
 module Jekyll
   class PodcastGenerator < Generator
     safe true
     priority :normal
+
     def extract_youtube_id(link)
       return link unless link.include?('http')
 
-      # Match common YouTube URL patterns
       patterns = [
         /(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
         /youtube\.com\/clip\/([a-zA-Z0-9_-]+)/
@@ -19,7 +20,6 @@ module Jekyll
         return match[1] if match
       end
 
-      # Return original link if no match found
       return link
     end
 
@@ -43,10 +43,19 @@ module Jekyll
               links_data = YAML.load_file(links_file)
 
               if links_data && links_data["youtube"]
-
                 outline_path = File.exist?(File.join(folder_path, "outline.txt")) ? "/assets/podcast/#{folder}/outline.txt" : nil
                 errata_path = File.exist?(File.join(folder_path, "errata.txt")) ? "/assets/podcast/#{folder}/errata.txt" : nil
                 transcript_path = File.exist?(File.join(folder_path, "transcript.txt")) ? "/assets/podcast/#{folder}/transcript.txt" : nil
+                thumbnail_path = File.exist?(File.join(folder_path, "thumbnail.png")) ? "/assets/podcast/#{folder}/thumbnail.png" : nil
+
+                # Check thumbnail dimensions if thumbnail exists
+                if thumbnail_path
+                  thumbnail_full_path = File.join(site.source, thumbnail_path)
+                  dimensions = FastImage.size(thumbnail_full_path)
+                  unless dimensions == [1280, 720]
+                    raise "Thumbnail at #{thumbnail_path} has dimensions #{dimensions}, expected 1280x720"
+                  end
+                end
 
                 podcast_data << {
                   "folder" => folder,
@@ -58,6 +67,7 @@ module Jekyll
                   "title" => links_data["title"],
                   "outline" => outline_path,
                   "transcript" => transcript_path,
+                  "thumbnail" => thumbnail_path,
                   "errata" => errata_path
                 }
               end
@@ -69,48 +79,6 @@ module Jekyll
       end
 
       site.data["podcasts"] = podcast_data
-    end
-
-    private
-
-    def fetch_youtube_title(video_id)
-      max_attempts = 2
-      attempt = 1
-      url = "https://www.youtube.com/watch?v=#{video_id}"
-
-      while attempt <= max_attempts
-        begin
-          response = HTTParty.get(url, {
-            headers: { "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" },
-            timeout: 30 # Add timeout to prevent hanging
-          })
-
-          if response.success?
-            match = response.body.match(/<title>(.*?) - YouTube<\/title>/)
-            if match && match[1]
-              Jekyll.logger.warn "Found #{match} | #{match[1]}"
-              return match[1].split('|').first.strip
-            end
-          end
-
-          # If we got here, title wasn't found - wait and retry
-          return nil if attempt == max_attempts
-          sleep_time = attempt * 2 # Increasing delay: 2, 4, 6, 8 seconds
-          Jekyll.logger.warn "YouTube Scraper:", "Attempt #{attempt} failed for #{video_id}, retrying in #{sleep_time}s..."
-          sleep(sleep_time)
-
-        rescue => e
-          if attempt == max_attempts
-            Jekyll.logger.warn "YouTube Scraper:", "All attempts failed for #{video_id}: #{e.message}"
-            return nil
-          end
-          sleep_time = attempt * 2
-          Jekyll.logger.warn "YouTube Scraper:", "Attempt #{attempt} error for #{video_id}: #{e.message}, retrying in #{sleep_time}s..."
-          sleep(sleep_time)
-        end
-
-        attempt += 1
-      end
     end
   end
 end
