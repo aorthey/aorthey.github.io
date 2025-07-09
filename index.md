@@ -20,8 +20,9 @@ nav_order: 1
 
 <ul>
 <li>Guest Lecturer for Motion Planning at <a href="https://www.tu.berlin" target="_blank">Technische Universität Berlin</a> (Since 2022) </li>
-<li>Associate Editor for International Conference on Intelligent Robots and Systems (IROS) (Since 2022) </li>
 <li>Associate Co-Chair for <a href="https://www.ieee-ras.org/algorithms-for-planning-and-control-of-robot-motion/contact">Technical Committee for Algorithms for Planning and Control of Robot Motion</a> (Since 2025)
+<li>Associate Editor for <a href="https://loop.frontiersin.org/people/3122143/overview" target="_blank">Frontiers in Robotics and AI</a> (Since 2025) </li>
+<li>Associate Editor for International Conference on Intelligent Robots and Systems (IROS) (Since 2022) </li>
 </li>
 </ul>
 
@@ -41,7 +42,7 @@ nav_order: 1
 
 <li class="link-item"> 
 <a href="src/podcast.html">Robotics Podcast Series</a>
-<span class="description">Enjoy my conversations on robotics with renowned experts in robotics research.
+<span class="description">Enjoy my conversations with renowned experts on science and technology.
 </span>
 </li>
 

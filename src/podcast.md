@@ -10,7 +10,7 @@ nav_order: 2
 <div class="image-text-container-podcast">
   <img src="/assets/images/podcast-portrait.png" alt="Podcast Logo" title="Podcast Logo" class="circular-image">
       <div margin-left="100px" align="center">
-          <p>Conversations on Robotics. Available on</p>
+          <p>Conversations on Science and Technology. Available on</p>
           <div class="links-wrapper">
           <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
           <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>

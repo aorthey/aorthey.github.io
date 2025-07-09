@@ -284,3 +284,7 @@ hr {
   padding: 0 0.5em;
   color: #777;
 }
+
+.footer-heading {
+  font-size: 0.85em;
+}

@@ -1,0 +1,3 @@
+Steve LaValle is one of the pioneers of robot motion planning. I got the rare opportunity to talk with him in my podcast series on robotics.
+
+Topics included his work on the Planning algorithms book, development of the rapidly-exploring random tree algorithm, minimal sufficient robot brains, doing motion planning research with his son, and his new life in Oulu, Finland. Please enjoy!
