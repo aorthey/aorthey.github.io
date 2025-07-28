@@ -11,7 +11,7 @@ nav_order: 2
 Here are some learning resources that I created. This includes motion planning
 lecture slides (created jointly with <a href="https://imrclab.github.io/teaching/motion-planning" target="_blank">Wolfgang Hönig</a>), some
 teaching notes, and code libraries which you might find helpful.
-
+ 
 <h2>Motion Planning Lecture Slides</h2>
 
 Please check <a href="https://imrclab.github.io/teaching/motion-planning" target="_blank">here</a> for an up-to-date version and videos.
@@ -86,56 +86,22 @@ Planners (EST, RRT-Connect, PRM*, LazyPRM, FMT*); Intro to Optimization</span>
 </li>
 
 </ul>
- 
+
 <h2>Teaching Notes</h2>
 
 <ul>
 
-<li class="link-item"> 
-<a href="/assets/notes/monte-carlo-tree-search.pdf" target="_blank">Monte Carlo Tree Search</a>
-<span class="description">Explains the Monte Carlo Tree Search algorithm, widely used in game playing and decision-making AI systems.</span>
-</li>
+{% assign pdfs = site.data.pdf-notes %}
+
+{% for pdf in pdfs %}
 
 <li class="link-item"> 
-<a href="/assets/notes/policy-gradients.pdf" target="_blank">Policy Gradients</a>
-<span class="description">Details policy gradient methods in reinforcement learning.</span>
+<a href="{{ pdf.filename }}" target="_blank">{{ pdf.title }} ({{ pdf.date }})</a>
+<span class="description">{{ pdf.description }}</span>
 </li>
 
-<li class="link-item"> 
-<a href="/assets/notes/convexity-in-functional-spaces.pdf" target="_blank">Convexity in Functional Spaces</a>
-<span class="description">Small introduction to applying convex constraints on functional spaces.</span>
-</li>
+{% endfor %}
 
-<li class="link-item"> 
-<a href="/assets/notes/box-on-polytope-surface-element.pdf" target="_blank">Quaders on polytope surfaces</a>
-<span class="description">How to formulate geometric quaders above the surface of a polytope.</span>
-</li>
-
-<li class="link-item"> 
-<a href="/assets/notes/markov-decision-processes.pdf" target="_blank">Markov Decision Processes</a>
-<span class="description">Brief intro to Markov Decision Processes used in reinforcement learning and decision theory.</span>
-</li>
-
-<li class="link-item"> 
-<a href="/assets/notes/max-circle-on-polytope-surface.pdf" target="_blank">Maximum circle on a polytope surface</a>
-<span class="description">Describes how to find the maximum circle constrained to the surface of a polytope using convex optimization.</span>
-</li>
-
-<li class="link-item"> 
-<a href="/assets/notes/polytope-split-by-polytope.pdf" target="_blank">Projections of Polytopes onto lower-dimensional Polytopes</a>
-<span class="description">Ways of how the projection of a polytope onto another polytope changes its topology.</span>
-</li>
-
-<li class="link-item"> 
-<a href="/assets/notes/projection-point-onto-hyperplane.pdf"
-target="_blank">Projection of a point onto a Hyperplane</a>
-<span class="description">Shows how to project a point onto a hyperplane, a common operation in linear algebra and optimization.</span>
-</li>
-
-<li class="link-item"> 
-<a href="/assets/notes/riemannian-center-of-mass.pdf" target="_blank">Riemannian Center of Mass</a>
-<span class="description">Describes the concept of the Riemannian center of mass, a generalization of the center of mass to manifolds.</span>
-</li>
 </ul>
 
 <h2>Code</h2>

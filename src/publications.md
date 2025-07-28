@@ -17,7 +17,7 @@ nav_order: 2
 <a href="https://scholar.google.com/citations?user=bQKreEMAAAAJ" target="_blank">Link to Google Scholar Profile</a>
 </li>
 <li>
-<a href="https://arxiv.org/find/all/1/au:+Orthey_Andreas/0/1/0/all/0/1?per_page=50" target="_blank">Link to arXiv Preprints</a>
+<a href="https://arxiv.org/search/?query=Andreas+Orthey&searchtype=all&abstracts=show&order=-announced_date_first&size=100" target="_blank">Link to arXiv Preprints</a>
 </li>
 <li>
 <a href="https://dblp.org/pid/133/2362.html" target="_blank">Link to dblp Profile</a>
