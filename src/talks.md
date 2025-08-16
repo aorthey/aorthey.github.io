@@ -10,21 +10,6 @@ nav_order: 2
 Below is a list of invited talks, conference talks, and guest lectures, sorted by date (most recent
 first). All talks are in-person if not marked as online.
 
-<!-- {% if site.data.talks.talks %} -->
-<!--   <dl class="talks-list"> -->
-<!--   {% assign sorted_presentations = site.data.talks.talks | sort_presentations %} -->
-<!--   {% for presentation in sorted_presentations %} -->
-<!--     <dt><strong>{{ presentation.name }}</strong></dt> -->
-<!--     <dd> -->
-<!--       <em>{{ presentation.location }}</em><br> -->
-<!--       {{ presentation.type | capitalize }} <span class="pipe">|</span> {{ presentation.month }} {{ presentation.year }} -->
-<!--     </dd> -->
-<!--   {% endfor %} -->
-<!--   </dl> -->
-<!-- {% else %} -->
-<!--   <p class="error">Error: No presentation data found. Please check <code>_data/talks/talks.yml</code>.</p> -->
-<!-- {% endif %} -->
-
 {% if site.data.talks.talks %}
   <ul class="talks-list">
   {% assign sorted_presentations = site.data.talks.talks | sort_presentations %}
