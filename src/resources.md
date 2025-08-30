@@ -8,10 +8,30 @@ nav_order: 2
 
 <h1>Resources</h1>
 
-Here are some learning resources that I created. This includes motion planning
-lecture slides (created jointly with <a href="https://imrclab.github.io/teaching/motion-planning" target="_blank">Wolfgang Hönig</a>), some
-teaching notes, and code libraries which you might find helpful.
+Here are some learning resources that I created. This includes teaching notes, motion planning
+lecture slides (created jointly with <a href="https://imrclab.github.io/teaching/motion-planning" target="_blank">Wolfgang Hönig</a>), and code libraries which you might find helpful.
+
+<!-- ------------------------------------------------------------------------------ -->
+
+<h2>Teaching Notes</h2>
+
+<ul>
+
+{% assign pdfs = site.data.pdf-notes %}
+
+{% for pdf in pdfs %}
+
+<li class="link-item"> 
+<a href="{{ pdf.filename }}" target="_blank">{{ pdf.title }} ({{ pdf.date }})</a>
+<span class="description">{{ pdf.description }}</span>
+</li>
+
+{% endfor %}
+
+</ul>
  
+<!-- ------------------------------------------------------------------------------ -->
+
 <h2>Motion Planning Lecture Slides</h2>
 
 Please check <a href="https://imrclab.github.io/teaching/motion-planning" target="_blank">here</a> for an up-to-date version and videos.
@@ -44,25 +64,25 @@ Please check <a href="https://imrclab.github.io/teaching/motion-planning" target
 
 <li class="link-item"> 
 <a href="/assets/lectures/motion-planning/06_lecture.pdf" target="_blank">Lecture 6</a>
-<span class="description">Tree-based and Asymptotically-Optimal Planning</span>
-</li>
-
-<li class="link-item"> 
-<a href="/assets/lectures/motion-planning/07_lecture.pdf" target="_blank">Lecture 7</a>
-<span class="description">Kinodynamic Planning: Kinodynamic RRT, SST*, AO-x
-Geometric Planning: RRT-Connect, EST, PRM*</span>
-</li>
-
-<li class="link-item"> 
-<a href="/assets/lectures/motion-planning/08_lecture.pdf" target="_blank">Lecture 8</a>
 <span class="description">Introduction to the Open Motion Planning Library
 (OMPL)</span>
 </li>
 
 <li class="link-item"> 
+<a href="/assets/lectures/motion-planning/07_lecture.pdf" target="_blank">Lecture 7</a>
+<span class="description">RRT, RRT*, Kinodynamic RRT</span>
+</li>
+
+<li class="link-item"> 
+<a href="/assets/lectures/motion-planning/08_lecture.pdf" target="_blank">Lecture 8</a>
+<span class="description">Kinodynamic Planning: SST*, AO-x,
+Geometric Planning: Informed RRT*, BIT*</span>
+</li>
+
+<li class="link-item"> 
 <a href="/assets/lectures/motion-planning/09_lecture.pdf" target="_blank">Lecture 9</a>
-<span class="description">Sampling-Based Motion Planning: More Theory and
-Planners (EST, RRT-Connect, PRM*, LazyPRM, FMT*); Intro to Optimization</span>
+<span class="description">Sampling-Based Motion Planning: Theory and
+Advanced Planners; Intro to Optimization</span>
 </li>
 
 <li class="link-item"> 
@@ -72,12 +92,13 @@ Planners (EST, RRT-Connect, PRM*, LazyPRM, FMT*); Intro to Optimization</span>
 
 <li class="link-item"> 
 <a href="/assets/lectures/motion-planning/11_lecture.pdf" target="_blank">Lecture 11</a>
-<span class="description">Differential Flatness and SCP</span>
+<span class="description">Optimization-Based Motion Planning: Differential Flatness and SCP</span>
 </li>
 
 <li class="link-item"> 
 <a href="/assets/lectures/motion-planning/12_lecture.pdf" target="_blank">Lecture 12</a>
-<span class="description">Optimization Wrap-Up and Method Comparison</span>
+<span class="description">Advanced Optimization, Comparison, and Hybrid
+Approaches</span>
 </li>
 
 <li class="link-item"> 
@@ -87,26 +108,18 @@ Planners (EST, RRT-Connect, PRM*, LazyPRM, FMT*); Intro to Optimization</span>
 
 </ul>
 
-<h2>Teaching Notes</h2>
-
-<ul>
-
-{% assign pdfs = site.data.pdf-notes %}
-
-{% for pdf in pdfs %}
-
-<li class="link-item"> 
-<a href="{{ pdf.filename }}" target="_blank">{{ pdf.title }} ({{ pdf.date }})</a>
-<span class="description">{{ pdf.description }}</span>
-</li>
-
-{% endfor %}
-
-</ul>
+<!-- ------------------------------------------------------------------------------ -->
 
 <h2>Code</h2>
 
 <ul>
+
+<li class="link-item"> 
+<a href="https://github.com/aorthey/MotionExplorer" target="_blank">Motion Explorer</a>
+<span class="description">
+A framework to visualize the structure of planning problems using local-minima trees</span>
+</li>
+
 <li class="link-item"> 
 <a href="https://github.com/aorthey/ompl_benchmark_plotter" target="_blank">OMPL Benchmark Plotter</a>
 <span class="description">Plot benchmarks from the Open Motion Planning Library (OMPL)</span>
