@@ -2,6 +2,7 @@
 title: Home
 layout: home
 nav_order: 1
+hide_h1: true
 ---
 
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">

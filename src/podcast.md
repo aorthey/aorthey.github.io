@@ -25,8 +25,10 @@ nav_order: 2
 
 <h2 align="left">List of Episodes</h2>
 {% assign total_podcasts = site.data.podcasts | size %}
-{% for podcast in site.data.podcasts %}
-{% assign episode_number = total_podcasts | minus: forloop.index0 %}
+{% for podcast in site.data.podcasts reversed %}
+{% assign episode_number = forloop.index %}
+<!-- for podcast in site.data.podcasts -->
+<!-- assign episode_number = total_podcasts | minus: forloop.index0 -->
 <div class="podcast-item">
   <div class="thumbnail-container">
   <a href="https://www.youtube.com/watch?v={{ podcast.youtube_id }}">

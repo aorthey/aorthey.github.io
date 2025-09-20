@@ -56,7 +56,15 @@ nav_order: 2
 
 {% endfor %}
 
-<h2>Student Theses</h2>
+<h2>Supervised Student Theses</h2>
+
+<!--
+- Franz Queißner, _Multi-Robot Task and Motion Planning_, M.Sc. Thesis, Technische Universität Berlin, 2026 (Expected)
+
+- Ladislaus Finger, _Dynamical Grasping for Disassembly Tasks_, M.Sc. Thesis, Technische Universität Berlin, 2026 (Expected)
+
+- Jakob Schlanstedt, _Active Interconnection for Disassembly Tasks_, B.Sc. Thesis, Technische Universität Berlin, 2026 (Expected)
+-->
 
 - Nicolas Hargus, _Multi-Robot Motion Planning for Disassembly Tasks_, M.Sc. Thesis, Technische Universität Berlin, 2025 (Expected)
 
