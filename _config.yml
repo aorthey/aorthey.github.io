@@ -50,6 +50,7 @@ include:
   - assets/css/
   - assets/js/
   - assets/generate/
+  - assets/podcast/
 
 theme: minima
 

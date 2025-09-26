@@ -1,6 +1,0 @@
-Imagine tiny robots moving through your bloodstream, breaking down blood clots, repairing damaged cells, or delivering targeted drugs to tumor sites.
-
-This isn't science fiction---it is the real-world potential of microrobotics, a field on the verge of revolutionizing robotics research and transforming medicine as we know it.
-
-In episode #3 of my podcast, I sit down with leading expert Brad Nelson, Professor of Robotics and Intelligent Systems at ETH Zürich, to explore the fascinating world of robots at the smallest scales.
-

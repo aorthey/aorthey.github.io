@@ -1,0 +1,2628 @@
+[0.00s - 3.22s] Welcome to the Andreas Autai podcast series on robotics.
+[3.96s - 6.44s] My guest in this episode is Majid Khadif.
+[7.24s - 11.82s] Majid is a professor for AI planning in dynamic environments at TU Munich
+[11.82s - 15.46s] and one of the experts on locomotion for humanoid robots.
+[16.34s - 20.24s] We will talk in this episode about his unique path from being born in Iran
+[20.24s - 23.18s] to become a professor at the TU Munich,
+[23.66s - 27.54s] how he has the ability to visualize dynamical equations in his mind,
+[27.54s - 30.78s] and of course about the future of humanoid robotics.
+[31.54s - 33.68s] I'm happy that he was able to join me.
+[33.98s - 35.84s] Please welcome Majid Khadif.
+[36.46s - 40.50s] Hi Majid, thanks for coming on to the podcast.
+[40.90s - 41.80s] Hi, no pleasure.
+[43.08s - 47.26s] So yeah, what I really want to talk to you about today is humanoid
+[47.26s - 49.58s] and how to control it.
+[50.56s - 55.44s] And I think you are definitely the perfect person to talk about this
+[56.04s - 57.50s] because you have actually,
+[57.54s - 59.82s] you researched that at the TU Munich,
+[60.08s - 64.68s] where you researched humanoid robots and how to control them.
+[65.58s - 66.78s] But before we go there,
+[66.96s - 69.36s] maybe we can talk a little bit about your background.
+[69.88s - 71.66s] You're originally from Iran, right?
+[71.66s - 72.24s] Yes, yeah.
+[72.96s - 76.22s] So how was actually your childhood in Iran?
+[76.88s - 80.10s] And how did you actually get to the point
+[80.10s - 83.20s] where you wanted to study mechanical engineering?
+[83.20s - 83.44s] Yeah.
+[83.86s - 86.94s] So how was your path towards that?
+[86.94s - 91.06s] Yeah, I'm sorry, I don't have any interesting story.
+[91.06s - 91.56s] Yeah.
+[91.56s - 98.56s] So we have an entrance exam in Iran before the university,
+[98.56s - 100.94s] and it's a very heavy exam.
+[100.94s - 104.32s] So you study for it for one year and it's a four-hour exam.
+[104.32s - 107.02s] It's very stressful and everything.
+[107.02s - 111.60s] And then when you have a very good rank in the exam,
+[111.60s - 116.10s] then normally, and I did in the math and physics,
+[116.10s - 116.94s] my math and physics.
+[116.94s - 118.32s] I did a major in high school.
+[118.32s - 122.44s] You go, at the time you would go either to mechanical engineering
+[122.44s - 124.06s] and electrical engineering, right?
+[124.06s - 126.44s] That was the path.
+[126.44s - 127.44s] Okay.
+[127.44s - 132.60s] And since I didn't like so much electrical engineering at the moment,
+[132.60s - 134.32s] I went for mechanical engineering.
+[134.32s - 134.94s] Okay.
+[134.94s - 138.64s] But what was the point in your life where you realized
+[138.64s - 141.36s] you wanted to actually do mechanical engineering
+[141.36s - 145.86s] and not, for example, something like physics, computer science?
+[145.86s - 146.52s] Yeah.
+[146.94s - 151.24s] To be honest, I always was fascinated by physics, right?
+[151.24s - 152.78s] I still love physics.
+[152.78s - 154.60s] I read a lot about physics.
+[154.60s - 157.48s] And the main reason that I went to mechanical engineering
+[157.48s - 161.48s] because I liked so much the physics of mechanics, you know,
+[161.48s - 164.98s] that was the main reason because I was already in the,
+[164.98s - 167.18s] you know, mathematics and physics.
+[167.18s - 174.18s] I think the closest thing that matched my interest was mechanical engineering.
+[174.18s - 175.28s] Then I started.
+[175.28s - 175.94s] Okay.
+[175.94s - 176.48s] Yeah.
+[176.48s - 176.90s] Okay.
+[176.90s - 181.32s] So, the bachelor, I didn't like all the courses,
+[181.32s - 185.52s] but again, the course that really attracted me was dynamics,
+[185.52s - 188.44s] which is about dynamics of motions, right?
+[188.44s - 191.90s] And there I figured out, okay, this is exactly what I want.
+[191.90s - 193.98s] Then I did a bit of control.
+[193.98s - 196.90s] It was very complicated, but still I said, oh, that's cool
+[196.90s - 199.44s] because now I can control my dynamics.
+[199.44s - 204.52s] I can steer the behavior of the whatever object it is.
+[204.52s - 206.90s] And that's why, you know, that was the point.
+[206.90s - 209.06s] I said, okay, I want to do something like this.
+[209.06s - 213.52s] How did you become interested in physics in the first place?
+[213.52s - 218.70s] So, was it like a teacher was really inspiring or like you read some resources?
+[218.70s - 220.74s] Or how does this?
+[220.74s - 222.06s] To be honest, I don't know.
+[222.06s - 230.98s] But I think in the high school, this was the thing that I felt I know internally, you know.
+[230.98s - 231.52s] Already?
+[231.52s - 231.90s] Yeah.
+[231.90s - 234.36s] It's like my intuition.
+[234.36s - 236.74s] I talk to many people in my field.
+[236.90s - 241.06s] There are some people whose intuition comes from math.
+[241.06s - 244.36s] My intuition comes fully from physics, nothing from math.
+[244.36s - 246.56s] If I look at the equation, I don't understand anything.
+[246.56s - 247.10s] Okay.
+[247.10s - 251.56s] Until I can feel them physically, you know, then I understand that.
+[251.56s - 255.02s] So, what does it actually entail to feel something physically?
+[255.02s - 262.56s] So, would you say that it's basically in your genes of how you think or?
+[262.56s - 263.14s] I think so.
+[263.14s - 266.52s] I think it's exactly the way I think is about physics.
+[266.52s - 266.86s] Okay.
+[266.86s - 272.74s] It's about, you know, the prediction, you know, how the motion of something will evolve into the future.
+[272.74s - 277.74s] And yeah, this is the thing that I can't math.
+[277.74s - 278.82s] It's okay.
+[278.82s - 280.10s] Not that I hate it.
+[280.10s - 281.52s] I like it.
+[281.52s - 286.86s] But it's not my thing because again, it's not the thing that I feel like.
+[286.86s - 292.24s] So, whenever I look at the equation, I try to imagine what it means in the physical world.
+[292.24s - 295.48s] If I don't understand it, I never can, you know.
+[295.48s - 296.06s] And when you look at the equation, you can't understand it.
+[296.06s - 296.28s] And when you look at the equation, you can't understand it.
+[296.28s - 296.78s] And when you look at the equation, you can't understand it.
+[296.78s - 302.16s] When you say, try to imagine it, is it like, say, try to visualize some problems somehow?
+[302.16s - 302.86s] Yeah.
+[302.86s - 304.90s] How does it work for you?
+[304.90s - 309.28s] It's all of visual, it's not visualization in terms of geometry.
+[309.28s - 312.82s] It's visualization about how things move over time.
+[312.82s - 323.70s] So, I always think about it like this, you know, if what happens if I, for instance, do this action to this equation, how it will evolve over time, you know.
+[323.70s - 324.32s] Okay.
+[324.32s - 326.24s] So, basically in your head.
+[326.28s - 331.96s] Things are starting to move and you're trying to imagine how the path of.
+[331.96s - 335.58s] Or the objects that evolved is looking nice.
+[335.58s - 337.62s] That's that's interesting.
+[337.62s - 339.20s] So I think a lot of mental.
+[339.20s - 342.58s] They actually say that they're also trying to visualize things.
+[342.58s - 352.16s] When I think most people die here as it's always about trying to mention something or visualize something, which is static and you would actually say that you try to do the same line, four, four.
+[352.16s - 354.32s] So I think you would actually say that you try to do the same.
+[354.32s - 354.78s] Same line.
+[354.78s - 355.94s] To say that you do.
+[355.94s - 356.12s] For four.
+[356.12s - 356.16s] So, I see.
+[356.16s - 356.28s] Yeah.
+[356.28s - 358.18s] like a motion type of thing.
+[358.78s - 360.52s] Actually, we had a class,
+[360.68s - 362.10s] of course, in my bachelor's
+[362.10s - 363.22s] that was called static.
+[363.78s - 364.92s] I didn't like it.
+[365.70s - 367.54s] It was about when the system
+[367.54s - 368.64s] is statically stable,
+[368.84s - 370.26s] or balanced, let's say.
+[370.64s - 371.92s] So you're more the dynamics.
+[372.04s - 373.70s] Dynamics, how systems move.
+[373.96s - 375.74s] It's all about movement for me.
+[376.70s - 379.48s] And then, of course,
+[379.58s - 380.66s] it made sense for you
+[380.66s - 384.06s] to go into mechanical engineering, right?
+[384.06s - 386.20s] So you already said
+[386.20s - 388.70s] that you have this entrance exam,
+[388.88s - 391.02s] and it's super difficult.
+[391.72s - 394.02s] So how does it actually work in Iran?
+[395.24s - 396.02s] I mean, again,
+[396.22s - 397.40s] so at the moment,
+[397.90s - 400.48s] I was in the field of mathematics
+[400.48s - 401.86s] and physics.
+[402.92s - 404.04s] At that time,
+[404.12s - 405.10s] that was the hot topic.
+[405.64s - 406.48s] Now it's not anymore.
+[406.58s - 407.76s] Now experimental sciences
+[407.76s - 408.66s] are the hot topic.
+[408.90s - 409.96s] But at the moment,
+[410.04s - 411.88s] it was really the mathematics
+[411.88s - 412.52s] and physics.
+[412.82s - 413.86s] And then it was,
+[414.06s - 415.96s] a very intense competition.
+[416.14s - 416.88s] Let's say there are
+[416.88s - 419.92s] 350,000 students
+[419.92s - 420.98s] that attend,
+[421.40s - 422.42s] all countrywide,
+[423.08s - 424.12s] they attend this exam.
+[424.28s - 426.50s] That is all for mechanical engineering?
+[426.70s - 428.02s] No, this is for engineering,
+[428.20s - 428.98s] all the engineering.
+[429.54s - 430.42s] Okay, yeah.
+[430.68s - 431.74s] And then, for instance,
+[431.74s - 433.14s] when you get something
+[433.14s - 435.36s] that is below 1,000,
+[435.70s - 436.88s] this is good enough.
+[436.94s - 438.84s] You can go to the good universities.
+[438.84s - 440.48s] If you go below 100,
+[440.88s - 442.26s] then you can go, for instance,
+[442.32s - 443.36s] to the best university.
+[443.36s - 445.68s] And is there a really big difference
+[445.68s - 448.30s] between the universities in Iran?
+[450.46s - 451.34s] So is it more like,
+[451.64s - 452.72s] is it similar to like
+[452.72s - 454.56s] IONIQs in the U.S.
+[454.64s - 455.76s] versus like maybe like
+[455.76s - 458.06s] some community college in the U.S.
+[458.20s - 460.34s] where there's a stark difference
+[460.34s - 461.66s] between...
+[461.66s - 462.80s] I think I would say
+[462.80s - 464.48s] the universities of Germany
+[464.48s - 466.12s] are much more unified.
+[466.58s - 466.86s] Yeah.
+[467.20s - 467.46s] Right?
+[467.62s - 470.50s] They are somehow similar quality.
+[471.34s - 472.58s] But there, no.
+[472.58s - 473.04s] I think,
+[473.04s - 474.54s] so the universities in Tehran
+[474.54s - 475.72s] normally are much better.
+[476.26s - 477.96s] And everybody wants to go there.
+[478.58s - 480.34s] And also in some of the cities.
+[480.54s - 481.04s] So my bachelor,
+[481.20s - 482.60s] actually, I didn't go to Tehran,
+[482.70s - 484.50s] but there was another good university
+[484.50s - 486.18s] in Isfahan,
+[486.40s - 488.40s] which is a city close to my hometown.
+[488.72s - 490.12s] I went there for my bachelor.
+[490.64s - 491.98s] But for my master and PhD,
+[492.08s - 493.38s] I went to Tehran, basically.
+[494.36s - 496.86s] So you changed universities in the U.S.?
+[496.86s - 496.88s] Yeah.
+[497.72s - 498.04s] So it's...
+[499.34s - 500.54s] Normally, again,
+[500.54s - 502.70s] the people who get
+[503.04s - 503.54s] the best rank
+[503.54s - 504.60s] go to the best university.
+[504.60s - 506.24s] And I did say there is a clear,
+[506.24s - 508.30s] very standard kind of ranking
+[508.30s - 509.20s] of the universities.
+[509.40s - 511.00s] And did you actually have to, like,
+[511.00s - 513.54s] prepare a lot of time in advance
+[513.54s - 514.98s] for this exam?
+[514.98s - 517.86s] Yeah, I did one year of full day, right?
+[517.86s - 519.18s] Every day, maybe, I don't know,
+[519.18s - 520.94s] eight hours, ten hours of studying
+[520.94s - 521.60s] for this exam.
+[521.72s - 522.60s] And you have, like,
+[522.84s - 524.32s] special classes for that?
+[524.32s - 525.52s] Or how does it work?
+[525.52s - 527.00s] Is it you study on your own?
+[527.10s - 528.82s] So basically, you study on your own.
+[528.82s - 531.02s] Basically, in the year of the...
+[531.02s - 532.88s] So we have, after high school,
+[532.88s - 533.56s] we have one year
+[533.56s - 534.92s] for three universities.
+[535.64s - 536.64s] And that time,
+[536.64s - 539.50s] you don't have a full year of classes.
+[540.16s - 541.64s] It's a bit shorter, right?
+[542.36s - 545.38s] And then it's a bit more relaxed,
+[545.38s - 546.62s] let's say, the courses.
+[546.62s - 547.06s] Okay.
+[547.06s - 548.06s] You have enough time
+[548.54s - 550.12s] to basically spend for the,
+[550.40s - 552.20s] basically, entrance exam.
+[552.20s - 553.94s] And actually, it's called concours,
+[553.94s - 555.94s] which comes from French language, right?
+[555.94s - 556.44s] Ah, okay.
+[556.44s - 557.60s] Yeah, I heard that they have
+[557.60s - 559.00s] something similar there.
+[559.00s - 559.50s] Yeah.
+[560.44s - 560.84s] Okay.
+[560.84s - 562.86s] And so what kind...
+[562.88s - 564.40s] What kind of things do they ask
+[564.40s - 565.92s] in those kinds of exams?
+[565.92s - 567.68s] It's crazy because it's very wide.
+[567.68s - 569.96s] So basically, you have literature,
+[569.96s - 573.64s] you have English or any other foreign...
+[573.64s - 575.84s] Not any other, some other foreign languages.
+[575.84s - 578.00s] I think you could choose German if you wanted.
+[578.00s - 578.50s] Okay.
+[578.50s - 581.24s] Also, so you have a little bit of choice
+[581.24s - 582.40s] in what kind of topics.
+[582.40s - 583.92s] Only for the foreign language.
+[583.92s - 584.80s] Oh, okay.
+[584.80s - 586.12s] Only for the foreign language.
+[586.12s - 586.92s] Not for everything.
+[586.92s - 588.32s] No, literature is fixed.
+[588.32s - 591.28s] And then you have mathematics, physics, chemistry.
+[591.28s - 592.68s] And...
+[592.88s - 593.92s] She asked something.
+[593.92s - 595.92s] I don't remember everything.
+[595.92s - 597.88s] Yeah, I think that was it.
+[597.88s - 600.68s] And you have few questions for each topic.
+[600.68s - 602.12s] And this is the whole...
+[602.12s - 602.76s] It comes...
+[602.76s - 605.92s] Yeah, the questions can be from the first grade
+[605.92s - 608.16s] of high school, second grade or third grade,
+[608.16s - 609.48s] or pre-university.
+[609.48s - 610.16s] Right.
+[610.16s - 611.60s] It says, yeah.
+[611.60s - 612.96s] It's a very dense exam.
+[612.96s - 613.28s] Wow.
+[613.28s - 618.84s] And so what was your best and your worst topics?
+[618.84s - 620.28s] My best topic was physics.
+[620.28s - 621.56s] Wow.
+[621.56s - 622.16s] Of course.
+[622.16s - 623.72s] Worst topic...
+[623.72s - 624.96s] I mean, it also depends, right?
+[624.96s - 628.24s] Because that year, mathematics was super difficult.
+[628.24s - 630.12s] My worst percentage was mathematics,
+[630.12s - 633.36s] but it didn't mean that, you know...
+[633.36s - 637.40s] But yeah, I basically...
+[637.40s - 639.72s] But in physics, I did very well, basically.
+[639.72s - 642.84s] But in mathematics, it was okay.
+[642.84s - 646.48s] But also, it was a bit low, but all people were low, you know,
+[646.48s - 649.88s] because it was difficult that year, the mathematics.
+[649.88s - 651.20s] And then you got, like, a degree in...
+[651.20s - 651.32s] Yeah.
+[651.32s - 651.56s] Yeah.
+[651.56s - 651.80s] Yeah.
+[651.80s - 651.88s] Yeah.
+[651.88s - 652.12s] Yeah.
+[652.12s - 652.64s] Yeah.
+[652.64s - 655.20s] I got a very good rank, I guess, right?
+[655.20s - 658.00s] Not super, super good, but good.
+[658.00s - 659.84s] And then you could, like, choose...
+[659.84s - 659.96s] Yeah.
+[659.96s - 660.92s] ...what you wanted to do?
+[660.92s - 661.80s] Yeah.
+[661.80s - 662.24s] Okay.
+[662.24s - 666.88s] And then, at some point, you decided to do mechanical engineering.
+[666.88s - 667.20s] Exactly.
+[667.20s - 667.92s] Right?
+[667.92s - 668.44s] Yeah.
+[668.44s - 671.28s] And so, what was studies like?
+[671.28s - 674.84s] And was there maybe a specific point where you already, like,
+[674.84s - 679.04s] felt this, I don't know, attraction of robotics?
+[679.04s - 680.64s] So, in bachelor, no.
+[680.64s - 682.08s] So, in bachelor, I got...
+[682.12s - 688.66s] interested in dynamics and control and to me robotics is a combination of this dynamics and
+[688.66s - 694.70s] control in my so i still i didn't know i said oh i like this but i don't know what can i still
+[694.70s - 698.68s] didn't know that robotics would be the best thing that can really bring these two together
+[698.68s - 705.36s] i started my master and then first semester i had the robotics course and i said oh okay that's
+[705.36s - 713.28s] that's exactly what i want to do so how is actually the structure of bachelor master and phd
+[713.28s - 719.36s] in iran is it basically that you have like three years of bachelor two years of master and then you
+[719.36s - 726.08s] start a phd or is the master and phd somehow like interrelated a bit no basically you do four years
+[726.08s - 732.94s] of bachelor then again there's another entrance exam and then again if you get a very good grade
+[732.94s - 735.34s] you go to better you know university or
+[735.36s - 741.64s] so on and then you do you have two years of master there's another entrance exam and then you go to
+[741.64s - 748.84s] phd okay because since uh yeah this is the the national universities basically you didn't you
+[748.84s - 755.44s] don't need to pay any tuition fee right so they select based on this entrance exam makes sense
+[755.44s - 763.18s] and so you basically changed university after four years of bachelor and then you did two years of
+[763.18s - 764.98s] master in
+[764.98s - 765.34s] you
+[765.36s - 770.08s] UILT and a master in engineering that's really nice and different after three years of master
+[770.08s - 773.14s] it's interesting because by then people didn't say that pang yong yin jian is looking for businesses
+[773.16s - 775.40s] in any city so now you have to like really look for yourself you're able to ask for a paralegal
+[775.40s - 778.70s] maybe that's all that's happening these days you're a really good happier man what's going on
+[778.70s - 785.74s] basically this university you used to study we're still in the US because behaviorist
+[785.74s - 789.58s] it so yeah so that's the that's theние and i think it's better for because people have they
+[789.58s - 790.84s] no下面
+[790.86s - 793.98s] something to say because they also care about
+[794.10s - 794.58s] my
+[794.58s - 794.96s] thing
+[794.96s - 795.30s] my
+[795.30s - 795.34s] okay
+[795.34s - 797.20s] big of a change. But no, going from
+[797.20s - 799.32s] a swan to Tehran, it was
+[799.32s - 801.62s] okay. I wouldn't say it was a big change.
+[801.90s - 803.36s] And in terms of difficulty
+[803.36s - 805.10s] of the courses, was there
+[805.10s - 807.68s] a difference
+[807.68s - 809.14s] or was it roughly
+[809.14s - 811.10s] equivalent? To Germany?
+[811.40s - 812.82s] No, between bachelor's.
+[812.82s - 813.94s] They are similar.
+[815.24s - 816.62s] Okay. And then
+[816.62s - 818.96s] how does it actually work for a PhD
+[818.96s - 819.72s] in Iran?
+[820.00s - 823.00s] You said that there is an entrance exam
+[823.00s - 824.52s] and if you
+[824.52s - 827.00s] admit it,
+[827.04s - 828.44s] then you can basically choose
+[828.44s - 830.82s] the supervisor? So PhD is a bit different.
+[831.38s - 832.68s] So the bachelor
+[832.68s - 834.58s] and master are the same. So you just
+[834.58s - 836.60s] based on the rank, you go to
+[836.60s - 837.82s] university. For PhD,
+[838.50s - 840.36s] there is this written kind of exam.
+[840.36s - 842.32s] Once you pass that, you can
+[842.32s - 844.14s] choose some different
+[844.14s - 845.88s] university and some different supervisor
+[845.88s - 848.32s] and then you are invited for
+[848.32s - 850.66s] interview. And based on the interview,
+[851.16s - 852.06s] if the professor
+[852.06s - 853.96s] wants you, then you can...
+[853.96s - 856.64s] And so the entrance exam,
+[857.10s - 858.26s] is it
+[858.26s - 860.58s] markedly different
+[860.58s - 862.34s] from the one which you had
+[862.34s - 864.40s] for bachelor and master or is it
+[864.40s - 865.54s] roughly equivalent?
+[865.92s - 868.38s] No, the one to go to bachelor is the
+[868.38s - 869.44s] most competitive one.
+[869.88s - 872.32s] It's very difficult. But then for the
+[872.32s - 874.36s] master, it's okay. For PhD, it's
+[874.36s - 876.56s] very cheap. But is it different in terms
+[876.56s - 877.98s] of questions? Yeah, yeah, yeah.
+[878.16s - 879.98s] Because for the master, basically,
+[880.34s - 882.26s] when you go for the entrance exam or
+[882.26s - 883.74s] master, it's much more focused.
+[883.96s - 886.18s] Now you do it in mechanical
+[886.18s - 888.34s] engineering or in, you know, and then
+[888.34s - 890.24s] for PhD, it's even more focused.
+[890.72s - 891.82s] Okay. But for
+[891.82s - 894.40s] entrance of bachelor, it's very general.
+[894.64s - 896.24s] You do physics, chemistry,
+[896.84s - 898.12s] mathematics, literature,
+[898.12s - 899.40s] you know, everything.
+[899.94s - 902.30s] And so for the PhD entrance
+[902.30s - 904.54s] exam, what kind of like...
+[904.54s - 905.94s] Do you already choose like the
+[905.94s - 908.40s] topic of robotics, for example,
+[908.62s - 909.58s] or of patrol?
+[910.24s - 912.32s] No, actually, you know the professor
+[912.32s - 913.92s] and then basically you go to the...
+[913.96s - 916.34s] directly to a topic, you know. I said I want to do...
+[916.34s - 920.46s] So my supervisor of the master thesis and PhD
+[920.46s - 920.96s] were the same.
+[920.96s - 921.46s] Oh.
+[921.46s - 922.66s] And then I...
+[922.66s - 925.30s] Exactly. So in my master, I started working on
+[925.30s - 926.46s] humanity in my thesis.
+[926.46s - 929.58s] And in PhD, I knew that I wanted to do the same thing.
+[929.58s - 930.08s] Mm-hmm.
+[930.08s - 930.58s] So...
+[930.58s - 935.66s] Nice. And can you still remember maybe your first paper
+[935.66s - 936.58s] which you wrote?
+[936.58s - 940.06s] Yeah, I mean, I did it from my master thesis.
+[940.06s - 942.72s] I'm very embarrassed. I don't want to look at it again.
+[942.72s - 943.22s] Oh.
+[943.96s - 944.46s] Well...
+[944.46s - 948.46s] But yeah, I remember very well.
+[948.46s - 950.46s] It was a conference paper I wrote.
+[950.46s - 951.46s] Yeah.
+[951.46s - 951.96s] Nice.
+[951.96s - 952.46s] Nice.
+[952.46s - 955.46s] You roughly remember the topic?
+[955.46s - 957.46s] Yeah, I remember it very well.
+[957.46s - 959.46s] I don't have to, but it's a...
+[959.46s - 961.46s] Okay.
+[961.46s - 963.46s] And then at some point, you
+[963.46s - 966.46s] had to choose like a very concrete topic
+[966.46s - 968.46s] for your PhD thesis, right?
+[968.46s - 968.96s] Yeah.
+[968.96s - 971.96s] So how did you actually get to this topic?
+[971.96s - 973.96s] So it started from my master thesis.
+[973.96s - 974.96s] Mm-hmm.
+[974.96s - 977.96s] So I worked on the motion planning of humanity robots.
+[977.96s - 978.46s] Mm-hmm.
+[978.46s - 980.96s] And then I saw that, oh, it's a very big topic
+[980.96s - 983.46s] and there are a lot of problems that are unsolved.
+[983.46s - 987.46s] I said, okay, this is enough for me to do the whole career around
+[987.46s - 989.96s] until the end of the promise of SHIP.
+[989.96s - 991.46s] And it's true, actually.
+[991.46s - 992.46s] Mm-hmm.
+[992.46s - 996.46s] And so what did you actually find out during your PhD
+[996.46s - 998.96s] or what kind of like problem?
+[998.96s - 999.96s] Mm-hmm.
+[999.96s - 1003.46s] I mean, you didn't take like everything in multiplayer, right?
+[1003.46s - 1004.46s] You were playing, right?
+[1004.46s - 1007.46s] But what kind of sub-topic did you take on?
+[1007.46s - 1007.96s] Yeah.
+[1007.96s - 1008.96s] So I was working.
+[1008.96s - 1011.46s] So I worked a bit on the evolutionary methods
+[1011.46s - 1012.96s] for motion planning at the moment.
+[1012.96s - 1013.46s] Mm-hmm.
+[1013.46s - 1017.46s] And at the same time, I was focusing on friction.
+[1017.46s - 1017.96s] Mm-hmm.
+[1017.96s - 1019.46s] So contact and friction.
+[1019.46s - 1019.96s] Mm-hmm.
+[1019.96s - 1023.96s] So I wanted to find an adaptive controller
+[1023.96s - 1026.96s] that can change the behavior of a robot
+[1026.96s - 1029.46s] based on the change in the environment in terms of friction.
+[1029.46s - 1029.96s] Mm-hmm.
+[1029.96s - 1031.96s] So it was a kind of adaptive control.
+[1031.96s - 1032.96s] Mm-hmm.
+[1032.96s - 1035.46s] And also a bit on the planning side,
+[1035.46s - 1038.46s] I was mostly thinking about, again, evolutionary algorithm
+[1038.46s - 1040.96s] to generate stable motions, let's say.
+[1040.96s - 1041.46s] Mm-hmm.
+[1041.46s - 1044.46s] At the moment, actually, I was not so much.
+[1044.46s - 1047.96s] I didn't think about it so much through gradient-based optimization
+[1047.96s - 1052.46s] and more, you know, optimal control way.
+[1052.46s - 1055.96s] So this is the thing I knew, and this is the thing I did, you know.
+[1055.96s - 1059.46s] And was it maybe like a kind of demo or something
+[1059.46s - 1061.96s] which you demonstrated at the end of your PhD?
+[1061.96s - 1062.46s] Yeah.
+[1062.96s - 1066.96s] So I was very lucky because at the start of my PhD,
+[1066.96s - 1071.46s] there was a project that started called National Human Robotics Project.
+[1071.46s - 1071.96s] Mm-hmm.
+[1071.96s - 1075.96s] And randomly, somebody in that team knew me,
+[1075.96s - 1078.96s] and they asked me if I can join the team.
+[1078.96s - 1081.96s] And I said, yeah, I mean, that's exactly what I want to do, right?
+[1081.96s - 1082.46s] Yeah.
+[1082.46s - 1082.96s] Perfect.
+[1082.96s - 1085.96s] And that was crazy because it was a big team
+[1085.96s - 1090.46s] from electrical engineer people, I don't know, mechanical design, and so on.
+[1090.46s - 1092.96s] And we started building a human-size humanoid robot.
+[1092.96s - 1096.96s] And that was the start of my, you know, doing experimental thing.
+[1096.96s - 1099.96s] And three years of my PhD, I did that.
+[1099.96s - 1101.96s] Basically, I worked on that project basically.
+[1101.96s - 1102.96s] Mm-hmm.
+[1102.96s - 1108.96s] And then I joined Max Planck for an internship during my PhD for one year.
+[1108.96s - 1115.96s] But what kind of scenario did you show at the end of your PhD with your humanoid robot?
+[1115.96s - 1118.96s] Actually, it was crazy because at the end of that project,
+[1118.96s - 1121.96s] we had to do a live demo of a humanoid robot in a scene, in a lab.
+[1121.96s - 1123.96s] In a scene in the university.
+[1123.96s - 1126.96s] And there were really authorities there.
+[1126.96s - 1129.96s] So some from the Ministry of Science and so on, right?
+[1129.96s - 1133.96s] It was a crazy, like, and to be honest, before the,
+[1133.96s - 1136.96s] we had a lot of technical problems before the demo.
+[1136.96s - 1137.96s] Mm-hmm.
+[1137.96s - 1139.96s] And we had something like 50% it would work.
+[1139.96s - 1142.96s] So we had a wanted chance of not working.
+[1142.96s - 1144.96s] And it would be embarrassing, right?
+[1144.96s - 1145.46s] Yeah.
+[1145.46s - 1145.96s] The robot would fall down.
+[1145.96s - 1146.46s] Yeah.
+[1146.46s - 1147.96s] In a live demo.
+[1147.96s - 1148.96s] So luckily, it didn't happen.
+[1148.96s - 1150.96s] And so what did you want to show at this live demo?
+[1150.96s - 1155.96s] So it was, so the robot would start from one point, walk a bit, then move on a chair.
+[1155.96s - 1158.96s] It started in front of the audience.
+[1158.96s - 1161.96s] It started, you know, talking to people, introducing itself.
+[1161.96s - 1162.96s] Ah.
+[1162.96s - 1165.96s] Then it would do some, I don't know, weird balancing behavior.
+[1165.96s - 1166.96s] Mm-hmm.
+[1166.96s - 1168.96s] Then it would do a bit of imitation learning.
+[1168.96s - 1173.96s] So humans would just raise the hand and the robot would do the same and so on.
+[1173.96s - 1178.96s] Then it would walk to the end corner of the scene and then say goodbye.
+[1178.96s - 1179.96s] It was like 10 minutes.
+[1179.96s - 1180.96s] Yeah.
+[1180.96s - 1181.96s] Wow.
+[1181.96s - 1182.96s] Okay.
+[1182.96s - 1183.96s] That sounds intense.
+[1183.96s - 1184.96s] So did everything actually work?
+[1184.96s - 1185.96s] Everything worked.
+[1185.96s - 1186.96s] Everything worked.
+[1186.96s - 1192.96s] I mean, again, if you would do it before the demo, 50% it would fail.
+[1192.96s - 1193.96s] Chances are not too bad.
+[1193.96s - 1194.96s] Yeah.
+[1194.96s - 1202.96s] So you already said that the change from Iran to Germany was really huge.
+[1202.96s - 1209.96s] So how did you actually get the position in Germany and how did you experience this change?
+[1209.96s - 1210.96s] Yeah.
+[1210.96s - 1215.96s] So basically I was, at the moment I didn't know at all about the Max Planck Institute.
+[1215.96s - 1216.96s] Mm-hmm.
+[1216.96s - 1220.96s] Because they were the department that, you know, Chef Anshul was there and Ludovic Rigetti
+[1220.96s - 1223.96s] was the person who I went to work with.
+[1223.96s - 1226.96s] And I didn't know about them.
+[1226.96s - 1232.96s] I just was reading papers from different people and Ludovic had a paper in the IGRR, which
+[1232.96s - 1237.96s] is the best journal in, was the best journal, at least in robotics, on the exactly the same
+[1237.96s - 1238.96s] topic I was doing.
+[1238.96s - 1241.96s] But in more advanced optimization based way of doing this.
+[1241.96s - 1242.96s] Mm-hmm.
+[1242.96s - 1243.96s] And I found it very interesting.
+[1243.96s - 1244.96s] I contacted Ludovic.
+[1244.96s - 1248.96s] I said, yeah, I want to do an internship with you.
+[1248.96s - 1250.96s] So first time we did a reply.
+[1250.96s - 1254.96s] After one week I wrote the follow up and then he immediately replied.
+[1254.96s - 1255.96s] Nice.
+[1255.96s - 1257.96s] He said, you know, explain more.
+[1257.96s - 1258.96s] Do you want to talk?
+[1258.96s - 1264.96s] And then, oh, in the second time, so the first time I just sent my CV.
+[1264.96s - 1266.96s] The second time I sent some videos of my robot.
+[1266.96s - 1267.96s] And then I think I sent a lot of videos.
+[1267.96s - 1268.96s] Yeah.
+[1268.96s - 1269.96s] And then I think that was the point that the.
+[1269.96s - 1272.96s] So, so that is how you actually get positions.
+[1272.96s - 1273.96s] Yeah.
+[1273.96s - 1276.96s] By just sending cool videos of robots and then people are hooked.
+[1276.96s - 1277.96s] Exactly.
+[1277.96s - 1278.96s] I think.
+[1278.96s - 1281.96s] At the moment, I didn't know that the thing I did was, was super good.
+[1281.96s - 1285.96s] I was saying, oh, it was, you know, just some random thing I did.
+[1285.96s - 1289.96s] But after, now that I look back, actually it was quite impressive.
+[1289.96s - 1291.96s] You know, we didn't know anything, right?
+[1291.96s - 1295.96s] We were just few PhD students that we worked together, built a full robot.
+[1295.96s - 1297.96s] And I mean, there were also a few, few engineers.
+[1297.96s - 1304.96s] And then you start basically an internship at Max Planck in Stuttgart in Germany.
+[1304.96s - 1305.96s] In Tübingen.
+[1305.96s - 1306.96s] In Tübingen.
+[1306.96s - 1307.96s] Yeah.
+[1307.96s - 1308.96s] Yeah.
+[1308.96s - 1309.96s] Yeah.
+[1309.96s - 1310.96s] So, so for how long was this internship?
+[1310.96s - 1311.96s] One year.
+[1311.96s - 1312.96s] One year.
+[1312.96s - 1313.96s] Yeah.
+[1313.96s - 1314.96s] Okay.
+[1314.96s - 1315.96s] Yeah.
+[1315.96s - 1316.96s] And so, so what was your position there?
+[1316.96s - 1317.96s] It was internship basically.
+[1317.96s - 1318.96s] It was.
+[1318.96s - 1319.96s] Okay.
+[1319.96s - 1320.96s] So it was not a postdoc.
+[1320.96s - 1321.96s] No, still I didn't have my PhD.
+[1321.96s - 1322.96s] Oh, okay.
+[1322.96s - 1323.96s] I wasn't a defendant yet.
+[1323.96s - 1325.96s] It was basically during, during your PhD.
+[1325.96s - 1326.96s] Exactly.
+[1326.96s - 1327.96s] Yeah.
+[1327.96s - 1328.96s] Yeah.
+[1328.96s - 1329.96s] Okay.
+[1329.96s - 1330.96s] Nice.
+[1330.96s - 1333.96s] And so how was the change from, from Iran to Germany?
+[1333.96s - 1334.96s] It was very different.
+[1334.96s - 1338.96s] I mean, it was, I didn't expect at all like that.
+[1338.96s - 1343.96s] Everything was, you know, in the opposite of my expectations somehow.
+[1343.96s - 1346.96s] So what was the biggest difference between Iran and Germany?
+[1346.96s - 1351.96s] Maybe first culturally, but then also like from a research perspective.
+[1351.96s - 1357.96s] So, so I guess there's also a big difference between how people approach research and research
+[1357.96s - 1358.96s] questions.
+[1358.96s - 1359.96s] Yeah.
+[1359.96s - 1362.96s] So I think I was very naive, very, very naive actually.
+[1362.96s - 1363.96s] Thank you for coming.
+[1363.96s - 1364.96s] Okay.
+[1364.96s - 1370.96s] And because you know, the, the way I imagine Germany, I was like, like Hollywood movies,
+[1370.96s - 1371.96s] you know?
+[1371.96s - 1375.96s] So how is Germany actually portrayed in Hollywood movies?
+[1375.96s - 1376.96s] I mean, not, not Hollywood.
+[1376.96s - 1378.96s] I thought, you know, the best is the same.
+[1378.96s - 1384.96s] It doesn't matter if you go to Germany or the United States or to the UK or France, it
+[1384.96s - 1385.96s] doesn't matter.
+[1385.96s - 1386.96s] Really.
+[1386.96s - 1390.96s] I was just saying, oh, this is the abroad and that's the best for me, you know?
+[1390.96s - 1391.96s] And there's the East.
+[1391.96s - 1392.96s] So, so.
+[1392.96s - 1393.96s] Of course.
+[1393.96s - 1397.96s] And then when I came here, oh, I didn't expect that.
+[1397.96s - 1402.96s] Everything is so, the buildings are so old, it's raining all the time.
+[1402.96s - 1407.96s] I don't know.
+[1407.96s - 1409.96s] Things are not modern actually, I would say.
+[1409.96s - 1414.96s] I thought, you know, that, you know, it's like, I would think always about, you know, it's
+[1414.96s - 1417.96s] a super modern type of country.
+[1417.96s - 1420.96s] Like, you know, I don't know, whatever.
+[1420.96s - 1421.96s] Right?
+[1421.96s - 1422.96s] It was not like that.
+[1422.96s - 1425.96s] And I thought, you know, it would be easy.
+[1425.96s - 1429.96s] I go talk to people, get, you know, be friends with them.
+[1429.96s - 1433.96s] And in the lab, people were super nice, to be honest.
+[1433.96s - 1438.96s] But I didn't have anything in common to talk to them because it was an absolute, I mean,
+[1438.96s - 1441.96s] it was weird to me, the things they would talk about, because in Iran, we would say,
+[1441.96s - 1442.96s] you know, we would talk about our common memories.
+[1442.96s - 1443.96s] Yeah.
+[1443.96s - 1446.96s] You know, about the politics and so on.
+[1446.96s - 1449.96s] And I didn't have anything common to talk to people.
+[1449.96s - 1454.96s] And I became a bit, you know, isolated.
+[1454.96s - 1455.96s] And it was because of me.
+[1455.96s - 1457.96s] People were super nice.
+[1457.96s - 1458.96s] Super nice.
+[1458.96s - 1459.96s] I mean, the lab.
+[1459.96s - 1460.96s] So was it actually an international lab?
+[1460.96s - 1462.96s] It was an absolutely international lab.
+[1462.96s - 1468.96s] I mean, I still love that, you know, lab, people from there.
+[1468.96s - 1470.96s] But I became super isolated.
+[1470.96s - 1472.96s] I became, actually, I lost a lot of my friends.
+[1472.96s - 1474.96s] I lost a lot of my confidence.
+[1474.96s - 1475.96s] Right?
+[1475.96s - 1478.96s] I really started to feel, oh, I shouldn't say this.
+[1478.96s - 1480.96s] Oh, I shouldn't talk or.
+[1480.96s - 1482.96s] And it was difficult.
+[1482.96s - 1487.96s] At the same time, in terms of research, I think things were super difficult, different,
+[1487.96s - 1490.96s] super different to me.
+[1490.96s - 1496.96s] Because the way I saw the problem was through the lens of mechanical engineering mostly.
+[1496.96s - 1499.96s] And in Max Planck, everybody was a computer scientist.
+[1499.96s - 1501.96s] Everybody was talking about learning, machine learning.
+[1501.96s - 1505.96s] And I didn't know at the moment if it was a thing.
+[1505.96s - 1509.96s] So I said, okay, I don't know why people are talking about this thing.
+[1509.96s - 1510.96s] These are not the problems.
+[1510.96s - 1513.96s] I think there are, you know, balance of the robot is the problem.
+[1513.96s - 1515.96s] Why nobody talks about that?
+[1515.96s - 1520.96s] People show, I don't know, pole balancing or, I don't know, bringing an inverted pendulum
+[1520.96s - 1521.96s] to off.
+[1521.96s - 1522.96s] I said, okay, fine.
+[1522.96s - 1530.96s] But, and then, and I was not really doing the type of optimal control things.
+[1530.96s - 1531.96s] Right?
+[1531.96s - 1534.96s] And I had a lot of discussions with Ludovic.
+[1534.96s - 1538.96s] I still, whenever we talk, we, you know, remember that time.
+[1538.96s - 1542.96s] And he always tells me, remember, you didn't want to do optimization.
+[1542.96s - 1545.96s] And now all my research is based on optimization.
+[1545.96s - 1547.96s] I said, yeah.
+[1547.96s - 1549.96s] And we have really heated discussion on this.
+[1549.96s - 1552.96s] I said, no, why does it matter how you generate the motion?
+[1552.96s - 1554.96s] It doesn't matter to me.
+[1554.96s - 1559.96s] And he was saying, no, we need to make it more systematic, you know, the study through
+[1559.96s - 1560.96s] the systematic framework.
+[1560.96s - 1561.96s] And so on.
+[1561.96s - 1563.96s] I said, okay, I'm doing control and I'm fine with that.
+[1563.96s - 1566.96s] I don't need any optimal controls.
+[1566.96s - 1569.96s] And now I'm exactly doing that.
+[1569.96s - 1570.96s] Nice.
+[1570.96s - 1576.96s] And so what kind of questions did you actually work on in Germany?
+[1576.96s - 1578.96s] Were they kind of like related to your PhD?
+[1578.96s - 1579.96s] Yeah.
+[1579.96s - 1580.96s] No, it was related.
+[1580.96s - 1587.96s] So I was working on the still humanoid locomotion, but there was a robot in my class that was
+[1587.96s - 1588.96s] much more complicated.
+[1588.96s - 1589.96s] And the robot didn't work.
+[1589.96s - 1595.96s] The robot didn't have ankle joints and from knee below was the prosthetic feet.
+[1595.96s - 1596.96s] Right.
+[1596.96s - 1601.96s] So it was just, let's say a rod attached to a prosthetic foot.
+[1601.96s - 1602.96s] No actuation.
+[1602.96s - 1606.96s] And this makes it like a human walking on a stick, right?
+[1606.96s - 1609.96s] It makes the balance problem much more complex.
+[1609.96s - 1614.96s] And I always, so first I argued a lot with them, why are you doing this?
+[1614.96s - 1617.96s] Still, we don't know with a normal robot how to walk.
+[1617.96s - 1620.96s] But this is really much more complicated.
+[1620.96s - 1623.96s] So how was actually the robot called?
+[1623.96s - 1625.96s] The one which you just described?
+[1625.96s - 1626.96s] It was Athena.
+[1626.96s - 1629.96s] But the name of the robot was Athena.
+[1629.96s - 1633.96s] And yeah, then I started working on that.
+[1633.96s - 1635.96s] First off, I didn't believe in it.
+[1635.96s - 1637.96s] I thought it's such a difficult problem.
+[1637.96s - 1640.96s] We are not allowed there to solve this problem.
+[1640.96s - 1645.96s] But at some point it changed my way of thinking so much that I came up with an algorithm that
+[1645.96s - 1646.96s] I could use.
+[1646.96s - 1653.96s] And that was all because changing of my mind, you know, the way I look at the problem.
+[1653.96s - 1659.96s] Now I said, oh, you cannot be any more, you know, statically stable and, you know, you
+[1659.96s - 1660.96s] cannot be very conservative.
+[1660.96s - 1662.96s] You should be very fast stepping.
+[1662.96s - 1665.96s] And if you look at the robots nowadays, all of them are like that.
+[1665.96s - 1667.96s] They are stepping fast to balance.
+[1667.96s - 1673.96s] They are not relying on the, you know, just the static balance or something like this.
+[1673.96s - 1675.96s] So basically the problem you take out was the robot.
+[1675.96s - 1680.96s] The problem you take out was stability and balance for the Athena.
+[1680.96s - 1681.96s] Exactly.
+[1681.96s - 1685.96s] So it's still this rope for this robot walking was still very difficult because again, it's
+[1685.96s - 1689.96s] like a human walking on a stick and it's very difficult to do that.
+[1689.96s - 1695.96s] And I worked on some, you know, something, I mean, it's more technical, but timing the
+[1695.96s - 1698.96s] optimization for generating motions for robot.
+[1698.96s - 1703.96s] And, you know, very, in a very loose terms, it means that you are walking, if somebody
+[1703.96s - 1704.96s] pushes you, you step quite fast.
+[1704.96s - 1705.96s] To recover.
+[1705.96s - 1706.96s] And I could basically devise an algorithm that can do that.
+[1706.96s - 1707.96s] And it was a very simple algorithm that, I mean, it never happened before.
+[1707.96s - 1708.96s] People could not formulate it like this, you know, and again, it came from, again, the
+[1708.96s - 1709.96s] way I look at the problem through simple physics, you know, but it's still, if this robot was
+[1709.96s - 1710.96s] not there without actuation and ankle, I would never think about it like this, you know?
+[1710.96s - 1711.96s] So, so basically your innovations there was ready to work.
+[1711.96s - 1712.96s] Yeah.
+[1712.96s - 1713.96s] Yeah.
+[1713.96s - 1714.96s] Yeah.
+[1714.96s - 1715.96s] Yeah.
+[1715.96s - 1716.96s] Yeah.
+[1716.96s - 1717.96s] Yeah.
+[1717.96s - 1718.96s] Yeah.
+[1718.96s - 1719.96s] Yeah.
+[1719.96s - 1720.96s] Yeah.
+[1720.96s - 1721.96s] Yeah.
+[1721.96s - 1722.96s] Yeah.
+[1722.96s - 1723.96s] Yeah.
+[1723.96s - 1724.96s] Yeah.
+[1724.96s - 1725.96s] Yeah.
+[1725.96s - 1726.96s] Yeah.
+[1726.96s - 1727.96s] Yeah.
+[1727.96s - 1728.96s] Yeah.
+[1728.96s - 1729.96s] Yeah.
+[1729.96s - 1730.96s] Yeah.
+[1730.96s - 1731.96s] Yeah.
+[1731.96s - 1732.96s] Yeah.
+[1732.96s - 1733.96s] Yeah.
+[1733.96s - 1734.96s] Yeah.
+[1735.96s - 1736.96s] Yeah.
+[1736.96s - 1737.96s] Yeah.
+[1737.96s - 1738.96s] Yeah.
+[1738.96s - 1739.96s] Yeah.
+[1739.96s - 1740.96s] Yeah.
+[1740.96s - 1741.96s] Yeah.
+[1741.96s - 1742.96s] Yeah.
+[1742.96s - 1743.96s] Yeah.
+[1743.96s - 1744.96s] Yeah, yeah, yeah.
+[1744.96s - 1745.96s] when you were, when you were building everything, you didn't, you didn't get chocolate.
+[1745.96s - 1749.60s] You got a higher value, then in fact, you get a lower value.
+[1749.60s - 1753.44s] I hide my child memory, but you never change it.
+[1753.44s - 1754.44s] Exactly.
+[1754.44s - 1762.68s] You aren't, you know, if I am aוה method, I never, same method, but when you are,
+[1762.68s - 1763.94s] you have a whole, you have a preική method.
+[1763.94s - 1764.94s] Mm-hmm.
+[1764.96s - 1768.94s] And so the algorithm you developed, how is it called?
+[1769.38s - 1773.26s] I mean, it was still through the framework of model predictive control.
+[1773.42s - 1780.36s] But the formulation I proposed was the first convex optimization that could do step location and timing adaptation.
+[1781.02s - 1789.86s] And this was a big deal because when you do convex optimization, it means that you're always guaranteed to find a solution if there exists a solution.
+[1790.46s - 1791.60s] And this was the thing.
+[1791.66s - 1792.72s] And it was super fast.
+[1792.72s - 1800.38s] So you could, at a frequency of one millisecond, change the step location timing.
+[1800.72s - 1805.66s] So if somebody pushed you, you could quickly change the location and timing to recover from that.
+[1805.96s - 1808.18s] So it was highly reactive control.
+[1808.40s - 1811.94s] And what kind of assumptions did you put on the system?
+[1812.10s - 1815.62s] Was it like a region where the robot was allowed to step?
+[1815.62s - 1822.48s] And also, I guess if someone really pushes you, sometimes it's not enough.
+[1822.60s - 1822.70s] It's okay.
+[1822.72s - 1824.66s] You can only do one step, right?
+[1824.86s - 1825.02s] Yeah.
+[1826.16s - 1827.36s] What about your algorithm?
+[1827.54s - 1829.72s] Would it also be able to do two steps?
+[1829.80s - 1830.18s] Exactly.
+[1830.30s - 1832.06s] This is the beauty of the algorithm.
+[1832.68s - 1841.32s] So I showed with the theoretical guarantee that in order to recover on a flat rate, you only need to look into one step of the future.
+[1841.80s - 1843.82s] There is no need to look into more steps.
+[1844.16s - 1845.18s] And I did guarantee.
+[1845.18s - 1852.36s] So basically, I showed that with the optimization problem that I wrote, there is a guarantee.
+[1852.72s - 1860.66s] That if the robot can recover with taking infinite step, my program will find infinite steps to recover from that.
+[1860.66s - 1863.66s] This is called viability.
+[1863.66s - 1870.00s] And viability means, you know, does there exist a sequence of actions into the future, right?
+[1870.00s - 1872.90s] Such that the robot doesn't fail at infinity, let's say.
+[1872.90s - 1881.40s] And I showed that you don't need to look into the future until infinity, which means that you would need to solve a very big optimization.
+[1881.40s - 1882.60s] Just looking at the future.
+[1882.60s - 1884.30s] Just looking at the next step is enough.
+[1884.30s - 1894.20s] And what you do is that you can put your foot somewhere that you can maximize, you know, the probability that you would recover into the future.
+[1894.20s - 1897.96s] But I guess you need some additional assumptions there, right?
+[1897.96s - 1903.98s] So, yeah, if the force is really big, then you don't have like the ability to actually make it.
+[1903.98s - 1911.28s] So in one step, what you would do is that you would do the best thing you could do, which would you take in the minimum time.
+[1911.28s - 1912.36s] Put your foot in the maximum.
+[1912.60s - 1914.30s] And you would do the best thing you could do.
+[1914.30s - 1918.36s] And if you did it in the maximum, reachable area, and the algorithm would find that in one step, you cannot do more, right?
+[1918.36s - 1920.36s] In one step, you cannot do multiple steps.
+[1920.36s - 1923.54s] And in the next step, it would do exactly the same thing.
+[1923.54s - 1926.16s] In the next step, it would do exactly the same thing.
+[1926.16s - 1928.22s] And it could go to infinity if it's required.
+[1928.22s - 1934.36s] But what kind of assumptions do you do on life direction of the force, for example?
+[1934.36s - 1934.86s] Nothing.
+[1935.18s - 1935.68s] Nothing.
+[1935.68s - 1938.20s] But if I just push the robot.
+[1938.20s - 1942.40s] Because, so basically, I was using still the.
+[1942.40s - 1942.60s] The.
+[1942.60s - 1945.10s] Model that is called linear inverted pendulum.
+[1945.10s - 1945.60s] Mm-hmm.
+[1945.60s - 1948.36s] And linear inverted pendulum means the height of the base is fixed.
+[1948.36s - 1948.60s] Okay.
+[1948.60s - 1949.36s] Under this.
+[1949.36s - 1949.60s] Yeah.
+[1949.60s - 1950.60s] Under this assumption.
+[1950.60s - 1951.10s] Of course.
+[1951.10s - 1951.60s] Yeah.
+[1951.60s - 1956.10s] If you want to solve a viability for the whole body system, it's interactable problem.
+[1956.10s - 1956.60s] Mm-hmm.
+[1956.60s - 1957.10s] Yeah.
+[1957.10s - 1957.60s] So.
+[1957.60s - 1959.10s] So you need this assumption.
+[1959.10s - 1959.60s] Yeah.
+[1959.60s - 1960.60s] Exactly.
+[1960.60s - 1961.60s] Yeah.
+[1961.60s - 1968.10s] Then you actually finished your PhD and you went back to Iran.
+[1968.10s - 1968.60s] Yeah.
+[1968.60s - 1972.40s] What did you actually do after your PhD and what kind of.
+[1972.40s - 1974.40s] Like options did you entertain?
+[1974.40s - 1976.40s] So I went back.
+[1976.40s - 1978.40s] So I needed to finish my PhD.
+[1978.40s - 1979.40s] Mm-hmm.
+[1979.40s - 1986.40s] But still I needed to wait such that the results of my submitted papers, you know, come.
+[1986.40s - 1988.40s] So I had to stay there for.
+[1988.40s - 1990.40s] I think one year still.
+[1990.40s - 1993.40s] Until I have all the papers out and I'm.
+[1993.40s - 1997.40s] You know, prepare for the defense and do the defense and so on.
+[1997.40s - 2001.40s] And then as soon as I finished my PhD.
+[2001.40s - 2003.40s] So basically I wrote my thesis.
+[2003.40s - 2006.40s] You know, revise my papers and all this kind of thing.
+[2006.40s - 2008.40s] So I didn't do any new thing.
+[2008.40s - 2009.40s] Mm-hmm.
+[2009.40s - 2014.40s] And I spent time with family and, you know, chill the beat because it was a really intense for years.
+[2014.40s - 2015.40s] I imagine.
+[2015.40s - 2016.40s] Yeah.
+[2016.40s - 2018.40s] But as soon as I defended my thesis.
+[2018.40s - 2019.40s] The day after.
+[2019.40s - 2020.40s] I contacted to do it again.
+[2020.40s - 2022.40s] I said, do you want to post it?
+[2022.40s - 2023.40s] And he said, yes.
+[2023.40s - 2024.40s] And then.
+[2024.40s - 2026.40s] You know, I started the postdoc after that.
+[2026.40s - 2027.40s] Wow.
+[2027.40s - 2029.40s] And then everything went quickly.
+[2029.40s - 2030.40s] Yeah.
+[2030.40s - 2031.40s] So basically.
+[2031.40s - 2033.40s] I mean, the visa didn't go quickly.
+[2033.40s - 2034.40s] So it took them five months.
+[2034.40s - 2035.40s] Oh, right.
+[2035.40s - 2037.40s] But after five months I came there.
+[2037.40s - 2038.40s] Yeah.
+[2038.40s - 2039.40s] I came to Germany.
+[2039.40s - 2040.40s] Okay.
+[2040.40s - 2042.40s] And then how long was your postdoc actually?
+[2042.40s - 2043.40s] Very long.
+[2043.40s - 2046.40s] So I started in May, 2018.
+[2046.40s - 2047.40s] Mm-hmm.
+[2047.40s - 2051.40s] I was somehow something like four years with Ludovic.
+[2051.40s - 2056.40s] And then one year is still in the same Institute, but in another department with Bernard Schalkow.
+[2056.40s - 2059.40s] I did one year and three months.
+[2059.40s - 2060.40s] And then I started with Munich.
+[2060.40s - 2062.40s] And that was also postdoc?
+[2062.40s - 2063.40s] That was also postdoc.
+[2063.40s - 2064.40s] Okay.
+[2064.40s - 2069.40s] Because I was applying for a professorship position.
+[2069.40s - 2070.40s] Yeah.
+[2070.40s - 2076.40s] And then how did it actually, so how long did it take to actually get to a professorship position?
+[2076.40s - 2078.40s] Oh, that was the longest.
+[2078.40s - 2080.40s] So I started very early.
+[2080.40s - 2081.40s] Yeah.
+[2081.40s - 2083.40s] I was not thinking it still.
+[2083.40s - 2088.40s] So after one year of my postdoc, there was a position of junior group leader of the university.
+[2088.40s - 2089.40s] Yeah.
+[2089.40s - 2092.40s] And then I was a senior group leader open.
+[2092.40s - 2094.40s] And I just said, okay, why not?
+[2094.40s - 2096.40s] I mean, I cannot say, I talked to Ludovic.
+[2096.40s - 2097.40s] I said, should I apply?
+[2097.40s - 2098.40s] And he said, yeah, why not?
+[2098.40s - 2099.40s] Mm-hmm.
+[2099.40s - 2101.40s] I said, I don't think it's still, I'm ready.
+[2101.40s - 2102.40s] But he said, no, you are ready.
+[2102.40s - 2103.40s] Just, just apply.
+[2103.40s - 2104.40s] Mm-hmm.
+[2104.40s - 2107.40s] So why did you think that you're not ready to apply?
+[2107.40s - 2110.40s] Because I thought it's still, I don't know anything.
+[2110.40s - 2115.40s] And I thought I, there are a lot of things I need to learn.
+[2115.40s - 2117.40s] I need to, you know, expand my knowledge in different areas.
+[2117.40s - 2118.40s] Okay.
+[2118.40s - 2120.40s] And yeah, I thought it's still, I'm not ready.
+[2120.40s - 2121.40s] But he said, no, you're ready.
+[2121.40s - 2122.40s] And then I applied.
+[2122.40s - 2123.40s] I got the position and I didn't go.
+[2123.40s - 2124.40s] Really?
+[2124.40s - 2125.40s] Yeah.
+[2125.40s - 2126.40s] It was.
+[2126.40s - 2127.40s] Why, why didn't you go?
+[2127.40s - 2128.40s] Yeah, it was a crazy story because I thought, okay, staying in, in Tübingen would be much
+[2128.40s - 2129.40s] better for me still.
+[2129.40s - 2130.40s] Also the position was not.
+[2130.40s - 2131.40s] Yeah.
+[2131.40s - 2132.40s] It was a, it was a.
+[2132.40s - 2133.40s] I didn't want to go.
+[2133.40s - 2134.40s] I didn't want to go.
+[2134.40s - 2135.40s] I was like, okay, I'm ready.
+[2135.40s - 2136.40s] I'm ready.
+[2136.40s - 2137.40s] I'm ready.
+[2137.40s - 2138.40s] I'm ready.
+[2138.40s - 2139.40s] I'm ready.
+[2139.40s - 2140.40s] I'm ready.
+[2140.40s - 2141.40s] I'm ready.
+[2141.40s - 2142.40s] I'm ready.
+[2142.40s - 2143.40s] I'm ready.
+[2143.40s - 2144.40s] I'm ready.
+[2144.40s - 2145.40s] I'm ready.
+[2145.40s - 2146.40s] I'm ready.
+[2146.40s - 2147.40s] I'm ready.
+[2147.40s - 2148.40s] Okay.
+[2148.40s - 2149.00s] Also the position was not in Tübingen anymore, but it was in Stuttgart?
+[2149.00s - 2150.00s] No, in Stuttgart, exactly.
+[2150.00s - 2154.00s] So it was in the University of Stuttgart.
+[2154.00s - 2155.00s] And then they invited me.
+[2155.00s - 2157.60s] I went there, talked to people.
+[2157.60s - 2162.02s] I think it was a very nice position, but at some point, I didn't know why.
+[2162.02s - 2169.60s] I thought that if I stay in Tübingen, I can still explore a bit more, expand my knowledge
+[2169.60s - 2175.50s] and, you know, still, because at the moment also, I still was working with the whole supervising
+[2175.50s - 2176.38s] some PhD students.
+[2176.38s - 2179.42s] So Pluto Week in Max Planck, also my CELS students.
+[2180.28s - 2184.22s] And I thought, you know, we already built a couple of robots there.
+[2184.66s - 2187.58s] I wanted to, we were about to make them work.
+[2187.68s - 2190.14s] And it seemed that if I move, everything would be shut down.
+[2191.22s - 2196.88s] And in Estudicard, they didn't, maybe, yeah, but they didn't, they said no.
+[2196.88s - 2202.12s] So I was thinking if you, they would say, oh, you can be two days in Max Planck, three days here.
+[2202.20s - 2203.68s] I would be more than happy to join.
+[2204.02s - 2205.92s] But they said, no, you should be full time here.
+[2206.54s - 2210.80s] And then at some point I said, no, I said, I'll stay here.
+[2211.08s - 2212.92s] And it gave me so much confidence.
+[2213.12s - 2214.98s] I said, okay, well, I can't get any positions.
+[2215.18s - 2216.22s] I can wait a bit.
+[2216.88s - 2219.80s] And it was a very bad decision because it didn't happen.
+[2219.98s - 2222.42s] And in that respect, for sure, I would accept the position.
+[2223.04s - 2227.66s] And then you basically applied to more positions?
+[2228.00s - 2228.18s] Yeah.
+[2228.46s - 2231.32s] At that moment, so I said, oh, it seems that I can get positions.
+[2231.64s - 2232.80s] So I started applying.
+[2234.60s - 2236.36s] So this was 2019.
+[2236.54s - 2245.16s] I started applying to different places all around the world, actually.
+[2246.32s - 2248.86s] At the moment, there are not many positions in Germany.
+[2249.02s - 2249.62s] I don't know why.
+[2251.16s - 2258.78s] So I think one important metric there is always the age index for people who are applying.
+[2258.98s - 2261.68s] So what kind of age index did you actually have at that time?
+[2261.68s - 2263.08s] To be honest, I don't know.
+[2263.88s - 2265.54s] So you didn't really care about it?
+[2266.38s - 2267.68s] I don't remember at all.
+[2268.06s - 2270.42s] At the moment, also, I don't know what's my age index.
+[2270.86s - 2271.54s] No, really.
+[2272.18s - 2272.80s] I don't know.
+[2273.30s - 2275.00s] I know my papers, right?
+[2275.08s - 2278.58s] And I know which one is which one and how it works and stuff.
+[2279.08s - 2280.22s] But I don't know about it.
+[2281.36s - 2284.48s] I think it's the order between, I don't know, 20 to 30.
+[2285.24s - 2286.90s] Something, I don't know, 20 to 40.
+[2287.00s - 2287.40s] I don't know.
+[2288.26s - 2289.92s] At the moment, I really don't know.
+[2290.28s - 2292.16s] I didn't have many good papers still.
+[2292.68s - 2296.28s] Actually, the time that I didn't go to Stuttgart the next year,
+[2296.38s - 2298.92s] we could do a lot of nice experiments.
+[2299.38s - 2301.48s] And actually, we could publish a lot.
+[2302.30s - 2303.80s] And that year was really nice.
+[2303.90s - 2308.24s] At some point, my publication record got much better.
+[2309.14s - 2313.60s] And then I started thinking about going directly for professorship positions,
+[2313.72s - 2315.32s] not a group leader position.
+[2315.80s - 2320.00s] And so was professorship in Munich the first one you applied to?
+[2320.40s - 2321.24s] No, no.
+[2321.24s - 2326.18s] Basically, it was one of them.
+[2326.38s - 2327.68s] I applied for many others.
+[2327.94s - 2329.72s] So I got two or three.
+[2330.00s - 2332.64s] So I got invited to many places for interview.
+[2333.30s - 2337.96s] But I got two or three positions in the UK, one in France.
+[2338.46s - 2341.66s] And for Munich, it took them one year to get back to me.
+[2342.42s - 2345.42s] And in the middle, I accepted another position in France.
+[2346.18s - 2349.30s] And then when Thun told me that, no, you are accepted,
+[2349.30s - 2352.04s] then I had to cancel that and go back to Thun.
+[2352.24s - 2354.46s] So it was not a very nice time.
+[2354.68s - 2355.58s] It was very stressful.
+[2356.38s - 2362.20s] And I'm this kind of person that I feel so bad if I commit to something
+[2362.20s - 2363.68s] and then say no.
+[2364.12s - 2367.90s] I had a very stressful and difficult time.
+[2368.86s - 2372.86s] And so how was it actually to build up your own lab in Munich?
+[2373.54s - 2374.74s] That really is for you.
+[2375.40s - 2377.34s] That didn't change much.
+[2377.34s - 2380.04s] Because I already had a lot of experience in Tübingen,
+[2380.62s - 2385.40s] coordinating with the groups, co-supervising the students and so on.
+[2385.82s - 2386.34s] I knew exactly.
+[2386.38s - 2388.00s] I knew exactly what robots I want.
+[2388.00s - 2390.28s] I knew exactly how many students I want.
+[2390.28s - 2393.20s] I knew exactly what kind of funding I should apply for.
+[2393.20s - 2397.68s] So everything was for me pretty much clear what I should do.
+[2397.68s - 2401.60s] Because I had a lot of experience during my postdoc.
+[2401.60s - 2404.14s] And so what about Munich?
+[2404.14s - 2408.14s] How easy was it actually to find a location, for example?
+[2408.14s - 2410.14s] I was so lucky.
+[2410.14s - 2414.14s] I think after two weeks I could find it.
+[2414.14s - 2416.14s] But I know that people spend one year.
+[2416.14s - 2417.14s] Still searching.
+[2417.14s - 2418.14s] Yeah.
+[2418.14s - 2419.14s] I was super lucky.
+[2419.14s - 2420.68s] And it's a very good location.
+[2420.68s - 2422.48s] I love my class.
+[2422.48s - 2427.36s] It's because I wanted to be in the city center somewhere really, you know, like city like
+[2427.36s - 2428.36s] style.
+[2428.36s - 2429.98s] And it is exactly that.
+[2429.98s - 2434.04s] But I was super lucky to find it right away.
+[2434.04s - 2435.60s] Nice.
+[2435.60s - 2444.24s] And so in terms of students, you already said you knew what kind of students you wanted.
+[2444.24s - 2445.58s] So what would be like?
+[2445.58s - 2446.08s] I mean, I think.
+[2446.08s - 2447.08s] I think it's like a very good idea.
+[2447.08s - 2448.08s] Student for your lab.
+[2448.08s - 2451.08s] So what kind of background attributes they should have?
+[2451.08s - 2454.40s] What kind of studies should they have concluded?
+[2454.40s - 2455.96s] To me, that doesn't matter.
+[2455.96s - 2458.08s] The studies they had.
+[2458.08s - 2460.88s] It's important that they understand what they did.
+[2460.88s - 2463.08s] So in my interviews, this is exactly what I do.
+[2463.08s - 2467.70s] So I tell them to present and I ask a question about the work they did.
+[2467.70s - 2469.08s] It can be super irrelevant.
+[2469.08s - 2470.08s] Right.
+[2470.08s - 2471.94s] And to me, it's important about that.
+[2471.94s - 2474.08s] They understand what they are talking about.
+[2474.08s - 2475.08s] You know.
+[2475.08s - 2476.08s] Okay.
+[2476.08s - 2482.08s] So basically your approach would be to go like really into deep technical problems.
+[2482.08s - 2483.08s] Exactly.
+[2483.08s - 2486.08s] Trying to find out who they actually know their stuff.
+[2486.08s - 2487.08s] Exactly.
+[2487.08s - 2488.08s] Do the work.
+[2488.08s - 2489.08s] Yeah.
+[2489.08s - 2490.08s] Okay.
+[2490.08s - 2494.08s] And I tell them when you prepare a presentation, go as much as possible to technical stuff.
+[2494.08s - 2495.08s] The writing math.
+[2495.08s - 2496.08s] I only want to see math.
+[2496.08s - 2497.08s] Nothing else.
+[2497.08s - 2498.08s] I mean.
+[2498.08s - 2499.08s] I thought you hate math.
+[2499.08s - 2500.08s] No, I didn't.
+[2500.08s - 2501.08s] I don't hate math.
+[2501.08s - 2502.08s] I mean, it's a tool.
+[2502.08s - 2503.08s] I don't love it.
+[2503.08s - 2504.08s] Yeah.
+[2504.08s - 2505.08s] But something that you.
+[2505.08s - 2506.08s] It's a necessary tool.
+[2506.08s - 2507.08s] So.
+[2507.08s - 2508.08s] Yeah, for sure.
+[2508.08s - 2511.08s] So I tell them to be as technical as possible.
+[2511.08s - 2514.08s] Some don't do it, which means to me it's a red flag.
+[2514.08s - 2516.08s] So I ask you to be as technical as possible.
+[2516.08s - 2519.08s] So if you don't do it, it means that you didn't do it.
+[2519.08s - 2522.08s] So I'm basically disclosing all my tricks.
+[2522.08s - 2529.08s] And then when they do go through technical stuff, then I can see, you know, how much
+[2529.08s - 2530.08s] they understand what they did.
+[2530.08s - 2532.08s] And to me, again, it's.
+[2532.08s - 2533.08s] I really want to.
+[2533.08s - 2536.08s] To bring something new to my life.
+[2536.08s - 2537.08s] That's the most important thing.
+[2537.08s - 2538.08s] A new mentality.
+[2538.08s - 2541.08s] And I really don't want something to ask me all the time what I should do.
+[2541.08s - 2546.08s] What's the next thing I want somebody to fight for their belief, whatever it is, it
+[2546.08s - 2547.08s] might be wrong.
+[2547.08s - 2548.08s] We can discuss 100 times.
+[2548.08s - 2549.08s] We can, you know, fight.
+[2549.08s - 2554.08s] And at the same at the end, you know, we just, you know, find the middle point.
+[2554.08s - 2555.08s] So.
+[2555.08s - 2558.08s] So you're basically trying to have really.
+[2558.08s - 2560.08s] You know, a lot of people are trying to do it.
+[2560.08s - 2561.08s] And you're trying to do it.
+[2561.08s - 2562.08s] And you're trying to do it.
+[2562.08s - 2563.08s] And you're trying to do it.
+[2563.08s - 2564.08s] And you're trying to do it.
+[2564.08s - 2565.08s] And you're trying to do it.
+[2565.08s - 2566.08s] You're trying to do it.
+[2566.08s - 2567.08s] And you're trying to do it.
+[2567.08s - 2568.08s] And you really want that.
+[2568.08s - 2569.08s] And so that's the thing.
+[2569.08s - 2570.08s] Yeah.
+[2570.08s - 2571.08s] Yeah.
+[2571.08s - 2572.08s] So you have a really also like diversity of minds there, like different.
+[2572.08s - 2573.08s] Different topics, different subjects, which they bring to the table.
+[2573.08s - 2574.08s] So what kind of students?
+[2574.08s - 2575.08s] So, so what kind of topics.
+[2575.08s - 2580.08s] Your students actually have graduated in, for example.
+[2580.08s - 2584.08s] So mostly on the optimal control and machine learning for decision making.
+[2584.08s - 2585.08s] Right.
+[2585.08s - 2586.08s] This is the general topic.
+[2586.08s - 2589.08s] And now at the moment, I have.
+[2589.08s - 2590.08s] Five PhD students.
+[2590.08s - 2591.08s] So.
+[2591.08s - 2596.08s] PhD students who are working on different topics in this area.
+[2596.08s - 2601.38s] So it's at the intersection of machine learning and optimal control and optimization for robotics.
+[2601.38s - 2607.98s] And the end application is humanoid, which is a combination of a lot of the locomotion,
+[2607.98s - 2611.28s] manipulation, I don't know, perception, everything, right?
+[2611.28s - 2612.18s] It has everything.
+[2613.68s - 2620.58s] And do you think that there are still some topics maybe underrepresented?
+[2621.08s - 2625.88s] Where you think, okay, those are really things which students should have, but they don't
+[2625.88s - 2628.68s] get it from their studies at the moment.
+[2628.68s - 2629.88s] You mean the courses?
+[2629.88s - 2637.78s] Yeah, maybe some which we could inject into a curriculum, which would be really helpful for students.
+[2637.78s - 2638.58s] I think so.
+[2638.58s - 2641.38s] I think so.
+[2641.38s - 2644.68s] I started two new courses actually.
+[2644.68s - 2649.58s] And the thing that I see is a bit general lacking.
+[2649.58s - 2650.98s] And many colleagues.
+[2650.98s - 2659.98s] Share the same thing with me is that some most of the courses somehow are introductions rather than going very deep to the topic.
+[2659.98s - 2665.28s] And my courses, I wanted to go deepest to the topic that I've taught, you know, teaching.
+[2665.28s - 2665.58s] Okay.
+[2665.58s - 2667.68s] And then so what kind of courses do you have?
+[2667.68s - 2668.68s] I have two courses.
+[2668.68s - 2672.18s] One is called Foundation of Modern Robotics.
+[2672.18s - 2674.38s] And there it's very mathematically oriented.
+[2674.38s - 2678.68s] So I start from the theory and, you know, go very deep into math and so on.
+[2678.68s - 2680.78s] So students at some point gets really lost.
+[2680.98s - 2681.98s] And they hate me.
+[2681.98s - 2684.88s] But I think they will appreciate that at some point.
+[2684.88s - 2687.58s] And then I have an advanced robotics course.
+[2687.58s - 2691.08s] I talk about contact only, you know, contact-rich robotics.
+[2691.08s - 2693.38s] It's called and I talk about optimization.
+[2693.38s - 2695.88s] Only how you can use optimization for robotics.
+[2695.88s - 2697.98s] So these are the two courses.
+[2697.98s - 2703.58s] But also on top of that, one thing that, you know, and talking to other people.
+[2703.58s - 2706.08s] So I talk a lot to people from different fields.
+[2706.08s - 2710.08s] And I think one thing also is that it's really missing in engineering fields.
+[2710.08s - 2710.74s] Is that.
+[2710.98s - 2712.68s] The social sciences.
+[2712.68s - 2716.28s] So we need to have courses about social sciences, you know.
+[2716.28s - 2717.58s] So why is that?
+[2717.58s - 2721.18s] Is it because we have those introverted computer scientists.
+[2721.18s - 2721.78s] Exactly.
+[2721.78s - 2723.48s] Who do not know how to go like.
+[2723.48s - 2723.98s] Exactly.
+[2723.98s - 2725.88s] Work or present their work.
+[2725.88s - 2726.88s] Not present their work.
+[2726.88s - 2733.78s] But, you know, basically it's really crazy because nowadays technology is shaping our society, right?
+[2733.78s - 2739.18s] And if you don't understand anything about the future of our society, how this society works.
+[2739.18s - 2740.78s] We are just single-minded people.
+[2740.78s - 2743.78s] Who just, you know, just roll out the future.
+[2743.78s - 2747.08s] And we need to think about these consequences.
+[2747.08s - 2748.78s] And I'm yeah.
+[2748.78s - 2757.58s] Also, so it's not only about like how to behave, but more like to take like also all the problems of humanity into account.
+[2757.58s - 2758.08s] Exactly.
+[2758.08s - 2762.58s] When you think about what you want to work on next, for example, right?
+[2762.58s - 2766.38s] For instance, one thing is that, you know, I see that many people talk about.
+[2766.38s - 2766.78s] Okay.
+[2766.78s - 2769.78s] I have an aging society.
+[2769.78s - 2770.58s] We need to have robots.
+[2770.58s - 2773.38s] To take care of human.
+[2773.38s - 2779.58s] But first, you need to see if nurses and humans elderly people want this technology.
+[2779.58s - 2782.78s] We should do some, you know, start doing something.
+[2782.78s - 2785.28s] Understand the dynamics of our society.
+[2785.28s - 2786.58s] I understand what's missing.
+[2786.58s - 2789.88s] What's required rather than without knowing anything.
+[2789.88s - 2791.58s] Just start writing proposals.
+[2791.58s - 2792.18s] Okay.
+[2792.18s - 2794.28s] Yeah, for sure.
+[2794.28s - 2796.18s] You know, we need this into the future.
+[2796.18s - 2797.38s] But it's important.
+[2797.38s - 2799.88s] I mean, we are very bad at predicting these things, right?
+[2799.88s - 2800.48s] I'm not saying.
+[2800.58s - 2804.28s] We can predict, but still, we should be concerned about that.
+[2804.28s - 2806.08s] You know, I think about that.
+[2806.08s - 2810.28s] And then if something goes wrong, we can quickly detect it, you know?
+[2810.28s - 2813.28s] So I think that's much more sustainable.
+[2813.28s - 2816.88s] A strategy and that's missing in engineering curriculum.
+[2816.88s - 2817.48s] They don't know.
+[2817.48s - 2822.18s] Nobody knows how to, you know, how to think about this problem even.
+[2822.18s - 2823.88s] And also another thing is ethics.
+[2823.88s - 2826.58s] I think ethics also should be part of the curriculum.
+[2826.58s - 2826.88s] Okay.
+[2826.88s - 2829.88s] Those are two topics which you would like to add.
+[2829.88s - 2837.88s] And so in terms of like social studies is of what kind of topics do you actually have in mind as a course?
+[2837.88s - 2840.78s] So how could a curriculum there?
+[2840.78s - 2841.18s] I don't know.
+[2841.18s - 2849.28s] I'm not, I'm not, you know, an expert in this, but I know very good colleague of mine in this, in this area.
+[2849.28s - 2853.08s] And I talked to them and basically I would need their help to do that.
+[2853.08s - 2853.98s] Right.
+[2853.98s - 2859.18s] But it's still again the, the, to me, it's about understanding again, the dynamics of the society.
+[2859.18s - 2870.08s] And how technology is affecting the dynamics of the society and then how we can measure and quantify, you know, our new developments of technology affecting the society.
+[2870.08s - 2879.08s] I mean, mostly it's going to be, you know, through surveys and, you know, the so on, you know, doing a study, asking people, going talk to people and so on.
+[2879.08s - 2884.08s] But it's still just acknowledging that such a science exists.
+[2884.08s - 2884.58s] Right.
+[2884.58s - 2887.18s] It's not going to be a deep, you know, deep study.
+[2887.18s - 2887.58s] Right.
+[2887.58s - 2888.18s] It's not going to be a deep.
+[2888.18s - 2888.68s] Right.
+[2888.68s - 2889.08s] It's not going to be a deep.
+[2889.08s - 2891.08s] You know, kind of course or so on.
+[2891.08s - 2892.78s] It's just like an introduction.
+[2892.78s - 2902.28s] And at some point it's, it keeps the student, you know, maybe it's a bit tickle the student's minds to think also differently.
+[2902.28s - 2911.08s] And that's very important because otherwise the only thing about math, the only thing about, oh, how can I develop this new technology?
+[2911.08s - 2911.98s] This is super cool.
+[2911.98s - 2913.58s] I can get rich or whatever.
+[2913.58s - 2918.58s] But still consequences are important because if we just think a bit more about the language.
+[2918.58s - 2921.38s] The longer term consequences.
+[2921.38s - 2924.18s] We don't know anything pretty much.
+[2924.18s - 2934.58s] So at least we can assert teaching the students that, you know, we should be a bit more responsible because we, we really have effects on the society.
+[2934.58s - 2936.18s] Yeah, I totally agree.
+[2936.18s - 2944.58s] And what would you say are actually the biggest problems which we face maybe as humanity, maybe as society at large.
+[2944.58s - 2947.58s] So what, what in your mind is actually right now?
+[2947.58s - 2948.58s] The most pressing.
+[2948.58s - 2949.58s] Problem or problems?
+[2949.58s - 2951.58s] There are many problems.
+[2951.58s - 2954.58s] Again, we recently wrote a survey paper.
+[2954.58s - 2960.58s] And actually we wrote a full subsection on the societal impacts.
+[2960.58s - 2962.58s] There are many things.
+[2962.58s - 2966.58s] I mean, for instance, there is one thing is that robots will be used in military.
+[2966.58s - 2967.58s] This is clear.
+[2967.58s - 2968.58s] It will be used.
+[2968.58s - 2969.58s] It's being used at the moment.
+[2969.58s - 2974.58s] But at least what we can do is that we can say, I, as a person in academia, I am against that.
+[2974.58s - 2975.58s] Right.
+[2975.58s - 2976.58s] I'm a developer.
+[2976.58s - 2977.58s] I'm against that.
+[2977.58s - 2979.58s] I'm not going to get any funding from military and so on.
+[2979.58s - 2980.58s] This is one thing.
+[2980.58s - 2981.58s] But for sure, it's going to be used.
+[2981.58s - 2990.58s] And to me, being a responsible roboticist means that you clearly say what you think about these topics.
+[2990.58s - 2992.58s] And this is really important.
+[2992.58s - 2996.58s] Which means that you are, you're, you know, throwing some bridges, right?
+[2996.58s - 3000.58s] You cannot get funding anymore from industry, from, you know, military if you want.
+[3000.58s - 3003.58s] Especially if you're in the US, that's very tough.
+[3003.58s - 3005.58s] But Germany is much easier, I think.
+[3005.58s - 3006.58s] Mm-hmm.
+[3006.58s - 3014.58s] And what you actually say is that you are completely strictly against every or any use of robotics in warfare.
+[3014.58s - 3032.58s] Or are you actually maybe okay with, like, using robots or technology as, like, some kind of defense mechanism where you only try to, like, do just for defending yourself and maybe for, like, searching for landmines or something like that?
+[3032.58s - 3035.58s] You know, there are international humanitarian organizations.
+[3035.58s - 3036.58s] Mm-hmm.
+[3036.58s - 3037.58s] And there are international humanitarian laws.
+[3037.58s - 3038.58s] Mm-hmm.
+[3038.58s - 3041.58s] And using autonomous weapons is clearly against that.
+[3041.58s - 3042.58s] Right?
+[3042.58s - 3043.58s] Sure.
+[3043.58s - 3045.58s] About the human right, it's clearly against that.
+[3045.58s - 3051.58s] Because if you have an autonomous weapon, that is clearly a very simple question.
+[3051.58s - 3053.58s] They do not feel the way a human feels.
+[3053.58s - 3058.58s] They don't know how dying means, you know, feel and so on.
+[3058.58s - 3063.58s] So then it means it's just, you know, for the, you know, for the, you know, for the human rights.
+[3063.58s - 3064.58s] Mm-hmm.
+[3064.58s - 3069.58s] And, you know, robot is just, you know, it's an enemy, just let's kill.
+[3069.58s - 3073.58s] At the end of the day, the enemy doesn't mean anything.
+[3073.58s - 3074.58s] Right?
+[3074.58s - 3076.58s] It's just some social constructs in our mind.
+[3076.58s - 3077.58s] Mm-hmm.
+[3077.58s - 3079.58s] So I am a bit idealistic in that area.
+[3079.58s - 3080.58s] Right?
+[3080.58s - 3081.58s] I'm against any type of war.
+[3081.58s - 3082.58s] Mm-hmm.
+[3082.58s - 3083.58s] For sure it's not going to happen.
+[3083.58s - 3084.58s] Right?
+[3084.58s - 3085.58s] But I'm against it.
+[3085.58s - 3086.58s] It doesn't matter if it's going to happen or not.
+[3086.58s - 3088.58s] I'm against any type of war.
+[3088.58s - 3092.58s] And what about the right to defend yourself in case something actually attacking you?
+[3092.58s - 3093.58s] Yeah.
+[3093.58s - 3104.58s] I mean, it can happen, but, you know, we should be moving toward not having this kind of authority to, which is not, again, it's the thing that I'm saying, I'm absolutely aware that it's very idealistic.
+[3104.58s - 3105.58s] Right?
+[3105.58s - 3106.58s] I'm not saying tomorrow this is going to happen.
+[3106.58s - 3107.58s] Sure.
+[3107.58s - 3108.58s] But this is my, I have ideas.
+[3108.58s - 3109.58s] Mm-hmm.
+[3109.58s - 3110.58s] And I want to fight for my ideas.
+[3110.58s - 3111.58s] Right?
+[3111.58s - 3114.58s] For sure it's not going to achieve, I'm not going to achieve that.
+[3114.58s - 3119.58s] But at the end, maybe we get to some point that, you know, we use this for defense if you want.
+[3119.58s - 3120.58s] Yeah.
+[3120.58s - 3122.58s] But for me, I'm against any type of usage.
+[3122.58s - 3123.58s] Mm-hmm.
+[3123.58s - 3124.58s] And this is not the only issue.
+[3124.58s - 3129.58s] Again, there are more issues and also, also, you know, they can make mistakes.
+[3129.58s - 3130.58s] Right?
+[3130.58s - 3135.58s] It's important to tell people that these systems are not, you know, they can make mistakes.
+[3135.58s - 3136.58s] Mm-hmm.
+[3136.58s - 3139.58s] And then when they make mistakes, who is responsible for that?
+[3139.58s - 3140.58s] We don't know.
+[3140.58s - 3145.58s] So let's say you have, I don't know, autonomous weapon goes to the battlefield.
+[3145.58s - 3152.58s] And at some point after a mistake, so they want to kill some one person, but there are 100 people there.
+[3152.58s - 3154.58s] And, you know, they say, okay, it's fine.
+[3154.58s - 3161.58s] I'm going to kill this person, but this 100 are going to, you know, this is the price I need to pay to kill this person.
+[3161.58s - 3163.58s] And these are civilians, for instance.
+[3163.58s - 3164.58s] So it doesn't make any sense.
+[3164.58s - 3173.58s] And actually, even they can make mistake and do just, you know, because it's a very difficult thing to, you know, distinguish civilians from combatants.
+[3173.58s - 3174.58s] Right?
+[3174.58s - 3175.58s] Yeah.
+[3175.58s - 3176.58s] So there are many issues.
+[3176.58s - 3180.58s] So many, you know, this is, this real life is very complicated.
+[3180.58s - 3181.58s] Yeah, of course.
+[3181.58s - 3182.58s] Mass is very simple.
+[3182.58s - 3187.58s] And we say mass is very difficult, but actually that's a very predictable word.
+[3187.58s - 3189.58s] Real world is very unpredictable.
+[3189.58s - 3190.58s] Yeah.
+[3190.58s - 3195.58s] But, but I mean, still humanoid robotics is also very difficult.
+[3195.58s - 3197.58s] And so let's get back to that again.
+[3197.58s - 3208.58s] And so one of your goals, I would say, is really to create humanoid robots, which can solve like repetitive or dangerous tasks for humans.
+[3208.58s - 3209.58s] Yeah.
+[3209.58s - 3215.58s] And what kind of applications do you actually foresee for humanoid robots?
+[3215.58s - 3218.58s] So there are two ways of thinking about this.
+[3218.58s - 3219.58s] Okay.
+[3219.58s - 3231.58s] So for most of the application we see, right, let's say you are in a factory and you want to just move around in the factory that's pretty much flat and you want to do some tasks.
+[3231.58s - 3233.58s] You don't need legs pretty much.
+[3233.58s - 3238.58s] But if you think about a specific task, most of the time you can say, I don't need legs.
+[3238.58s - 3241.58s] I can find a custom robot that can do this task.
+[3241.58s - 3246.58s] But for me, it's like, if I understand how to do humanoid, pretty much I have solved all the tasks.
+[3246.58s - 3247.58s] Right.
+[3247.58s - 3249.58s] So this is the way I think about it.
+[3249.58s - 3252.58s] But in terms of application, it's still construction.
+[3252.58s - 3259.58s] Either we need to change the whole idea of construction, like, you know, 3D printing, building or something.
+[3259.58s - 3264.58s] But if you are doing the same thing, we need humanoid for that, to automate the procedure.
+[3264.58s - 3266.58s] Or if you need, if you press a button, you can do it.
+[3266.58s - 3267.58s] Yeah.
+[3267.58s - 3273.58s] And if you press fire fighting, it's very dangerous for human, disaster response, all this kind of thing.
+[3273.58s - 3286.58s] But in, also for instance, if you want to have a service robot at home, most probably it should be human, you know, humanoid to do all the, you know, all the tasks that we do at home.
+[3286.58s - 3289.58s] Yeah.
+[3289.58s - 3291.58s] It depends, again.
+[3291.58s - 3293.58s] Yeah, I definitely agree.
+[3293.58s - 3296.58s] So, I mean, there's a very good case which you can make for humanoid robots.
+[3296.58s - 3308.58s] I mean, that's, you know, evolution spent millions of years to come up with an optimal design and they came up with like humans for daily tasks.
+[3308.58s - 3320.58s] But you could also make a case for the contrary, namely that for some very specific tasks, for example, vacuum cleaning.
+[3320.58s - 3322.58s] Exactly.
+[3322.58s - 3325.58s] Or just transporting people from A to B.
+[3325.58s - 3326.58s] Yeah.
+[3326.58s - 3327.58s] Or just flying people from A to B.
+[3327.58s - 3331.58s] We have come up with very specific solutions to those problems.
+[3331.58s - 3337.58s] And it seems that they are much better than the design we came up with, evolution.
+[3337.58s - 3349.58s] So, is there still like a case which we can make for using humanoid robots or whenever we have a specific problem, maybe it's better to actually have like a specific hardware, specific.
+[3349.58s - 3352.58s] So, again, I'm not looking at the base.
+[3352.58s - 3355.58s] I don't believe that humanoid, human is the optimal morphology.
+[3355.58s - 3358.58s] And I don't think about it like this.
+[3358.58s - 3363.58s] But the way I think it is that to automate things in the world, you have two ways.
+[3363.58s - 3370.58s] Either to change the world or you have built a robot that can work in this world.
+[3370.58s - 3374.58s] So, the world around us, the human changed the whole shape.
+[3374.58s - 3376.58s] And we optimize everything for our shape.
+[3376.58s - 3382.58s] So, now if you have a robot that has the same shape, most probably they can do everything that humans want, right?
+[3382.58s - 3383.58s] Yeah.
+[3383.58s - 3384.58s] This is the way I think about it.
+[3384.58s - 3386.58s] Otherwise, I don't think.
+[3386.58s - 3396.58s] Again, it means that basically I'm looking at the applications that the robot can do all the things that humans can do for the human environment.
+[3396.58s - 3408.58s] And for that, then it's difficult to think about any other, you know, morphology or modality of, you know, motion or interaction that could work better.
+[3408.58s - 3409.58s] Yeah.
+[3409.58s - 3412.58s] That makes actually a lot of sense.
+[3412.58s - 3413.58s] Let's give the example of this.
+[3413.58s - 3416.58s] Let's give the example of, you know, so we have the trains.
+[3416.58s - 3417.58s] And trains are working.
+[3417.58s - 3423.58s] So, we had to make a lot of, you know, rails and so on so that the train can work.
+[3423.58s - 3427.58s] And also, we built our cities and so on with this.
+[3427.58s - 3433.58s] Not that, but I mean, we already built a huge infrastructure of the streets and so on, right?
+[3433.58s - 3439.58s] Now, what you can do is that you can make your city compatible with autonomous driving.
+[3439.58s - 3442.58s] Or you need to solve the autonomous driving problem in the city.
+[3442.58s - 3443.58s] So, which one is better?
+[3443.58s - 3444.58s] I don't know.
+[3444.58s - 3452.58s] But most probably, we need to adapt the technology to the environment we have rather than changing the whole environment for the robots.
+[3452.58s - 3453.58s] Makes sense.
+[3453.58s - 3454.58s] Yeah.
+[3454.58s - 3462.58s] And so, one big problem which roboticists face is this Moravec's paradox.
+[3462.58s - 3463.58s] Yeah.
+[3463.58s - 3471.58s] Which basically says that something which seems to be very easy for a human, it's very difficult for robots to do and it's the other way around.
+[3471.58s - 3472.58s] Yeah.
+[3472.58s - 3479.58s] So, why do we actually think that this is the case and what can we do about it?
+[3479.58s - 3481.58s] I don't know why this is the case.
+[3481.58s - 3488.58s] Maybe it's a very, very long time of evolution that gives us this physical capability.
+[3488.58s - 3491.58s] And the cognitive part is very new, right?
+[3491.58s - 3492.58s] It's not something that...
+[3492.58s - 3495.58s] So, I think that has been much more difficult.
+[3495.58s - 3501.58s] The fact that it becomes very unconscious makes us feel that it's a very difficult, very easy thing.
+[3501.58s - 3506.58s] While it's not easy because it took a long, long time for us to develop.
+[3506.58s - 3520.58s] A lot of species, you know, gradually started to go from, you know, in the sea to the, you know, on the land and then just crawling on the land and first and then going on two legs and so on, right?
+[3520.58s - 3522.58s] It took a long time.
+[3522.58s - 3528.58s] But now the cognitive process that we are talking about, like, you know, playing chess or so on, this is a new thing, right?
+[3528.58s - 3530.58s] And since it's more conscious...
+[3530.58s - 3532.58s] And for humans, it's very difficult.
+[3532.58s - 3537.58s] We think that it's very difficult for computers, but computers work differently.
+[3537.58s - 3540.58s] They can do a lot of computation, right?
+[3540.58s - 3544.58s] And they don't need to interact with the world, physical world.
+[3544.58s - 3547.58s] And I think that's the main reason.
+[3547.58s - 3557.58s] So, the thing that are difficult for us, it's really easy for computers because they can do a lot of computation in parallel and then, you know, find brute force the solution.
+[3557.58s - 3559.58s] You cannot brute force solution in your head.
+[3559.58s - 3560.58s] Right.
+[3560.58s - 3562.58s] And that's the real problem in the real world.
+[3562.58s - 3564.58s] You need to do the job.
+[3564.58s - 3573.58s] You need to just, you know, you know how many people or how many species died until now we can not walk, you know?
+[3573.58s - 3579.58s] Do you think we should actually follow the path of evolution to come up with those systems?
+[3579.58s - 3589.58s] Or do you think it's better that we engineered ourselves in the same way as we engineered flying, driving, vacuum cleaning even?
+[3589.58s - 3590.58s] We cannot afford that, right?
+[3590.58s - 3591.58s] So, it's clear.
+[3591.58s - 3593.58s] We cannot go the path of evolution.
+[3593.58s - 3594.58s] It's very costly.
+[3594.58s - 3595.58s] It's very time consuming.
+[3595.58s - 3601.58s] So, you don't think that, for example, evolutionary robotics could be a good path forward?
+[3601.58s - 3604.58s] You cannot do evolutionary robotics in the real world, right?
+[3604.58s - 3612.58s] You can think about doing in simulation, which is, again, it's an abstraction, which means that you are using human knowledge to build physics simulation.
+[3612.58s - 3614.58s] So, this is already a shortcut.
+[3614.58s - 3616.58s] You are not going to a path of evolution.
+[3616.58s - 3617.58s] You can get inspiration.
+[3617.58s - 3618.58s] Inspiration.
+[3618.58s - 3620.58s] And do evolution strategy.
+[3620.58s - 3633.58s] But it's not that you are going the path of evolution, which means that you saw that there are, I don't know, whatever in the real world for millennia or I don't know for how many years, such that you do what.
+[3633.58s - 3635.58s] We cannot afford to afford that.
+[3635.58s - 3638.58s] So, for sure, we need to engineer this.
+[3638.58s - 3647.58s] But since it's very, you know, just normal for human, we shouldn't be deceived that it's an easy thing.
+[3647.58s - 3650.58s] It's a super difficult thing, right?
+[3650.58s - 3661.58s] So, humans should be more appreciative of the things which we saw every day in the way of motion.
+[3661.58s - 3669.58s] You know, our hands, our hands is the most complex, most difficult thing ever, you know, to me.
+[3669.58s - 3674.58s] So, the body, the part of the body always, you know, impresses me is the hand.
+[3674.58s - 3675.58s] It's crazy.
+[3675.58s - 3676.58s] And we are far from having that.
+[3676.58s - 3680.58s] We are far from having something that is even 1% of this hand.
+[3680.58s - 3683.58s] That's a good change of topic.
+[3683.58s - 3696.58s] So, what would you say are actually the main bottlenecks to move humanoid robots around in the same way so that they are also as useful as humans?
+[3696.58s - 3700.58s] What would you say are really the big things which we have to solve?
+[3700.58s - 3702.58s] I think pretty much everything.
+[3702.58s - 3703.58s] Okay.
+[3703.58s - 3705.58s] So, pretty much we haven't solved anything, you know.
+[3705.58s - 3706.58s] We just have to.
+[3706.58s - 3708.58s] We just did very, very few steps.
+[3708.58s - 3711.58s] So, still, let's say, let's go back.
+[3711.58s - 3713.58s] Let's not talk about human.
+[3713.58s - 3718.58s] Let's talk about can you have a quadruped robot that gets the intelligence of dog?
+[3718.58s - 3721.58s] Still, you are not at all there, right?
+[3721.58s - 3723.58s] Or let's talk about the baby.
+[3723.58s - 3725.58s] Do we have that intelligence?
+[3725.58s - 3726.58s] Not at all.
+[3726.58s - 3729.58s] So, let's not talk about the grown-up human, right?
+[3729.58s - 3735.58s] And I think that the last, you know, just this fancy thing like playing with the human.
+[3735.58s - 3738.58s] Or anything like playing chess or I don't know.
+[3738.58s - 3748.58s] This kind of things are, it seems very difficult, but these are very early steps toward understanding how the movement in the real world works.
+[3748.58s - 3749.58s] And still, they are related.
+[3749.58s - 3751.58s] A lot of them are decision-making.
+[3751.58s - 3757.58s] But still, they are really baby steps toward really going to human.
+[3757.58s - 3761.58s] So, I think we should take few steps back, right?
+[3761.58s - 3764.58s] Still, if you have something that is as intelligent as human.
+[3764.58s - 3766.58s] As intelligent as a dog or a cat.
+[3766.58s - 3768.58s] We should be very happy.
+[3768.58s - 3769.58s] Right?
+[3769.58s - 3771.58s] And then the next step would be a baby.
+[3771.58s - 3775.58s] And then maybe, I don't know when we can go to the same.
+[3775.58s - 3781.58s] So, you would basically say the first step is to recreate a cat or a dog.
+[3781.58s - 3783.58s] The amount of intelligence they have.
+[3783.58s - 3785.58s] Not the morphology necessarily, right?
+[3785.58s - 3789.58s] And so, what kind of issues do we face there?
+[3789.58s - 3793.58s] And how would you basically divide the problem into smaller problems?
+[3793.58s - 3794.58s] Yeah.
+[3794.58s - 3796.58s] There are many things.
+[3796.58s - 3799.58s] You know, I have, yeah.
+[3799.58s - 3807.58s] So, I have some unpopular opinions that normally actually not everybody agrees with me.
+[3807.58s - 3808.58s] Okay.
+[3808.58s - 3809.58s] I like that already.
+[3809.58s - 3810.58s] Go on.
+[3810.58s - 3815.58s] I think, you know, the thing that people do nowadays, the focus of the research.
+[3815.58s - 3818.58s] I do not think we are going in that direction.
+[3818.58s - 3822.58s] So, we are going in the direction that we need to have a lot of knowledge.
+[3822.58s - 3826.58s] We need to have a lot of data to solve the problem.
+[3826.58s - 3828.58s] I don't think this is the way to go.
+[3828.58s - 3833.58s] But still, there are many smarter people than me that they think this is the way to go.
+[3833.58s - 3837.58s] So, it doesn't mean that this, you know, that the community believes in it.
+[3837.58s - 3843.58s] But I personally, with a few others that, you know, I talk to, I think it's not the way to go.
+[3843.58s - 3847.58s] This is the only thing, the way that we know how to do.
+[3847.58s - 3850.58s] There are difficult problems that we don't know how to solve.
+[3850.58s - 3851.58s] And we pretend.
+[3852.58s - 3854.58s] We pretend that they don't exist.
+[3854.58s - 3863.58s] So, for instance, one of the things that we as human or most of the animal or a baby do is that we do continual learning.
+[3863.58s - 3866.58s] Which means that we learn a small task, right?
+[3866.58s - 3872.58s] And then when we learn a few tasks, it's not only for the sake of that task.
+[3872.58s - 3876.58s] For finding some invariance in the world such that we can leverage.
+[3876.58s - 3880.58s] And when we want to learn a new task, we can quickly learn that.
+[3880.58s - 3883.58s] And this we don't have in the machine learning community, for instance.
+[3883.58s - 3885.58s] What we do is that we learn a task.
+[3885.58s - 3888.58s] For learning a new task, we start from scratch again.
+[3888.58s - 3890.58s] And this is a very difficult problem.
+[3890.58s - 3892.58s] That's why nobody is thinking about that, I think.
+[3892.58s - 3894.58s] I mean, people are thinking about this.
+[3894.58s - 3898.58s] But in robotics, no, very few people are going that path.
+[3898.58s - 3903.58s] So, does it mean that you're not really a big believer in machine learning?
+[3903.58s - 3905.58s] Of course, machine learning is important.
+[3905.58s - 3907.58s] No, I am a believer.
+[3907.58s - 3909.58s] But I think, you know, machine learning is very...
+[3910.58s - 3912.58s] Fast, very big.
+[3912.58s - 3916.58s] I think the problems that are super important, we are not spending enough time on.
+[3916.58s - 3918.58s] So, one of the things is that...
+[3918.58s - 3925.58s] So, this thing I discussed a lot yesterday and yesterday with people here in Berlin.
+[3925.58s - 3931.58s] And so, one thing that we always deceive ourselves with is that we have a simulation.
+[3931.58s - 3934.58s] And then we can say, we can go to the simulation.
+[3934.58s - 3937.58s] We do not need to do the real world trial and error.
+[3937.58s - 3939.58s] And we do trial and error there.
+[3939.58s - 3940.58s] But...
+[3940.58s - 3944.58s] To me, it's impossible to get a simulation like the real world, whatever we do.
+[3944.58s - 3945.58s] Right?
+[3945.58s - 3946.58s] It doesn't matter.
+[3946.58s - 3947.58s] But there will be a gap.
+[3947.58s - 3953.58s] So, at the end of the day, you need to at least fine-tune your behaviors in the real world.
+[3953.58s - 3954.58s] Right?
+[3954.58s - 3960.58s] Which means that if you just do the current existing type of learning behavior, reinforcement learning behavior,
+[3960.58s - 3965.58s] all of them will just, you know, break the robot quickly if you want to improve it.
+[3965.58s - 3967.58s] Which means that we are not going in that direction.
+[3967.58s - 3969.58s] How to explore in the real world safely.
+[3970.58s - 3974.58s] This is a fundamental question that will always exist.
+[3974.58s - 3977.58s] And we never could, you know, answer it.
+[3977.58s - 3978.58s] And we are not thinking about it.
+[3978.58s - 3979.58s] Why?
+[3979.58s - 3982.58s] Because we deceived ourselves that we can always go to simulation.
+[3982.58s - 3984.58s] And in simulation, there is no safety problem.
+[3984.58s - 3988.58s] The robot can fly around, go, you know, smash through the wall and nothing happens.
+[3988.58s - 3994.58s] And so, what would you say is actually missing to have this kind of like continual learning in the real world?
+[3994.58s - 3995.58s] There are many things.
+[3995.58s - 3997.58s] So, first is the framework.
+[3997.58s - 3998.58s] We don't know how to do it.
+[3998.58s - 3999.58s] Mm-hmm.
+[3999.58s - 4000.58s] The second is safety.
+[4000.58s - 4007.58s] So, if you go to explore for a new task, it means that you need to make sure that you are not breaking yourself.
+[4007.58s - 4009.58s] Because that's done, right?
+[4009.58s - 4010.58s] Mm-hmm.
+[4010.58s - 4015.58s] So, you shouldn't make catastrophic damage either to the environment or to yourself.
+[4015.58s - 4024.58s] And still, theoretically, continual learning is not very well established, you know, framework given in machine learning.
+[4024.58s - 4025.58s] Mm-hmm.
+[4025.58s - 4027.58s] You let alone the robotic side.
+[4027.58s - 4030.58s] And now, it's much more difficult when you go to the physical world.
+[4030.58s - 4031.58s] Yeah.
+[4031.58s - 4039.58s] Even if we concentrate only like, for example, the task of moving a humanoid robot around, that is already like super difficult.
+[4039.58s - 4048.58s] So, could you quickly explain why it's actually difficult to even like do motion planning, for example, for a humanoid robot?
+[4048.58s - 4049.58s] Mm-hmm.
+[4049.58s - 4052.58s] I mean, there are a lot of things that we are not conscious of.
+[4052.58s - 4056.58s] And we think it's super, you know, easy because we are doing it just seamlessly without thinking.
+[4056.58s - 4057.58s] Mm-hmm.
+[4057.58s - 4058.58s] I mean, there are a lot.
+[4058.58s - 4063.58s] So, if I want to just move around here, there are a lot of obstacles all over the place.
+[4063.58s - 4072.58s] And if I just, you know, hit something, really, it can be as catastrophic as, you know, I break my leg or break my arm.
+[4072.58s - 4077.58s] At the same time, if I do not put my foot in a proper place, I will fall down.
+[4077.58s - 4081.58s] That's going to be another catastrophic damage normally to myself.
+[4081.58s - 4085.58s] There are a lot of constraints on this system.
+[4086.58s - 4092.58s] That we need to, you know, just satisfy such that we do not damage our system.
+[4092.58s - 4093.58s] Mm-hmm.
+[4093.58s - 4099.58s] And again, since it's an unconscious behavior for us, we never think it's difficult.
+[4099.58s - 4110.58s] But if you want to write it down and reverse engineer that, it's a super difficult problem because you are making a lot of decisions at the same time.
+[4110.58s - 4115.58s] So, coordination of all motors of the robot, which can be muscles of the human in the human case.
+[4115.58s - 4118.58s] Such that you just take one step into the vision.
+[4118.58s - 4126.58s] And there is a very, very small coordination of these, you know, values that will lead to a successful motion, which means that you will not fall down.
+[4126.58s - 4128.58s] You will not hit the environment.
+[4128.58s - 4131.58s] You will not jump down from this building and so on.
+[4131.58s - 4140.58s] So, I think, like, a very common approach in robotics is to really have, like, a hierarchical way of seeing things.
+[4140.58s - 4144.58s] Where you have, for example, like a task layer where you always say, okay.
+[4144.58s - 4145.58s] Yeah.
+[4145.58s - 4148.58s] Like, robot needs to go from A to B or something.
+[4148.58s - 4153.58s] And then you have, like, maybe motion planning layer where you just compute, like, kinematics.
+[4153.58s - 4158.58s] And then maybe you have another layer for genetics and another layer for controlling the robot.
+[4158.58s - 4162.58s] So, do you think this is actually the right way to go about it?
+[4162.58s - 4165.58s] Or do you think we need, like, a different way of...
+[4165.58s - 4167.58s] So, I'm sure we need hierarchy.
+[4167.58s - 4168.58s] Mm-hmm.
+[4168.58s - 4170.58s] I'm not sure if this hierarchy is a good hierarchy.
+[4170.58s - 4171.58s] Mm-hmm.
+[4171.58s - 4172.58s] This is the way we know how to do it.
+[4172.58s - 4174.58s] That's why we do it.
+[4174.58s - 4175.58s] Yeah.
+[4175.58s - 4176.58s] Yeah.
+[4176.58s - 4177.58s] So, I think, like, I think it's clear to me.
+[4177.58s - 4178.58s] I always give this example.
+[4178.58s - 4182.58s] Let's say I want to plan my motion going from here to the downtown of Berlin, right?
+[4182.58s - 4185.58s] Then movement of this, my finger, it doesn't matter.
+[4185.58s - 4186.58s] It's irrelevant.
+[4186.58s - 4190.58s] So, if I just consider all the motions of my joints, it's irrelevant.
+[4190.58s - 4196.58s] I need to abstract it to such that I can make decision in such a long temporal, you know, scale.
+[4196.58s - 4203.58s] Oh, I need to go to this point to get a taxi or, I don't know, take a bus and then go downtown, you know.
+[4203.58s - 4206.58s] So, I can go to the more granular, you know, more fine-grained level.
+[4206.58s - 4212.58s] I should go open this door, go out, then go to the stairs or elevator, go down, right?
+[4212.58s - 4218.58s] So, for these kind of things, clearly how I move my eyes is irrelevant, right?
+[4218.58s - 4219.58s] Mm-hmm.
+[4219.58s - 4220.58s] In terms of dynamics.
+[4220.58s - 4227.58s] But now, if we go to very, very short term, like, one millisecond into the future, then
+[4227.58s - 4231.58s] every single motion that I do makes more, you know, becomes important.
+[4231.58s - 4232.58s] Mm-hmm.
+[4232.58s - 4234.58s] So, there are time scales, clearly.
+[4234.58s - 4238.58s] And we need to do abstraction such that we can predict so long into the future.
+[4238.58s - 4245.58s] So, let's say I want to think about, I don't know, what is my plan in the next five years, right?
+[4245.58s - 4247.58s] But many things become irrelevant.
+[4247.58s - 4249.58s] Many details become irrelevant.
+[4249.58s - 4250.58s] And it's important to...
+[4250.58s - 4255.58s] And finding the proper abstraction, I think, is highly related to intelligence.
+[4255.58s - 4261.58s] And so, you would say finding the right abstraction is really a problem of time domain?
+[4261.58s - 4267.58s] So, basically, something which is on a higher level has a different time scale compared
+[4267.58s - 4269.58s] to something which is on a lower level?
+[4269.58s - 4270.58s] No, it's...
+[4270.58s - 4272.58s] So, I only talked about the top temporal scale.
+[4272.58s - 4273.58s] Yeah.
+[4273.58s - 4276.58s] But also in the, you know, in the spatial scale, also, we can think about abstraction
+[4276.58s - 4277.58s] as well.
+[4277.58s - 4278.58s] Mm-hmm.
+[4278.58s - 4282.58s] So, it depends, again, for the immediate motions I do, it's very important that I consider
+[4282.58s - 4284.58s] all the geometries and constraints.
+[4284.58s - 4290.58s] But if I want to go, again, to, you know, then most of the geometrical part of matter
+[4290.58s - 4295.58s] and so on, it's, again, abstraction in a space time, basically.
+[4295.58s - 4299.58s] How would such an abstraction look like, actually?
+[4299.58s - 4300.58s] We still don't know.
+[4300.58s - 4301.58s] Okay.
+[4301.58s - 4302.58s] Right?
+[4302.58s - 4303.58s] And I think it's a bit of a dynamic.
+[4303.58s - 4304.58s] So, it's...
+[4304.58s - 4307.58s] There are some tasks, irrelevant abstraction that we always have.
+[4307.58s - 4308.58s] Mm-hmm.
+[4308.58s - 4311.58s] And sometimes we make tasks relevant abstraction, right?
+[4311.58s - 4317.58s] Again, for instance, if I want to grasp at that glass, I just ignore all other dynamics
+[4317.58s - 4318.58s] of any other part.
+[4318.58s - 4319.58s] Mm-hmm.
+[4319.58s - 4320.58s] And I think that they are relevant for my task.
+[4320.58s - 4324.58s] For instance, if there is a ball moving toward this glass, then that becomes important.
+[4324.58s - 4331.58s] So, the way we focus our attention on the task, you know, we abstract, which means that
+[4331.58s - 4334.58s] we just ignore all other parts of the world.
+[4334.58s - 4336.58s] We only consider the parts that are relevant.
+[4336.58s - 4341.58s] So, it's very complicated thing because, again, it has components on the task level and task
+[4341.58s - 4342.58s] agnostic level.
+[4342.58s - 4343.58s] Mm-hmm.
+[4343.58s - 4348.58s] And if I look at your past publications, it looks like, for example, you have a lot of
+[4348.58s - 4349.58s] data.
+[4349.58s - 4354.58s] It looks like for all the different methods which we could use to actually control a robot
+[4354.58s - 4359.58s] around, you have concentrated mostly, I would say, on one predictive control.
+[4359.58s - 4360.58s] Mm-hmm.
+[4360.58s - 4361.58s] Why is that?
+[4361.58s - 4366.58s] And what do you think are advantages to other methods which we could use?
+[4366.58s - 4369.58s] So, this is important to me.
+[4369.58s - 4374.58s] So, model predictive control, it means it's very simple idea.
+[4374.58s - 4377.58s] You say you have, you know some physics of the world on your robot.
+[4377.58s - 4382.58s] You predict in a short horizon into the future, the evolution of everything, I mean, everything
+[4382.58s - 4383.58s] that is relevant.
+[4383.58s - 4384.58s] Mm-hmm.
+[4384.58s - 4388.58s] And then you make a path and trajectory that is, you know, that satisfies your goal.
+[4388.58s - 4389.58s] Right?
+[4389.58s - 4390.58s] This is what it does.
+[4390.58s - 4394.58s] So, you always predict into the future, and there are a lot of evidence from neuroscience
+[4394.58s - 4395.58s] that we always do that.
+[4395.58s - 4399.58s] Even our perception is mostly based on prediction of the world.
+[4399.58s - 4403.58s] So, mostly it's prediction plus some point measurements that we update our perception
+[4403.58s - 4404.58s] model.
+[4404.58s - 4405.58s] Right?
+[4405.58s - 4406.58s] Mm-hmm.
+[4406.58s - 4411.34s] So, this is a very dynamic way of doing this, because now if quickly something changes in
+[4411.34s - 4415.58s] the environment, I can just adapt my plan based on that.
+[4415.58s - 4416.58s] Right?
+[4416.58s - 4421.52s] But the other way that you can do it, again, you can, and this is very nice because if
+[4421.52s - 4427.30s] you do model predictive, it means that you do not need to test all our, all your hypothesis
+[4427.30s - 4428.30s] in the real world.
+[4428.30s - 4429.98s] It can be very dangerous.
+[4429.98s - 4432.12s] So, this seems very natural.
+[4432.12s - 4436.58s] If you look at the, even, so in the control theory, there is a huge, a very large, very
+[4436.58s - 4438.08s] long history of this field.
+[4438.08s - 4440.42s] So, it's a very mature field.
+[4440.42s - 4444.08s] If you look at the neuroscience, pretty much all of them, all the neuroscientists saying
+[4444.08s - 4446.58s] that you have this kind of predictive models.
+[4446.58s - 4449.58s] So, it seems the most plausible way.
+[4449.58s - 4455.70s] It seems the way we are doing it is very limited, but for sure we need an online prediction
+[4455.70s - 4456.70s] in some sense.
+[4456.70s - 4460.74s] Maybe we do not use the physics the way that we have the physics.
+[4460.74s - 4465.34s] Maybe it's just some abstract physics in some implicit representation that we do.
+[4465.34s - 4466.34s] Right?
+[4466.34s - 4472.94s] But for sure, it's some part of the problem, you know, some part of the full autonomous
+[4472.94s - 4473.94s] robotics problem.
+[4473.94s - 4480.32s] And I think for me, at least there's also this big problem of, I would say like infinite
+[4480.32s - 4486.44s] choice in terms of what kind of context you make, because I can make the context with
+[4486.44s - 4490.04s] like every, everything in the world.
+[4490.04s - 4493.90s] And I can also like do it with a finger or two fingers or something.
+[4493.90s - 4495.98s] And so there's so much choice, which I have.
+[4495.98s - 4499.94s] And so, so how do you actually take this into account?
+[4499.94s - 4504.58s] And what would be like a solution to this problem of where you make the context in some
+[4504.58s - 4505.58s] ways?
+[4505.58s - 4511.16s] I think all of these are, you know, we have infinite decision pretty much, right?
+[4511.16s - 4515.94s] Because if you look at the problem, if you assume that the world is continuous for moving
+[4515.94s - 4519.88s] one joint, you have infinite, you know, type of ways you can do that.
+[4519.88s - 4523.58s] And now we are talking about human interaction with the world.
+[4523.58s - 4525.58s] It's infinity in the power of infinity.
+[4525.58s - 4528.28s] I don't know, something crazy.
+[4528.28s - 4533.64s] And the whole part of, again, the whole part of human intelligence is to just zoom in on
+[4533.64s - 4536.38s] one thing that is relevant all the time.
+[4536.38s - 4541.38s] And you're changing this sub goals that we have all the time, right?
+[4541.38s - 4546.90s] So basically it's about what, how we make our attention focus on something.
+[4546.90s - 4551.18s] And then we just simply filter all other things that are irrelevant.
+[4551.18s - 4552.18s] Right?
+[4552.18s - 4554.98s] And again, we shouldn't just deceive ourselves.
+[4554.98s - 4555.48s] That.
+[4555.48s - 4557.48s] This is something easy because we can do it.
+[4557.48s - 4559.28s] We take it for granted.
+[4559.28s - 4565.52s] It's you know, I think it will be learned it over evolution.
+[4565.52s - 4571.02s] But now to reverse engineer it or find some shortcut to do it, it's going to take so much
+[4571.02s - 4576.06s] time because you, you know, if you start thinking about this, you see, oh, it's crazy.
+[4576.06s - 4577.06s] How do we make it?
+[4577.06s - 4583.26s] See, the world is very complex and our, you know, ourselves are very complex.
+[4583.26s - 4585.48s] At some point we have very useful models.
+[4585.48s - 4594.88s] We can predict the trajectories of the future all the time and take the one that is best
+[4594.88s - 4595.88s] all the time.
+[4595.88s - 4604.04s] And for most of the actually behaviors we do, especially the shorter term behaviors,
+[4604.04s - 4606.92s] we already learned it as a feedback control.
+[4606.92s - 4609.40s] You know, we don't do much planning about it.
+[4609.40s - 4613.76s] So if you are walking on a flat surface, right, you are not planning, you're just doing your
+[4613.76s - 4614.76s] cyclic behavior.
+[4614.76s - 4615.36s] That's it.
+[4615.48s - 4618.20s] It can be seen as a learned feedback policy.
+[4618.20s - 4622.22s] And mostly you do not need so much anymore to your brain for that.
+[4622.22s - 4626.88s] But now if you go to a cluttered environment quickly, you need to be able to, you know,
+[4626.88s - 4627.88s] plan.
+[4627.88s - 4631.98s] So it's, it's, it's super complicated.
+[4631.98s - 4634.86s] Still, we don't know how we decide, right?
+[4634.86s - 4640.68s] And it's not, it's very simple, difficult because it seems that in each situation we
+[4640.68s - 4644.64s] have a type of different task dependent heuristic.
+[4644.64s - 4644.76s] That we quickly.
+[4644.76s - 4648.96s] We quickly ignore all the things that are irrelevant, you know, for our task.
+[4648.96s - 4649.96s] Yeah.
+[4649.96s - 4652.96s] It's very fascinating to, to think about this.
+[4652.96s - 4660.16s] And then I think also another problem, which is related to this is so for example, you
+[4660.16s - 4664.34s] can first compute context with the environment.
+[4664.34s - 4668.58s] And then afterwards you compute like the motion of the robot, but then you have the problem
+[4668.58s - 4672.46s] that maybe the robot can actually not follow the context.
+[4672.46s - 4674.16s] And then you could also do it the other way.
+[4674.16s - 4675.16s] Yeah.
+[4675.16s - 4678.36s] The motion and then compute the context which follow from this motion.
+[4678.36s - 4684.44s] So what kind of those two approaches actually favor and why?
+[4684.44s - 4690.28s] So I would call them one of them contact implicit, which you do not reason so much about where
+[4690.28s - 4694.90s] you just roll out and you just modify all the time.
+[4694.90s - 4700.04s] And the other is explicit that you explicitly plan for your contact.
+[4700.04s - 4702.84s] I think they have different functionalities.
+[4702.84s - 4704.04s] I think.
+[4704.04s - 4707.90s] I think they are much more contact implicit.
+[4707.90s - 4708.90s] It's just a feedback policy.
+[4708.90s - 4711.28s] It doesn't care about where we put the contact and stuff.
+[4711.28s - 4717.80s] But as we go to more conscious planning that we do in cluttered environment and so on,
+[4717.80s - 4723.00s] and then we do more contact explicit because it's important to not put your foot, I don't
+[4723.00s - 4729.04s] know, to not shoot this glass of water, you know, or to not, I don't know.
+[4729.04s - 4730.04s] There are a lot of things that can go wrong.
+[4730.04s - 4731.04s] Yeah.
+[4731.04s - 4732.04s] I guess.
+[4732.04s - 4733.04s] When it comes to climbing or something.
+[4733.04s - 4734.04s] Next.
+[4734.04s - 4737.90s] So it's really important that you first think about what kind of contacts you make.
+[4737.90s - 4745.80s] So if it's a very regular train, regular case, you don't need to so much do planning and
+[4745.80s - 4750.44s] there you can do contact implicit, which means that do not reason about where to put your
+[4750.44s - 4753.32s] foot or arms or hands.
+[4753.32s - 4756.28s] You just, you know, go forward with some feedback mechanics.
+[4756.28s - 4760.90s] So you wouldn't say that one of those approaches is wrong and the other is right, but instead
+[4760.90s - 4763.70s] it really depends on what kind of scenario you're currently in.
+[4763.70s - 4769.08s] So I think I, so the way I like to think about it, we do a bit of contact explicit
+[4769.08s - 4770.94s] to plan in very difficult situations.
+[4770.94s - 4771.94s] Right.
+[4771.94s - 4775.94s] But as we make master the task, it becomes more and more implicit.
+[4775.94s - 4778.36s] We don't need to think about it anymore.
+[4778.36s - 4781.04s] We just do it naturally.
+[4781.04s - 4786.76s] So basically in the beginning you plan your contacts and you try to try out what kind
+[4786.76s - 4787.76s] of motion.
+[4787.76s - 4791.56s] And then once you have mastered something, you basically just let it roll all on.
+[4791.56s - 4792.56s] I mean, many tasks we do it like this.
+[4792.56s - 4793.56s] Yeah.
+[4793.56s - 4794.56s] So it's not like, it's not like we're doing it like this.
+[4794.56s - 4795.56s] Right.
+[4795.56s - 4798.56s] First thing we're starting to play an instrument or something.
+[4798.56s - 4799.56s] Right.
+[4799.56s - 4802.36s] Each you're thinking about is how to do the finger.
+[4802.36s - 4806.74s] And at some point it becomes really part of your body.
+[4806.74s - 4811.32s] And some developments from the industrial side, which I guess is really exciting to
+[4811.32s - 4818.80s] you is that a lot of different companies have actually, yeah, venture in the humanoid robotics
+[4818.80s - 4819.80s] space.
+[4819.80s - 4820.80s] Right.
+[4820.80s - 4821.80s] So we have, for example, companies like TeslaK, figure, agility, robotics, and so on.
+[4821.80s - 4822.80s] Yeah.
+[4822.80s - 4823.80s] And then we have companies like, for example, like I mentioned, like, you know, like it
+[4823.80s - 4828.30s] get into robotics, but also like older companies like Boston Dynamics, power robotics, just
+[4828.30s - 4831.84s] to name some, or even like on that SMO.
+[4831.84s - 4836.86s] And so what do you think about this recent development of more companies going into the
+[4836.86s - 4842.80s] space and which company do you think has like the right approach to do building humanoid
+[4842.80s - 4843.80s] robots?
+[4843.80s - 4845.80s] I prefer not to answer the last part.
+[4845.80s - 4846.80s] Okay.
+[4846.80s - 4847.80s] I have a very, maybe, I guess, opinions that I don't want to maybe put it there.
+[4847.80s - 4848.80s] Then, you're very much in the space.
+[4848.80s - 4849.80s] Yeah.
+[4849.80s - 4850.80s] That's the thing.
+[4850.80s - 4851.80s] Yeah.
+[4851.80s - 4852.80s] I think that's the thing.
+[4852.80s - 4853.80s] Yeah.
+[4853.80s - 4854.80s] I think that's the thing.
+[4854.80s - 4855.80s] Yeah.
+[4855.80s - 4856.80s] I think that's theATH is there.
+[4856.80s - 4857.80s] Fair enough.
+[4857.80s - 4858.80s] Fair enough.
+[4858.80s - 4859.80s] But I think at this point, we still do not have the technology.
+[4859.80s - 4862.80s] To me, the technology is not there.
+[4862.80s - 4863.80s] So you mean also-
+[4863.80s - 4865.30s] The hardware is quite good now.
+[4865.30s - 4866.30s] Yeah.
+[4866.30s - 4867.30s] We didn't have it.
+[4867.30s - 4869.24s] There has been some breakthroughs in the hardware.
+[4869.24s - 4872.74s] Now we have decent hardware and there's no way close to human.
+[4872.74s - 4874.30s] It doesn't matter to be close to human.
+[4874.30s - 4876.04s] It's still the part of the hand.
+[4876.04s - 4878.12s] We don't have any proper hand.
+[4878.12s - 4881.80s] So people sometimes argue you need two fingers is enough and you can do it.
+[4881.80s - 4883.70s] You can repair most of the things.
+[4883.70s - 4889.12s] But if you think about really pushing this to the capability of human, we need a breakthrough
+[4889.12s - 4890.68s] still in the design of hand.
+[4890.68s - 4892.98s] So this is about hardware.
+[4892.98s - 4898.20s] In terms of software, I think we have a long way to go still.
+[4898.20s - 4902.80s] You can do, again, if you want your humanoid to just all the time pick a box from here,
+[4902.80s - 4904.60s] put it on a table, that's fine.
+[4904.60s - 4906.68s] That we can do it this decade.
+[4906.68s - 4911.66s] But if you're thinking about cleaning a house, autonomously, we are not there.
+[4911.80s - 4915.12s] Or if you want to do, I don't know.
+[4915.12s - 4919.30s] I mean, still, I'm not talking about something like firefighting or disaster response.
+[4919.30s - 4921.00s] These are much more complicated.
+[4921.00s - 4924.86s] I'm still talking about a confined environment, which is the same house.
+[4924.86s - 4927.92s] The only thing is that every day it's a new clutter.
+[4927.92s - 4928.92s] Right?
+[4928.92s - 4929.92s] Different.
+[4929.92s - 4930.92s] Still, we are not there.
+[4930.92s - 4935.20s] But do you think like in a factory setting, we could already like have humanoid robots
+[4935.20s - 4937.88s] for some specific tasks?
+[4937.88s - 4938.88s] Some specific.
+[4938.88s - 4940.96s] If you are thinking about very specific tasks.
+[4940.96s - 4941.78s] I would argue.
+[4941.80s - 4942.80s] You don't need the humanoid.
+[4942.80s - 4943.80s] Well, this is the only.
+[4943.80s - 4950.98s] Maybe it's a baby step toward the general purpose robot that I understand.
+[4950.98s - 4957.32s] But if you are so much limit the scope of the task, you can quickly go back to the thing
+[4957.32s - 4959.74s] that do you need a humanoid?
+[4959.74s - 4963.88s] That would be the problem if you're really limited.
+[4963.88s - 4965.56s] That's why I don't want to limit it.
+[4965.56s - 4966.56s] Right?
+[4966.56s - 4968.92s] I want to say, so my question is this.
+[4968.92s - 4971.12s] I want a humanoid that every day comes to this office.
+[4971.12s - 4973.38s] It's a different office.
+[4973.38s - 4974.38s] Right?
+[4974.38s - 4979.32s] It's a, everything is a differently located and now I give you the final picture that
+[4979.32s - 4982.22s] I want and you should be able to do it.
+[4982.22s - 4984.12s] So you mean in terms of like cleaning it up?
+[4984.12s - 4989.78s] Moving a lot of things around, you know, doing vacuum cleaning.
+[4989.78s - 4996.12s] If there are some water poured on the floor to be clean, these are very difficult tasks.
+[4996.12s - 4998.12s] What would you actually, what is your prediction about how far we are away from the surface?
+[4998.12s - 4999.12s] If you don't have a floor in the office, how can you do it?
+[4999.12s - 5000.12s] Like, you know, if you have a little bit of space.
+[5000.12s - 5002.32s] we are away in terms of like
+[5002.32s - 5003.36s] years
+[5003.36s - 5005.40s] some kind of
+[5005.40s - 5007.56s] home cleaning robot
+[5007.56s - 5009.98s] I think we are far because
+[5009.98s - 5011.16s] if we can solve it
+[5011.16s - 5014.00s] we have made a lot of progress
+[5014.00s - 5016.16s] it's a very
+[5016.16s - 5016.92s] difficult thing
+[5016.92s - 5019.86s] I don't know and the number of years
+[5019.86s - 5022.02s] I can say most
+[5022.02s - 5024.16s] probably I'm pretty sure this decade is not
+[5024.16s - 5024.66s] going to be
+[5024.66s - 5027.94s] for sure next decade I don't know
+[5027.94s - 5029.30s] still I think we are far but
+[5029.30s - 5032.16s] I've made
+[5032.16s - 5033.90s] a lot of wrong predictions but I don't
+[5033.90s - 5035.98s] trust my prediction anymore
+[5035.98s - 5037.92s] okay so you don't want to like say
+[5037.92s - 5039.48s] okay 20 years and
+[5039.48s - 5042.18s] I don't know whatever I say it's gonna be wrong
+[5042.18s - 5044.16s] even if it turns out
+[5044.16s - 5045.58s] right it's only chance
+[5045.58s - 5048.14s] it doesn't mean that I have this intuition
+[5048.14s - 5049.66s] that this is gonna happen
+[5049.66s - 5052.10s] yeah I think a lot
+[5052.10s - 5053.94s] of those companies which are producing
+[5053.94s - 5055.88s] humanoid robots at the moment say what
+[5055.88s - 5057.90s] actually argue hey we are just
+[5057.90s - 5058.86s] building big
+[5058.86s - 5060.90s] large language models
+[5060.90s - 5062.42s] or foundational
+[5062.42s - 5065.30s] models for robotics and say
+[5065.30s - 5067.52s] could actually solve
+[5067.52s - 5069.50s] things in a similar way as
+[5069.50s - 5071.50s] for example chat GPT could solve
+[5071.50s - 5073.56s] like language
+[5073.56s - 5075.56s] so what is actually your
+[5075.56s - 5077.26s] opinion on that
+[5077.26s - 5079.58s] do you think that is a valuable
+[5079.58s - 5081.48s] approach? I think it
+[5081.48s - 5083.62s] can happen actually
+[5083.62s - 5084.44s] I see
+[5084.44s - 5087.70s] I see it
+[5087.70s - 5088.52s] to be promising
+[5088.86s - 5092.02s] but you need a lot of data
+[5092.02s - 5093.46s] and the question is as well does it
+[5093.46s - 5095.14s] that data come from
+[5095.14s - 5098.02s] so one promising approach to collect data
+[5098.02s - 5100.38s] so again data of the language data of the
+[5100.38s - 5102.82s] vision you know that's the digital world
+[5102.82s - 5104.78s] it's everywhere you know you can train the
+[5104.78s - 5106.74s] language model on the whole internet and
+[5106.74s - 5109.62s] so on right we don't have such a data for
+[5109.62s - 5113.18s] the robots right we have data of human
+[5113.18s - 5115.10s] but there are different morphologies there
+[5115.10s - 5116.70s] we don't have actions access to the
+[5116.70s - 5118.74s] action so it's very difficult to see the infer
+[5118.74s - 5121.50s] from human videos how to
+[5121.50s - 5123.70s] but the only thing that I see it's promising
+[5123.70s - 5126.20s] especially for now for the companies
+[5126.20s - 5128.54s] is the teleoperation
+[5128.54s - 5130.18s] so basically you can
+[5130.18s - 5132.70s] wear some exosuites or some haptic devices
+[5132.70s - 5134.10s] and so on
+[5134.10s - 5136.34s] and you show exactly the robot
+[5136.34s - 5138.42s] using its own embodiment
+[5138.42s - 5140.14s] how to do the task right
+[5140.14s - 5142.18s] and when you do that this is exactly
+[5142.18s - 5144.14s] clean data that you want
+[5144.14s - 5146.46s] and then you generally you need a lot of
+[5146.46s - 5147.02s] human
+[5147.02s - 5147.78s] hours
+[5147.78s - 5148.14s] and then you need a lot of human hours
+[5148.14s - 5148.72s] and then you need a lot of human hours
+[5148.74s - 5151.58s] doing this task getting mastered with
+[5151.58s - 5153.86s] this delays of exoskeleton and haptic
+[5153.86s - 5155.66s] device and so on
+[5155.66s - 5157.98s] and making the robot do a lot of object
+[5157.98s - 5160.70s] manipulation locomotion and so on
+[5160.70s - 5164.22s] that way if you can hire enough people
+[5164.22s - 5166.54s] to generate these motions for you I
+[5166.54s - 5167.50s] think this can
+[5167.50s - 5170.14s] can can do something so you would
+[5170.14s - 5172.38s] actually say the way towards
+[5172.38s - 5175.98s] this future would be by replacing not
+[5175.98s - 5178.14s] the humans with a human abroad but
+[5178.14s - 5180.26s] instead like putting the human robot in
+[5180.26s - 5182.34s] their place and then maybe let this
+[5182.34s - 5184.90s] human robot be controlled remotely by
+[5184.90s - 5186.98s] the same workers but maybe from home
+[5186.98s - 5189.86s] exactly you can basically do remote work
+[5189.86s - 5192.10s] from home and in that way you also
+[5192.10s - 5194.10s] collect the data for for your human
+[5194.10s - 5196.74s] robot and then we can basically train
+[5196.74s - 5198.82s] things but still you need the robot data
+[5198.82s - 5201.14s] right only measuring human data it
+[5201.14s - 5202.50s] doesn't matter
+[5202.50s - 5204.74s] so it should be something that translates
+[5204.74s - 5207.26s] quickly to the robot and you human look
+[5207.26s - 5208.02s] at the robot
+[5208.02s - 5209.74s] and change your motion such that the
+[5209.74s - 5211.34s] robot does what you want
+[5211.34s - 5213.58s] right so it means that it's a full job
+[5213.58s - 5215.50s] the full-time job for the human it's not
+[5215.50s - 5217.74s] that the human can just relax and
+[5217.74s - 5220.30s] do its stuff no you know it needs a lot
+[5220.30s - 5222.46s] of really work from human and it's a
+[5222.46s - 5225.02s] very expensive set of data but it's I
+[5225.02s - 5228.14s] think this will scale this can scale
+[5228.14s - 5230.22s] and I think companies can benefit from
+[5230.22s - 5232.02s] this if they they are willing to spend
+[5232.02s - 5234.62s] so much money on that right
+[5234.62s - 5237.58s] basically it would be human really
+[5237.58s - 5239.82s] teaching spending time teaching the
+[5239.82s - 5241.90s] robot how to do the things right and
+[5241.90s - 5243.74s] then let the robot do it the rest of the
+[5243.74s - 5244.54s] time
+[5244.54s - 5247.58s] and still we are talking about pretty
+[5247.58s - 5249.10s] predefined set of tasks
+[5249.10s - 5251.66s] but again cleaning the room is much more
+[5251.66s - 5253.42s] difficult
+[5253.42s - 5255.26s] but for me as a research problem this is
+[5255.26s - 5257.74s] not very interesting
+[5257.74s - 5260.06s] it's it's brute forcing basically the
+[5260.06s - 5261.26s] problem
+[5261.26s - 5263.10s] and it's a shortcut to make what you
+[5263.10s - 5264.78s] want but in terms of
+[5264.78s - 5266.70s] as an industry person I can see that
+[5266.70s - 5267.42s] this is very
+[5267.42s - 5270.54s] plausible
+[5270.54s - 5273.42s] and so you would say that like easier
+[5273.42s - 5274.78s] tasks which
+[5274.78s - 5277.42s] are maybe a bit more repetitive they
+[5277.42s - 5279.50s] could be like some of this approach you
+[5279.50s - 5281.66s] know like warehouse tasks like I don't
+[5281.66s - 5284.30s] know
+[5284.30s - 5287.42s] yeah some some some parts of the you
+[5287.42s - 5288.46s] know I don't know
+[5288.46s - 5290.70s] for instance in the
+[5290.70s - 5292.94s] automobile factories there are still
+[5292.94s - 5294.78s] certain things that robots don't do
+[5294.78s - 5296.94s] and they want automate I think for those
+[5296.94s - 5297.74s] you can do this.
+[5298.86s - 5300.94s] But still, this is a bit, I don't think
+[5300.94s - 5302.92s] you can clean this
+[5302.92s - 5304.88s] room with that approach.
+[5305.26s - 5306.94s] The type of objects,
+[5307.08s - 5309.02s] number of objects, number of situations
+[5309.02s - 5310.94s] are so many that you
+[5310.94s - 5312.26s] cannot iterate over them.
+[5313.08s - 5314.70s] And so, what would you
+[5314.70s - 5317.16s] say are applications
+[5317.16s - 5318.98s] which are nowadays
+[5318.98s - 5321.10s] already possible with a human
+[5321.10s - 5321.78s] art robot?
+[5323.68s - 5324.60s] Inspection, maybe.
+[5324.88s - 5326.90s] But that people use actually
+[5326.90s - 5328.56s] quadrupeds, it makes more sense.
+[5329.42s - 5331.04s] People are using actually
+[5331.04s - 5332.18s] nowadays inspection,
+[5332.92s - 5335.00s] robots for inspection, and I actually have a
+[5335.00s - 5336.82s] project with CERN
+[5336.82s - 5339.18s] and they want to use quadrupeds basically
+[5339.18s - 5340.16s] for inspection.
+[5340.64s - 5342.78s] But that's a very difficult research problem still
+[5342.78s - 5344.90s] because they have huge magnetic fields
+[5344.90s - 5347.04s] and these magnetic fields
+[5347.04s - 5348.96s] affect the robots. Robots are out of
+[5348.96s - 5349.42s] metals.
+[5350.42s - 5352.82s] So we are finding a way such that we can do
+[5352.82s - 5354.66s] planning on the magnetic fields,
+[5355.08s - 5356.60s] how we can modify the hardware
+[5356.60s - 5358.94s] but if it was not the magnetic
+[5358.94s - 5361.32s] field, you could do it with quadrupeds.
+[5361.32s - 5363.02s] Still people do it on other
+[5363.02s - 5365.20s] fields and
+[5365.20s - 5365.60s] also
+[5365.60s - 5369.20s] the thing is that, for instance, if you go to CERN
+[5369.20s - 5371.10s] there are many stairs
+[5371.10s - 5372.96s] and so on. Really, you need legs
+[5372.96s - 5374.64s] to do the inspection.
+[5375.02s - 5377.06s] You cannot do with wheels. So it seems
+[5377.06s - 5379.08s] that this is perfect. And they need
+[5379.08s - 5379.98s] inspection because
+[5379.98s - 5383.10s] they need a robot because they cannot have
+[5383.10s - 5385.04s] many, many different cameras all over
+[5385.04s - 5386.56s] the place. You want,
+[5386.60s - 5389.60s] you know, on-spot inspection
+[5389.60s - 5390.80s] or point inspection.
+[5390.80s - 5392.90s] So this way you can really
+[5394.10s - 5396.36s] like a robot, but still most probably
+[5396.36s - 5398.22s] you do not need human robots.
+[5398.22s - 5399.72s] A quadruped robot is enough.
+[5400.10s - 5402.22s] Nice. So your robots will go
+[5402.22s - 5404.36s] to CERN in a bit?
+[5404.48s - 5405.86s] Hopefully. I don't know. Yeah.
+[5406.10s - 5406.60s] Nice.
+[5406.60s - 5408.70s] Yeah. There are two PhD students there that are
+[5408.70s - 5411.14s] supervised from there and I'm supervising
+[5411.86s - 5414.08s] their project and they are really pushing
+[5414.08s - 5414.50s] for that.
+[5414.74s - 5415.24s] Nice.
+[5416.12s - 5416.56s] That sounds
+[5416.60s - 5417.10s] promising.
+[5417.10s - 5417.60s] Yeah.
+[5417.98s - 5421.10s] That's one kind of application I would like to see.
+[5421.40s - 5424.60s] If we stay with applications, what do you actually think
+[5424.60s - 5427.60s] about would be like some applications?
+[5427.60s - 5429.84s] And not like in the literal sense, but on the
+[5429.84s - 5432.84s] real life, what would be like some really good
+[5432.84s - 5437.14s] applications which we might actually get to in like
+[5437.14s - 5439.26s] 10 or 20 years with robots?
+[5439.48s - 5440.98s] So I still have to clean the room.
+[5442.22s - 5444.10s] Because that's such a difficult problem.
+[5444.10s - 5444.60s] Yeah.
+[5444.60s - 5446.36s] But still, if the robot doesn't go
+[5446.36s - 5449.36s] out, and there's no human here, right?
+[5449.36s - 5450.60s] I assume there is no human.
+[5450.60s - 5455.74s] So it doesn't matter if something bad happens, you're not killing anybody or no damage to
+[5455.74s - 5456.14s] human.
+[5456.14s - 5456.74s] Sure.
+[5456.74s - 5463.32s] This is the first step if you really want to act in an open-ended world without the
+[5463.32s - 5466.12s] chaos of the streets or outside of the world.
+[5466.12s - 5468.62s] So it's quite contained environment.
+[5468.62s - 5472.24s] The robot cannot just diverge and do something crazy.
+[5472.24s - 5475.36s] But still, there are a lot of detailed manipulation, local manipulation, and a lot of things that
+[5475.36s - 5475.86s] you can do.
+[5475.86s - 5481.24s] So the robot should do vacuum cleaning, sometimes needs to clean below the table.
+[5481.24s - 5485.28s] So first it needs to move, reason about I need to move first the table and do the vacuum
+[5485.28s - 5489.56s] cleaning, bring the table back and then move the chairs first.
+[5489.56s - 5493.82s] There are a lot of kind of reasoning puzzles that also the robot should do.
+[5494.70s - 5497.44s] There are very advanced manipulation skills.
+[5497.44s - 5500.24s] The robot should move a paper up to a table.
+[5500.62s - 5502.48s] You see the range of object is crazy.
+[5503.10s - 5505.86s] And I'm not talking about just the same set of objects.
+[5505.86s - 5508.32s] Every day it's going to be a new set of objects, right?
+[5508.32s - 5509.70s] So that's the question.
+[5509.70s - 5516.98s] And sometimes the floor is wet or there are some oil poured on the floor or a lot of random
+[5516.98s - 5517.98s] situations.
+[5517.98s - 5521.36s] This is kind of learning in the open-ended world.
+[5521.36s - 5525.36s] And if we can make something like this, I think that's a breakthrough.
+[5525.36s - 5531.98s] We understood something about how autonomous systems work, you know.
+[5531.98s - 5534.66s] But yeah, if you limit so much the task, you're not going to be able to do anything.
+[5534.66s - 5535.20s] So that's the question.
+[5535.20s - 5535.60s] And sometimes there are some problems.
+[5535.60s - 5535.70s] And sometimes there are some problems.
+[5535.70s - 5535.82s] And sometimes there are some problems.
+[5535.82s - 5539.58s] But if you limit so much the task and make the environment super controlled, then it's
+[5539.78s - 5542.58s] again going back to you don't need autonomy much.
+[5542.58s - 5547.40s] It's just, you know, you can have a pre-planned set of motions that can do the task.
+[5548.86s - 5554.78s] And so let's assume that we are actually getting to this point where we can actually clean
+[5554.78s - 5558.24s] up rooms, for example, and we have made this breakthrough.
+[5558.24s - 5558.74s] Okay.
+[5559.86s - 5564.62s] So, of course, you are replacing actual humans in this process.
+[5564.62s - 5565.06s] Exactly.
+[5565.06s - 5565.66s] And this will.
+[5565.66s - 5568.66s] And this will definitely lead to unemployment.
+[5568.66s - 5569.16s] Yeah.
+[5569.16s - 5574.12s] Do you actually feel that this might make people unemployed?
+[5574.12s - 5577.42s] And if yes, what could we actually do about it?
+[5578.90s - 5586.20s] I think cleaning the house, it's good actually that if we can replace human, I think, I don't know.
+[5586.20s - 5586.46s] Right.
+[5586.46s - 5588.70s] It can be coming from my ignorance.
+[5589.70s - 5590.32s] For sure.
+[5590.54s - 5595.62s] People would, would prefer cleaning the house than dying out of poverty.
+[5595.66s - 5596.16s] Right.
+[5596.16s - 5596.66s] It's clear.
+[5596.66s - 5597.16s] Right.
+[5597.16s - 5602.16s] But I think this kind of tasks maybe are fine.
+[5602.16s - 5609.16s] And, you know, still many people need to clean their house themselves.
+[5609.16s - 5614.16s] So it's not going to, maybe it's not going to contribute so much into unemployment, but
+[5614.16s - 5616.16s] for sure in the factory settings it will.
+[5616.16s - 5617.16s] Right.
+[5617.16s - 5620.16s] So maybe it's better if we talk about factory settings.
+[5620.16s - 5624.66s] There, there will be a lot of unemployment.
+[5624.66s - 5625.16s] Right.
+[5625.66s - 5627.16s] I would say yes.
+[5627.16s - 5630.16s] In the, in the past we have seen that this didn't happen.
+[5630.16s - 5633.66s] So whatever automation we did, there will, there have been more jobs.
+[5633.66s - 5634.66s] Right.
+[5634.66s - 5639.66s] So, but I think this case is a bit different and we might actually face unemployment.
+[5639.66s - 5646.66s] And then because it's a general purpose robot, basically it can be replacing human in any case, any situation.
+[5646.66s - 5647.16s] Right.
+[5647.16s - 5651.16s] It means that pretty much no physical task remains to do by human.
+[5651.16s - 5652.66s] If, if it's super successful.
+[5652.66s - 5653.16s] Right.
+[5653.16s - 5655.16s] Well, not, not every.
+[5655.16s - 5658.16s] And the only cognition remains for human to do.
+[5658.16s - 5658.66s] Yeah.
+[5658.66s - 5660.16s] But for example, like painting.
+[5660.16s - 5661.16s] Yeah.
+[5661.16s - 5662.16s] That's fun.
+[5662.16s - 5662.66s] Right.
+[5662.66s - 5664.16s] That's not something that you want to do too.
+[5664.16s - 5664.66s] Yeah.
+[5664.66s - 5665.16s] Probably not.
+[5665.16s - 5665.66s] Yeah.
+[5665.66s - 5671.66s] These are cognitive curiosity, just being, but it's still, so it's an issue.
+[5671.66s - 5676.16s] And I think this is one of the other issues that, you know, so the first issue I talked
+[5676.16s - 5677.16s] about a bit was the military.
+[5677.16s - 5680.16s] Second one is unemployment for sure.
+[5680.16s - 5684.16s] And I think it's crazy if we consider.
+[5684.16s - 5684.66s] Yeah.
+[5684.66s - 5691.66s] That this will be solved just out of chance with the current structure of the society we have.
+[5691.66s - 5699.66s] If we just, let's say who will have the robots, clearly the big companies and they will have control over the everything.
+[5699.66s - 5708.66s] And then pretty much the people who lost their job, there is no way you can compensate for that unless you really define some ways that you can do it.
+[5708.66s - 5711.66s] You know, there are many proposals that you can think about it.
+[5711.66s - 5713.66s] But if we just consider the current type of policy.
+[5713.66s - 5714.66s] Yeah.
+[5714.66s - 5720.66s] And the current type of political and economical system that we have now, it's going to be a disaster if this happens.
+[5720.66s - 5722.66s] So really we need to be thinking about it.
+[5722.66s - 5725.66s] And I'm really thinking about it.
+[5725.66s - 5728.66s] And there are many people who are thinking about it.
+[5728.66s - 5739.66s] And I'm pretty sure, I mean, you know, if we really bring awareness to people that, okay, for sure, it's going to be super nice if we have robots, you know, helping us in many things.
+[5739.66s - 5742.66s] But we don't want to, you know, just make the world go wrong.
+[5742.66s - 5743.46s] Yeah.
+[5743.66s - 5745.66s] And we want to make the world poorer and richer, right?
+[5745.66s - 5748.66s] Because if you don't do anything, this will happen.
+[5748.66s - 5752.66s] And so what, in your opinion, should we actually do about it?
+[5752.66s - 5758.66s] So, again, I have a bit of crazy ideas that might not be very popular.
+[5758.66s - 5760.66s] Well, crazy ideas are weird.
+[5760.66s - 5767.66s] So I think we should have an international, you know, basic income for everybody.
+[5767.66s - 5770.66s] People say, oh, people get lazy if you give them money.
+[5770.66s - 5772.66s] They do not buy food.
+[5772.66s - 5773.66s] They use drugs for that.
+[5773.66s - 5775.66s] I don't believe that.
+[5775.66s - 5780.66s] I think there should be an international basic income, depending on the economy of the country.
+[5780.66s - 5781.66s] Maybe I'm very naive.
+[5781.66s - 5784.66s] And, you know, I don't understand anything about the economy, right?
+[5784.66s - 5786.66s] But at least this would be my idea.
+[5786.66s - 5789.66s] So people wouldn't die out of poverty.
+[5789.66s - 5790.66s] They have food.
+[5790.66s - 5792.66s] They have shelter, right?
+[5792.66s - 5794.66s] And then the rest, they can figure it out, right?
+[5794.66s - 5799.66s] They can spend their time all the time in the house, do nothing, which is fine.
+[5799.66s - 5801.66s] Still, they do not, you know, die out of poverty.
+[5801.66s - 5804.66s] They can just do painting all day, which is perfect.
+[5804.66s - 5806.66s] I hope this happens.
+[5806.66s - 5814.66s] Or they play music or spend time with the family or do some exploration in the woods or whatever.
+[5814.66s - 5816.66s] All of this would be my idea of society.
+[5816.66s - 5822.66s] They can really be free out of the 8 to 9 job or 8 to 5 job or whatever.
+[5822.66s - 5824.66s] They will be absolutely free.
+[5824.66s - 5828.66s] There might be also some downsides on this, right?
+[5828.66s - 5830.66s] So evolution.
+[5830.66s - 5835.66s] In the evolution time, we did things with our hands, physical things.
+[5835.66s - 5845.66s] I think, again, it can come from my naivety, but I think if we stop doing all of these things, it might not be perfect for our mental health.
+[5845.66s - 5848.66s] So we should do something physically, you know.
+[5848.66s - 5851.66s] But I think that could happen.
+[5851.66s - 5857.66s] So if you have a basic income such that people do not die out of poverty or not having shelter,
+[5857.66s - 5859.66s] and the rest, they can go and do something.
+[5859.66s - 5865.66s] Go and do something for it to innovate or whatever to gain more money, that's fine.
+[5865.66s - 5874.66s] Then I think this is the simplest way we can think about to safeguard this technology against the problems of unemployment.
+[5874.66s - 5876.66s] But this is not my approach.
+[5876.66s - 5880.66s] But I think this is the promising thing that I've seen among the proposals.
+[5880.66s - 5886.66s] For instance, there are other things like, for instance, Birgit says you can put tax on the robots.
+[5886.66s - 5888.66s] There are many other types of proposals.
+[5889.66s - 5893.66s] The thing that I like, first of all, it should be international, the whole world.
+[5893.66s - 5898.66s] Because if you put it on one country, then we will have immigration, all immigration to that country.
+[5898.66s - 5901.66s] This is something out of the United Nations or something.
+[5901.66s - 5903.66s] It should happen around all the world.
+[5903.66s - 5909.66s] I know it's super difficult to implement because it needs a lot of bureaucracy and a lot of administration.
+[5909.66s - 5913.66s] I understand all of this, but still I don't see any better way.
+[5913.66s - 5917.66s] So we should be thinking about how we can have basic income.
+[5917.66s - 5918.66s] Thank you.
+[5918.66s - 5927.66s] Basic income and the money should come from the benefit or the revenue of the companies in robotics.
+[5927.66s - 5932.66s] Maybe it's not very interesting for the entrepreneurs and the innovators nowadays.
+[5932.66s - 5939.66s] But I mean, if we really care about our species, I think we should be paying a bit the price.
+[5939.66s - 5944.66s] Not being super selfish that I want to become super rich.
+[5944.66s - 5946.66s] So your ideal world would be basically that the robots are working.
+[5946.66s - 5951.66s] The mines, they are building all the resources.
+[5951.66s - 5958.66s] And then they are people can just get those resources for free.
+[5958.66s - 5960.66s] It's not the ideal world for me.
+[5960.66s - 5961.66s] Right.
+[5961.66s - 5965.66s] Ideal world would be that we would just say, okay, it's enough.
+[5965.66s - 5966.66s] We have good life.
+[5966.66s - 5968.66s] Let's stop innovating.
+[5968.66s - 5970.66s] We have enough money for food.
+[5970.66s - 5972.66s] We have enough money to spend our life.
+[5972.66s - 5974.66s] But I don't think that happens.
+[5974.66s - 5975.66s] So this technology is not.
+[5975.66s - 5978.66s] So this technology is going forward clearly.
+[5978.66s - 5982.66s] And I also attributed into that.
+[5982.66s - 5985.66s] And so I'm responsible for that.
+[5985.66s - 5989.66s] So that's why I wouldn't say that's my ideal, ideal world.
+[5989.66s - 5993.66s] I would say it's my ideal world within this trajectory.
+[5993.66s - 6004.66s] And so how do you actually feel about maybe like AI and robotics and the baby out of our control and at some point like taking over our worlds?
+[6004.66s - 6005.66s] Do you think that's the right thing to do?
+[6005.66s - 6006.66s] Is this a likely scenario?
+[6006.66s - 6015.66s] And it's plausible, but I don't know if I think that would be the last thing that happened.
+[6015.66s - 6021.66s] There is there are much more dangerous stuff that might happen in between to get there.
+[6021.66s - 6025.66s] And if it survived all of this, I think we will survive that as well.
+[6025.66s - 6029.66s] So what kind of other dangerous things could happen on the way there?
+[6029.66s - 6030.66s] I don't know.
+[6030.66s - 6031.66s] A lot of things.
+[6031.66s - 6034.66s] So if you start using a lot of robots in the in the wars and then this is the end of the world.
+[6034.66s - 6037.66s] And then this escalates, escalates, escalates.
+[6037.66s - 6038.66s] That's it.
+[6038.66s - 6039.66s] You're done.
+[6039.66s - 6040.66s] Right.
+[6040.66s - 6044.66s] A lot of things can happen in the middle that are much more immediate.
+[6044.66s - 6045.66s] Right.
+[6045.66s - 6046.66s] So there are many risks.
+[6046.66s - 6050.66s] We cannot just be the same to all of them.
+[6050.66s - 6063.66s] I wouldn't say, OK, there are a lot of problems with AI and robotics, but and there are existential risks, but not that they take over the world and they kill us.
+[6063.66s - 6064.66s] I think that that might happen.
+[6064.66s - 6073.66s] I'm not saying it may not happen, but I think that's much less likely than the other problems that are much more important.
+[6073.66s - 6074.66s] Again, it's plausible.
+[6074.66s - 6079.66s] I'm not saying it's not possible, but we should allocate risks.
+[6079.66s - 6083.66s] I would allocate them in the, you know, some low priority.
+[6083.66s - 6091.66s] So do we actually think that robots should or humanoid robots should also have like a personality or something?
+[6091.66s - 6092.66s] But what do you mean by personality?
+[6092.66s - 6093.66s] Yeah.
+[6093.66s - 6099.66s] You mean as we consider as an independent entity with rights?
+[6099.66s - 6107.66s] Yeah, maybe this, but also maybe like how we actually respond to social norms, for example.
+[6107.66s - 6113.66s] So I think, again, these are, this becomes much more philosophical and I don't know much.
+[6113.66s - 6119.66s] I read a lot about them, but I am not super informed about them.
+[6119.66s - 6120.66s] To me.
+[6120.66s - 6122.66s] So maybe we are going about the...
+[6122.66s - 6129.66s] So I think at that point, somehow the suffering becomes important.
+[6129.66s - 6132.66s] If they suffer, feel the pain or not.
+[6132.66s - 6133.66s] Right?
+[6133.66s - 6137.66s] That point is the point that, you know, we should consider them as.
+[6137.66s - 6144.66s] And that's super difficult because you can never, somebody, I can tell you I suffer, but I can be a zombie.
+[6144.66s - 6145.66s] How do you know I suffer?
+[6145.66s - 6146.66s] You try.
+[6146.66s - 6147.66s] You never know.
+[6147.66s - 6149.66s] It's a subjective experience.
+[6149.66s - 6150.66s] That's it.
+[6150.66s - 6151.66s] Of course.
+[6151.66s - 6152.66s] You can never say it.
+[6152.66s - 6156.66s] And then the human can just, human can find somehow that, oh, it's a good thing.
+[6156.66s - 6158.66s] So I should say I suffer.
+[6158.66s - 6160.66s] And then we give them.
+[6160.66s - 6161.66s] So it's very difficult thing.
+[6161.66s - 6162.66s] I don't know.
+[6162.66s - 6165.66s] It's a, I don't know where is the point.
+[6165.66s - 6170.66s] I don't think that we want them to be like that, but I think it might happen.
+[6170.66s - 6173.66s] But so we should be thinking about that.
+[6173.66s - 6180.66s] I don't think, again, we want, I mean, the way I think, I mean, the name of robot, it comes from, you know, Czech Republic.
+[6180.66s - 6182.66s] So and it means labor.
+[6182.66s - 6185.66s] And I still, I think about it like that.
+[6185.66s - 6186.66s] Right.
+[6186.66s - 6191.66s] But at some point, if this robot becomes autonomous, maybe, I don't know.
+[6191.66s - 6193.66s] It's not a necessary condition.
+[6193.66s - 6201.66s] But they might, I don't know, start showing that I have an independent personality or something.
+[6201.66s - 6203.66s] I don't know.
+[6203.66s - 6208.66s] And so, so you, you said that you read a lot about robotics.
+[6208.66s - 6209.66s] So is that basically.
+[6209.66s - 6211.66s] The main thing you read about?
+[6211.66s - 6213.66s] No, I actually out of work.
+[6213.66s - 6215.66s] I don't read about robotics.
+[6215.66s - 6217.66s] I read philosophy a lot.
+[6217.66s - 6219.66s] I read.
+[6219.66s - 6220.66s] I don't know.
+[6220.66s - 6221.66s] I read physics.
+[6221.66s - 6222.66s] I love physics.
+[6222.66s - 6225.66s] So you have a big library at home.
+[6225.66s - 6230.66s] Not super big because I just moved to my new home, but it's growing fast.
+[6230.66s - 6231.66s] I like reading a lot.
+[6231.66s - 6235.66s] And so, so what is your favorite philosopher?
+[6235.66s - 6237.66s] Oh, it changes every day.
+[6237.66s - 6238.66s] Yeah.
+[6238.66s - 6239.66s] It's.
+[6239.66s - 6240.66s] It changes every day.
+[6240.66s - 6242.66s] Sometimes it was Arthur Schopenhauer.
+[6242.66s - 6244.66s] Sometimes Nietzsche.
+[6244.66s - 6246.66s] But these are German.
+[6246.66s - 6249.66s] But also some of the French.
+[6249.66s - 6250.66s] I know.
+[6250.66s - 6254.66s] I mean, Albert Camus is not such a philosopher, but it's like really a thinker.
+[6254.66s - 6255.66s] I like him so much.
+[6255.66s - 6257.66s] His books are amazing.
+[6257.66s - 6258.66s] And again, it changes so fast.
+[6258.66s - 6259.66s] I don't know.
+[6259.66s - 6266.66s] And, and it's very difficult to, to detach their life from their thinking.
+[6266.66s - 6267.66s] Right.
+[6267.66s - 6274.66s] And I think that Nietzsche, you know, was not a very, you know, female person.
+[6274.66s - 6277.66s] Sorry, a very feminist person.
+[6277.66s - 6281.66s] But still, I mean, this guy was brilliant.
+[6281.66s - 6283.66s] To me, it's clear.
+[6283.66s - 6287.66s] Or Albert Camus is brilliant, but still they're, they're not, it's not that I'm praising everything
+[6287.66s - 6288.66s] about them.
+[6288.66s - 6289.66s] Right.
+[6289.66s - 6290.66s] I just think about their thinking.
+[6290.66s - 6295.66s] Or Heidegger, to me, was one of the most important thinkers from my naivety.
+[6295.66s - 6296.66s] Right.
+[6296.66s - 6297.66s] From my naivety.
+[6297.66s - 6298.66s] I'm not a philosopher.
+[6298.66s - 6299.66s] Right.
+[6299.66s - 6300.66s] I just read it as a hobby.
+[6300.66s - 6303.66s] But again, at the same time, he joined the Nazi.
+[6303.66s - 6304.66s] Right.
+[6304.66s - 6306.66s] So it's not clear.
+[6306.66s - 6311.66s] But it seems that now I bet, just look, most of them are German, the philosophers I'm naming.
+[6311.66s - 6314.66s] Well, so I think it's, yeah.
+[6314.66s - 6316.66s] Maybe like continental Europe.
+[6316.66s - 6317.66s] Yeah.
+[6317.66s - 6318.66s] I would say that was a big.
+[6318.66s - 6325.66s] And actually recently I'm reading about, about the, so there is, so there is a class of
+[6325.66s - 6326.66s] thinkers in the East.
+[6326.66s - 6327.66s] They are called the Kyoto School of Thinkers.
+[6327.66s - 6332.66s] And now I'm getting attracted a bit more and more toward the East philosophy, which is
+[6332.66s - 6333.66s] very interesting.
+[6333.66s - 6336.66s] They think much more different from the Western philosophers.
+[6336.66s - 6337.66s] And.
+[6337.66s - 6340.66s] So what would be something very typical of that?
+[6340.66s - 6341.66s] I don't know.
+[6341.66s - 6343.66s] I don't remember the names again.
+[6343.66s - 6345.66s] I'm sure I make mistakes.
+[6345.66s - 6347.66s] It's very, something very recent.
+[6347.66s - 6348.66s] I just started.
+[6348.66s - 6349.66s] Okay.
+[6349.66s - 6350.66s] And I found it very interesting.
+[6350.66s - 6351.66s] I think it's very interesting.
+[6351.66s - 6352.66s] I think it's very interesting.
+[6352.66s - 6353.66s] I think it's very interesting.
+[6353.66s - 6354.66s] I think it's very interesting.
+[6354.66s - 6360.66s] But I know in the, in Europe we have something or in Germany is something like Frankfurt School,
+[6360.66s - 6361.66s] right?
+[6361.66s - 6362.66s] Frankfurt School.
+[6362.66s - 6363.66s] They are very famous.
+[6363.66s - 6365.66s] And I think I like a lot of philosophers from there.
+[6365.66s - 6368.66s] And I didn't know such a thing existed in the East.
+[6368.66s - 6374.66s] And actually the one Kyoto School, again, the person, I don't unfortunately remember the
+[6374.66s - 6375.66s] name.
+[6375.66s - 6378.66s] He came to Germany, right?
+[6378.66s - 6382.66s] And he studied under the, the, what's his name?
+[6382.66s - 6383.66s] The, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the, the,
+[6383.66s - 6384.66s] the, the, the, the, the, the, the, the, the, the, the, the it's his super fosseal or class of Heidegger.
+[6384.66s - 6389.66s] That's is, I don't know, Super Version of Klaus of Heidegger.
+[6389.66s - 6390.66s] And then he went back to Kyoto.
+[6390.66s - 6396.70s] I started his Kyoto School, which is somehow, again, a different type of philosophy, but
+[6396.70s - 6400.66s] he experienced the Western philosophy at the same time.
+[6400.66s - 6407.66s] So Eastern philosophy is a bit different from Western philosophy, always going back and
+[6407.66s - 6408.66s] forth from logic.
+[6408.66s - 6409.66s] It's always going by enlightenment.
+[6409.66s - 6410.66s] It's all about logical thinking.
+[6410.66s - 6411.66s] And, you know, and that's the way it goes.
+[6411.66s - 6412.66s] But when you, when you go from Western philosophy to Eastern philosophy, you can go from the
+[6412.66s - 6417.38s] But when you go toward the East, it's more about being.
+[6418.70s - 6420.90s] So we are part of the universe, right?
+[6420.94s - 6424.06s] It's not that I am the subject and this is the object.
+[6424.78s - 6426.30s] It's more toward that.
+[6426.68s - 6428.44s] And actually Heidegger has the same.
+[6428.80s - 6430.36s] So he has the term Dasein.
+[6430.96s - 6437.14s] And it means that the mode of existing, just being there, is the most fundamental thing.
+[6439.52s - 6440.70s] Yeah, there are many.
+[6440.86s - 6442.46s] Again, every day I change my mind.
+[6442.84s - 6447.20s] Whenever I read a new thing and I get super excited, I say, oh, that's what I...
+[6447.20s - 6448.64s] And then the next day I say, oh, no.
+[6448.64s - 6455.24s] And would you say that reading philosophy has really influenced your life?
+[6455.40s - 6461.68s] And maybe you got some actionable advice from all those philosophers?
+[6462.18s - 6464.88s] So for me, it didn't happen like that.
+[6465.22s - 6471.96s] So at some point I experienced some existential crisis in my life.
+[6471.96s - 6473.50s] I said, what am I doing?
+[6473.64s - 6475.34s] Why am I doing something that I'm doing?
+[6476.10s - 6478.84s] And then I started saying, okay, what other people think?
+[6479.16s - 6483.54s] And then when you go, you go back and see, oh, many people just thought the same thing.
+[6484.16s - 6487.84s] And then you start reading this and then you understand that nobody has an answer.
+[6488.40s - 6490.60s] And then you say, okay, I don't know.
+[6490.92s - 6491.50s] You just attend.
+[6492.02s - 6494.08s] I don't know because nobody has an answer.
+[6494.58s - 6496.00s] It's a super complicated thing.
+[6496.36s - 6497.96s] So, yeah.
+[6498.16s - 6500.96s] I mean, this is already a very complex thing because...
+[6500.96s - 6501.26s] Yeah.
+[6501.96s - 6504.70s] We as a human are studying our brain.
+[6505.36s - 6506.60s] Something that makes us human.
+[6506.60s - 6508.64s] And that's already very crazy.
+[6509.22s - 6510.78s] It's such a loop for me.
+[6511.06s - 6515.88s] If you understand it very well and we can recreate it, I think we are creating a loop here.
+[6516.58s - 6517.12s] Really.
+[6517.42s - 6519.50s] It means that we human, we are creating human.
+[6519.62s - 6520.26s] What does it mean?
+[6520.56s - 6523.60s] Not that, you know, we do through evolution and through...
+[6524.82s - 6527.86s] But we are just building an artificial human.
+[6528.42s - 6529.44s] I don't know what it means.
+[6530.26s - 6531.38s] Well, it's crazy.
+[6531.96s - 6532.46s] Yeah.
+[6533.10s - 6547.82s] And so something which I really love about Nietzsche and Schockmauer, for example, is that they also like haven't some work which was really like easy to understand and also like very, yeah, very applicable to human life.
+[6548.64s - 6551.48s] And these were mostly existentialist movement, right?
+[6551.56s - 6555.42s] At some point, if you go back a bit to Hegel, you understand nothing.
+[6555.64s - 6555.86s] Yeah.
+[6555.96s - 6556.72s] What's he reading?
+[6557.14s - 6557.88s] That's true.
+[6558.68s - 6561.12s] I never read it, but I heard that.
+[6561.32s - 6561.44s] Yeah.
+[6561.96s - 6562.40s] It's...
+[6562.40s - 6573.40s] I think he even like wrote this in a way so that other people have like a hard time to understand it because he saw that he needed to be like very intelligent to follow his prose.
+[6573.56s - 6575.72s] I don't think it was his intention.
+[6575.88s - 6576.38s] I don't know.
+[6576.46s - 6576.66s] Right.
+[6577.20s - 6579.64s] But I think he wanted to be super precise.
+[6580.22s - 6581.30s] And it's impossible.
+[6581.48s - 6583.04s] Language cannot be super precise.
+[6583.94s - 6585.30s] Well, mathematics.
+[6585.68s - 6587.74s] Mathematics also can be seen as a language.
+[6587.84s - 6587.96s] Yeah.
+[6587.96s - 6590.12s] But it seems, you know, Godel theorem is there.
+[6590.26s - 6591.18s] And then you see that.
+[6591.96s - 6595.26s] There are problems even with the most formal language we have.
+[6596.54s - 6596.74s] Yeah.
+[6596.74s - 6599.54s] Maybe we can just quickly go back a little bit.
+[6599.58s - 6599.76s] Yeah.
+[6599.92s - 6600.82s] To the research.
+[6601.96s - 6606.74s] So what are actually current projects in your lab which you are currently working on?
+[6606.74s - 6606.96s] Yeah.
+[6607.72s - 6609.64s] So again, my...
+[6609.64s - 6612.34s] So you need to have a bit long-term picture.
+[6612.88s - 6617.84s] And again, my long-term picture is that I want to tell a robot, a humanoid, to clean this office.
+[6618.40s - 6621.46s] And the robot autonomously does it without me telling it what to do.
+[6621.64s - 6621.92s] Nothing.
+[6621.96s - 6624.12s] I just give the robot this picture.
+[6624.36s - 6625.16s] This is the end point.
+[6627.52s - 6632.00s] And of course, I want to put some constraints that, you know, you shouldn't...
+[6632.00s - 6633.96s] I mean, the robot would not break something, right?
+[6634.04s - 6636.68s] Because it wouldn't be like the picture.
+[6636.98s - 6640.96s] I just should make sure that it doesn't come up with some crazy thing that...
+[6641.50s - 6644.38s] I don't think for this case it happened, but still.
+[6645.16s - 6648.34s] So if something also happens, I think it's nothing bad.
+[6648.44s - 6651.12s] I understand there is something that I need to really say first.
+[6651.96s - 6654.00s] And now this is super complex.
+[6654.08s - 6655.06s] We need to break it down.
+[6656.00s - 6657.82s] So I have a couple of projects.
+[6657.94s - 6662.36s] So one is that how to do task and motion planning for human.
+[6663.08s - 6667.84s] And task and motion planning means that rather than saying first do this and do that and do so on,
+[6668.60s - 6671.44s] you just do first task planning and then motion planning.
+[6671.58s - 6672.74s] You do it at the same time.
+[6673.08s - 6678.46s] So you need to see the limits of motions during the task planning and the other way around.
+[6678.90s - 6680.98s] And this is already very complicated, right?
+[6681.96s - 6688.36s] I have one student who is using...
+[6688.36s - 6690.32s] So again, the goal is to realize this.
+[6690.86s - 6699.76s] One thing that I see very promising is to use the human data on the Internet to just, you know, give an initial guess how to do that, right?
+[6700.64s - 6704.66s] And this is something we are looking at because human already solved the task, right?
+[6704.80s - 6708.10s] So we try to get some intuition from that.
+[6709.68s - 6711.10s] Yeah, we are doing a bit of...
+[6711.96s - 6713.92s] And then the rest is technical, right?
+[6713.98s - 6721.16s] So for task and motion planning, you need to solve a search problem, how to warm start the search, how to find them.
+[6721.24s - 6722.26s] You worked a lot on this.
+[6723.60s - 6726.08s] And then the motion planning, I do optimization.
+[6726.34s - 6729.24s] We try to find what's the best optimization algorithm to you.
+[6729.30s - 6730.88s] So it becomes much more technical.
+[6732.32s - 6732.98s] Makes sense.
+[6732.98s - 6740.88s] And so if you look over all the research which you have done so far, what would you say is actually the thing which you're most proud of?
+[6741.40s - 6741.94s] I would say...
+[6741.96s - 6744.74s] I would say the work I explained during my internship at Max Blanc.
+[6745.56s - 6747.68s] So it's one year during your PhD.
+[6748.12s - 6748.14s] Yeah.
+[6748.68s - 6749.98s] I think it was...
+[6749.98s - 6751.70s] I thought a lot about the problem.
+[6752.54s - 6755.94s] And it was, you know, very simple algorithm.
+[6756.58s - 6757.74s] It gives guarantee.
+[6758.50s - 6759.34s] I mean, that's...
+[6759.34s - 6760.68s] Which means that when you give...
+[6760.68s - 6763.68s] It gives guarantee, it gives you some understanding about the problem.
+[6764.68s - 6771.94s] And I think it's also very much highlights this what you said in the beginning that you really think about.
+[6771.96s - 6780.98s] Equations in a way of how do actually the objects themselves, how do they actually propagate forward in time.
+[6780.98s - 6790.96s] And I think a lot of people don't see problems that way, but the way of how you actually approach it, you had like this new insights there.
+[6791.12s - 6798.16s] And that is actually how you came to this point where you said, okay, why not make a step, right?
+[6798.30s - 6798.44s] Yeah.
+[6798.48s - 6801.20s] That's the right thing to do to counteract the force.
+[6801.20s - 6803.92s] If you have actually the ability to do it.
+[6804.46s - 6807.08s] I love simple solutions that gives you insight.
+[6807.32s - 6808.64s] And this is one of them, you know.
+[6809.54s - 6809.86s] Nice.
+[6810.00s - 6818.34s] And still it's quite powerful because it gives you something that you say, oh, it can work, whatever, right?
+[6818.68s - 6822.44s] So I think that's the thing that I'm so...
+[6822.44s - 6824.22s] At the moment, I didn't think that again.
+[6824.40s - 6825.84s] It's always in retrospect.
+[6827.12s - 6830.90s] And so, and if you would have like infinite resources.
+[6831.20s - 6832.40s] Infinite time or something.
+[6833.14s - 6837.00s] What would you actually maybe change about the research landscape?
+[6837.58s - 6840.28s] Maybe not only in Germany, but maybe like globally.
+[6840.64s - 6845.98s] Do you think the way you do research is a good way, a right way?
+[6846.44s - 6848.92s] Or do you think there needs to be like some bigger changes?
+[6849.10s - 6851.24s] No, I think there are many things that should be changed.
+[6851.70s - 6853.50s] So what should be changed?
+[6853.68s - 6854.58s] The funding system.
+[6855.42s - 6857.88s] It doesn't make sense to make it super competitive.
+[6858.72s - 6859.44s] We don't need that.
+[6859.70s - 6861.04s] There are certain issues.
+[6861.04s - 6861.06s] There are certain issues.
+[6861.06s - 6861.08s] There are certain issues.
+[6861.08s - 6861.18s] There are certain issues.
+[6861.20s - 6864.70s] There are certain issues that we should work together to make it work, right?
+[6865.34s - 6871.22s] And it's crazy how much every, for every single thing, we make it super competitive.
+[6871.88s - 6876.04s] I think, you know, research is super incremental.
+[6876.36s - 6880.04s] We should really diversify the way people tackle the problem.
+[6880.68s - 6884.76s] So it makes more sense to a bit be more socialist, a bit, right?
+[6885.14s - 6887.00s] And a bit more distribute the money.
+[6887.00s - 6891.18s] Rather than just saying, oh, one person can just take all the money.
+[6891.18s - 6892.94s] And the rest has to have more money.
+[6893.22s - 6897.16s] You know, I think the funding system is super competitive.
+[6897.40s - 6898.00s] It shouldn't be.
+[6898.72s - 6901.96s] And it would be much less work if you just simply distribute the money.
+[6902.42s - 6905.82s] Rather than just, you have the review system, proposal writing.
+[6906.00s - 6907.38s] There's a business around this.
+[6908.06s - 6912.78s] It's crazy how much energy and time is spent on this.
+[6913.42s - 6917.08s] And it's crazy because, you know, for instance, you need to write 25 pages of proposal.
+[6917.56s - 6918.66s] You don't need that.
+[6918.74s - 6919.60s] One page is enough.
+[6920.02s - 6921.04s] You write it.
+[6921.04s - 6924.40s] It's, you know, it's crazy because now we write this.
+[6924.66s - 6925.78s] It goes to reviewer.
+[6925.82s - 6926.94s] Reviewer gives it to chat.
+[6926.98s - 6927.90s] GPT summarizes.
+[6928.56s - 6929.38s] It's crazy.
+[6930.04s - 6933.00s] I mean, I don't understand what we are doing.
+[6933.16s - 6937.46s] It seems that the thing at the end, we should just write very short.
+[6937.58s - 6939.86s] You write proposals and not research papers.
+[6939.98s - 6941.12s] There is no result on this.
+[6941.28s - 6943.30s] It's about idea, the future.
+[6943.30s - 6950.30s] And it's also about that we are taking so much resources away from people.
+[6951.04s - 6953.02s] And we actually actual research.
+[6953.02s - 6953.44s] Exactly.
+[6953.44s - 6960.06s] And people who are not doing the mainstream research, they are focusing on something that is not mainstream.
+[6960.06s - 6965.04s] So it's not going to be funded, but also it's still diversifying our solutions.
+[6965.70s - 6966.46s] Why not do that?
+[6966.46s - 6969.76s] Why should we put, you know, everything in one direction?
+[6969.80s - 6972.16s] We should, I think for sure we should diversify that.
+[6972.34s - 6980.04s] I think what I hear is there is to just take all the proposals and then randomly choose the winner.
+[6980.04s - 6980.32s] Right.
+[6980.32s - 6980.86s] So, so.
+[6981.04s - 6983.82s] Do you think it's actually valuable?
+[6984.02s - 6984.36s] Absolutely.
+[6984.82s - 6988.40s] First of all, you just reduce the number of pages, right?
+[6988.48s - 6990.04s] It becomes one page or two page.
+[6990.80s - 6992.02s] Because at the end it's an idea.
+[6992.70s - 6999.02s] And, you know, the person who has done this thing for 20 years will not come tomorrow and do something absolutely different.
+[6999.38s - 7000.86s] The person is going to do the same thing.
+[7001.30s - 7007.84s] The only thing that he or she will do is that he or she will pitch the idea through another thing to get another funding.
+[7008.24s - 7009.36s] It's the same thing.
+[7009.74s - 7009.94s] Right.
+[7009.94s - 7024.08s] So if it's, so this means that one person can just, I don't know, I don't want to say it's a lie, but, you know, it's just pitching the same thing in different directions and get funding and funding and funding.
+[7024.90s - 7026.62s] And this is only one solution.
+[7027.10s - 7027.36s] Right.
+[7027.36s - 7039.56s] And then again, the other 10 persons who are there and they are doing something else that, you know, maybe it's promising if they, you know.
+[7039.94s - 7047.38s] But don't, don't fear that.
+[7047.90s - 7051.30s] So, so if you just randomly distribute like the money.
+[7051.30s - 7052.16s] But not all of it.
+[7052.34s - 7052.88s] Some of it.
+[7052.96s - 7053.46s] Some of it.
+[7053.54s - 7054.76s] Some of it, not all of it.
+[7055.00s - 7058.02s] So we should be a bit more social, not fully social system.
+[7058.16s - 7058.46s] Okay.
+[7058.80s - 7058.96s] Yeah.
+[7058.96s - 7060.98s] So I think somewhere in between.
+[7061.22s - 7063.48s] Still, there should be some competition, right?
+[7064.22s - 7067.60s] Such that, you know, okay, still it's not a fair competition.
+[7067.92s - 7068.96s] There are a lot of biases.
+[7068.96s - 7075.44s] And since the ideas are very difficult to judge an idea, it's not like a scientific paper.
+[7075.60s - 7076.38s] You look at the plot.
+[7076.46s - 7077.44s] Oh, this is better than this.
+[7077.78s - 7081.56s] There is some idea and reviewers are other researchers.
+[7081.96s - 7085.76s] So it's already a bit random process because it goes to a reviewer.
+[7085.84s - 7087.90s] They say, oh, the reviewer thinks like you.
+[7088.02s - 7088.56s] And then you say.
+[7090.40s - 7093.54s] But still, I think we shouldn't.
+[7093.64s - 7098.16s] Again, it seems that the system is such that some people can hack it and get all the money.
+[7098.96s - 7101.86s] And for me, I myself don't do it.
+[7101.94s - 7104.18s] So if I get enough money, I stop writing proposals.
+[7104.86s - 7105.46s] Well, yeah.
+[7105.54s - 7107.66s] I think you also want to do extra research.
+[7107.74s - 7108.16s] Exactly.
+[7108.24s - 7108.88s] That's the idea.
+[7108.96s - 7114.14s] It's not about getting money that you become, you make a company.
+[7116.80s - 7118.04s] Or a very big system.
+[7118.12s - 7118.62s] Right.
+[7118.84s - 7121.18s] It's not that it's about doing research.
+[7121.26s - 7122.14s] That's why I'm here.
+[7122.72s - 7123.04s] Yeah.
+[7123.12s - 7124.80s] A very good answer.
+[7124.88s - 7125.72s] I would say.
+[7126.80s - 7127.30s] So, yeah.
+[7127.30s - 7127.52s] Yeah.
+[7128.00s - 7129.92s] Thank you so much for being here.
+[7129.92s - 7130.10s] Yeah.
+[7130.16s - 7130.68s] Thank you.
+[7131.02s - 7132.10s] It was really great.
+[7132.18s - 7132.58s] A lot of fun.
+[7132.68s - 7133.76s] Thank you.
+[7133.76s - 7133.80s] Thank you.
