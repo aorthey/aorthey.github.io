@@ -113,6 +113,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   kramdown-parser-gfm
+  mini_magick (~> 4.13)
   minima (~> 2.5.2)
   pdf-reader
   rexml (>= 3.4.2)
