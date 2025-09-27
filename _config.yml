@@ -26,6 +26,9 @@ plugins:
 minima:
   skin: auto
 
+favicon:
+  source: assets/favicon/favicon.ico
+
 image:
   path: /assets/images/face_square.png
   height: 400

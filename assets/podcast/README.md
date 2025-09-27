@@ -24,7 +24,8 @@ title and description (you have to copy them manually to spotify). Upload the
 12. Write a post on X using the description as the post and the content as the first comment. Add the `podcast.mp4` video directly to the post.
 13. Update the X link in `metadata.yml` file and verify that all links are correct (youtube, spotify, x, apple)
 14. Go to youtube and set the episode to public.
-15. Write LinkedIn post using the description, references, and links.
+15. Write LinkedIn post using the description, references, and links. Use
+    `scripts/make_linkedin_post.py` to generate the post.
 
 Additional Steps:
 - Generate transcripts using the script `scripts/generate_transcript.py`.
