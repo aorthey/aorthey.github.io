@@ -1,14 +1,56 @@
-title: "Oliver Brock: Intelligence, Protein Folding, Interactive Perception, Startups"
+title: "Oliver Brock: Science of Intelligence, Protein Folding, Berlin, AllAdvantage"
+
+youtube: BTljolp1SA8
+spotify: https://open.spotify.com/episode/38nPp0VWHKPaXeIFBFilRF?si=j7PC5s8dSTuEyE6yRSZMJw
+apple: https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570?i=1000737766473
+x: https://x.com/andreas_orthey/status/1991804483861434592
 
 description: |-
-  - Founding and running a company worth $200 Millions at one point 
+  Everyone talks AI, but what is intelligence, actually?
+  
+  Join me and Prof. Oliver Brock, director of the Science of Intelligence excellence cluster, for a deep-dive into the science of intelligence, robotics, protein folding, and his startup side quests.
 
-    The only way intelligence manifests itself is through behavior.
+  Here are my three personal highlights from this podcast:
+
+  - Oliver believes that intelligence manifests itself through behavior, and that behavior depends on a small set of principles. One of those principles, he believes, is active interconnection, where information flows between different parts of a system, guided by optimization.
+
+  - He recounts his truly inspiring life-story, including how we grew up in the 80s in West Berlin, what he did when the wall came down, how he found his way into Stanford University, and how he became the CTO of a company raising $200M in funding.
+
+  - By linking protein folding to robotics, Oliver explains how Deepmind's AlphaFold achieved a breakthrough in finding stable protein folding states, what Levinthal's paradox entails, and that necessity has driven nature to excel at protein folding.
 
 episode-links:
+  - Science Of Intelligence: https://www.scienceofintelligence.de/
+  - Oliver Brock Homepage: https://www.tu.berlin/en/robotics/about-rbo/prof-dr-oliver-brock
+  - Robotics and Biology Laboratory: https://www.tu.berlin/en/robotics
+  - Wikipedia AllAdvantage: https://en.wikipedia.org/wiki/AllAdvantage 
+  - The Work Turing Test: https://citeseerx.ist.psu.edu/pdf/75d3340c6dbd7bcd8c4b4c617acb5d932b03f4ba
 
 books:
   - Mind Children by Hans Moravec
   - Computers & Thought by Edward Feigenbaum
-  - The $2 Million Cough by Greg Hoffman (About the company AllAdvantage)
+  - The $2 Million Cough by Greg Hoffman [About the company AllAdvantage]
   - Vehicles: Experiments in Synthetic Psychology by Valentino Braitenberg
+  - Action In Perception by Alva Noë
+
+notes: |-
+  Special thanks to the Science of Intelligence excellence cluster, especially Maria Ott, for providing the podcast room for this episode and help with setting everything up.
+
+  Unfortunately, the audio of this episode got scrambled during recording due to a microphone malfunctioning. I had to reconstruct roughly 90 percent of this episode using AI tools. To do this, I used ElevenLabs.io to generate a transcription of the scrambled audio (which was surprisingly good) and then used their voice cloning tool to regenerate the audio in Oliver's voice. Unfortunately, the voice cloning introduced an accent to Oliver's voice, so the voice you hear is not the original voice of Oliver. However, the content is preserved and has not been altered from the original. Furthermore, this process led to some mismatch between lips and audio, which made the video stream unusable. I used different tools like facefusion.io, sync.so and diff2lip to finally restore the lips to be in synchronization with the audio from the voice cloning. The final video still has some audio and video artifacts plus the additional accent for Oliver's voice, but it was the best that could be achieved with the tools available to date.
+
+content:
+  - 02:14 Growing Up in Berlin in the 80s
+  - 08:26 Path Towards Academia
+  - 17:17 Founding AllAdvantage
+  - 27:23 Professorship in Amherst, MA
+  - 29:15 Protein Folding and AlphaFold
+  - 37:54 Interactive Perception
+  - 44:42 Intelligence, Behavior, and Braitenberg Vehicles
+  - 47:21 Definition of Intelligence
+  - 49:02 Multiple Intelligences
+  - 53:33 Intelligence as a Process
+  - 55:15 Work Turing Test
+  - 57:19 Principles of Intelligence: Active Interconnection
+  - 01:05:59 Science of Intelligence
+  - 01:10:16 Future of Robotics
+
+duration: 01:14:14

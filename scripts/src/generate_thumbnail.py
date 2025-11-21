@@ -50,15 +50,17 @@ def create_image_with_headshot(
         upscale_factor = 1  # No upscaling if already large enough
 
     # Step 3: Remove background from the enhanced (possibly upscaled) headshot
+    # input_array = np.array(input_image)
+    # output_array = remove(input_array)
+    # headshot = Image.fromarray(output_array).convert("RGBA")
     input_array = np.array(input_image)
-    output_array = remove(input_array)
-    headshot = Image.fromarray(output_array).convert("RGBA")
+    headshot = Image.fromarray(input_array).convert("RGBA")
 
     # Step 4: Enhance alpha channel for antialiasing
     alpha = headshot.split()[3]
     alpha_array = np.array(alpha)
     # Threshold alpha channel to make it binary (fully opaque or fully transparent)
-    alpha_binary = (alpha_array > 200).astype(np.uint8) * 255
+    alpha_binary = (alpha_array > 20).astype(np.uint8) * 255
     alpha_clean = Image.fromarray(alpha_binary)
 
     # Step 5: Apply cleaned alpha channel to headshot

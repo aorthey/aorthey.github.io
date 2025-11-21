@@ -173,6 +173,7 @@ def get_video_metadata_pairs(generate_spotify=False, filename=None):
                 apple_link = data.get("apple")
                 x_link = data.get("x")
                 books_list = data.get("books") or []
+                notes = data.get("notes") or []
 
                 # Validate required fields
                 if not title:
@@ -255,6 +256,10 @@ def get_video_metadata_pairs(generate_spotify=False, filename=None):
                     description_parts.append(references_formatted)
                     description_parts.append("")
 
+                if notes:
+                    description_parts.append("*Thanks and Credits*")
+                    description_parts.append(notes)
+                    description_parts.append("")
 
                 # Books
                 books_formatted = []

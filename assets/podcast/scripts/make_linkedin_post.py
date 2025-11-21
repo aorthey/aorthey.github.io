@@ -125,7 +125,6 @@ def get_linkedin_posts(filename=None):
 
                 # Combine post
                 post_sections = []
-                post_sections.append(f"New podcast episode on Humanoid Robotics!")
                 if main_text:
                     post_sections.append(main_text)
                 if links_text:

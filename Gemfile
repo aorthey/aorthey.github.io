@@ -9,6 +9,7 @@ gem "httparty"
 gem "pdf-reader"
 
 gem "jekyll-sitemap"
+gem "jekyll-remote-theme"
 gem "jekyll-seo-tag"
 gem "jekyll-favicon", "~> 1.1.0", group: :jekyll_plugins
 gem "mini_magick", "~> 4.13"

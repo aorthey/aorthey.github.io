@@ -1,4 +1,3 @@
-# _plugins/presentations.rb
 require 'yaml'
 
 module Jekyll
@@ -6,7 +5,6 @@ module Jekyll
     safe true
 
     def generate(site)
-      # Load YAML file from assets/talks/talks.yml
       yaml_file = File.join(site.source, 'assets', 'talks', 'talks.yml')
       if File.exist?(yaml_file)
         presentations = YAML.load_file(yaml_file)

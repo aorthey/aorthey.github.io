@@ -1,4 +1,10 @@
-# Step to Publish a Podcast Episode
+# Steps to Publish a Podcast Episode
+
+Links:
+https://podcastsconnect.apple.com/
+creators.spotify.com/pod/
+https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570
+https://studio.youtube.com/channel/
 
 0. We assume that you have finished editing a podcast episode, which is already
    rendered from blender and which we call here `podcast.mp4`. 
@@ -14,18 +20,23 @@
 7. Run `scripts/update_titles_and_description.py` to update title and
    description on youtube from `metadata.yml` file (do that such that
 `metadata.yml` represents always the ground truth).
-8. Send youtube link to podcast guest and wait for approval/comments.
+8a. Send youtube link to podcast guest and wait for approval/comments. 
+8b. Send a podcast release form and let them sign the opensign document 
+
+--------------------------------------------------------------------------------
+
 9. Upload episode to spotify (Link is creators.spotify.com/pod/). Use the script
    `scripts/update_titles_and_description.py --generate-spotify` to generate
 title and description (you have to copy them manually to spotify). Upload the
 `thumbnail.png` and the `thumbnail_square.png` as episode art.
 10. Update the spotify link in `metadata.yml` file.
-11. Refresh the RSS feed on apple until the episode has been updated: https://podcastsconnect.apple.com/. Add the link to the `metadata.yml` file.
-12. Write a post on X using the description as the post and the content as the first comment. Add the `podcast.mp4` video directly to the post.
+11. Refresh the RSS feed on apple until the episode has been updated: https://podcastsconnect.apple.com/. Add the apple episode link to the `metadata.yml` file.
+12. Write a post on X using the description and outline as the post. Then post all the links as the first comment. Add the `podcast.mp4` video directly to the first post.
 13. Update the X link in `metadata.yml` file and verify that all links are correct (youtube, spotify, x, apple)
 14. Go to youtube and set the episode to public.
 15. Write LinkedIn post using the description, references, and links. Use
-    `scripts/make_linkedin_post.py` to generate the post.
+    `scripts/make_linkedin_post.py` to generate the post (Requires links for
+youtube, spotify, x, apple AND setting youtube video to public).
 
 Additional Steps:
 - Generate transcripts using the script `scripts/generate_transcript.py`.

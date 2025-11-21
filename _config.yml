@@ -22,6 +22,9 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-favicon
+  - jekyll-remote-theme
+
+theme: minima
 
 minima:
   skin: auto
@@ -54,8 +57,6 @@ include:
   - assets/js/
   - assets/generate/
   - assets/podcast/
-
-theme: minima
 
 header_pages:
   - index.md

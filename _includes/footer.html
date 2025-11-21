@@ -1,7 +1,10 @@
 <footer class="site-footer h-card">
   <div class="wrapper">
-    <p class="footer-heading" align="center">Andreas Orthey, Version: v{{ site.version }}, Last Updated: {{ site.time | date: "%Y-%m-%d" }},
-    <a target="_blank" href="https://github.com/aorthey/aorthey.github.io">Source Code</a></p>
+    <p class="footer-heading" align="center">
+      Andreas Orthey, Version: [v{{ '' | git_commit_count }}-{{ '' | git_short_hash }}], 
+      Last Updated: [{{ site.time | date: "%Y-%m-%d" }}],
+      <a target="_blank" href="https://github.com/aorthey/aorthey.github.io">Source Code</a>
+    </p>
   </div>
 </footer>
 

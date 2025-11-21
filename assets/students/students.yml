@@ -1,0 +1,119 @@
+students:
+  - name: Franz Queißner
+    year: 2026
+    type: msc
+    title: Multi-Robot Task and Motion Planning
+    institution: Technische Universität Berlin
+    expected: true
+
+  - name: Ladislaus Finger
+    year: 2026
+    type: msc
+    title: Dynamical Grasping for Disassembly Tasks
+    institution: Technische Universität Berlin
+    expected: true
+
+  - name: Jakob Schlanstedt
+    year: 2026
+    type: bsc
+    title: Active Interconnection for Disassembly Tasks
+    institution: Technische Universität Berlin
+    expected: true
+
+  - name: Nicolas Hargus
+    year: 2025
+    type: msc
+    title: Multi-Robot Motion Planning for Disassembly Tasks
+    institution: Technische Universität Berlin
+    expected: true
+
+  - name: Servet Bora Bayraktar
+    year: 2025
+    type: msc
+    title: Large-Scale Disassembly Efficient Planning for Recycling using Path Defragmentation
+    institution: Technische Universität Berlin
+    expected: true
+
+  - name: Lennart Julian Droß
+    year: 2025
+    type: bsc
+    title: Synthetic Datasets for Robot Manipulation Tasks using Procedural Content Generation
+    institution: Technische Universität Berlin
+
+  - name: Theo Valentin Kern
+    year: 2023
+    type: msc
+    title: Rearrangement Planning for Construction Assembly using Teams of Multirotors
+    institution: Technische Universität Berlin
+
+  - name: Andrey Solano
+    year: 2023
+    type: msc
+    title: Real-Time Multi-Robot Motion Planning using Decomposed Sampling-Based Methods
+    institution: KTH Royal Institute of Technology
+
+  - name: Janis Eric Freund
+    year: 2023
+    type: msc
+    title: Asymptotically Optimal Belief Space Planning
+    institution: Technische Universität Berlin
+
+  - name: Servet Bora Bayraktar
+    year: 2022
+    type: bsc
+    title: Solving Rearrangement Puzzles Optimally using Fragmentation-Based Motion Planning
+    institution: Technische Universität Berlin
+
+  - name: Ilyes Toumi
+    year: 2022
+    type: msc
+    title: Real-Time Task and Motion Planning for Dual-Arm Robots in a Bin-Picking Application
+    institution: RWTH Aachen University
+
+  - name: Jay Prabodh Kamat
+    year: 2022
+    type: msc
+    title: Multimodal Optimization for Manipulation Tasks
+    institution: Birla Institute of Technology and Science
+
+  - name: Noran Abdelsalam
+    year: 2021
+    type: bsc
+    title: Assembly Sequence Planning of Architectural Structures
+    institution: Technische Universität Berlin
+
+  - name: Francesco Grothe
+    year: 2021
+    type: bsc
+    title: Bidirectional Tree Search Through Space-Time for Prioritized Multi-Robot Planning
+    institution: Technische Universität Berlin
+
+  - name: Marie-Therese Khoury
+    year: 2020
+    type: bsc
+    title: Efficient Sampling of Transition Constraints for Motion Planning under Sliding Contacts
+    institution: Universität Stuttgart
+
+  - name: Alexander Harner
+    year: 2020
+    type: bsc
+    title: Method to Optimize and Enumerate Local Minima in Probabilistic Roadmaps
+    institution: Universität Stuttgart
+
+  - name: Azer Messaoudi
+    year: 2020
+    type: bsc
+    title: An Optimization Algorithm for Dynamical Systems under Non-holonomic Constraints
+    institution: Universität Stuttgart
+
+  - name: Sohaib Akbar
+    year: 2020
+    type: msc
+    title: Sparse and Optimal Planning Algorithms for Multilevel Motion Planning
+    institution: Universität Stuttgart
+
+  - name: Benjamin Frész
+    year: 2019
+    type: bsc
+    title: Visualization of Holonomic and Non-Holonomic Planning Problems
+    institution: Universität Stuttgart

@@ -106,6 +106,7 @@ module Jekyll
                   "title" => metadata["title"],
                   "outline" => outline_path,
                   "description" => metadata["description"],
+                  "duration" => metadata["duration"],
                   "episode_links" => metadata["episode-links"],
                   "references" => metadata["references"],
                   "errata" => errata_path,

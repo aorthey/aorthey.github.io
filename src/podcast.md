@@ -10,7 +10,10 @@ nav_order: 2
 <div class="image-text-container-podcast">
   <img src="/assets/images/podcast-portrait.png" alt="Podcast Logo" title="Podcast Logo" class="circular-image">
       <div margin-left="100px" align="center">
-          <p>Conversations on Science and Technology. Available on</p>
+          <p>
+Exploring the lives and ideas of technological visionaries.
+
+Available on</p>
           <div class="links-wrapper">
           <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
           <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
@@ -25,8 +28,13 @@ nav_order: 2
 
 <h2 align="left">List of Episodes</h2>
 {% assign total_podcasts = site.data.podcasts | size %}
-{% for podcast in site.data.podcasts reversed %}
-{% assign episode_number = forloop.index %}
+{% for podcast in site.data.podcasts %}
+{% assign episode_number = total_podcasts | minus: forloop.index0 %}
+
+<!-- Reverse podcast order (episode 01 first): -->
+<!-- for podcast in site.data.podcasts reversed %} -->
+<!-- assign episode_number = forloop.index %} -->
+<!-- Normal podcast order (last episode first) -->
 <!-- for podcast in site.data.podcasts -->
 <!-- assign episode_number = total_podcasts | minus: forloop.index0 -->
 <div class="podcast-item">
@@ -36,7 +44,14 @@ nav_order: 2
   </a>
   </div>
   <div class="podcast-content">
-    <h3>#{{ episode_number }}: {{ podcast.title }}</h3>
+    {% assign duration_seconds = podcast.duration | default: 0 %}
+    {% assign hours = duration_seconds | divided_by: 3600 %}
+    {% assign remainder = duration_seconds | modulo: 3600 %}
+    {% assign minutes = remainder | divided_by: 60 %}
+    {% assign seconds = remainder | modulo: 60 %}
+    <h3>#{{ episode_number }}: {{ podcast.title }}
+      [{{ hours | prepend: '0' | slice: -2, 2 }}:{{ minutes | prepend: '0' | slice: -2, 2 }}:{{ seconds | prepend: '0' | slice: -2, 2 }}]
+    </h3>
     <p>
       {% if podcast.youtube %}
         <a target="_blank" class="general-link" href="{% if podcast.youtube contains 'http' %}{{ podcast.youtube }}{% else %}https://www.youtube.com/watch?v={{ podcast.youtube }}{% endif %}">Watch on YouTube</a>

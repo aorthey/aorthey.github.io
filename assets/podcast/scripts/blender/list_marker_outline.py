@@ -1,7 +1,7 @@
 bl_info = {
     "name" : "list-marker-outline",
     "author" : "Andreas Orthey",
-    "description" : "Iterate over all markers and write an outline to a txt file.",
+    "description" : "Iterate over all markers and write an outline to a txt file (same folder as .blend file).",
     "blender" : (4, 0, 0),
     "version" : (1, 0, 0),
     "location": "Sequencer > Marker Menu",
