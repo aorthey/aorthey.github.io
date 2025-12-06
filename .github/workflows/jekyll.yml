@@ -28,8 +28,9 @@ concurrency:
 
 jobs:
   clean:
-    - name: Clean old build
-      run: rm -rf _site && mkdir _site
+    steps:
+      - name: Clean old build
+        run: rm -rf _site && mkdir _site
 
   build:
     runs-on: ubuntu-latest
