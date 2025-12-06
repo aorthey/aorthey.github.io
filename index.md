@@ -23,8 +23,8 @@ hide_h1: true
 <li>Guest Lecturer for Motion Planning at <a href="https://www.tu.berlin" target="_blank">Technische Universität Berlin</a> (Since 2022) </li>
 <li>Associate Editor International Conference on Intelligent Robots and Systems (IROS) (Since 2022) </li>
 <li>Associate Editor International Conference on Robotics and Automation (ICRA) (Since 2025) </li>
-<li>Associate Editor IEEE Transactions on Automation Science and Engineering (Since 2025)</li>
-<li>Associate Co-Chair <a href="https://www.ieee-ras.org/algorithms-for-planning-and-control-of-robot-motion/contact">Technical Committee for Algorithms for Planning and Control of Robot Motion</a> (Since 2025)
+<li>Associate Editor Transactions on Automation Science and Engineering (T-ASE) (Since 2025)</li>
+<li>Associate Co-Chair <a href="https://www.ieee-ras.org/algorithms-for-planning-and-control-of-robot-motion/contact">TC for Algorithms for Planning and Control of Robot Motion</a> (Since 2025)
 
 </li>
 </ul>

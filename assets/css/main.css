@@ -8,39 +8,13 @@ html, body {
   font-family: inherit;
 }
 
-/* Ensure consistent list styling across sections */
-/* Style the description span */
 li.link-item .description {
     flex: 1; /* Allow description to take remaining space */
     display: block;
     margin-left: 28px;
 }
 
-details {
-  display: inline-block; /* Keep details inline */
-  position: relative; /* Reference for absolute positioning */
-}
-
-.bibtex-textfield {
-  display: block; /* Ensures content appears below when expanded */
-  margin-top: 10px; /* Space below summary when expanded */
-  color: grey; /* BibTeX text color */
-}
-
-/* Optional: Prevent layout shift when details expand */
-.bibtex-details[open] .bibtex-textfield {
-    margin-top: 5px; /* Space between summary and content */
-}
-
-pre{
-    background-color: #eee;
-}
-
-code{
-    background-color: #eee;
-}
-
-.general-link, details summary {
+.general-link {
   display: inline-block; /* Match summary display */
   padding-top: 3px;
   padding-right: 12px;
@@ -55,16 +29,60 @@ code{
   margin-left: 5px; /* Space between thumbnail and text */
   margin-bottom: 5px;
   border-radius: 15px;
+  border: none;
 }
 
-details summary:hover, .copy-btn:hover, .bibtex-link:hover, .general-link:hover {
-  /* background-color: #f5f5f5; */
-  background-color: #ccc;
+.links-below-publication {
+  position: relative;          /* for the absolute dropdown */
+  margin-top: 8px;
 }
 
-details[open] {
-  display: inline-block; /* Reinforce inline behavior when expanded */
+.hidden { 
+  display: none;
 }
+
+.toggle-bibtex { 
+  cursor: pointer;
+}
+
+.toggle-bibtex:hover { 
+  background: #e0e0e0;
+}
+
+.copy-bibtex-button {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+pre{
+  background-color: #f9f9f9;
+}
+
+code{
+  background-color: #f9f9f9;
+  font-size: 14px;
+  border-radius: 15px;
+}
+
+.copy-icon {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+.bibtex-textfield {
+  padding-top: 3px;
+  padding-right: 12px;
+  padding-bottom: 3px;
+  padding-left: 12px;
+}
+
+details summary:hover, .bibtex-link:hover, .general-link:hover {
+  background-color: #ddd;
+}
+
+/********************************************************************************/
+
 
 .podcast-item {
   display: flex;
@@ -92,7 +110,6 @@ details[open] {
 
 .podcast-header {
   width: 100vw;
-  /* height: 350px; /1* Matches approximate height of thumbnails (240px width at 16:9 ratio) *1/ */
   overflow: hidden; /* Crops the image */
   margin-bottom: 20px; /* Space below the header */
   margin-left: calc(-50vw + 50%); /* Compensates for centering in a parent container */
@@ -111,7 +128,6 @@ details[open] {
 h1 {
   margin: 10px 0 20px 0;
   position: relative; /* Keeps it above the pseudo-element */
-  /* z-index: 0; /1* Ensures text stays above background *1/ */
   vertical-align: middle;
   font-size: 26px; /* Match summary font size */
   padding-top: 5px;
@@ -124,16 +140,6 @@ h1 {
 }
 
 h1::before {
-  /* padding-bottom: 5px; */
-  /* content: ''; */
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
-  /* width: 100vw; /1* Full viewport width *1/ */
-  /* height: 100%; /1* Matches the h1 height *1/ */
-  /* background-color: #f5f5f5;
-  /* z-index: -2; /1* Behind the text *1/ */
   content: none;
 }
 
@@ -152,16 +158,6 @@ h2 {
 
 h2::before {
   content: none;
-  /* content: ''; */
-  /* position: absolute; */
-  /* top: 0; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
-  /* vertical-align: middle; */
-  /* width: 100vw; /1* Full viewport width of horizontal line *1/ */
-  /* height: 100%; /1* Matches the h2 height *1/ */
-  /* background-color: #f5f5f5;
-  /* z-index: -1; /1* Behind the text *1/ */
 }
 
 .h-card {
@@ -200,20 +196,6 @@ hr {
     gap: 50px; /* Adds space between image and text */
     padding: 10px 15px; /* Padding inside the header */
 }
-
-.links-below-publication {
-    margin-top: 5px; /* Optional: adds space between text and links */
-    display: flex; /* Keeps links inline and stable */
-    margin-bottom: 0.5em;
-}
-
-
-.dropdown-content {
-  position: relative;
-  display: inline-block;
-  zorder: 1;
-}
-
 
 /* Media query for mobile screens (e.g., max-width: 768px) */
 @media (max-width: 768px) {

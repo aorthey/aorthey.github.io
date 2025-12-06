@@ -26,6 +26,8 @@ nav_order: 2
 <a href="https://orcid.org/0000-0002-1478-1405" target="_blank">Link to orcid Profile</a>
 </li>
 
+<script src="{{ '/assets/js/copy-bibtex.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/toggle-bibtex.js' | relative_url }}"></script>
 
 </ul>
 
@@ -40,16 +42,20 @@ nav_order: 2
 - {{ pub.authors }}, *{{ pub.title | replace: '*', '\*' | replace: '_', '\_' | replace: '[', '\[' | replace: ']', '\]' }}*, {{ pub.venue }}, {{ pub.year }}
 
   <div class="links-below-publication">
-  <details>
-    <summary>BibTeX</summary>
-    <div class="bibtex-textfield">
-      <pre><code>{{ pub.bibtex }}</code></pre>
-    </div>
-  </details>
-  <a href="{{ pub.pdf }}" class="general-link" target="_blank">PDF</a> 
-  {% if pub.youtube %}<a href="https://youtube.com/watch?v={{ pub.youtube }}" class="general-link" target="_blank">YouTube</a>{% endif %} 
-  {% if pub.website %}<a href="{{ pub.website }}" class="general-link" target="_blank">Website</a>{% endif %}
-  {% if pub.code %}<a href="{{ pub.code }}" class="general-link" target="_blank">Code</a>{% endif %}
+    <button class="general-link toggle-bibtex" data-target="bibtex-{{ forloop.index }}">
+      BibTeX
+    </button>
+    <a href="{{ pub.pdf }}" class="general-link" target="_blank">PDF</a> 
+    {% if pub.youtube %}<a href="https://youtube.com/watch?v={{ pub.youtube }}" class="general-link" target="_blank">YouTube</a>{% endif %} 
+    {% if pub.website %}<a href="{{ pub.website }}" class="general-link" target="_blank">Website</a>{% endif %}
+    {% if pub.code %}<a href="{{ pub.code }}" class="general-link" target="_blank">Code</a>{% endif %}
+  </div>
+  <div id="bibtex-{{ forloop.index }}" class="bibtex-textfield hidden">
+    <button class="general-link copy-bibtex-button" title="Copy BibTeX to clipboard">
+      <img src="{{ '/assets/icons/copy-icon.png' | relative_url }}" alt="Copy" class="copy-icon">
+      Copy to Clipboard
+    </button>
+    <pre><code>{{ pub.bibtex }}</code></pre>
   </div>
 
 {% endfor %}

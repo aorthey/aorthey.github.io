@@ -1,10 +1,10 @@
 # Steps to Publish a Podcast Episode
 
 Links:
-https://podcastsconnect.apple.com/
 creators.spotify.com/pod/
-https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570
 https://studio.youtube.com/channel/
+https://podcastsconnect.apple.com/
+https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570
 
 0. We assume that you have finished editing a podcast episode, which is already
    rendered from blender and which we call here `podcast.mp4`. 
@@ -37,6 +37,7 @@ title and description (you have to copy them manually to spotify). Upload the
 15. Write LinkedIn post using the description, references, and links. Use
     `scripts/make_linkedin_post.py` to generate the post (Requires links for
 youtube, spotify, x, apple AND setting youtube video to public).
+16. Send email to guest with the links to the post, and the episodes.
 
 Additional Steps:
 - Generate transcripts using the script `scripts/generate_transcript.py`.

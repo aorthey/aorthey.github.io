@@ -2,14 +2,14 @@ students:
   - name: Franz Queißner
     year: 2026
     type: msc
-    title: Multi-Robot Task and Motion Planning
+    title: Kinodynamic Planning in Space-Time for Dynamic Environments
     institution: Technische Universität Berlin
     expected: true
 
   - name: Ladislaus Finger
     year: 2026
     type: msc
-    title: Dynamical Grasping for Disassembly Tasks
+    title: Grasping and Motion Planning for Disassembly with Parallel Grippers
     institution: Technische Universität Berlin
     expected: true
 
