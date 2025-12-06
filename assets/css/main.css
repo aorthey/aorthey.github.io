@@ -37,10 +37,6 @@ li.link-item .description {
   margin-top: 8px;
 }
 
-.hidden { 
-  display: none;
-}
-
 .toggle-bibtex { 
   cursor: pointer;
 }
@@ -75,6 +71,10 @@ code{
   padding-right: 12px;
   padding-bottom: 3px;
   padding-left: 12px;
+}
+
+.hidden { 
+  display: none;
 }
 
 details summary:hover, .bibtex-link:hover, .general-link:hover {
