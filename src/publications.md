@@ -32,6 +32,7 @@ nav_order: 2
 </ul>
 
 {% assign pub_types = "Journal,Conference,Workshop,These" | split: "," %}
+{% assign global_index = 0 %}
 
 {% for type in pub_types %}
 <h2>{{ site.data.pub_titles[type] | default: type }}</h2>
@@ -41,8 +42,9 @@ nav_order: 2
 {% for pub in pubs %}
 - {{ pub.authors }}, *{{ pub.title | replace: '*', '\*' | replace: '_', '\_' | replace: '[', '\[' | replace: ']', '\]' }}*, {{ pub.venue }}, {{ pub.year }}
 
+  {% assign global_index = global_index | plus: 1 %}
   <div class="links-below-publication">
-    <button class="general-link toggle-bibtex" data-target="bibtex-{{ forloop.index }}">
+    <button class="general-link toggle-bibtex" data-target="bibtex-{{ global_index }}">
       BibTeX
     </button>
     <a href="{{ pub.pdf }}" class="general-link" target="_blank">PDF</a> 
@@ -50,7 +52,7 @@ nav_order: 2
     {% if pub.website %}<a href="{{ pub.website }}" class="general-link" target="_blank">Website</a>{% endif %}
     {% if pub.code %}<a href="{{ pub.code }}" class="general-link" target="_blank">Code</a>{% endif %}
   </div>
-  <div id="bibtex-{{ forloop.index }}" class="bibtex-textfield hidden">
+  <div id="bibtex-{{ global_index }}" class="bibtex-textfield hidden">
     <button class="general-link copy-bibtex-button" title="Copy BibTeX to clipboard">
       <img src="{{ '/assets/icons/copy-icon.png' | relative_url }}" alt="Copy" class="copy-icon">
       Copy to Clipboard
