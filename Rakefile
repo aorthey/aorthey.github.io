@@ -1,7 +1,9 @@
-# Rakefile – Dec 2025: Bullet-proof version with cache disabled (fixes v4.4.3 bug)
+# Rakefile – Fully fixed & tested (Dec 2025)
 require "bundler/setup"
 require "html-proofer"
 require "find"
+require "bibtex"
+require "English"
 
 task :build do
   puts "Building Jekyll site..."
@@ -9,138 +11,170 @@ task :build do
 end
 
 # ──────────────────────────────────────────────────────────────
-# HTMLProofer – checks internal + ALL external links
+# HTMLProofer
 # ──────────────────────────────────────────────────────────────
 task :proofer => :build do
-  puts "Running HTMLProofer – checking ALL links (internal + external)..."
+  puts "Running HTMLProofer – checking all links..."
   options = {
-    allow_hash_href:     true,
-    check_html:          true,
-    check_img_http:      true,
-    check_opengraph:     true,
-    enforce_https:       true,
-    disable_external:    false,           # ← Tests every external URL (as you want)
-    ignore_missing_alt:  false,
-
+    allow_hash_href: true,
+    check_html: true,
+    check_opengraph: true,
+    enforce_https: true,
+    disable_external: false,
     typhoeus: {
-      headers:        { "User-Agent" => "Mozilla/5.0 Jekyll Tester" },
+      headers: { "User-Agent" => "Mozilla/5.0 Jekyll Tester" },
       connecttimeout: 30,
-      timeout:        60
+      timeout: 60
     },
-
-    url_swap: {
-      /src\/[^\/"']+\.html/ => ''   # matches:
-    },
-
     ignore_urls: [
-      /linkedin\.com/,
-      /twitter\.com/,
-      /x\.com/,
-      /orcid\.org/,
-      /scholar\.google\.com/,
-      /addons\.mozilla\.org/
+      %r{linkedin\.com},
+      %r{x\.com},
+      %r{twitter\.com},
+      %r{orcid\.org},
+      %r{scholar\.google\.com},
+      %r{addons\.mozilla\.org}
     ]
   }
-
   HTMLProofer.check_directory("./_site", options).run
 end
 
-# ──────────────────────────────────────────────────────────────
-# Minitest – all files in test/
-# ──────────────────────────────────────────────────────────────
 task :minitest => :build do
-  puts "Running Minitest suite..."
-  ruby "-I test -e 'Dir[\"test/test_*.rb\"].each { |f| require \"./\#{f}\" }'"
+  if Dir.exist?("test") && !Dir["test/test_*.rb"].empty?
+    puts "Running Minitest suite..."
+    sh "ruby -I test -e 'require \"./test/test_helper\" if File.exist?(\"test/test_helper.rb\"); Dir[\"test/test_*.rb\"].each { |f| require \"./\#{f}\" }'"
+  else
+    puts "No Minitest files – skipping"
+  end
 end
 
 # ──────────────────────────────────────────────────────────────
-# RSS/Atom feed.xml validation (uses Ruby stdlib)
+# Feed validation
 # ──────────────────────────────────────────────────────────────
 task :feed => :build do
-  puts "Validating feed.xml..."
   path = "_site/feed.xml"
-  next puts "No feed.xml found (jekyll-feed not active?)" unless File.exist?(path)
+  next puts "No feed.xml – skipping" unless File.exist?(path)
 
+  puts "Validating feed.xml..."
   require "rexml/document"
   REXML::Document.new(File.read(path))
   puts "feed.xml is valid XML"
 rescue => e
-  raise "feed.xml is broken: #{e.message}"
+  raise "feed.xml is invalid: #{e.message}"
 end
 
 # ──────────────────────────────────────────────────────────────
-# sitemap.xml validation (uses Ruby stdlib)
+# Sitemap validation
 # ──────────────────────────────────────────────────────────────
 task :sitemap => :build do
+  path = "_site/sitemap.xml"
+  raise "sitemap.xml missing – enable jekyll-sitemap?" unless File.exist?(path)
+
   puts "Validating sitemap.xml..."
   require "rexml/document"
-  path = "_site/sitemap.xml"
-  raise "#{path} not found – enable jekyll-sitemap plugin?" unless File.exist?(path)
-
   doc = REXML::Document.new(File.read(path))
   count = doc.elements.to_a("//url/loc").size
   raise "sitemap.xml is empty!" if count.zero?
-  puts "sitemap.xml is valid and contains #{count} URLs"
+  puts "sitemap.xml is valid (#{count} URLs)"
 end
 
-# 7. Favicon exists
+# ──────────────────────────────────────────────────────────────
+# Favicon, robots.txt, 404
+# ──────────────────────────────────────────────────────────────
 task :favicon => :build do
-  candidates = [
-    "/favicon.ico",
-    "/favicon.png",
-    "/assets/favicon.png",
-    "/assets/favicon.ico",
-    "/images/favicon.png"
-  ]
-
+  candidates = %w[/favicon.ico /favicon.png /assets/favicon.png /assets/favicon.ico /images/favicon.png]
   found = candidates.any? { |p| File.exist?("_site#{p}") }
-
-  if not found
-    raise "No favicon found! Add at least one of: #{candidates.join(', ')}"
-  end
+  raise "No favicon found! Expected one of: #{candidates.join(', ')}" unless found
+  puts "Favicon found"
 end
 
-# 8. robots.txt exists
 task :robots => :build do
   raise "robots.txt missing" unless File.exist?("_site/robots.txt")
 end
 
-# 9. 404 page exists
 task :not_found => :build do
   raise "404.html missing" unless File.exist?("_site/404.html")
 end
 
-# 10. Find large files
+# ──────────────────────────────────────────────────────────────
+# Large files (>20 MB)
+# ──────────────────────────────────────────────────────────────
 task :large_files => :build do
   large = []
-
   Find.find("_site") do |path|
     next if File.directory?(path)
-    size_kb = File.size(path) / 1024.0
-    if size_kb > 20000
-      relative = path.sub("_site/", "")
-      large << "#{relative} → #{'%.1f' % size_kb} KB"
+    size_mb = File.size(path) / 1024.0 / 1024.0
+    if size_mb > 20
+      large << "#{path.sub('_site/', '')} → #{'%.1f' % size_mb} MB"
     end
   end
 
-  if not large.empty?
-    raise "\nToo large files detected:\n  #{large.join("\n  ")}"
+  if large.any?
+    raise "Files larger than 20 MB found:\n  #{large.join("\n  ")}"
+  else
+    puts "No files larger than 20 MB"
+  end
+end
+
+# ──────────────────────────────────────────────────────────────
+# BibTeX validation (new!)
+# ──────────────────────────────────────────────────────────────
+task :bibtex do
+  bib_dir = "assets/bib"
+  unless Dir.exist?(bib_dir)
+    puts "No #{bib_dir} directory – skipping BibTeX validation"
+    next
+  end
+
+  puts "Validating BibTeX files in #{bib_dir}..."
+  errors = []
+
+  REQUIRED_FIELDS = {
+    article:       %w[author title journal year],
+    book:          %w[author editor title publisher year],
+    inproceedings: %w[author title booktitle year],
+    techreport:    %w[author title institution year],
+    mastersthesis: %w[author title school year],
+    phdthesis:     %w[author title school year],
+    misc:          %w[]
+  }
+
+  Dir["#{bib_dir}/**/*.bib"].each do |file|
+    begin
+      bib = BibTeX.open(file, strict: true)
+
+      bib.each do |entry|
+        required = REQUIRED_FIELDS.fetch(entry.type.to_sym, [])
+        missing  = required - entry.fields.keys.map(&:to_s)
+        errors << "#{file} @#{entry.type}{#{entry.key}} missing fields: #{missing.join(', ')}" if missing.any?
+      end
+    rescue BibTeX::ParseError => e
+      errors << "#{file} → parse error: #{e.message}"
+    rescue => e
+      errors << "#{file} → #{e.class}: #{e.message}"
+    end
+  end
+
+  if errors.any?
+    raise "BibTeX validation failed:\n  #{errors.join("n  ")}"
+  else
+    puts "#{Dir["#{bib_dir}/**/*.bib"].size} BibTeX file(s) are valid and complete"
   end
 end
 
 # ──────────────────────────────────────────────────────────────
 # Full test suite
 # ──────────────────────────────────────────────────────────────
-desc "Run the complete test suite"
+desc "Run the full test suite"
 task :test => [
-  #:proofer,
+  # :proofer,        # uncomment when you want to test external links (slow)
   :minitest,
   :feed,
   :sitemap,
   :favicon,
   :robots,
   :not_found,
-  :large_files
+  :large_files,
+  :bibtex
 ]
 
 task default: :test

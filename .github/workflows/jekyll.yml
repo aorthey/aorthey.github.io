@@ -74,6 +74,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install ImageMagick
+        run: sudo apt-get update && sudo apt-get install -y imagemagick
+
+      - name: Verify ImageMagick
+        run: convert -version
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1  # Consistent with build
         with:
@@ -85,9 +91,6 @@ jobs:
 
       - name: Run HTMLProofer
         run: bundle exec rake test
-
-      - name: Run Minitest
-        run: ruby -I test test/test_version_footer.rb
 
   # Deployment job
   deploy:
