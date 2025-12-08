@@ -1,7 +1,9 @@
 <footer class="site-footer h-card">
   <div class="wrapper">
     <p class="footer-heading" align="center">
-      Andreas Orthey, Version: [v{{ '' | git_commit_count }}-{{ '' | git_short_hash }}], 
+      Andreas Orthey, 
+      <!-- Version: [v{{ '' | git_commit_count }}-{{ '' | git_short_hash }}], --> 
+      Version: [v{{ site.github.run_number | default: '0' }}-{{ site.github.build_revision | slice: 0, 4 | default: 'local' }}],
       Last Updated: [{{ site.time | date: "%Y-%m-%d" }}],
       <a target="_blank" href="https://github.com/aorthey/aorthey.github.io">Source Code</a>
     </p>

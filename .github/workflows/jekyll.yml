@@ -2,7 +2,7 @@
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
-
+#
 # Sample workflow for building and deploying a Jekyll site to GitHub Pages
 name: Deploy Jekyll site to Pages
 
@@ -10,7 +10,6 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -27,38 +26,68 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Clean job
   clean:
     runs-on: ubuntu-latest
     steps:
       - name: Clean old build
         run: rm -rf _site && mkdir _site
 
+  # Build job
   build:
     runs-on: ubuntu-latest
+    needs: clean
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install ImageMagick
+
+      - name: Install ImageMagick  # Keep if your site needs it for image processing
         run: sudo apt-get update && sudo apt-get install -y imagemagick
+
       - name: Verify ImageMagick
         run: convert -version
+
       - name: Setup Ruby
-        # https://github.com/ruby/setup-ruby/releases/tag/v1.207.0
-        uses: ruby/setup-ruby@4a9ddd6f338a97768b8006bf671dfbad383215f4
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1' # Not needed with a .ruby-version file
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
-          cache-version: 0 # Increment this number if you need to re-download cached gems
+          ruby-version: '3.1'  # Or match your .ruby-version file
+          bundler-cache: true  # Runs 'bundle install' and caches gems
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
       - name: Build with Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+
       - name: Upload artifact
-        # Automatically uploads an artifact from the './_site' directory by default
+        # Automatically uploads _site as artifact
         uses: actions/upload-pages-artifact@v3
+
+  # Test job
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1  # Consistent with build
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Build site (for tests)
+        run: bundle exec jekyll build --future
+
+      - name: Run HTMLProofer
+        run: bundle exec rake test
+
+      - name: Run Minitest
+        run: ruby -I test test/test_version_footer.rb
 
   # Deployment job
   deploy:
@@ -66,7 +95,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: test  # Only deploy if tests pass
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

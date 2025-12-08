@@ -17,3 +17,9 @@ gem "mini_magick", "~> 4.13"
 gem "fastimage"
 gem "rexml", ">= 3.4.2"
 
+group :test do
+  gem "rake"
+  gem "html-proofer"
+  gem "minitest"
+  gem "find"
+end
