@@ -5,7 +5,7 @@ gem "bibtex-ruby"
 gem "minima", "~> 2.5.2"
 
 gem "kramdown-parser-gfm"
-gem "httparty"
+gem "httparty", ">= 0.24.0"
 gem "pdf-reader"
 
 gem "jekyll-sitemap"
