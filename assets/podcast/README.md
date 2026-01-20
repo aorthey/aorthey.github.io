@@ -25,8 +25,8 @@ https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570
 
 --------------------------------------------------------------------------------
 
-9. Upload episode to spotify (Link is creators.spotify.com/pod/). Use the script
-   `scripts/update_titles_and_description.py --generate-spotify` to generate
+9. Upload episode to spotify (Link is https://creators.spotify.com/pod/login). Use the script
+   `scripts/update_titles_and_descriptions.py --generate-spotify` to generate
 title and description (you have to copy them manually to spotify). Upload the
 `thumbnail.png` and the `thumbnail_square.png` as episode art.
 10. Update the spotify link in `metadata.yml` file.
