@@ -3,7 +3,7 @@
     <p class="footer-heading" align="center">
       Andreas Orthey, 
       {% assign ver = site.data.version %}
-      Version: [v-{{ ver.commit_count | default: '0' }}-{{ ver.short_hash | slice 0, 4 | default: 'local' }}],
+      Version: [v{{ ver.commit_count | default: '0' }}-{{ ver.short_hash | slice 0, 4 | default: 'local' }}],
       Last Updated: [{{ site.time | date: "%Y-%m-%d" }}],
       <a target="_blank" href="https://github.com/aorthey/aorthey.github.io">Source Code</a>
     </p>
