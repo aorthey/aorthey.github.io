@@ -2,10 +2,17 @@
   <div class="wrapper">
     <p class="footer-heading" align="center">
       Andreas Orthey, 
-      <!-- Version: [v{{ '' | git_commit_count }}-{{ '' | git_short_hash }}], --> 
-      Version: [v{{ site.github.run_number | default: '0' }}-{{ site.github.build_revision | slice: 0, 4 | default: 'local' }}],
+      {% assign ver = site.data.version %}
+      Version: [v{{ ver.commit_count | default: '0' }}-{{ ver.short_hash | default: 'local' }}],
+      Version: [v{{ site.env.JEKYLL_GIT_COMMIT_COUNT | default: '0' }}-{{ site.env.JEKYLL_GIT_SHORT_HASH | default: 'local' }}],
+      Version: [v{{ site.git.commit_count | default: site.env.JEKYLL_GIT_COMMIT_COUNT | default: '0' }}-{{ site.git.short_hash | default: site.env.JEKYLL_GIT_SHORT_HASH | default: 'local' }}],
       Last Updated: [{{ site.time | date: "%Y-%m-%d" }}],
+      <!-- Version: [v{{ '' | git_commit_count }}-{{ '' | git_short_hash }}], --> 
+      <!-- Version: [v{{ site.github.run_number | default: '0' }}-{{ site.github.build_revision | slice: 0, 4 | default: 'local' }}], -->
+      <!-- Version: v{{ ver.commit_count | default: '0' }}-{{ ver.short_hash | default: 'local' }} -->
       <a target="_blank" href="https://github.com/aorthey/aorthey.github.io">Source Code</a>
+    </p>
+    <p>
     </p>
   </div>
 </footer>

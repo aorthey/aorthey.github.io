@@ -1,6 +1,9 @@
 title: "Andreas Orthey"
 description: "Andreas Orthey's personal site showcases publications, podcasts, and insights into robotics. Connect and collaborate!"
-version: 1.82
+
+git:
+  commit_count: 0
+  short_hash: "local"
 
 baseurl: ""
 url: "https://aorthey.com"

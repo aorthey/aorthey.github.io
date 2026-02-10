@@ -7,23 +7,20 @@ nav_order: 2
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
 <h1>Andreas Orthey Podcast</h1>
-<div class="image-text-container-podcast">
-  <img src="/assets/images/podcast-portrait.png" alt="Podcast Logo" title="Podcast Logo" class="circular-image">
-      <div margin-left="100px" align="center">
-          <p>
-Exploring the lives and ideas of technological visionaries.
+<div class="default" margin-left="100px" align="center">
+    <p>
+    This long-form podcast (around 60-90 minutes per episode) explores the lives and ideas of technological visionaries. Each episode discusses state-of-the-art topics in science and technology while exploring the personal stories and biographies of the people behind those topics.
 
-Available on</p>
-          <div class="links-wrapper">
-          <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
-          <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
-          <a target="_blank" class="general-link" href="https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570">@Apple</a>
-          <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
-          <a target="_blank" class="general-link" href="https://anchor.fm/s/fb9fc38c/podcast/rss">RSS Feed</a>
+    Available on
+    </p>
+    <div class="links-wrapper">
+    <a target="_blank" class="general-link" href="https://www.youtube.com/@andreasorthey">@YouTube</a>
+    <a target="_blank" class="general-link" href="https://podcasters.spotify.com/pod/show/andreasorthey">@Spotify</a>
+    <a target="_blank" class="general-link" href="https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570">@Apple</a>
+    <a target="_blank" class="general-link" href="https://x.com/andreas_orthey">@X</a>
+    <a target="_blank" class="general-link" href="https://anchor.fm/s/fb9fc38c/podcast/rss">RSS Feed</a>
 
-          </div>
-      </div>
-
+    </div>
 </div>
 
 <h2 align="left">List of Episodes</h2>

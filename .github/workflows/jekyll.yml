@@ -40,6 +40,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Calculate git version info
+        id: gitinfo
+        run: |
+          COMMIT_COUNT=$(git rev-list --count HEAD)
+          SHORT_HASH=$(git rev-parse --short HEAD)
+          echo "commit_count=$COMMIT_COUNT" >> $GITHUB_OUTPUT
+          echo "short_hash=$SHORT_HASH"     >> $GITHUB_OUTPUT
+
+      - name: Write version file
+        run: |
+          echo "commit_count: $(git rev-list --count HEAD)" > _data/version.yml
+          echo "short_hash: $(git rev-parse --short HEAD)" >> _data/version.yml
 
       - name: Install ImageMagick  # Keep if your site needs it for image processing
         run: sudo apt-get update && sudo apt-get install -y imagemagick
@@ -58,9 +73,11 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
+          JEKYLL_GIT_COMMIT_COUNT: ${{ steps.gitinfo.outputs.commit_count }}
+          JEKYLL_GIT_SHORT_HASH:   ${{ steps.gitinfo.outputs.short_hash }}
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
       - name: Upload artifact
         # Automatically uploads _site as artifact

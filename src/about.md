@@ -8,7 +8,13 @@ nav_order: 2
 
 <h1>Curriculum Vitae</h1>
 
-<h2>Short Bio</h2>
+<ul>
+<li>
+<a target="_blank" href="https://grokipedia.com/page/Andreas_Orthey">Read Bio @Grokipedia</a>
+</li>
+</ul>
+
+<h2>Short Bio (120 words)</h2>
 
 Dr. Andreas Orthey is a Principal Robotics Scientist at Realtime Robotics, where he pioneers real-time motion planning solutions for industrial automation. 
 His research career includes over 20 published papers in top-tier academic venues such as IJRR, TRO, or RAL and he teaches the course "Motion Planning" as a Guest Lecturer at the TU Berlin.

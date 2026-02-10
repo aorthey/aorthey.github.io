@@ -25,6 +25,10 @@ nav_order: 2
 <li>
 <a href="https://orcid.org/0000-0002-1478-1405" target="_blank">Link to orcid Profile</a>
 </li>
+<li>
+<a href="https://www.researchgate.net/profile/Andreas-Orthey" target="_blank">Link to ResearchGate Profile</a>
+</li>
+
 
 <script src="{{ '/assets/js/copy-bibtex.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/toggle-bibtex.js' | relative_url }}"></script>
