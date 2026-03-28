@@ -15,11 +15,12 @@ https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570
    correct for both `thumbnail.png` and `thumbnail_squared.png`
 4. Create a file `metadata.yml` in the episode folder (you can use `metadata-template.yml` as a template)
 5. Add title, description, content (and optionally episode-links, references, errata, clips) to `metadata.yml` file.
-6. Upload the episode `podcast.mp4` to youtube (as unlisted) and add link to `metadata.yml`. Do
+6. Upload the episode `podcast.mp4` to youtube (as unlisted) and add youtube link to `metadata.yml`. Do
    not add the episode to any playlist, because that would make it public.
-7. Run `scripts/update_titles_and_description.py` to update title and
+7a. Run `scripts/update_titles_and_description.py` to update title and
    description on youtube from `metadata.yml` file (do that such that
 `metadata.yml` represents always the ground truth).
+7b. Run `scripts/update_youtube_thumbnails.py` to update thumbnails on youtube from
 8a. Send youtube link to podcast guest and wait for approval/comments. 
 8b. Send a podcast release form and let them sign the opensign document 
 

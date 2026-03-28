@@ -3,6 +3,8 @@ source "https://rubygems.org"
 gem "jekyll"
 gem "bibtex-ruby"
 gem "minima", "~> 2.5.2"
+#gem "minima", "~> 3.0.0"
+#gem "minima", github: "jekyll/minima", ref: "bf9ef98"
 
 gem "kramdown-parser-gfm"
 gem "httparty", ">= 0.24.0"
