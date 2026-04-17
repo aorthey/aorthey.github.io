@@ -1,3 +1,10 @@
+@inproceedings{Bayraktar2026WAFR,
+	author = {Bayraktar, Servet B. and Orthey, Andreas and Toussaint, Marc},
+	title = {Scale-Invariant Sampling in Multi-Arm Bandit Motion Planning for Object Extraction},
+	booktitle = {World Symposium on the Algorithmic Foundations of Robotics},
+	year = {2026},
+}
+
 @article{Orthey2024IJRR,
 	title = {Multilevel Motion Planning: A Fiber Bundle Formulation},
 	author = {Orthey, Andreas and Akbar, Sohaib and Toussaint, Marc},

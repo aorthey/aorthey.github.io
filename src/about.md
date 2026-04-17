@@ -88,3 +88,8 @@ Dr. Andreas Orthey is a Principal Robotics Scientist at Realtime Robotics, where
 - IEEE International Symposium on Multi-Robot & Multi-Agent Systems (MRS), 2021
 - IEEE International Conference on Humanoid Robots (Humanoids), 2014
 - Swiss National Science Foundation, 2024
+
+<h3>Member of Academic Alumni Associations</h3>
+
+- German Humboldt-Network e.V. (Since 2019)
+- German JSPS Alumni Association (Since 2019)

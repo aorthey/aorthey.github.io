@@ -58,10 +58,12 @@ module Jekyll
       valid = true
       seen_keys = Set.new
       required_fields = {
-        'article' => %w[author title journal year pages],
+        'article' => %w[author title journal year],
         'book' => %w[author title publisher year],
-        'inproceedings' => %w[author title booktitle year pages],
+        'inproceedings' => %w[author title booktitle year],
+        'conference' => %w[author title booktitle year],
         'techreport' => %w[author title institution year],
+        'unpublished' => %w[author title note],
         'misc' => %w[author title]
       }
 

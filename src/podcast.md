@@ -7,9 +7,9 @@ nav_order: 2
 <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
 
 <h1>Andreas Orthey Podcast</h1>
-<div class="default" margin-left="100px" align="center">
+<div class="default" style="margin-bottom: 10px; text-align: center;">
     <p>
-    This long-form podcast (around 60-90 minutes per episode) explores the lives and ideas of technological visionaries. Each episode discusses state-of-the-art topics in science and technology while exploring the personal stories and biographies of the people behind those topics.
+    This long-form podcast (around 60-90 minutes per episode) explores the lives and ideas of technological visionaries. Each episode discusses state-of-the-art topics in science and technology while exploring the personal stories and biographies of the people behind them.
 
     Available on
     </p>

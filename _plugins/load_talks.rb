@@ -32,12 +32,12 @@ module Jekyll
       return unless talk.is_a?(Hash)
 
       ################################################################################ 
-      # Verify name
+      # Verify title
       ################################################################################ 
-      name = talk['name']
-      if name.nil? || name.to_s.strip.empty?
+      title = talk['title']
+      if title.nil? || title.to_s.strip.empty?
         raise ArgumentError.new(
-          "Talk ##{index + 1} is missing or has empty 'name'"
+          "Talk ##{index + 1} is missing or has empty 'title'"
         )
       end
 
@@ -47,7 +47,7 @@ module Jekyll
       type = talk['type']
       if type.nil? || type.to_s.strip.empty?
         raise ArgumentError.new(
-          "Talk ##{index + 1} '#{name}' is missing or has empty 'type'"
+          "Talk ##{index + 1} '#{title}' is missing or has empty 'type'"
         )
       end
 
@@ -71,7 +71,7 @@ module Jekyll
       location = talk['location']
       if location.nil? || location.to_s.strip.empty?
         raise ArgumentError.new(
-          "Talk ##{index + 1} '#{name}' is missing or has empty 'location'"
+          "Talk ##{index + 1} '#{title}' is missing or has empty 'location'"
         )
       end
       ################################################################################ 
@@ -80,20 +80,20 @@ module Jekyll
       year = talk['year']
       if year.nil? || year.to_s.strip.empty?
         raise ArgumentError.new(
-          "Talk ##{index + 1} '#{name}' is missing or has empty 'year'"
+          "Talk ##{index + 1} '#{title}' is missing or has empty 'year'"
         )
       end
       year_str = year.to_s.strip
       unless year_str.match?(/\A\d{4}\z/)   # exactly 4 digits, nothing else
         raise ArgumentError.new(
-          "Talk ##{index + 1} '#{name}' has invalid 'year': #{year.inspect} — must be a 4-digit number"
+          "Talk ##{index + 1} '#{title}' has invalid 'year': #{year.inspect} — must be a 4-digit number"
         )
       end
 
       year = year_str.to_i
       unless year.between?(2000, 2100)
         raise ArgumentError.new(
-          "Talk ##{index + 1} '#{name}' has unrealistic year: #{year} — expected 2000--2100"
+          "Talk ##{index + 1} '#{title}' has unrealistic year: #{year} — expected 2000--2100"
         )
       end
       ################################################################################ 
@@ -102,7 +102,7 @@ module Jekyll
       month = talk['month']
       if month.nil? || month.to_s.strip.empty?
         raise ArgumentError.new(
-          "Talk ##{index + 1} '#{name}' is missing or has empty 'month'"
+          "Talk ##{index + 1} '#{title}' is missing or has empty 'month'"
         )
       end
 
@@ -114,7 +114,7 @@ module Jekyll
 
       unless valid_months.include?(month_clean)
         raise ArgumentError.new(
-          "Talk ##{index + 1} '#{name}' has invalid 'month': #{month.inspect}\n" \
+          "Talk ##{index + 1} '#{title}' has invalid 'month': #{month.inspect}\n" \
           "  Allowed: #{valid_months.join(', ')}"
         )
       end

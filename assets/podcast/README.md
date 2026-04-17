@@ -21,6 +21,8 @@ https://podcasts.apple.com/us/podcast/andreas-orthey-podcast/id1812910570
    description on youtube from `metadata.yml` file (do that such that
 `metadata.yml` represents always the ground truth).
 7b. Run `scripts/update_youtube_thumbnails.py` to update thumbnails on youtube from
+7c. Run `scripts/generate_metadata_duration.py` to update the duration in the
+metadata.yml file.
 8a. Send youtube link to podcast guest and wait for approval/comments. 
 8b. Send a podcast release form and let them sign the opensign document 
 
