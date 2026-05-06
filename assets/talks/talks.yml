@@ -1,149 +1,185 @@
-- 
-  title: Multi-Robot Motion Planning
-  type: guest lecture
-  location: Worcester Polytechnique Institute (WPI), Worcester, MA, USA 
-  year: 2024
-  month: December
-  online: true
+################################################################################
+# Required Fields : title, type, venue, location, year, month
+# Optional Fields : online
+# Allowed Types   : guest lecture, invited talk, conference talk
+################################################################################
+talks:
+  - title: Multi-Robot Motion Planning
+    type: guest lecture
+    venue: Worcester Polytechnique Institute (WPI)
+    location: Worcester, MA, USA
+    year: 2024
+    month: December
+    online: true
 
-- title: Frontiers of Robot Motion Planning
-  type: invited talk
-  location: Robotics Meetup, Berlin, Germany
-  year: 2024
-  month: November
+  - title: Frontiers of Robot Motion Planning
+    type: invited talk
+    venue: Berlin Robotics Meetup
+    location: Berlin, Germany
+    year: 2024
+    month: November
 
-- title: Benchmarking for Motion Planning Applications
-  type: invited talk
-  location: Workshop on Evaluating Motion Planning Performance, IROS, Kyoto, Japan
-  year: 2022
-  month: October
+  - title: Benchmarking for Motion Planning Applications
+    type: invited talk
+    venue: Workshop on Evaluating Motion Planning Performance, IROS
+    location: Kyoto, Japan
+    year: 2022
+    month: October
 
-- title: Self-reconfigurable robots
-  type: invited talk
-  location: KTH Stockholm, Sweden
-  year: 2021
-  month: December
-  online: true
+  - title: Self-reconfigurable Robots
+    type: invited talk
+    venue: Robotics, Perception and Learning Lab
+    location: KTH Royal Institute of Technology, Stockholm, Sweden
+    year: 2021
+    month: December
+    online: true
 
-- title: Section Patterns
-  type: conference talk
-  location: IROS Conference, Prague, Czechia
-  year: 2021
-  month: September
-  online: true
+  - title: Section Patterns
+    type: conference talk
+    venue: IROS Conference
+    location: Prague, Czechia
+    year: 2021
+    month: September
+    online: true
 
-- title: Multilevel Motion Planning
-  type: invited talk
-  location: RSS Workshop on Geometry and Topology in Robotics, Virtual Conference
-  year: 2021
-  month: July
-  youtube: d0i7ffdpHyQ
-  online: true
+  - title: Multilevel Motion Planning
+    type: invited talk
+    venue: RSS Workshop on Geometry and Topology in Robotics
+    location: Virtual Robotics Science and Systems (RSS) Conference
+    year: 2021
+    month: July
+    youtube: d0i7ffdpHyQ
+    online: true
 
-- title: Sparse Multilevel Roadmaps
-  type: conference talk
-  location: ICRA Conference, Xi'an, China
-  year: 2021
-  month: June
-  online: true
+  - title: Sparse Multilevel Roadmaps
+    type: conference talk
+    venue: ICRA Conference
+    location: Xi'an, China
+    year: 2021
+    month: June
+    online: true
 
-- title: Visualizing Local Minima in Multi-Robot Motion Planning
-  type: conference talk
-  location: WAFR Conference, Oulu, Finland
-  year: 2021
-  youtube: i0kSssPxQl4
-  month: March
-  online: true
+  - title: Computational Robotics
+    type: invited talk
+    venue: University of Copenhagen
+    location: Copenhagen, Denmark
+    year: 2021
+    month: April
+    online: true
 
-- title: "Multilevel Motion Planning: Theory and Applications"
-  type: invited talk
-  location: Rice University, Houston, TX, USA
-  year: 2021
-  month: February
-  online: true
+  - title: Visualizing Local Minima in Multi-Robot Motion Planning
+    type: conference talk
+    venue: WAFR Conference
+    location: Oulu, Finland
+    year: 2021
+    youtube: i0kSssPxQl4
+    month: March
+    online: true
 
-- title: Motion Planning Explorer
-  type: conference talk
-  location: ICRA Conference, Paris, France
-  year: 2020
-  month: May
-  online: true
+  - title: "Multilevel Motion Planning: Theory and Applications"
+    type: invited talk
+    venue: Rice University
+    location: Houston, TX, USA
+    year: 2021
+    month: February
+    online: true
 
-- title: Rapidly-Exploring Quotient-Space Trees
-  type: conference talk
-  location: ISRR Symposium, Sofitel Legend Metropole Hanoi, Hanoi, Vietnam
-  year: 2019
-  month: October
+  - title: Motion Planning Explorer
+    type: conference talk
+    venue: ICRA Conference
+    location: Paris, France
+    year: 2020
+    month: May
+    online: true
 
-- title: Making Robotic Algorithms Transparent and Interactive
-  type: invited talk
-  location: BRAGFOST, Hotel Schreiberhof, Munich, Germany
-  year: 2019
-  month: September
+  - title: Rapidly-Exploring Quotient-Space Trees
+    type: conference talk
+    venue: International Symposium on Robotics Research (ISRR)
+    location: Sofitel Legend Metropole Hanoi, Hanoi, Vietnam
+    year: 2019
+    month: October
 
-- title: As a postdoc abroad - Experiences from two years Japan
-  type: invited talk
-  location: Networking Event (AvH), Maritim Hotel, Bonn, Germany
-  year: 2018
-  month: November
+  - title: Making Robotic Algorithms Transparent and Interactive
+    type: invited talk
+    venue: BRAGFOST
+    location: Hotel Schreiberhof, Munich, Germany
+    year: 2019
+    month: September
 
-- title: Simplification of High-Dimensional Spaces
-  type: invited talk
-  location: Humanoid Robots Lab, University of Bonn, Bonn, Germany
-  year: 2018
-  month: November
+  - title: As a Postdoc Abroad - Experiences from Two Years Japan
+    type: invited talk
+    venue: Networking Event Alexander von Humboldt Foundation 
+    location: Maritim Hotel, Bonn, Germany
+    year: 2018
+    month: November
 
-- title: Quotient-Space Motion Planning
-  type: conference talk
-  location: IROS Conference, Madrid Municipal Conference Centre, Madrid, Spain
-  year: 2018
-  month: October
+  - title: Simplification of High-Dimensional Spaces
+    type: invited talk
+    venue: Humanoid Robots Lab at University of Bonn
+    location: Bonn, Germany
+    year: 2018
+    month: November
 
-- title: Life of a Robotics Researcher
-  type: guest lecture
-  location: JSPS Science Dialog, Takezono Highschool, Tsukuba, Japan
-  year: 2018
-  month: June
+  - title: Quotient-Space Motion Planning
+    type: conference talk
+    venue: IROS Conference
+    location: Madrid Municipal Conference Centre, Madrid, Spain
+    year: 2018
+    month: October
 
-- title: Quotient-Space Motion Planning
-  type: invited talk
-  location: Movement Generation and Control Group, Max-Planck Institute, Tübingen, Germany
-  year: 2018
-  month: May
+  - title: Life of a Robotics Researcher
+    type: guest lecture
+    venue: Japan Society for the Promotion of Science (JSPS) Science Dialog
+    location: Takezono Highschool, Tsukuba, Japan
+    year: 2018
+    month: June
 
-- title: Making Ideas Stick
-  type: invited talk
-  location: JSPS Orientation, Hotel Moterey Hanzomon, Tokyo, Japan
-  year: 2018
-  month: February
+  - title: Quotient-Space Motion Planning
+    type: invited talk
+    venue: Movement Generation and Control Group at Max-Planck Institute
+    location: Tübingen, Germany
+    year: 2018
+    month: May
 
-- title: Robotics, Motion Planning and Topology
-  type: invited talk
-  location: Networking Event (AvH), Albert Ludwig University of Freiburg, Freiburg, Germany
-  year: 2016
-  month: October
+  - title: Making Ideas Stick
+    type: invited talk
+    venue: Japan Society for the Promotion of Science (JSPS) Orientation Meeting
+    location: Hotel Moterey Hanzomon, Tokyo, Japan
+    year: 2018
+    month: February
 
-- title: Dimensionality Reduction in Motion Planning
-  type: guest lecture
-  location: Worcester Polytechnic Institute, Worcester, MA, USA
-  year: 2016
-  month: February
+  - title: Robotics, Motion Planning and Topology
+    type: invited talk
+    venue: Networking Event Alexander von Humboldt Foundation 
+    location: Albert Ludwig University of Freiburg, Freiburg, Germany
+    year: 2016
+    month: October
 
-- title: Motion Planning and Irreducible Trajectories
-  type: conference talk
-  location: ICRA Conference, Washington State Convention Center, Seattle, WA, USA
-  year: 2015
-  month: May
+  - title: Dimensionality Reduction in Motion Planning
+    type: guest lecture
+    venue: RBE 550 - Motion Planning
+    location: Worcester Polytechnic Institute, Worcester, MA, USA
+    year: 2016
+    month: February
 
-- title: Irreducible Trajectories and Homotopy Motion Planning
-  type: invited talk
-  location: Robot Locomotion Group, Massachusetts Institute of Technology, Cambridge, MA, USA
-  year: 2015
-  month: February
-  online: true
+  - title: Motion Planning and Irreducible Trajectories
+    type: conference talk
+    venue: ICRA Conference
+    location: Washington State Convention Center, Seattle, WA, USA
+    year: 2015
+    month: May
 
-- title: Towards Reactive Whole-Body Motion Planning in Cluttered Environments
-  type: conference talk
-  location: Humanoids Conference, Historic Academy of Medicine, Atlanta, GA, USA
-  year: 2013
-  month: October
+  - title: Irreducible Trajectories and Homotopy Motion Planning
+    type: invited talk
+    venue: Robot Locomotion Group at Massachusetts Institute of Technology
+    location: Cambridge, MA, USA
+    year: 2015
+    month: February
+    online: true
+
+  - title: Towards Reactive Whole-Body Motion Planning in Cluttered Environments
+    type: conference talk
+    venue: Humanoids Conference
+    location: Historic Academy of Medicine, Atlanta, GA, USA
+    year: 2013
+    month: October

@@ -16,7 +16,7 @@ li.link-item .description {
 
 .general-link {
   display: inline-block; /* Match summary display */
-  padding-top: 3px;
+  padding-top: 3px; /* Increase padding inside the button */
   padding-right: 12px;
   padding-bottom: 3px;
   padding-left: 12px;
@@ -27,6 +27,7 @@ li.link-item .description {
   vertical-align: middle; /* Aligns with details */
   line-height: 1.5; /* Consistent line height */
   margin-left: 5px; /* Space between thumbnail and text */
+  margin-top: -15px;
   margin-bottom: 5px;
   border-radius: 15px;
   border: none;
@@ -34,7 +35,19 @@ li.link-item .description {
 
 .links-below-publication {
   position: relative;          /* for the absolute dropdown */
-  margin-top: 8px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.publication-list strong,
+.links-below-publication ~ p strong,
+li strong {
+  font-weight: 800 !important;
+}
+
+p strong,
+li strong {
+  -webkit-font-smoothing: antialiased;
 }
 
 .toggle-bibtex { 

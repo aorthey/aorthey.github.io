@@ -36,7 +36,7 @@ title and description (you have to copy them manually to spotify). Upload the
 11. Refresh the RSS feed on apple until the episode has been updated: https://podcastsconnect.apple.com/. Add the apple episode link to the `metadata.yml` file.
 12. Write a post on X using the description and outline as the post. Then post all the links as the first comment. Add the `podcast.mp4` video directly to the first post.
 13. Update the X link in `metadata.yml` file and verify that all links are correct (youtube, spotify, x, apple)
-14. Go to youtube and set the episode to public.
+14. Go to youtube and set the episode to public. Add episode to the podcast playlist.
 15. Write LinkedIn post using the description, references, and links. Use
     `scripts/make_linkedin_post.py` to generate the post (Requires links for
 youtube, spotify, x, apple AND setting youtube video to public).

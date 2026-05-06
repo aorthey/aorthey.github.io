@@ -1,7 +1,5 @@
 require 'yaml'
 
-ALLOWED_TYPES = %w[conference visit online].freeze
-
 module Jekyll
   class PresentationsGenerator < Generator
     safe true
@@ -15,10 +13,10 @@ module Jekyll
     def generate(site)
       yaml_file = File.join(site.source, 'assets', 'talks', 'talks.yml')
       if File.exist?(yaml_file)
-        presentations = YAML.load_file(yaml_file)
+        presentations = YAML.load_file(yaml_file)['talks']
         # Validate all talks
         presentations.each_with_index do |talk, index|
-          verify_talk_type(talk, index)
+          verify_talk_data(talk, index)
         end
         # Store in site.data for access in templates
         site.data['talks'] ||= {}
@@ -28,7 +26,7 @@ module Jekyll
       end
     end
 
-    def verify_talk_type(talk, index)
+    def verify_talk_data(talk, index)
       return unless talk.is_a?(Hash)
 
       ################################################################################ 
@@ -72,6 +70,15 @@ module Jekyll
       if location.nil? || location.to_s.strip.empty?
         raise ArgumentError.new(
           "Talk ##{index + 1} '#{title}' is missing or has empty 'location'"
+        )
+      end
+      ################################################################################ 
+      # Verify venue
+      ################################################################################ 
+      venue = talk['venue']
+      if venue.nil? || venue.to_s.strip.empty?
+        raise ArgumentError.new(
+          "Talk ##{index + 1} '#{title}' is missing or has empty 'venue'"
         )
       end
       ################################################################################ 

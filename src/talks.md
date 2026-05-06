@@ -18,15 +18,16 @@ nav_order: 2
 
   {% for presentation in sorted_presentations %}
     <li class="link-item">
-      <strong>[{{ counter }}] {{ presentation.title }}</strong>
+      [{{ counter }}] {{ presentation.title }}
       
       <span class="description">
-        <em class="talks-location">{{ presentation.location }}</em><br>
+        <em class="talks-location">{{ presentation.venue }} @ {{ presentation.location }}
+        {% if presentation.online %}
+          (Online)
+        {% endif %}
+        </em><br>
         
         {{ presentation.type | capitalize }}
-        {% if presentation.online %}
-          <span class="online">(Online)</span>
-        {% endif %}
         
         <span class="pipe">|</span>
         {{ presentation.month }} {{ presentation.year }}

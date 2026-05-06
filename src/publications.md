@@ -45,7 +45,6 @@ nav_order: 2
 
 {% for pub in pubs %}
 - {{ pub.authors }}, *{{ pub.title | replace: '*', '\*' | replace: '_', '\_' | replace: '[', '\[' | replace: ']', '\]' }}*, {{ pub.venue }}, {{ pub.year }}
-
   {% assign global_index = global_index | plus: 1 %}
   <div class="links-below-publication">
     <button class="general-link toggle-bibtex" data-target="bibtex-{{ global_index }}">

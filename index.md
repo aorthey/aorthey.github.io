@@ -12,7 +12,7 @@ hide_h1: true
   <p>I am a Principal Robotics Scientist at
   <a target="_blank" href="https://rtr.ai">Realtime Robotics</a> and a Guest Lecturer at <a href="https://www.tu.berlin" target="_blank">Technische Universität Berlin</a>.
 
-  If you are interested in collaborating on publications or podcasts, or would like to invite me for a talk, please feel free to reach out at <i>aorthey at rtr dot ai</i>.
+  If you are interested in collaborating on publications or podcasts, or would like to invite me for a talk, please feel free to reach out at <i>andreas at orthey dot net</i>.
 
   </p>
 </div>
