@@ -149,6 +149,7 @@ def check_for_missing_durations():
 
             # Append duration with an empty line
             lines = content.rstrip().splitlines()
+            lines.append("\n")
             lines.append(f"duration: {duration}")
             lines.append("")
             updated_content = "\n".join(lines)

@@ -135,7 +135,10 @@ def create_square_image(
 
     max_width = get_text_width(REFERENCE_TEXT, font, LETTER_SPACING)
     name1_parts = name1.strip().split()
-    name1_first = name1_parts[0] if name1_parts else ""
+
+    name1_first = get_first_names(name1_parts)
+    print("First Name: " + name1_first)
+
     name1_last = name1_parts[-1] if len(name1_parts) > 1 else ""
     name2_parts = name2.strip().split()
     name2_first = name2_parts[0] if name2_parts else ""

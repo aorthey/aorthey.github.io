@@ -17,6 +17,24 @@ y_start = 20
 text_margin = 50  # Margin between text and headshot
 headshot_to_border_padding = 30  # Padding of headshot from top and bottom borders
 
+def get_first_names(name):
+    """
+    Returns all elements except the last one, joined by a single space.
+    Useful for getting the first/middle names while excluding the last name/surname.
+    """
+    if name is None:
+        return ""
+
+    if not isinstance(name, (list, tuple)) or len(name) == 0:
+        return ""
+
+    # If there's only one element, return it
+    if len(name) == 1:
+        return str(name[0])
+
+    # Return all elements except the last one, joined by space
+    return " ".join(str(item) for item in name[:-1])
+
 def generate_thumbnail_background(
     name1: str,
     number: str,
@@ -47,7 +65,7 @@ def generate_thumbnail_background(
         words = name.strip().split()
         if not words:
             return "", ""
-        first_name = words[0]
+        first_name = get_first_names(words)
         last_name = words[-1] if len(words) > 1 else ""
         return first_name, last_name
 

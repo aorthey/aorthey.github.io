@@ -45,6 +45,11 @@ for folder_name in folder_names:
             # Extract number and name from folder name (format: 01_surname_name)
             number, full_name = folder_name.split('_', 1)
             name_parts = full_name.replace('_', ' ').title()
+
+            # print(full_name)
+            print(name_parts)
+
+            # exit(0)
             # Define input and output paths
             input_image_path = os.path.join(folder_path, "headshot.png")
             output_image_path = os.path.join(folder_path, "thumbnail.png")
