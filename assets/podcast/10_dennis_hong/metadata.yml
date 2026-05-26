@@ -15,24 +15,23 @@ description: |-
 
 episode-links:
   - Robotics and Mechanisms Laboratory (RoMeLa): https://www.romela.org/
-  - Dennis Hong on Wikipedia: https://en.wikipedia.org/wiki/Dennis_Hong
   - Dennis Hong's Website: https://samueli.ucla.edu/people/dennis-hong/
-  - Dennis Hong's TED Talk: https://www.youtube.com/watch?v=PMDtz-PD11Y
+  - Dennis Hong's TED Talks: https://www.ted.com/speakers/dennis_hong
   - Dennis Hong on Facebook: https://www.facebook.com/hong.dennis/
 
 content:
-02:23 Childhood in USA and Korea
-07:45 Academic Career
-13:06 Car For The Visual Impaired
-19:10 RoboCup World Champion
-22:58 Pioneering Breakthrough Technology
-25:22 Becoming An Artist
-29:56 Hollywood and Robotics
-31:47 Reinforcement Learning vs. MPC for Locomotion
-35:50 Cooking and MasterChef USA
-39:17 Automatic Ghost Kitchen
-43:32 Becoming a Magician
-46:35 Live Magic Trick
-48:19 On Making People Happy
+  - 02:23 Childhood in USA and Korea
+  - 07:45 Academic Career
+  - 13:06 Car For The Visual Impaired
+  - 19:10 RoboCup World Champion
+  - 22:58 Pioneering Breakthrough Technology
+  - 25:22 Becoming An Artist
+  - 29:56 Hollywood and Robotics
+  - 31:47 Reinforcement Learning vs. MPC for Locomotion
+  - 35:50 Cooking and MasterChef USA
+  - 39:17 Automatic Ghost Kitchen
+  - 43:32 Becoming a Magician
+  - 46:35 Live Magic Trick
+  - 48:19 On Making People Happy
 
 duration: 00:51:13
