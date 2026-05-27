@@ -1,3 +1,10 @@
+@inproceedings{Dross2026CASE,
+	author = {Droß, Lennart Julian and Orthey, Andreas and Toussaint, Marc},
+	title = {PhyRoGen: Synthetic Generation of Physical Robot Manipulation Puzzles Using Procedural Content Generation},
+	booktitle = {IEEE International Conference on Automation Science and Engineering},
+	year = {2026},
+}
+
 @inproceedings{Bayraktar2026WAFR,
 	author = {Bayraktar, Servet B. and Orthey, Andreas and Toussaint, Marc},
 	title = {Scale-Invariant Sampling in Multi-Arm Bandit Motion Planning for Object Extraction},
