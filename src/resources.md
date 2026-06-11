@@ -17,7 +17,7 @@ lecture slides (created jointly with <a href="https://imrclab.github.io/teaching
 
 <ul>
 
-{% assign pdfs = site.data.pdf-notes %}
+{% assign pdfs = site.data.pdf-documents %}
 
 {% for pdf in pdfs %}
 

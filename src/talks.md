@@ -12,7 +12,6 @@ nav_order: 2
 {% if site.data.talks.talks %}
   <ul class="talks-list">
   {% assign sorted_presentations = site.data.talks.talks | sort_presentations %}
-
   {% assign total = sorted_presentations | size %}
   {% assign counter = total %}
 
@@ -30,11 +29,16 @@ nav_order: 2
         {{ presentation.type | capitalize }}
         
         <span class="pipe">|</span>
-        {{ presentation.month }} {{ presentation.year }}
+        {{ presentation | format_talk_date }}
         
-        {% if presentation.youtube %}
+        {% if presentation.video %}
           <span class="pipe">|</span>
-          <a href="https://youtube.com/watch?v={{ presentation.youtube }}" target="_blank">YouTube</a>
+          <a href="{{ presentation.video }}" target="_blank">Video</a>
+        {% endif %}
+
+        {% if presentation.url %}
+          <span class="pipe">|</span>
+          <a href="{{ presentation.url }}" target="_blank">Link</a>
         {% endif %}
       </span>
     </li>

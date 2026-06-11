@@ -25,14 +25,12 @@ students:
     type: msc
     title: Multi-Robot Motion Planning for Disassembly Tasks
     institution: Technische Universität Berlin
-    expected: true
 
   - name: Servet Bora Bayraktar
     year: 2025
     type: msc
     title: Large-Scale Disassembly Efficient Planning for Recycling using Path Defragmentation
     institution: Technische Universität Berlin
-    expected: true
 
   - name: Lennart Julian Droß
     year: 2025

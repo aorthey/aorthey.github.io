@@ -7,10 +7,10 @@ module Jekyll
     priority :high
 
     def generate(site)
-      pdf_notes = []
+      pdf_documents = []
 
-      # Iterate over all PDF files in /assets/notes/
-      Dir.glob(File.join(site.source, 'assets/notes', '*.pdf')).each do |file|
+      # Iterate over all PDF files in /assets/documents/
+      Dir.glob(File.join(site.source, 'assets/documents', '*.pdf')).each do |file|
         begin
           filename = File.basename(file, '.pdf')
           reader = PDF::Reader.new(file)
@@ -28,7 +28,7 @@ module Jekyll
 
           # Extract metadata, providing defaults if not present
           metadata = {
-            'filename' => "/assets/notes/#{filename}.pdf",
+            'filename' => "/assets/documents/#{filename}.pdf",
             'author' => info[:Author] || 'Unknown',
             'title' => info[:Title] || File.basename(file, '.pdf'),
             'description' => info[:Subject] || '',
@@ -36,17 +36,17 @@ module Jekyll
             'sorting_date' => sorting_date.strftime('%Y-%m-%d %H:%M:%S UTC')
           }
 
-          pdf_notes << metadata
+          pdf_documents << metadata
         rescue => e
           Jekyll.logger.warn "PDF Metadata: Error processing #{file}: #{e.message}"
         end
       end
 
       # Sort entries by sorting_date in reverse order (latest first)
-      pdf_notes.sort_by! { |note| DateTime.parse(note['sorting_date']) }.reverse!
+      pdf_documents.sort_by! { |note| DateTime.parse(note['sorting_date']) }.reverse!
 
-      # Store the metadata in site.data['pdf-notes']
-      site.data['pdf-notes'] = pdf_notes
+      # Store the metadata in site.data['pdf-documents']
+      site.data['pdf-documents'] = pdf_documents
     end
   end
 end

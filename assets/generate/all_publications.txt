@@ -3,6 +3,8 @@
 	title = {PhyRoGen: Synthetic Generation of Physical Robot Manipulation Puzzles Using Procedural Content Generation},
 	booktitle = {IEEE International Conference on Automation Science and Engineering},
 	year = {2026},
+	arxiv = {https://arxiv.org/abs/2606.06569},
+	web = {https://sites.google.com/view/robot-manipulation-puzzles},
 }
 
 @inproceedings{Bayraktar2026WAFR,
@@ -10,7 +12,7 @@
 	title = {Scale-Invariant Sampling in Multi-Arm Bandit Motion Planning for Object Extraction},
 	booktitle = {World Symposium on the Algorithmic Foundations of Robotics},
 	year = {2026},
-	pdf = {http://arxiv.org/abs/2604.14026},
+	arxiv = {http://arxiv.org/abs/2604.14026},
 }
 
 @article{Orthey2024IJRR,
@@ -23,6 +25,7 @@
 	pages = {3--33},
 	doi = {10.1177/02783649231209337},
 	url = {https://doi.org/10.1177/02783649231209337},
+	arxiv = {https://arxiv.org/abs/2007.09435},
 }
 
 @article{Orthey2023AnnualReview,
@@ -35,6 +38,7 @@
 	pages = {285--310},
 	doi = {10.1146/annurev-control-061623-094742},
 	url = {https://doi.org/10.1146/annurev-control-061623-094742},
+	arxiv = {https://arxiv.org/abs/2309.13119},
 }
 
 @inproceedings{Freund2024IROS,
@@ -56,7 +60,7 @@
 	number = {8},
 	pages = {4529--4536},
 	youtube = {Q-meni-gESI},
-	pdf = {https://arxiv.org/pdf/2212.02955.pdf},
+	arxiv = {https://arxiv.org/abs/2212.02955},
 }
 
 @article{Phiquepal2022RAL,
@@ -66,7 +70,7 @@
 	year = {2022},
 	volume = {7},
 	pages = {10160--10167},
-	pdf = {https://arxiv.org/pdf/2204.04444.pdf},
+	arxiv = {https://arxiv.org/abs/2204.04444},
 }
 
 @inproceedings{Kamat2022IROS,
@@ -75,7 +79,7 @@
 	booktitle = {IEEE International Conference on Intelligent Robots and Systems},
 	year = {2022},
 	pages = {4492--4497},
-	pdf = {https://arxiv.org/pdf/2203.01751.pdf},
+	arxiv = {https://arxiv.org/abs/2203.01751},
 	youtube = {RKpnYF5zBOQ},
 }
 
@@ -85,7 +89,7 @@
 	booktitle = {IEEE International Conference on Robotics and Automation},
 	year = {2022},
 	pages = {3314--3320},
-	pdf = {https://arxiv.org/pdf/2203.02176.pdf},
+	arxiv = {https://arxiv.org/abs/2203.02176},
 	web = {https://vhartmann.com/strrt/},
 }
 
@@ -96,7 +100,7 @@
 	year = {2021},
 	volume = {37},
 	pages = {1891--1905},
-	pdf = {https://arxiv.org/pdf/2010.14524.pdf},
+	arxiv = {https://arxiv.org/abs/2010.14524},
 	youtube = {xKGkJc-m2FM},
 }
 
@@ -106,6 +110,7 @@
 	year = {2021},
 	howpublished = {RSS Workshop on Geometry and Topology in Robotics},
 	youtube = {xsXysnNwn9k},
+	arxiv = {https://arxiv.org/abs/2107.02498},
 }
 
 @inproceedings{Orthey2021ICRA,
@@ -114,7 +119,7 @@
 	booktitle = {IEEE International Conference on Robotics and Automation},
 	year = {2021},
 	pages = {7851--7857},
-	pdf = {https://arxiv.org/pdf/2011.00832.pdf},
+	arxiv = {https://arxiv.org/abs/2011.00832},
 	youtube = {ojJ7RjZMexc},
 }
 
@@ -125,6 +130,7 @@
 	pages = {1547--1553},
 	booktitle = {IEEE International Conference on Automation Science and Engineering},
 	organization = {IEEE},
+	arxiv = {https://arxiv.org/abs/2011.01552},
 }
 
 @article{Hartmann2021TRO,
@@ -137,6 +143,7 @@
 	volume = {39},
 	number = {1},
 	pages = {239--252},
+	arxiv = {https://arxiv.org/abs/2106.02489},
 }
 
 @article{Chamzas2022RAL,
@@ -167,6 +174,7 @@
 	address = {Cham},
 	pages = {502--517},
 	isbn = {978-3-030-66723-},
+	arxiv = {https://arxiv.org/abs/2002.04385},
 }
 
 @article{Orthey2020RAL,
@@ -180,6 +188,7 @@
 	pages = {346--353},
 	youtube = {1fyiB8pszVo},
 	code = {https://github.com/aorthey/MotionExplorer},
+	arxiv = {https://arxiv.org/abs/1909.05035},
 	month_numeric = {4},
 }
 
@@ -192,15 +201,17 @@
 	publisher = {Springer International Publishing},
 	address = {Cham},
 	pages = {52--68},
+	arxiv = {https://arxiv.org/abs/1906.01350},
 }
 
 @article{Orthey2018RAS,
+	author = {Orthey, Andreas and Roussel, Olivier and Stasse, Olivier and Ta{\"i}x, Michel},
 	title = {Motion Planning in Irreducible Path Spaces},
 	journal = {IEEE Robotics and Autonomous Systems},
 	volume = {109},
 	pages = {97--108},
 	year = {2018},
-	author = {Orthey, Andreas and Roussel, Olivier and Stasse, Olivier and Ta{\"i}x, Michel},
+	arxiv = {https://arxiv.org/abs/1809.05322},
 }
 
 @inproceedings{Orthey2018IROS,
@@ -209,6 +220,7 @@
 	pages = {8089--8096},
 	booktitle = {IEEE International Conference on Intelligent Robots and Systems},
 	year = {2018},
+	arxiv = {https://arxiv.org/abs/1807.09468},
 }
 
 @phdthesis{Orthey2015Thesis,

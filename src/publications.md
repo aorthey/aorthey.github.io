@@ -42,9 +42,11 @@ nav_order: 2
 <h2>{{ site.data.pub_titles[type] | default: type }}</h2>
 
 {% assign pubs = site.data.publications | where: "type", type %}
+{% assign total = pubs | size %}
+{% assign counter = total %}
 
 {% for pub in pubs %}
-- {{ pub.authors }}, *{{ pub.title | replace: '*', '\*' | replace: '_', '\_' | replace: '[', '\[' | replace: ']', '\]' }}*, {{ pub.venue }}, {{ pub.year }}
+- [{{counter}}] {{ pub.authors }}, *{{ pub.title | replace: '*', '\*' | replace: '_', '\_' | replace: '[', '\[' | replace: ']', '\]' }}*, {{ pub.venue }}, {{ pub.year }}
   {% assign global_index = global_index | plus: 1 %}
   <div class="links-below-publication">
     <button class="general-link toggle-bibtex" data-target="bibtex-{{ global_index }}">
@@ -54,6 +56,7 @@ nav_order: 2
     {% if pub.youtube %}<a href="https://youtube.com/watch?v={{ pub.youtube }}" class="general-link" target="_blank">YouTube</a>{% endif %} 
     {% if pub.website %}<a href="{{ pub.website }}" class="general-link" target="_blank">Website</a>{% endif %}
     {% if pub.code %}<a href="{{ pub.code }}" class="general-link" target="_blank">Code</a>{% endif %}
+    {% if pub.arxiv %}<a href="{{ pub.arxiv }}" class="general-link" target="_blank">arXiv</a>{% endif %}
   </div>
   <div id="bibtex-{{ global_index }}" class="bibtex-textfield hidden">
     <button class="general-link copy-bibtex-button" title="Copy BibTeX to clipboard">
@@ -62,6 +65,7 @@ nav_order: 2
     </button>
     <pre><code>{{ pub.bibtex }}</code></pre>
   </div>
+  {% assign counter = counter | minus: 1 %}
 
 {% endfor %}
 
