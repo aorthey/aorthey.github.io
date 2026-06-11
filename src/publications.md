@@ -35,7 +35,7 @@ nav_order: 2
 
 </ul>
 
-{% assign pub_types = "Journal,Conference,Workshop,These" | split: "," %}
+{% assign pub_types = "Journal,Conference,Workshop,Thesis" | split: "," %}
 {% assign global_index = 0 %}
 
 {% for type in pub_types %}
@@ -74,6 +74,8 @@ nav_order: 2
 <h2>Supervised Student Theses</h2>
 
 {% assign sorted_students = site.data.students.students | sort_students %} 
+{% assign total = sorted_students | size %}
+{% assign student_counter = total %}
 
 {% for student in sorted_students %}
 
@@ -86,10 +88,11 @@ nav_order: 2
 {% else %}
   {% assign display_type = student.type %}
 {% endif %}
-- {{ student.name }}, *{{ student.title }}*, 
+- [{{student_counter}}] {{ student.name }}, *{{ student.title }}*, 
   {{ display_type }} Thesis,
   {{ student.institution }},
   {{ student.year }}
   {% if student.expected %} (Expected){% endif %}
 
+{% assign student_counter = student_counter | minus: 1 %}
 {% endfor %}

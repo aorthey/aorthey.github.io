@@ -20,16 +20,16 @@ students:
     institution: Technische Universität Berlin
     expected: true
 
-  - name: Nicolas Hargus
-    year: 2025
+  - name: Niklas Hargus
+    year: 2026
     type: msc
-    title: Multi-Robot Motion Planning for Disassembly Tasks
+    title: Temporal Multi-Robot Task and Motion Planning for Mechanical Disassembly Tasks
     institution: Technische Universität Berlin
 
   - name: Servet Bora Bayraktar
-    year: 2025
+    year: 2026
     type: msc
-    title: Large-Scale Disassembly Efficient Planning for Recycling using Path Defragmentation
+    title: Geometric Multi-Part Disassembly using Bandit-Driven Efficient Sphere Sampling
     institution: Technische Universität Berlin
 
   - name: Lennart Julian Droß

@@ -148,7 +148,7 @@ module Jekyll
              when :misc
                'Workshop'
              when :masterthesis, :phdthesis
-               'These'
+               'Thesis'
              else
                'Other'
              end
