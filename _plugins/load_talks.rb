@@ -15,7 +15,11 @@ module Jekyll
       yaml_file = File.join(site.source, 'assets', 'talks', 'talks.yml')
 
       if File.exist?(yaml_file)
-        data = YAML.load_file(yaml_file)
+        data = YAML.safe_load_file(
+          yaml_file,
+          permitted_classes: [Date, Time],
+          aliases: true
+        )
 
         # Support both wrapped structure and direct array
         presentations = data.is_a?(Hash) && data['talks'] ? data['talks'] : data
