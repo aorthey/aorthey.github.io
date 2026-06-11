@@ -8,7 +8,8 @@ module Jekyll
     ALLOWED_TYPES = [
       "invited talk",
       "conference talk",
-      "guest lecture"
+      "guest lecture",
+      "thesis defense"
     ].freeze
 
     def generate(site)
