@@ -52,7 +52,7 @@ module Jekyll
       return cleaned
     end
 
-    def check_bibtex_for_overleaf(bib)
+    def check_bibtex_structure(bib)
       return false unless bib.is_a?(BibTeX::Bibliography)
 
       valid = true
@@ -64,7 +64,8 @@ module Jekyll
         'conference' => %w[author title booktitle year],
         'techreport' => %w[author title institution year],
         'unpublished' => %w[author title note],
-        'misc' => %w[author title]
+        'misc' => %w[author title],
+        'online' => %w[author title year url]
       }
 
       bib.entries.each do |key, entry|
@@ -139,6 +140,41 @@ module Jekyll
       end
     end
 
+    def format_venue(entry)
+      entry_type = entry.type.to_s.downcase.to_sym
+
+      case entry_type
+      when :article, :incollection
+        entry[:journal]&.to_s || 'Journal'
+
+      when :inproceedings, :conference
+        if entry[:series] && !entry[:series].to_s.strip.empty?
+          entry[:booktitle]&.to_s || 'Workshop'
+        else
+          entry[:booktitle]&.to_s || 'Conference'
+        end
+
+      when :misc
+        # Workshops using @misc
+        entry[:howpublished]&.to_s || entry[:booktitle]&.to_s || 'Workshop'
+
+      when :online
+        # arXiv and other online-first / preprint entries
+        if entry[:eprint] || entry[:archiveprefix]&.to_s.downcase.include?('arxiv')
+          eprint = entry[:eprint]&.to_s
+          "arXiv preprint#{eprint ? " #{eprint}" : ''}"
+        else
+          entry[:url]&.to_s || entry[:howpublished]&.to_s || 'Online'
+        end
+
+      when :masterthesis, :phdthesis
+        entry[:school]&.to_s || 'Thesis'
+
+      else
+        entry[:booktitle]&.to_s || entry[:journal]&.to_s || entry[:howpublished]&.to_s || 'Other'
+      end
+    end
+
     def get_venue_type(entry)
       return case entry.type
              when :article, :incollection
@@ -149,6 +185,8 @@ module Jekyll
                'Workshop'
              when :masterthesis, :phdthesis
                'Thesis'
+             when :online
+               'Preprint'
              else
                'Other'
              end
@@ -180,14 +218,15 @@ module Jekyll
 
         begin
           bib = BibTeX.open(bib_file)
-          if not check_bibtex_for_overleaf(bib)
+          if not check_bibtex_structure(bib)
             raise ArgumentError, "Found an error or warning in bibtex file #{bib_file}. Please see messages above."
           end
           entry = bib.entries.first[1]
 
           authors = format_authors(entry.author)
           title = entry.title&.to_s || 'Untitled'
-          venue = entry.journal&.to_s || entry.booktitle&.to_s || entry.publisher&.to_s || entry.school&.to_s || entry.howpublished&.to_s || 'Unknown Venue'
+          venue = format_venue(entry)
+          #venue = entry.journal&.to_s || entry.booktitle&.to_s || entry.publisher&.to_s || entry.school&.to_s || entry.howpublished&.to_s || entry.archivePrefix&.to_s || 'Unknown Venue'
           year = entry.year&.to_s || 'Unknown Year'
 
           bibtex_formatted = format_bibtex(entry)

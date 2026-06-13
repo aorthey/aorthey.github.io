@@ -35,7 +35,7 @@ nav_order: 2
 
 </ul>
 
-{% assign pub_types = "Journal,Conference,Workshop,Thesis" | split: "," %}
+{% assign pub_types = "Preprint,Journal,Conference,Workshop,Thesis" | split: "," %}
 {% assign global_index = 0 %}
 
 {% for type in pub_types %}
