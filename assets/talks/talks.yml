@@ -216,7 +216,7 @@ talks:
     location: "Worcester Polytechnic Institute, Worcester, MA, USA"
     date: 2016-02
 
-  - title: "Motion Planning and Irreducible Trajectories"
+  - title: "Exploiting Structure in Humanoid Motion Planning"
     type: thesis defense
     venue: "LAAS-CNRS"
     location: "Toulouse, France"
