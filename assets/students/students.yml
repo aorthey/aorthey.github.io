@@ -1,24 +1,22 @@
 students:
-  - name: Franz Queißner
-    year: 2026
-    type: msc
-    title: Kinodynamic Planning in Space-Time for Dynamic Environments
-    institution: Technische Universität Berlin
-    expected: true
-
-  - name: Ladislaus Finger
-    year: 2026
-    type: msc
-    title: Grasping and Motion Planning for Disassembly with Parallel Grippers
-    institution: Technische Universität Berlin
-    expected: true
-
   - name: Jakob Schlanstedt
     year: 2026
     type: bsc
     title: Active Interconnection for Disassembly Tasks
     institution: Technische Universität Berlin
     expected: true
+
+  - name: Franz Queißner
+    year: 2026
+    type: msc
+    title: Kinodynamic Planning in Space-Time for Dynamic Environments
+    institution: Technische Universität Berlin
+
+  - name: Ladislaus Finger
+    year: 2026
+    type: msc
+    title: Grasping and Motion Planning for Disassembly with Parallel Grippers
+    institution: Technische Universität Berlin
 
   - name: Niklas Hargus
     year: 2026
@@ -115,3 +113,4 @@ students:
     type: bsc
     title: Visualization of Holonomic and Non-Holonomic Planning Problems
     institution: Universität Stuttgart
+    paper: Orthey2020RAL

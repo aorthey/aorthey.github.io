@@ -9,6 +9,17 @@
 	arxiv = {https://arxiv.org/abs/2606.12070},
 }
 
+@online{Hargus2026CoordinatedMultiRobotDisassembly,
+	title = {Coordinated Multi-Robot Disassembly for Makespan Optimization of Large-Scale Assemblies},
+	author = {Hargus, Niklas and Orthey, Andreas and Toussaint, Marc},
+	year = {2026},
+	eprint = {2608.05830},
+	archiveprefix = {arXiv},
+	primaryclass = {cs.RO},
+	url = {https://arxiv.org/abs/2608.05830},
+	arxiv = {https://arxiv.org/abs/2608.05830},
+}
+
 @inproceedings{Dross2026CASE,
 	author = {Droß, Lennart Julian and Orthey, Andreas and Toussaint, Marc},
 	title = {PhyRoGen: Synthetic Generation of Physical Robot Manipulation Puzzles Using Procedural Content Generation},
@@ -24,6 +35,17 @@
 	booktitle = {World Symposium on the Algorithmic Foundations of Robotics},
 	year = {2026},
 	arxiv = {http://arxiv.org/abs/2604.14026},
+}
+
+@online{Bayraktar2026PEEL,
+	title = {PEEL: Parallel Extraction for Long-Horizon Disassembly Planning via Scale-Invariant Sampling},
+	author = {Bayraktar, Servet B. and Orthey, Andreas and Kingston, Zachary and Toussaint, Marc},
+	year = {2026},
+	eprint = {2608.08773},
+	archiveprefix = {arXiv},
+	primaryclass = {cs.RO},
+	url = {https://arxiv.org/abs/2608.08773},
+	arxiv = {https://arxiv.org/abs/2608.08773},
 }
 
 @article{Orthey2024IJRR,
@@ -249,7 +271,7 @@
 	pages = {3576--3581},
 	year = {2015},
 	code = {https://github.com/aorthey/irreducible-curvature-projection},
-	youtube = {YXXN3TsvcHE},
+	youtube = {Y2qfwMXeR6s},
 }
 
 @inproceedings{Stasse2014,
